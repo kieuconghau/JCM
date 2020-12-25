@@ -39,6 +39,9 @@ public class SignUp extends javax.swing.JFrame {
         password = new javax.swing.JPasswordField();
         confirmPassword = new javax.swing.JPasswordField();
         btnSignUp = new javax.swing.JButton();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        requestSignIn = new javax.swing.JLabel();
+        signIn = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("JCM Sign Up");
@@ -90,8 +93,7 @@ public class SignUp extends javax.swing.JFrame {
         username.setFont(username.getFont().deriveFont((float)18));
         username.setText("username");
         username.setName("username"); // NOI18N
-        username.setSelectedTextColor(java.awt.Color.darkGray);
-        username.setSelectionColor(new java.awt.Color(153, 153, 255));
+        username.setSelectionColor(new java.awt.Color(46, 81, 133));
         username.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 usernameActionPerformed(evt);
@@ -102,27 +104,44 @@ public class SignUp extends javax.swing.JFrame {
         password.setFont(password.getFont().deriveFont((float)18));
         password.setText("password");
         password.setName("password"); // NOI18N
-        password.setSelectedTextColor(java.awt.Color.darkGray);
-        password.setSelectionColor(new java.awt.Color(153, 153, 255));
+        password.setSelectionColor(new java.awt.Color(46, 81, 133));
         SignUpForm.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 340, 50));
 
         confirmPassword.setFont(confirmPassword.getFont().deriveFont((float)18));
-        confirmPassword.setText("confirmPassword");
+        confirmPassword.setText("password");
         confirmPassword.setName("confirmPassword"); // NOI18N
-        confirmPassword.setSelectedTextColor(java.awt.Color.darkGray);
-        confirmPassword.setSelectionColor(new java.awt.Color(153, 153, 255));
+        confirmPassword.setSelectionColor(new java.awt.Color(46, 81, 133));
         SignUpForm.add(confirmPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, 340, 50));
 
         btnSignUp.setBackground(new java.awt.Color(46, 81, 133));
         btnSignUp.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
-        btnSignUp.setForeground(new java.awt.Color(255, 255, 255));
+        btnSignUp.setForeground(java.awt.Color.white);
         btnSignUp.setText("Sign up");
         btnSignUp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSignUpActionPerformed(evt);
             }
         });
-        SignUpForm.add(btnSignUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 480, 140, 40));
+        SignUpForm.add(btnSignUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 490, 140, 40));
+
+        jRadioButton1.setBackground(new java.awt.Color(191, 220, 255));
+        jRadioButton1.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+        jRadioButton1.setText("Teacher");
+        SignUpForm.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 440, -1, -1));
+
+        requestSignIn.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+        requestSignIn.setText("Already have a JCM account?");
+        SignUpForm.add(requestSignIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 550, -1, -1));
+
+        signIn.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+        signIn.setForeground(java.awt.Color.blue);
+        signIn.setText("Sign in");
+        signIn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                signInMouseClicked(evt);
+            }
+        });
+        SignUpForm.add(signIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 550, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -150,6 +169,12 @@ public class SignUp extends javax.swing.JFrame {
     private void btnSignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignUpActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSignUpActionPerformed
+
+    private void signInMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signInMouseClicked
+        // TODO add your handling code here:
+        this.setVisible(false);
+        new SignIn().setVisible(true);
+    }//GEN-LAST:event_signInMouseClicked
 
     public void run() {
         this.setVisible(true);
@@ -197,11 +222,14 @@ public class SignUp extends javax.swing.JFrame {
     private javax.swing.JPanel SignUpForm;
     private javax.swing.JButton btnSignUp;
     private javax.swing.JPasswordField confirmPassword;
+    private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JLabel labelConfirmPassword;
     private javax.swing.JLabel labelPassword;
     private javax.swing.JLabel labelSignUp;
     private javax.swing.JLabel labelUsername;
     private javax.swing.JPasswordField password;
+    private javax.swing.JLabel requestSignIn;
+    private javax.swing.JLabel signIn;
     private javax.swing.JTextField username;
     // End of variables declaration//GEN-END:variables
 }

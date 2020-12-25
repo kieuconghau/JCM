@@ -6,6 +6,7 @@ package jcm;
  */
 public class JCM {
     public static void main(String[] args) {
-        auth.SignIn.run();
+        auth.SignIn signIn = new auth.SignIn();
+        signIn.run();
     }
 }

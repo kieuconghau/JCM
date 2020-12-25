@@ -129,12 +129,8 @@ public class SignIn extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_usernameActionPerformed
 
-    public static void run() {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new SignIn().setVisible(true);
-            }
-        });
+    public void run() {
+        this.setVisible(true);
     }
     
     /**

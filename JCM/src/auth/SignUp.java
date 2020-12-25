@@ -149,12 +149,8 @@ public class SignUp extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSignUpActionPerformed
 
-    public static void run() {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new SignUp().setVisible(true);
-            }
-        });
+    public void run() {
+        this.setVisible(true);
     }
     
     /**

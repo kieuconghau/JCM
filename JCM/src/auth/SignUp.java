@@ -7,7 +7,7 @@ package auth;
 
 /**
  *
- * @author brian
+ * @author JByNine
  */
 public class SignUp extends javax.swing.JFrame {
 
@@ -45,7 +45,6 @@ public class SignUp extends javax.swing.JFrame {
         setMaximumSize(new java.awt.Dimension(1000, 600));
         setMinimumSize(new java.awt.Dimension(1000, 600));
         setName("signUpFrame"); // NOI18N
-        setPreferredSize(new java.awt.Dimension(1000, 600));
         setResizable(false);
         setSize(new java.awt.Dimension(1000, 600));
 
@@ -150,6 +149,14 @@ public class SignUp extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSignUpActionPerformed
 
+    public static void run() {
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new SignUp().setVisible(true);
+            }
+        });
+    }
+    
     /**
      * @param args the command line arguments
      */

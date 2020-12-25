@@ -7,7 +7,7 @@ package auth;
 
 /**
  *
- * @author brian
+ * @author JByNine
  */
 public class SignIn extends javax.swing.JFrame {
 
@@ -44,11 +44,9 @@ public class SignIn extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(1000, 600));
         setName("signInFrame"); // NOI18N
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(1000, 600));
         setResizable(false);
 
         Logo.setBackground(new java.awt.Color(153, 153, 255));
-        Logo.setBorder(null);
         Logo.setMaximumSize(new java.awt.Dimension(600, 600));
         Logo.setMinimumSize(new java.awt.Dimension(600, 600));
         Logo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -62,7 +60,6 @@ public class SignIn extends javax.swing.JFrame {
         Logo.add(LogoName, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 510, -1, -1));
 
         SignInForm.setBackground(new java.awt.Color(204, 204, 255));
-        SignInForm.setBorder(null);
         SignInForm.setMaximumSize(new java.awt.Dimension(400, 600));
         SignInForm.setMinimumSize(new java.awt.Dimension(400, 600));
         SignInForm.setPreferredSize(new java.awt.Dimension(400, 600));
@@ -125,12 +122,21 @@ public class SignIn extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void usernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_usernameActionPerformed
 
+    public static void run() {
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new SignIn().setVisible(true);
+            }
+        });
+    }
+    
     /**
      * @param args the command line arguments
      */

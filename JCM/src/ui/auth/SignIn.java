@@ -37,6 +37,8 @@ public class SignIn extends javax.swing.JFrame {
         username = new javax.swing.JTextField();
         password = new javax.swing.JPasswordField();
         btnSignIn = new javax.swing.JButton();
+        requestSignUp = new javax.swing.JLabel();
+        signUp = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("JCM Sign In");
@@ -72,41 +74,56 @@ public class SignIn extends javax.swing.JFrame {
         labelUsername.setFont(labelUsername.getFont().deriveFont((float)18));
         labelUsername.setLabelFor(username);
         labelUsername.setText("Username");
-        SignInForm.add(labelUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, -1));
+        SignInForm.add(labelUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
 
         labelPassword.setFont(labelPassword.getFont().deriveFont((float)18));
         labelPassword.setLabelFor(password);
         labelPassword.setText("Password");
-        SignInForm.add(labelPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, -1, -1));
+        SignInForm.add(labelPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, -1, -1));
 
         username.setFont(username.getFont().deriveFont((float)18));
         username.setText("username");
         username.setToolTipText("");
         username.setName("username"); // NOI18N
-        username.setNextFocusableComponent(password);
-        username.setSelectedTextColor(java.awt.Color.darkGray);
-        username.setSelectionColor(new java.awt.Color(153, 153, 255));
+        username.setSelectionColor(new java.awt.Color(46, 81, 133));
         username.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 usernameActionPerformed(evt);
             }
         });
-        SignInForm.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 340, 50));
+        SignInForm.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 340, 50));
 
         password.setFont(password.getFont().deriveFont((float)18));
         password.setText("password");
         password.setName("password"); // NOI18N
-        password.setNextFocusableComponent(btnSignIn);
-        password.setSelectedTextColor(java.awt.Color.darkGray);
-        password.setSelectionColor(new java.awt.Color(153, 153, 255));
-        SignInForm.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 340, 50));
+        password.setSelectionColor(new java.awt.Color(46, 81, 133));
+        SignInForm.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 340, 50));
 
         btnSignIn.setBackground(new java.awt.Color(46, 81, 133));
         btnSignIn.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
-        btnSignIn.setForeground(new java.awt.Color(255, 255, 255));
+        btnSignIn.setForeground(java.awt.Color.white);
         btnSignIn.setText("Sign in");
         btnSignIn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        SignInForm.add(btnSignIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 390, 150, 40));
+        btnSignIn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSignInActionPerformed(evt);
+            }
+        });
+        SignInForm.add(btnSignIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 350, 150, 40));
+
+        requestSignUp.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+        requestSignUp.setText("Don't have a JCM account?");
+        SignInForm.add(requestSignUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 420, -1, -1));
+
+        signUp.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+        signUp.setForeground(java.awt.Color.blue);
+        signUp.setText("Sign up");
+        signUp.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                signUpMouseClicked(evt);
+            }
+        });
+        SignInForm.add(signUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 420, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -130,6 +147,16 @@ public class SignIn extends javax.swing.JFrame {
     private void usernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_usernameActionPerformed
+
+    private void btnSignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignInActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSignInActionPerformed
+
+    private void signUpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signUpMouseClicked
+        // TODO add your handling code here:
+        this.setVisible(false);
+        new SignUp().setVisible(true);
+    }//GEN-LAST:event_signUpMouseClicked
 
     public void run() {
         this.setVisible(true);
@@ -183,6 +210,8 @@ public class SignIn extends javax.swing.JFrame {
     private javax.swing.JLabel labelSignIn;
     private javax.swing.JLabel labelUsername;
     private javax.swing.JPasswordField password;
+    private javax.swing.JLabel requestSignUp;
+    private javax.swing.JLabel signUp;
     private javax.swing.JTextField username;
     // End of variables declaration//GEN-END:variables
 }

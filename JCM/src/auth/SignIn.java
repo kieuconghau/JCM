@@ -43,10 +43,9 @@ public class SignIn extends javax.swing.JFrame {
         setMaximumSize(new java.awt.Dimension(1000, 600));
         setMinimumSize(new java.awt.Dimension(1000, 600));
         setName("signInFrame"); // NOI18N
-        setUndecorated(true);
         setResizable(false);
 
-        Logo.setBackground(new java.awt.Color(153, 153, 255));
+        Logo.setBackground(new java.awt.Color(46, 81, 133));
         Logo.setMaximumSize(new java.awt.Dimension(600, 600));
         Logo.setMinimumSize(new java.awt.Dimension(600, 600));
         Logo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -55,11 +54,12 @@ public class SignIn extends javax.swing.JFrame {
         Logo.add(LogoImg, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, -1, -1));
 
         LogoName.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
-        LogoName.setForeground(java.awt.Color.darkGray);
-        LogoName.setText("JCM - Java Courses Management");
-        Logo.add(LogoName, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 510, -1, -1));
+        LogoName.setForeground(new java.awt.Color(255, 255, 255));
+        LogoName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        LogoName.setText("JCM - Courses Management System");
+        Logo.add(LogoName, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 510, 600, -1));
 
-        SignInForm.setBackground(new java.awt.Color(204, 204, 255));
+        SignInForm.setBackground(new java.awt.Color(191, 217, 255));
         SignInForm.setMaximumSize(new java.awt.Dimension(400, 600));
         SignInForm.setMinimumSize(new java.awt.Dimension(400, 600));
         SignInForm.setPreferredSize(new java.awt.Dimension(400, 600));
@@ -91,7 +91,7 @@ public class SignIn extends javax.swing.JFrame {
                 usernameActionPerformed(evt);
             }
         });
-        SignInForm.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 340, 50));
+        SignInForm.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 340, 50));
 
         password.setFont(password.getFont().deriveFont((float)18));
         password.setText("password");
@@ -99,12 +99,14 @@ public class SignIn extends javax.swing.JFrame {
         password.setNextFocusableComponent(btnSignIn);
         password.setSelectedTextColor(java.awt.Color.darkGray);
         password.setSelectionColor(new java.awt.Color(153, 153, 255));
-        SignInForm.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 340, 50));
+        SignInForm.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 340, 50));
 
-        btnSignIn.setBackground(new java.awt.Color(153, 153, 255));
+        btnSignIn.setBackground(new java.awt.Color(46, 81, 133));
         btnSignIn.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+        btnSignIn.setForeground(new java.awt.Color(255, 255, 255));
         btnSignIn.setText("Sign in");
-        SignInForm.add(btnSignIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 370, 210, 40));
+        btnSignIn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        SignInForm.add(btnSignIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 390, 150, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -144,7 +146,7 @@ public class SignIn extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windowns".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }

@@ -11,12 +11,12 @@ import java.util.Calendar;
  *
  * @author PC
  */
-public class App extends javax.swing.JFrame {
+public class Teacher extends javax.swing.JFrame {
 
     /**
      * Creates new form App
      */
-    public App() {
+    public Teacher() {
         initComponents();
         initDisplay();
     }
@@ -53,10 +53,10 @@ public class App extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("JCM - Online Course Management System");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setPreferredSize(new java.awt.Dimension(1000, 650));
+        setName("frameTeacher"); // NOI18N
         setResizable(false);
 
-        panelHeader.setBackground(new java.awt.Color(45, 97, 135));
+        panelHeader.setBackground(new java.awt.Color(46, 81, 133));
         panelHeader.setPreferredSize(new java.awt.Dimension(1000, 50));
 
         labelMenu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -111,10 +111,10 @@ public class App extends javax.swing.JFrame {
             .addComponent(labelAddCourse, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        panelSidebar.setBackground(new java.awt.Color(45, 97, 135));
+        panelSidebar.setBackground(new java.awt.Color(46, 81, 133));
         panelSidebar.setPreferredSize(new java.awt.Dimension(100, 600));
 
-        panelTabHome.setBackground(new java.awt.Color(45, 117, 160));
+        panelTabHome.setBackground(new java.awt.Color(16, 60, 110));
         panelTabHome.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelTabHome.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -139,10 +139,10 @@ public class App extends javax.swing.JFrame {
         );
         panelTabHomeLayout.setVerticalGroup(
             panelTabHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
         );
 
-        panelTabCourses.setBackground(new java.awt.Color(45, 97, 135));
+        panelTabCourses.setBackground(new java.awt.Color(46, 81, 133));
         panelTabCourses.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelTabCourses.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -166,7 +166,7 @@ public class App extends javax.swing.JFrame {
         );
         panelTabCoursesLayout.setVerticalGroup(
             panelTabCoursesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
         );
 
         labelCopyright.setForeground(new java.awt.Color(255, 255, 255));
@@ -187,7 +187,7 @@ public class App extends javax.swing.JFrame {
                 .addComponent(panelTabHome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(panelTabCourses, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 466, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 446, Short.MAX_VALUE)
                 .addComponent(labelCopyright)
                 .addGap(10, 10, 10))
         );
@@ -377,20 +377,21 @@ public class App extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(App.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Teacher.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(App.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Teacher.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(App.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Teacher.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(App.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Teacher.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new App().setVisible(true);
+                new Teacher().setVisible(true);
             }
         });
     }
@@ -400,8 +401,6 @@ public class App extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
     private javax.swing.JLabel labelAddCourse;
     private javax.swing.JLabel labelAvatar;
     private javax.swing.JLabel labelCopyright;

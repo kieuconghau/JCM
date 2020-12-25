@@ -11,12 +11,12 @@ import java.util.Calendar;
  *
  * @author JByNine
  */
-public class App extends javax.swing.JFrame {
+public class Student extends javax.swing.JFrame {
 
     /**
      * Creates new form App
      */
-    public App() {
+    public Student() {
         initComponents();
         initDisplay();
     }
@@ -55,7 +55,7 @@ public class App extends javax.swing.JFrame {
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setResizable(false);
 
-        panelHeader.setBackground(new java.awt.Color(45, 97, 135));
+        panelHeader.setBackground(new java.awt.Color(46, 81, 133));
         panelHeader.setPreferredSize(new java.awt.Dimension(1000, 50));
 
         labelMenu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -110,10 +110,10 @@ public class App extends javax.swing.JFrame {
             .addComponent(labelAddCourse, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        panelSidebar.setBackground(new java.awt.Color(45, 97, 135));
+        panelSidebar.setBackground(new java.awt.Color(46, 81, 133));
         panelSidebar.setPreferredSize(new java.awt.Dimension(100, 600));
 
-        panelTabHome.setBackground(new java.awt.Color(45, 117, 160));
+        panelTabHome.setBackground(new java.awt.Color(16, 60, 99));
         panelTabHome.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelTabHome.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -141,7 +141,7 @@ public class App extends javax.swing.JFrame {
             .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
 
-        panelTabCourses.setBackground(new java.awt.Color(45, 97, 135));
+        panelTabCourses.setBackground(new java.awt.Color(46, 81, 133));
         panelTabCourses.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelTabCourses.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -376,20 +376,21 @@ public class App extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(App.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Student.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(App.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Student.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(App.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Student.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(App.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Student.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new App().setVisible(true);
+                new Student().setVisible(true);
             }
         });
     }

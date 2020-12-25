@@ -48,7 +48,7 @@ public class SignUp extends javax.swing.JFrame {
         setResizable(false);
         setSize(new java.awt.Dimension(1000, 600));
 
-        Logo.setBackground(new java.awt.Color(153, 153, 255));
+        Logo.setBackground(new java.awt.Color(46, 81, 133));
         Logo.setPreferredSize(new java.awt.Dimension(600, 600));
         Logo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -58,34 +58,34 @@ public class SignUp extends javax.swing.JFrame {
         Logo.add(LogoImg, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, -1, -1));
 
         LogoName.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
-        LogoName.setForeground(java.awt.Color.darkGray);
+        LogoName.setForeground(new java.awt.Color(255, 255, 255));
         LogoName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        LogoName.setText("JCM - Java Courses Management");
+        LogoName.setText("JCM - Courses Management System");
         LogoName.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        Logo.add(LogoName, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 510, -1, -1));
+        Logo.add(LogoName, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 510, 600, -1));
 
-        SignUpForm.setBackground(new java.awt.Color(204, 204, 255));
+        SignUpForm.setBackground(new java.awt.Color(191, 220, 255));
         SignUpForm.setPreferredSize(new java.awt.Dimension(400, 600));
         SignUpForm.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         labelSignUp.setFont(labelSignUp.getFont().deriveFont(labelSignUp.getFont().getStyle() | java.awt.Font.BOLD, 31));
         labelSignUp.setText("Sign up");
-        SignUpForm.add(labelSignUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 50, -1, 40));
+        SignUpForm.add(labelSignUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 50, -1, 40));
 
         labelUsername.setFont(labelUsername.getFont().deriveFont((float)18));
         labelUsername.setLabelFor(username);
         labelUsername.setText("Username");
-        SignUpForm.add(labelUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, -1));
+        SignUpForm.add(labelUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
 
         labelPassword.setFont(labelPassword.getFont().deriveFont((float)18));
         labelPassword.setLabelFor(password);
         labelPassword.setText("Password");
-        SignUpForm.add(labelPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, -1, -1));
+        SignUpForm.add(labelPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, -1, -1));
 
         labelConfirmPassword.setFont(labelConfirmPassword.getFont().deriveFont((float)18));
         labelConfirmPassword.setLabelFor(confirmPassword);
         labelConfirmPassword.setText("Confirm password");
-        SignUpForm.add(labelConfirmPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, -1, -1));
+        SignUpForm.add(labelConfirmPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, -1, -1));
 
         username.setFont(username.getFont().deriveFont((float)18));
         username.setText("username");
@@ -97,31 +97,32 @@ public class SignUp extends javax.swing.JFrame {
                 usernameActionPerformed(evt);
             }
         });
-        SignUpForm.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 340, 50));
+        SignUpForm.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 340, 50));
 
         password.setFont(password.getFont().deriveFont((float)18));
         password.setText("password");
         password.setName("password"); // NOI18N
         password.setSelectedTextColor(java.awt.Color.darkGray);
         password.setSelectionColor(new java.awt.Color(153, 153, 255));
-        SignUpForm.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 340, 50));
+        SignUpForm.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 340, 50));
 
         confirmPassword.setFont(confirmPassword.getFont().deriveFont((float)18));
         confirmPassword.setText("confirmPassword");
         confirmPassword.setName("confirmPassword"); // NOI18N
         confirmPassword.setSelectedTextColor(java.awt.Color.darkGray);
         confirmPassword.setSelectionColor(new java.awt.Color(153, 153, 255));
-        SignUpForm.add(confirmPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 400, 340, 50));
+        SignUpForm.add(confirmPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, 340, 50));
 
-        btnSignUp.setBackground(new java.awt.Color(153, 153, 255));
+        btnSignUp.setBackground(new java.awt.Color(46, 81, 133));
         btnSignUp.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+        btnSignUp.setForeground(new java.awt.Color(255, 255, 255));
         btnSignUp.setText("Sign up");
         btnSignUp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSignUpActionPerformed(evt);
             }
         });
-        SignUpForm.add(btnSignUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 480, 210, 40));
+        SignUpForm.add(btnSignUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 480, 140, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -139,6 +140,7 @@ public class SignUp extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void usernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameActionPerformed

@@ -127,7 +127,6 @@ public class SignUp extends javax.swing.JFrame {
         jRadioButton1.setBackground(new java.awt.Color(191, 220, 255));
         jRadioButton1.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         jRadioButton1.setText("Teacher");
-        jRadioButton1.setOpaque(true);
         SignUpForm.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 440, -1, -1));
 
         requestSignIn.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N

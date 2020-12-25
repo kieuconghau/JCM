@@ -84,9 +84,6 @@ public class App extends javax.swing.JFrame {
         iconLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lecturer/icons/logo.png"))); // NOI18N
         iconLogo.setToolTipText("");
         iconLogo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        iconLogo.setMaximumSize(new java.awt.Dimension(50, 50));
-        iconLogo.setMinimumSize(new java.awt.Dimension(50, 50));
-        iconLogo.setPreferredSize(new java.awt.Dimension(50, 50));
 
         labelBranchName.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         labelBranchName.setForeground(new java.awt.Color(255, 255, 255));
@@ -126,7 +123,7 @@ public class App extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelHeaderLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(panelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(iconLogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(iconLogo)
                     .addGroup(panelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(labelBranchName, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(panelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -217,7 +214,7 @@ public class App extends javax.swing.JFrame {
                 .addComponent(tabDashboard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(tabCourses, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 479, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 491, Short.MAX_VALUE)
                 .addComponent(labelCopyright)
                 .addGap(15, 15, 15))
         );
@@ -240,7 +237,7 @@ public class App extends javax.swing.JFrame {
             panelDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelDashboardLayout.createSequentialGroup()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 590, Short.MAX_VALUE))
         );
 
         panelCourses.setBackground(new java.awt.Color(204, 204, 255));

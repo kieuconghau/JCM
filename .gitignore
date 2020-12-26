@@ -2,6 +2,7 @@
 **/nbproject/Makefile-*.mk
 **/nbproject/Package-*.bash
 build/
+build/classes/
 nbbuild/
 dist/
 nbdist/

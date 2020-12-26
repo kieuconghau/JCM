@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="1198.0" y="708.0">jcm.model.Course.CoursesBuilder</node>
+    <node x="1303.0" y="1991.0">jcm.api.users.request.LoginAccount</node>
+    <node x="1548.0" y="1861.0">jcm.entity.QuestionBlankEntity</node>
+    <node x="0.0" y="1504.0">jcm.api.BaseRequest.BaseRequestBuilder</node>
+    <node x="148.0" y="1991.0">jcm.entity.AccountEntity</node>
+    <node x="1296.0" y="1861.0">jcm.entity.QuestionTrueFalseEntity</node>
+    <node x="324.0" y="1781.0">jcm.constant.EUserRole</node>
+    <node x="1079.0" y="126.0">jcm.model.Model</node>
+    <node x="748.0" y="1183.0">jcm.api.users.response.UserInformationResult</node>
+    <node x="1741.0" y="708.0">jcm.model.Exercise.ExercisesBuilder</node>
+    <node x="367.5" y="383.5">jcm.model.Lesson</node>
+    <node x="69.0" y="1310.0">jcm.api.BaseRequest</node>
+    <node x="1450.0" y="1781.0">jcm.entity.QuestionEntity</node>
+    <node x="1059.0" y="1781.0">jcm.api.users.response.LoginAccountResult</node>
+    <node x="1111.0" y="1183.0">jcm.service.IExerciseService</node>
+    <node x="68.5" y="383.0">jcm.model.Question</node>
+    <node x="657.0" y="317.0">jcm.model.UserInformations</node>
+    <node x="313.0" y="730.0">jcm.model.Lesson.LessonsBuilder</node>
+    <node x="375.0" y="1183.0">jcm.constant.PathAPI</node>
+    <node x="702.0" y="1991.0">jcm.service.IUserService</node>
+    <node x="586.0" y="642.0">jcm.model.UserInformations.UserInformationsBuilder</node>
+    <node x="1798.5" y="372.0">jcm.model.Exercise</node>
+    <node x="69.0" y="1183.0">jcm.api.IBaseRequestAction</node>
+    <node x="236.0" y="2071.0">jcm.entity.StudentAccountEntity</node>
+    <node x="0.0" y="1781.0">jcm.service.ICourseService</node>
+    <node x="1041.0" y="383.0">jcm.model.UserQuestionAnswers</node>
+    <node x="646.0" y="1309.0">jcm.api.users.response.UserInformationResult.UserInformationResultBuilder</node>
+    <node x="0.0" y="2071.0">jcm.entity.LecturerAccountEntity</node>
+    <node x="1481.0" y="1183.0">jcm.service.ILessonService</node>
+    <node x="1511.0" y="796.0">jcm.model.User.UsersBuilder</node>
+    <node x="1559.0" y="405.5">jcm.model.User</node>
+    <node x="853.0" y="361.0">jcm.model.UserDoExercises</node>
+    <node x="1938.5" y="405.0">jcm.model.UserEnrollments</node>
+    <node x="810.0" y="1781.0">jcm.constant.ERequestType</node>
+    <node x="489.0" y="1991.0">jcm.api.users.request.UserInformation</node>
+    <node x="1261.0" y="372.0">jcm.model.Course</node>
+    <node x="0.0" y="752.0">jcm.model.Question.QuestionsBuilder</node>
+    <node x="1069.0" y="0.0">jcm.model.support.IModelAction</node>
+    <node x="1114.0" y="1991.0">jcm.api.ErrorMessage</node>
+    <node x="552.0" y="1781.0">jcm.JCMSession</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="jcm.entity.LecturerAccountEntity" target="jcm.entity.AccountEntity">
+      <point x="0.0" y="-15.0" />
+      <point x="108.0" y="2046.0" />
+      <point x="186.0" y="2046.0" />
+      <point x="-38.0" y="15.0" />
+    </edge>
+    <edge source="jcm.model.UserEnrollments" target="jcm.model.Model">
+      <point x="0.0" y="-49.5" />
+      <point x="2018.5" y="267.0" />
+      <point x="1196.111111111111" y="267.0" />
+      <point x="55.111111111111086" y="60.5" />
+    </edge>
+    <edge source="jcm.model.Model" target="jcm.model.support.IModelAction">
+      <point x="0.0" y="-60.5" />
+      <point x="0.0" y="38.0" />
+    </edge>
+    <edge source="jcm.model.Lesson" target="jcm.model.Model">
+      <point x="0.0" y="-71.0" />
+      <point x="439.5" y="277.0" />
+      <point x="1099.6666666666667" y="277.0" />
+      <point x="-41.33333333333326" y="60.5" />
+    </edge>
+    <edge source="jcm.api.BaseRequest.BaseRequestBuilder" target="jcm.api.BaseRequest">
+      <point x="0.0" y="-116.0" />
+      <point x="0.0" y="72.0" />
+    </edge>
+    <edge source="jcm.model.UserInformations" target="jcm.model.Model">
+      <point x="0.0" y="-137.5" />
+      <point x="745.0" y="287.0" />
+      <point x="1113.4444444444443" y="287.0" />
+      <point x="-27.555555555555657" y="60.5" />
+    </edge>
+    <edge source="jcm.model.UserDoExercises" target="jcm.model.Model">
+      <point x="0.0" y="-93.5" />
+      <point x="937.0" y="297.0" />
+      <point x="1127.2222222222222" y="297.0" />
+      <point x="-13.777777777777828" y="60.5" />
+    </edge>
+    <edge source="jcm.model.Lesson.LessonsBuilder" target="jcm.model.Lesson">
+      <point x="0.0" y="-160.0" />
+      <point x="0.0" y="71.0" />
+    </edge>
+    <edge source="jcm.model.Course" target="jcm.model.Model">
+      <point x="0.0" y="-82.5" />
+      <point x="1344.5" y="297.0" />
+      <point x="1154.7777777777778" y="297.0" />
+      <point x="13.777777777777828" y="60.5" />
+    </edge>
+    <edge source="jcm.model.Course.CoursesBuilder" target="jcm.model.Course">
+      <point x="0.0" y="-182.0" />
+      <point x="0.0" y="82.5" />
+    </edge>
+    <edge source="jcm.entity.QuestionTrueFalseEntity" target="jcm.entity.QuestionEntity">
+      <point x="0.0" y="-15.0" />
+      <point x="1412.0" y="1836.0" />
+      <point x="1490.0" y="1836.0" />
+      <point x="-40.0" y="15.0" />
+    </edge>
+    <edge source="jcm.entity.QuestionBlankEntity" target="jcm.entity.QuestionEntity">
+      <point x="0.0" y="-15.0" />
+      <point x="1648.0" y="1836.0" />
+      <point x="1570.0" y="1836.0" />
+      <point x="40.0" y="15.0" />
+    </edge>
+    <edge source="jcm.entity.StudentAccountEntity" target="jcm.entity.AccountEntity">
+      <point x="0.0" y="-15.0" />
+      <point x="340.0" y="2046.0" />
+      <point x="262.0" y="2046.0" />
+      <point x="38.0" y="15.0" />
+    </edge>
+    <edge source="jcm.api.users.response.UserInformationResult.UserInformationResultBuilder" target="jcm.api.users.response.UserInformationResult">
+      <point x="0.0" y="-94.0" />
+      <point x="0.0" y="38.0" />
+    </edge>
+    <edge source="jcm.model.Exercise" target="jcm.model.Model">
+      <point x="0.0" y="-82.5" />
+      <point x="1858.5" y="277.0" />
+      <point x="1182.3333333333333" y="277.0" />
+      <point x="41.33333333333326" y="60.5" />
+    </edge>
+    <edge source="jcm.model.UserQuestionAnswers" target="jcm.model.Model">
+      <point x="0.0" y="-71.5" />
+      <point x="0.0" y="60.5" />
+    </edge>
+    <edge source="jcm.model.UserInformations.UserInformationsBuilder" target="jcm.model.UserInformations">
+      <point x="0.0" y="-248.0" />
+      <point x="0.0" y="137.5" />
+    </edge>
+    <edge source="jcm.api.BaseRequest" target="jcm.api.IBaseRequestAction">
+      <point x="0.0" y="-72.0" />
+      <point x="0.0" y="38.5" />
+    </edge>
+    <edge source="jcm.model.User" target="jcm.model.Model">
+      <point x="0.0" y="-49.0" />
+      <point x="1616.0" y="287.0" />
+      <point x="1168.5555555555557" y="287.0" />
+      <point x="27.555555555555657" y="60.5" />
+    </edge>
+    <edge source="jcm.model.Question.QuestionsBuilder" target="jcm.model.Question">
+      <point x="0.0" y="-138.0" />
+      <point x="0.0" y="71.5" />
+    </edge>
+    <edge source="jcm.model.Question" target="jcm.model.Model">
+      <point x="0.0" y="-71.5" />
+      <point x="146.5" y="267.0" />
+      <point x="1085.888888888889" y="267.0" />
+      <point x="-55.111111111111086" y="60.5" />
+    </edge>
+    <edge source="jcm.model.User.UsersBuilder" target="jcm.model.User">
+      <point x="0.0" y="-94.0" />
+      <point x="0.0" y="49.0" />
+    </edge>
+    <edge source="jcm.model.Exercise.ExercisesBuilder" target="jcm.model.Exercise">
+      <point x="0.0" y="-182.0" />
+      <point x="0.0" y="82.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.7999999999999996" x="714.7777777777783" y="306.1111111111112" />
+  <SelectedNodes>
+    <node>jcm.JCMSession</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+    <Category>Inner Classes</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

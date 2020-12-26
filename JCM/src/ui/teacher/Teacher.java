@@ -10,6 +10,7 @@ import java.net.MalformedURLException;
 import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.text.html.HTMLEditorKit;
 
 /**
  *
@@ -188,7 +189,15 @@ public class Teacher extends javax.swing.JFrame {
         panelNoti = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         panelAccount = new javax.swing.JPanel();
-        jLabel12 = new javax.swing.JLabel();
+        fullname = new javax.swing.JTextField();
+        btnUpdate = new javax.swing.JButton();
+        introduction_render = new javax.swing.JScrollPane();
+        _introduction_render = new javax.swing.JEditorPane();
+        big_avatar = new javax.swing.JLabel();
+        username = new javax.swing.JLabel();
+        vRule = new javax.swing.JLabel();
+        introduction_edit = new javax.swing.JScrollPane();
+        _introduction_edit = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("JCM - Online Course Management System");
@@ -209,8 +218,13 @@ public class Teacher extends javax.swing.JFrame {
         });
 
         labelAvatar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelAvatar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/teacher/assets/user_male_0.png"))); // NOI18N
+        labelAvatar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/student/assets/small_avatar.png"))); // NOI18N
         labelAvatar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        labelAvatar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labelAvatarMouseClicked(evt);
+            }
+        });
 
         labelNoti.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelNoti.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/teacher/assets/noti_0.png"))); // NOI18N
@@ -495,7 +509,7 @@ public class Teacher extends javax.swing.JFrame {
             panelSidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(panelTabHome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(panelTabMyCourses, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(labelCopyright, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(labelCopyright, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
             .addComponent(panelSidebarCourseDetail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         panelSidebarLayout.setVerticalGroup(
@@ -673,7 +687,7 @@ public class Teacher extends javax.swing.JFrame {
                 .addGroup(panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(MyRecentCourse2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(MyRecentCourse1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(MyRecentCourse0, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 740, Short.MAX_VALUE))
+                    .addComponent(MyRecentCourse0, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 756, Short.MAX_VALUE))
                 .addGap(30, 30, 30))
         );
         panelHomeLayout.setVerticalGroup(
@@ -952,7 +966,7 @@ public class Teacher extends javax.swing.JFrame {
                     .addGroup(panelMyCoursesMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(MyCourse2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(MyCourse1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(MyCourse0, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 740, Short.MAX_VALUE)
+                        .addComponent(MyCourse0, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 756, Short.MAX_VALUE)
                         .addComponent(MyCourse4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(MyCourse3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(30, 30, 30))
@@ -1481,9 +1495,9 @@ public class Teacher extends javax.swing.JFrame {
                         .addComponent(jLabel48)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 622, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelLessonsMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(panelLesson1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(panelLesson0, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(panelLesson2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(panelLesson1, javax.swing.GroupLayout.DEFAULT_SIZE, 756, Short.MAX_VALUE)
+                        .addComponent(panelLesson0, javax.swing.GroupLayout.DEFAULT_SIZE, 756, Short.MAX_VALUE)
+                        .addComponent(panelLesson2, javax.swing.GroupLayout.DEFAULT_SIZE, 756, Short.MAX_VALUE)))
                 .addGap(30, 30, 30))
         );
         panelLessonsMainLayout.setVerticalGroup(
@@ -1965,13 +1979,13 @@ public class Teacher extends javax.swing.JFrame {
             panelCourseDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(panelParticipants, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(panelCourseDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(panelLessons, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(panelLessons, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 816, Short.MAX_VALUE))
             .addGroup(panelCourseDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(panelExercises, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(panelExercises, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 816, Short.MAX_VALUE))
             .addGroup(panelCourseDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(panelAnnouncements, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(panelAnnouncements, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 816, Short.MAX_VALUE))
             .addGroup(panelCourseDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(panelSetting, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(panelSetting, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 816, Short.MAX_VALUE))
         );
         panelCourseDetailLayout.setVerticalGroup(
             panelCourseDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2006,41 +2020,134 @@ public class Teacher extends javax.swing.JFrame {
                 .addGap(0, 540, Short.MAX_VALUE))
         );
 
-        panelAccount.setBackground(new java.awt.Color(255, 255, 255));
+        panelAccount.setBackground(new java.awt.Color(191, 217, 255));
+        panelAccount.setPreferredSize(new java.awt.Dimension(800, 590));
 
-        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel12.setText("ACCOUNT");
-        jLabel12.setPreferredSize(new java.awt.Dimension(800, 50));
+        fullname.setBackground(new java.awt.Color(191, 217, 255));
+        fullname.setFont(new java.awt.Font("Ubuntu", 1, 48)); // NOI18N
+        fullname.setText("John Doe");
+        fullname.setBorder(null);
+        fullname.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                fullnameMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                fullnameMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                fullnameMouseExited(evt);
+            }
+        });
+        fullname.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fullnameActionPerformed(evt);
+            }
+        });
+
+        btnUpdate.setBackground(new java.awt.Color(147, 186, 243));
+        btnUpdate.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
+        btnUpdate.setForeground(java.awt.Color.black);
+        btnUpdate.setText("Update");
+        btnUpdate.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(191, 217, 255), 1, true));
+        btnUpdate.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnUpdateMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnUpdateMouseExited(evt);
+            }
+        });
+
+        _introduction_render.setEditable(false);
+        _introduction_render.setBackground(new java.awt.Color(191, 217, 255));
+        _introduction_render.setBorder(null);
+        introduction_render.setViewportView(_introduction_render);
+
+        big_avatar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/student/assets/big_avatar.png"))); // NOI18N
+
+        username.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
+        username.setText("username");
+
+        vRule.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.gray, 2));
+
+        introduction_edit.setBackground(new java.awt.Color(191, 217, 255));
+        introduction_edit.setBorder(null);
+
+        _introduction_edit.setBackground(new java.awt.Color(214, 230, 253));
+        _introduction_edit.setColumns(20);
+        _introduction_edit.setLineWrap(true);
+        _introduction_edit.setRows(5);
+        _introduction_edit.setText("<p>My name is <b>John Doe</b></p>\n\n<p>Currently, I'm student at HCMUS.</p>\n\n<p>Interesting in Web Development and DevOps,...</p>");
+        _introduction_edit.setBorder(null);
+        _introduction_edit.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                _introduction_editKeyReleased(evt);
+            }
+        });
+        introduction_edit.setViewportView(_introduction_edit);
 
         javax.swing.GroupLayout panelAccountLayout = new javax.swing.GroupLayout(panelAccount);
         panelAccount.setLayout(panelAccountLayout);
         panelAccountLayout.setHorizontalGroup(
             panelAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(panelAccountLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAccountLayout.createSequentialGroup()
+                        .addComponent(big_avatar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(vRule, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(panelAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(fullname, javax.swing.GroupLayout.DEFAULT_SIZE, 622, Short.MAX_VALUE)
+                            .addGroup(panelAccountLayout.createSequentialGroup()
+                                .addComponent(username)
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(panelAccountLayout.createSequentialGroup()
+                        .addComponent(introduction_render, javax.swing.GroupLayout.PREFERRED_SIZE, 517, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panelAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelAccountLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(introduction_edit, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
+                .addContainerGap())
         );
         panelAccountLayout.setVerticalGroup(
             panelAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelAccountLayout.createSequentialGroup()
-                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 598, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(panelAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(big_avatar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAccountLayout.createSequentialGroup()
+                        .addComponent(fullname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(username))
+                    .addComponent(vRule, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(12, 12, 12)
+                .addGroup(panelAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(introduction_render)
+                    .addComponent(introduction_edit, javax.swing.GroupLayout.DEFAULT_SIZE, 366, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout panelMainLayout = new javax.swing.GroupLayout(panelMain);
         panelMain.setLayout(panelMainLayout);
         panelMainLayout.setHorizontalGroup(
             panelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 800, Short.MAX_VALUE)
+            .addGap(0, 816, Short.MAX_VALUE)
             .addGroup(panelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(panelMyCourses, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(panelMyCourses, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 816, Short.MAX_VALUE))
             .addGroup(panelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(panelCourseDetail, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(panelCourseDetail, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 816, Short.MAX_VALUE))
             .addGroup(panelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(panelNoti, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(panelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(panelAccount, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(panelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(panelHome, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(panelHome, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 816, Short.MAX_VALUE))
         );
         panelMainLayout.setVerticalGroup(
             panelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2061,11 +2168,11 @@ public class Teacher extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelHeader, javax.swing.GroupLayout.DEFAULT_SIZE, 1016, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(panelSidebar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(panelMain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(panelMain, javax.swing.GroupLayout.DEFAULT_SIZE, 816, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2213,6 +2320,49 @@ public class Teacher extends javax.swing.JFrame {
         showMyCoursesScreen();
     }//GEN-LAST:event_jLabel75MouseClicked
 
+    private void btnUpdateMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUpdateMouseExited
+        // TODO add your handling code here:
+        btnUpdate.setBackground(new java.awt.Color(147,186,243));
+        btnUpdate.setForeground(java.awt.Color.black);
+    }//GEN-LAST:event_btnUpdateMouseExited
+
+    private void btnUpdateMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUpdateMouseEntered
+        // TODO add your handling code here:
+        btnUpdate.setBackground(new java.awt.Color(46, 81, 133));
+        btnUpdate.setForeground(java.awt.Color.white);
+    }//GEN-LAST:event_btnUpdateMouseEntered
+
+    private void fullnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fullnameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fullnameActionPerformed
+
+    private void fullnameMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fullnameMouseExited
+        // TODO add your handling code here:
+        fullname.setBorder(null);
+    }//GEN-LAST:event_fullnameMouseExited
+
+    private void fullnameMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fullnameMouseEntered
+        // TODO add your handling code here:
+        fullname.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, java.awt.Color.lightGray));
+    }//GEN-LAST:event_fullnameMouseEntered
+
+    private void fullnameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fullnameMouseClicked
+        // TODO add your handling code here:
+        //        fullname.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, java.awt.Color.lightGray));
+    }//GEN-LAST:event_fullnameMouseClicked
+
+    private void labelAvatarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelAvatarMouseClicked
+        // TODO add your handling code here:
+        disableAllMenuTabs();
+        hideAllMainScreens();
+        panelAccount.setVisible(true);
+    }//GEN-LAST:event_labelAvatarMouseClicked
+
+    private void _introduction_editKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event__introduction_editKeyReleased
+        // TODO add your handling code here:
+        _introduction_render.setText(_introduction_edit.getText());
+    }//GEN-LAST:event__introduction_editKeyReleased
+
     private void disableAllMenuTabs() {
         panelTabHome.setBackground(panelSidebar.getBackground());
         panelTabMyCourses.setBackground(panelSidebar.getBackground());
@@ -2359,6 +2509,8 @@ public class Teacher extends javax.swing.JFrame {
     }
     
     private void initDisplay() {
+        _introduction_render.setEditorKit(new HTMLEditorKit());
+        _introduction_render.setText(_introduction_edit.getText());
         selectedTabColor = panelTabHome.getBackground();
         updateCopyright();
         showHomeScreen();
@@ -2411,7 +2563,14 @@ public class Teacher extends javax.swing.JFrame {
     private javax.swing.JPanel MyRecentCourse0;
     private javax.swing.JPanel MyRecentCourse1;
     private javax.swing.JPanel MyRecentCourse2;
+    private javax.swing.JTextArea _introduction_edit;
+    private javax.swing.JEditorPane _introduction_render;
+    private javax.swing.JLabel big_avatar;
+    private javax.swing.JButton btnUpdate;
     private javax.swing.JEditorPane editorpaneLessonContent;
+    private javax.swing.JTextField fullname;
+    private javax.swing.JScrollPane introduction_edit;
+    private javax.swing.JScrollPane introduction_render;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -2424,7 +2583,6 @@ public class Teacher extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -2558,5 +2716,7 @@ public class Teacher extends javax.swing.JFrame {
     private javax.swing.JPanel panelTabParticpants;
     private javax.swing.JPanel panelTabSetting;
     private javax.swing.JTextField textfieldAddUser;
+    private javax.swing.JLabel username;
+    private javax.swing.JLabel vRule;
     // End of variables declaration//GEN-END:variables
 }

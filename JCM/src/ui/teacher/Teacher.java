@@ -200,7 +200,7 @@ public class Teacher extends javax.swing.JFrame {
         _introduction_edit = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("JCM - Online Course Management System");
+        setTitle("JCM - Online Course Management System - Teacher");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setName("frameTeacher"); // NOI18N
         setSize(new java.awt.Dimension(1000, 650));
@@ -232,7 +232,7 @@ public class Teacher extends javax.swing.JFrame {
 
         labelLogo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         labelLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/teacher/assets/logo_50.png"))); // NOI18N
+        labelLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/student/assets/online-course.png"))); // NOI18N
         labelLogo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         labelLogo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -260,7 +260,7 @@ public class Teacher extends javax.swing.JFrame {
             .addComponent(labelAvatar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(labelNoti, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(labelMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(labelLogo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+            .addComponent(labelLogo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         panelSidebar.setBackground(new java.awt.Color(46, 81, 133));
@@ -2145,7 +2145,7 @@ public class Teacher extends javax.swing.JFrame {
             .addGroup(panelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(panelNoti, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(panelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(panelAccount, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(panelAccount, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 816, Short.MAX_VALUE))
             .addGroup(panelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(panelHome, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 816, Short.MAX_VALUE))
         );

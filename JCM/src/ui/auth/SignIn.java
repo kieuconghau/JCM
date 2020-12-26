@@ -5,6 +5,8 @@
  */
 package ui.auth;
 
+import ui.student.Student;
+import ui.teacher.Teacher;
 /**
  *
  * @author JByNine
@@ -43,6 +45,7 @@ public class SignIn extends javax.swing.JFrame {
         passwordPane = new javax.swing.JPanel();
         password = new javax.swing.JPasswordField();
         passwordIcon = new javax.swing.JLabel();
+        isTeacher = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("JCM Sign In");
@@ -92,6 +95,9 @@ public class SignIn extends javax.swing.JFrame {
         btnSignIn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(191, 217, 255), 1, true));
         btnSignIn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnSignIn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSignInMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnSignInMouseEntered(evt);
             }
@@ -104,11 +110,11 @@ public class SignIn extends javax.swing.JFrame {
                 btnSignInActionPerformed(evt);
             }
         });
-        SignInForm.add(btnSignIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 350, 150, 40));
+        SignInForm.add(btnSignIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 390, 150, 40));
 
         requestSignUp.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         requestSignUp.setText("Don't have a JCM account?");
-        SignInForm.add(requestSignUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 420, -1, -1));
+        SignInForm.add(requestSignUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 460, -1, -1));
 
         signUp.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         signUp.setForeground(java.awt.Color.blue);
@@ -124,7 +130,7 @@ public class SignIn extends javax.swing.JFrame {
                 signUpMouseExited(evt);
             }
         });
-        SignInForm.add(signUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 420, -1, -1));
+        SignInForm.add(signUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 460, -1, -1));
 
         usernamePane.setBackground(new java.awt.Color(191, 217, 255));
         usernamePane.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -192,7 +198,7 @@ public class SignIn extends javax.swing.JFrame {
                 .addGroup(usernamePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(usernameIcon))
-                .addGap(0, 10, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         SignInForm.add(usernamePane, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 340, 60));
@@ -256,10 +262,20 @@ public class SignIn extends javax.swing.JFrame {
                 .addGroup(passwordPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(passwordIcon)
                     .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 10, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         SignInForm.add(passwordPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 340, 60));
+
+        isTeacher.setBackground(new java.awt.Color(191, 220, 255));
+        isTeacher.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+        isTeacher.setText("Teacher");
+        isTeacher.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                isTeacherActionPerformed(evt);
+            }
+        });
+        SignInForm.add(isTeacher, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, -1, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -394,6 +410,20 @@ public class SignIn extends javax.swing.JFrame {
         signUp.setFont(new java.awt.Font("Ubuntu", 0, 18));
     }//GEN-LAST:event_signUpMouseExited
 
+    private void btnSignInMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSignInMouseClicked
+        // TODO add your handling code here:
+        this.setVisible(false);
+        if (isTeacher.isSelected()) {
+            new Teacher().setVisible(true);
+        } else {
+            new Student().setVisible(true);
+        }
+    }//GEN-LAST:event_btnSignInMouseClicked
+
+    private void isTeacherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_isTeacherActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_isTeacherActionPerformed
+
     public void run() {
         this.setVisible(true);
     }
@@ -442,6 +472,7 @@ public class SignIn extends javax.swing.JFrame {
     private javax.swing.JLabel LogoName;
     private javax.swing.JPanel SignInForm;
     private javax.swing.JButton btnSignIn;
+    private javax.swing.JRadioButton isTeacher;
     private javax.swing.JLabel labelPassword;
     private javax.swing.JLabel labelSignIn;
     private javax.swing.JLabel labelUsername;

@@ -36,7 +36,7 @@ public class Student extends javax.swing.JFrame {
         labelAvatar = new javax.swing.JLabel();
         labelNoti = new javax.swing.JLabel();
         labelEnrol = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        labelLogo = new javax.swing.JLabel();
         panelSidebar = new javax.swing.JPanel();
         panelTabHome = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
@@ -112,7 +112,7 @@ public class Student extends javax.swing.JFrame {
         _introduction_render = new javax.swing.JEditorPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("JCM - Online Course Management System");
+        setTitle("JCM - Online Course Management System - Student");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setResizable(false);
         setSize(new java.awt.Dimension(1000, 650));
@@ -121,7 +121,7 @@ public class Student extends javax.swing.JFrame {
         panelHeader.setPreferredSize(new java.awt.Dimension(1000, 50));
 
         labelMenu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/student/assets/online-course.png"))); // NOI18N
+        labelMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/student/assets/menu.png"))); // NOI18N
         labelMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         labelMenu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -146,19 +146,26 @@ public class Student extends javax.swing.JFrame {
         labelEnrol.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/student/assets/enroll.png"))); // NOI18N
         labelEnrol.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        jLabel4.setFont(new java.awt.Font("Ubuntu", 1, 36)); // NOI18N
-        jLabel4.setForeground(java.awt.Color.white);
-        jLabel4.setText("JCM");
+        labelLogo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        labelLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/student/assets/online-course.png"))); // NOI18N
+        labelLogo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        labelLogo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labelLogoMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelHeaderLayout = new javax.swing.GroupLayout(panelHeader);
         panelHeader.setLayout(panelHeaderLayout);
         panelHeaderLayout.setHorizontalGroup(
             panelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelHeaderLayout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(labelMenu)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 748, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(labelLogo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(labelEnrol, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(labelNoti)
@@ -172,10 +179,7 @@ public class Student extends javax.swing.JFrame {
             .addComponent(labelNoti, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(labelMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(labelEnrol, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(panelHeaderLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(labelLogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         panelSidebar.setBackground(new java.awt.Color(46, 81, 133));
@@ -468,7 +472,7 @@ public class Student extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(MyRecentCourse1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel34, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel34, javax.swing.GroupLayout.DEFAULT_SIZE, 668, Short.MAX_VALUE)
                         .addContainerGap())))
         );
         MyRecentCourse1Layout.setVerticalGroup(
@@ -1198,6 +1202,12 @@ public class Student extends javax.swing.JFrame {
         showCourseDetail();
     }//GEN-LAST:event_MyCourse4MouseClicked
 
+    private void labelLogoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelLogoMouseClicked
+        disableAllScreens();
+        enableHomeTab();
+        enableHomeScreen();
+    }//GEN-LAST:event_labelLogoMouseClicked
+
     private void showCourseDetail() {
         disableAllScreens();
         panelSidebarCourse.setVisible(true);
@@ -1307,7 +1317,6 @@ public class Student extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel MyCourse0;
     private javax.swing.JPanel MyCourse1;
-    private javax.swing.JPanel MyCourse2;
     private javax.swing.JPanel MyCourse3;
     private javax.swing.JPanel MyCourse4;
     private javax.swing.JPanel MyCourse5;
@@ -1332,11 +1341,8 @@ public class Student extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
@@ -1354,7 +1360,6 @@ public class Student extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel6;
@@ -1363,6 +1368,7 @@ public class Student extends javax.swing.JFrame {
     private javax.swing.JLabel labelAvatar;
     private javax.swing.JLabel labelCopyright;
     private javax.swing.JLabel labelEnrol;
+    private javax.swing.JLabel labelLogo;
     private javax.swing.JLabel labelMenu;
     private javax.swing.JLabel labelNoti;
     private javax.swing.JLabel labelSidebarCourseName;

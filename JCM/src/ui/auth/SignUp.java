@@ -39,7 +39,7 @@ public class SignUp extends javax.swing.JFrame {
         password = new javax.swing.JPasswordField();
         confirmPassword = new javax.swing.JPasswordField();
         btnSignUp = new javax.swing.JButton();
-        jRadioButton1 = new javax.swing.JRadioButton();
+        isTeacher = new javax.swing.JRadioButton();
         requestSignIn = new javax.swing.JLabel();
         signIn = new javax.swing.JLabel();
 
@@ -121,6 +121,11 @@ public class SignUp extends javax.swing.JFrame {
         btnSignUp.setForeground(java.awt.Color.white);
         btnSignUp.setText("Sign up");
         btnSignUp.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(191, 217, 255), 1, true));
+        btnSignUp.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSignUpMouseClicked(evt);
+            }
+        });
         btnSignUp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSignUpActionPerformed(evt);
@@ -128,10 +133,10 @@ public class SignUp extends javax.swing.JFrame {
         });
         SignUpForm.add(btnSignUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 490, 140, 40));
 
-        jRadioButton1.setBackground(new java.awt.Color(191, 220, 255));
-        jRadioButton1.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
-        jRadioButton1.setText("Teacher");
-        SignUpForm.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 440, -1, -1));
+        isTeacher.setBackground(new java.awt.Color(191, 220, 255));
+        isTeacher.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+        isTeacher.setText("Teacher");
+        SignUpForm.add(isTeacher, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 440, -1, -1));
 
         requestSignIn.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         requestSignIn.setText("Already have a JCM account?");
@@ -180,6 +185,12 @@ public class SignUp extends javax.swing.JFrame {
         new SignIn().setVisible(true);
     }//GEN-LAST:event_signInMouseClicked
 
+    private void btnSignUpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSignUpMouseClicked
+        // TODO add your handling code here:
+        this.setVisible(false);
+        new SignIn().setVisible(true);
+    }//GEN-LAST:event_btnSignUpMouseClicked
+
     public void run() {
         this.setVisible(true);
     }
@@ -226,7 +237,7 @@ public class SignUp extends javax.swing.JFrame {
     private javax.swing.JPanel SignUpForm;
     private javax.swing.JButton btnSignUp;
     private javax.swing.JPasswordField confirmPassword;
-    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton isTeacher;
     private javax.swing.JLabel labelConfirmPassword;
     private javax.swing.JLabel labelPassword;
     private javax.swing.JLabel labelSignUp;

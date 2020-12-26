@@ -34,11 +34,15 @@ public class SignIn extends javax.swing.JFrame {
         labelSignIn = new javax.swing.JLabel();
         labelUsername = new javax.swing.JLabel();
         labelPassword = new javax.swing.JLabel();
-        username = new javax.swing.JTextField();
-        password = new javax.swing.JPasswordField();
         btnSignIn = new javax.swing.JButton();
         requestSignUp = new javax.swing.JLabel();
         signUp = new javax.swing.JLabel();
+        usernamePane = new javax.swing.JPanel();
+        usernameIcon = new javax.swing.JLabel();
+        username = new javax.swing.JTextField();
+        passwordPane = new javax.swing.JPanel();
+        password = new javax.swing.JPasswordField();
+        passwordIcon = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("JCM Sign In");
@@ -81,29 +85,20 @@ public class SignIn extends javax.swing.JFrame {
         labelPassword.setText("Password");
         SignInForm.add(labelPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, -1, -1));
 
-        username.setFont(username.getFont().deriveFont((float)18));
-        username.setText("username");
-        username.setToolTipText("");
-        username.setName("username"); // NOI18N
-        username.setSelectionColor(new java.awt.Color(46, 81, 133));
-        username.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                usernameActionPerformed(evt);
-            }
-        });
-        SignInForm.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 340, 50));
-
-        password.setFont(password.getFont().deriveFont((float)18));
-        password.setText("password");
-        password.setName("password"); // NOI18N
-        password.setSelectionColor(new java.awt.Color(46, 81, 133));
-        SignInForm.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 340, 50));
-
-        btnSignIn.setBackground(new java.awt.Color(46, 81, 133));
+        btnSignIn.setBackground(new java.awt.Color(147, 186, 243));
         btnSignIn.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         btnSignIn.setForeground(java.awt.Color.white);
         btnSignIn.setText("Sign in");
+        btnSignIn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(191, 217, 255), 1, true));
         btnSignIn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSignIn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnSignInMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnSignInMouseExited(evt);
+            }
+        });
         btnSignIn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSignInActionPerformed(evt);
@@ -122,8 +117,150 @@ public class SignIn extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 signUpMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                signUpMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                signUpMouseExited(evt);
+            }
         });
         SignInForm.add(signUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 420, -1, -1));
+
+        usernamePane.setBackground(new java.awt.Color(191, 217, 255));
+        usernamePane.setBorder(null);
+        usernamePane.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                usernamePaneMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                usernamePaneMouseExited(evt);
+            }
+        });
+
+        usernameIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/auth/assets/user.png"))); // NOI18N
+        usernameIcon.setToolTipText("");
+        usernameIcon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                usernameIconMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                usernameIconMouseExited(evt);
+            }
+        });
+
+        username.setBackground(new java.awt.Color(191, 217, 255));
+        username.setFont(username.getFont().deriveFont((float)18));
+        username.setText("johnDoe");
+        username.setToolTipText("");
+        username.setBorder(null);
+        username.setName("username"); // NOI18N
+        username.setSelectionColor(new java.awt.Color(46, 81, 133));
+        username.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                usernameFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                usernameFocusLost(evt);
+            }
+        });
+        username.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                usernameMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                usernameMouseExited(evt);
+            }
+        });
+        username.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                usernameActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout usernamePaneLayout = new javax.swing.GroupLayout(usernamePane);
+        usernamePane.setLayout(usernamePaneLayout);
+        usernamePaneLayout.setHorizontalGroup(
+            usernamePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, usernamePaneLayout.createSequentialGroup()
+                .addComponent(usernameIcon)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        usernamePaneLayout.setVerticalGroup(
+            usernamePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(usernamePaneLayout.createSequentialGroup()
+                .addGroup(usernamePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(usernameIcon))
+                .addGap(0, 10, Short.MAX_VALUE))
+        );
+
+        SignInForm.add(usernamePane, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 340, 60));
+
+        passwordPane.setBackground(new java.awt.Color(191, 217, 255));
+        passwordPane.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                passwordPaneMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                passwordPaneMouseExited(evt);
+            }
+        });
+
+        password.setBackground(new java.awt.Color(191, 217, 255));
+        password.setFont(password.getFont().deriveFont((float)18));
+        password.setText("password");
+        password.setBorder(null);
+        password.setName("password"); // NOI18N
+        password.setSelectionColor(new java.awt.Color(46, 81, 133));
+        password.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                passwordFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                passwordFocusLost(evt);
+            }
+        });
+        password.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                passwordMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                passwordMouseExited(evt);
+            }
+        });
+
+        passwordIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/auth/assets/padlock.png"))); // NOI18N
+        passwordIcon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                passwordIconMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                passwordIconMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout passwordPaneLayout = new javax.swing.GroupLayout(passwordPane);
+        passwordPane.setLayout(passwordPaneLayout);
+        passwordPaneLayout.setHorizontalGroup(
+            passwordPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, passwordPaneLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(passwordIcon)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        passwordPaneLayout.setVerticalGroup(
+            passwordPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(passwordPaneLayout.createSequentialGroup()
+                .addGroup(passwordPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(passwordIcon)
+                    .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 10, Short.MAX_VALUE))
+        );
+
+        SignInForm.add(passwordPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 340, 60));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -157,6 +294,106 @@ public class SignIn extends javax.swing.JFrame {
         this.setVisible(false);
         new SignUp().setVisible(true);
     }//GEN-LAST:event_signUpMouseClicked
+
+    private void usernamePaneMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usernamePaneMouseEntered
+        // TODO add your handling code here:
+        usernamePane.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, java.awt.Color.lightGray));
+    }//GEN-LAST:event_usernamePaneMouseEntered
+
+    private void usernamePaneMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usernamePaneMouseExited
+        // TODO add your handling code here:
+        usernamePane.setBorder(null);
+    }//GEN-LAST:event_usernamePaneMouseExited
+
+    private void usernameIconMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usernameIconMouseEntered
+        // TODO add your handling code here:
+        usernamePane.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, java.awt.Color.lightGray));
+    }//GEN-LAST:event_usernameIconMouseEntered
+
+    private void usernameIconMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usernameIconMouseExited
+        // TODO add your handling code here:
+        usernamePane.setBorder(null);
+    }//GEN-LAST:event_usernameIconMouseExited
+
+    private void usernameMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usernameMouseEntered
+        // TODO add your handling code here:
+        usernamePane.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, java.awt.Color.lightGray));
+    }//GEN-LAST:event_usernameMouseEntered
+
+    private void usernameMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usernameMouseExited
+        // TODO add your handling code here:
+        usernamePane.setBorder(null);
+    }//GEN-LAST:event_usernameMouseExited
+
+    private void usernameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_usernameFocusGained
+        // TODO add your handling code here:
+        usernamePane.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, java.awt.Color.lightGray));
+    }//GEN-LAST:event_usernameFocusGained
+
+    private void usernameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_usernameFocusLost
+        // TODO add your handling code here:
+        usernamePane.setBorder(null);
+    }//GEN-LAST:event_usernameFocusLost
+
+    private void passwordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passwordFocusGained
+        // TODO add your handling code here:
+        passwordPane.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, java.awt.Color.lightGray));
+    }//GEN-LAST:event_passwordFocusGained
+
+    private void passwordFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passwordFocusLost
+        // TODO add your handling code here:
+        passwordPane.setBorder(null);
+    }//GEN-LAST:event_passwordFocusLost
+
+    private void passwordMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordMouseEntered
+        // TODO add your handling code here:
+        passwordPane.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, java.awt.Color.lightGray));
+    }//GEN-LAST:event_passwordMouseEntered
+
+    private void passwordMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordMouseExited
+        // TODO add your handling code here:
+        passwordPane.setBorder(null);
+    }//GEN-LAST:event_passwordMouseExited
+
+    private void passwordIconMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordIconMouseEntered
+        // TODO add your handling code here:
+        passwordPane.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, java.awt.Color.lightGray));
+    }//GEN-LAST:event_passwordIconMouseEntered
+
+    private void passwordIconMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordIconMouseExited
+        // TODO add your handling code here:
+        passwordPane.setBorder(null);
+    }//GEN-LAST:event_passwordIconMouseExited
+
+    private void passwordPaneMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordPaneMouseEntered
+        // TODO add your handling code here:
+        passwordPane.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, java.awt.Color.lightGray));
+    }//GEN-LAST:event_passwordPaneMouseEntered
+
+    private void passwordPaneMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordPaneMouseExited
+        // TODO add your handling code here:
+        passwordPane.setBorder(null);
+    }//GEN-LAST:event_passwordPaneMouseExited
+
+    private void btnSignInMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSignInMouseEntered
+        // TODO add your handling code here:
+        btnSignIn.setBackground(new java.awt.Color(46, 81, 133));
+    }//GEN-LAST:event_btnSignInMouseEntered
+
+    private void btnSignInMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSignInMouseExited
+        // TODO add your handling code here:
+        btnSignIn.setBackground(new java.awt.Color(147, 186, 243));
+    }//GEN-LAST:event_btnSignInMouseExited
+
+    private void signUpMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signUpMouseEntered
+        // TODO add your handling code here:
+        signUp.setFont(new java.awt.Font("Ubuntu", 1, 18));
+    }//GEN-LAST:event_signUpMouseEntered
+
+    private void signUpMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signUpMouseExited
+        // TODO add your handling code here:
+        signUp.setFont(new java.awt.Font("Ubuntu", 0, 18));
+    }//GEN-LAST:event_signUpMouseExited
 
     public void run() {
         this.setVisible(true);
@@ -210,8 +447,12 @@ public class SignIn extends javax.swing.JFrame {
     private javax.swing.JLabel labelSignIn;
     private javax.swing.JLabel labelUsername;
     private javax.swing.JPasswordField password;
+    private javax.swing.JLabel passwordIcon;
+    private javax.swing.JPanel passwordPane;
     private javax.swing.JLabel requestSignUp;
     private javax.swing.JLabel signUp;
     private javax.swing.JTextField username;
+    private javax.swing.JLabel usernameIcon;
+    private javax.swing.JPanel usernamePane;
     // End of variables declaration//GEN-END:variables
 }

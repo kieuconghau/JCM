@@ -92,6 +92,7 @@ public class SignUp extends javax.swing.JFrame {
 
         username.setFont(username.getFont().deriveFont((float)18));
         username.setText("username");
+        username.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(191, 217, 255), 1, true));
         username.setName("username"); // NOI18N
         username.setSelectionColor(new java.awt.Color(46, 81, 133));
         username.addActionListener(new java.awt.event.ActionListener() {
@@ -103,12 +104,14 @@ public class SignUp extends javax.swing.JFrame {
 
         password.setFont(password.getFont().deriveFont((float)18));
         password.setText("password");
+        password.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(191, 217, 255), 1, true));
         password.setName("password"); // NOI18N
         password.setSelectionColor(new java.awt.Color(46, 81, 133));
         SignUpForm.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 340, 50));
 
         confirmPassword.setFont(confirmPassword.getFont().deriveFont((float)18));
         confirmPassword.setText("password");
+        confirmPassword.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(191, 217, 255), 1, true));
         confirmPassword.setName("confirmPassword"); // NOI18N
         confirmPassword.setSelectionColor(new java.awt.Color(46, 81, 133));
         SignUpForm.add(confirmPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, 340, 50));
@@ -117,6 +120,7 @@ public class SignUp extends javax.swing.JFrame {
         btnSignUp.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         btnSignUp.setForeground(java.awt.Color.white);
         btnSignUp.setText("Sign up");
+        btnSignUp.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(191, 217, 255), 1, true));
         btnSignUp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSignUpActionPerformed(evt);

@@ -51,6 +51,8 @@ public class Student extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         panelTabExercises = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
+        panelTabExercises2 = new javax.swing.JPanel();
+        jLabel13 = new javax.swing.JLabel();
         panelMain = new javax.swing.JPanel();
         panelHome = new javax.swing.JPanel();
         panelCourses = new javax.swing.JPanel();
@@ -68,11 +70,19 @@ public class Student extends javax.swing.JFrame {
         panelAddCourse = new javax.swing.JPanel();
         panelNoti = new javax.swing.JPanel();
         panelAccount = new javax.swing.JPanel();
+        big_avatar = new javax.swing.JLabel();
+        username = new javax.swing.JLabel();
+        vRule = new javax.swing.JLabel();
+        fullname = new javax.swing.JTextField();
+        btnUpdate = new javax.swing.JButton();
+        introduction = new javax.swing.JScrollPane();
+        _introduction = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("JCM - Online Course Management System");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setResizable(false);
+        setSize(new java.awt.Dimension(1000, 650));
 
         panelHeader.setBackground(new java.awt.Color(46, 81, 133));
         panelHeader.setPreferredSize(new java.awt.Dimension(1000, 50));
@@ -87,8 +97,13 @@ public class Student extends javax.swing.JFrame {
         });
 
         labelAvatar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelAvatar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/student/assets/user_male_0.png"))); // NOI18N
+        labelAvatar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/student/assets/small_avatar.png"))); // NOI18N
         labelAvatar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        labelAvatar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labelAvatarMouseClicked(evt);
+            }
+        });
 
         labelNoti.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelNoti.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/student/assets/noti_0.png"))); // NOI18N
@@ -110,7 +125,7 @@ public class Student extends javax.swing.JFrame {
                 .addComponent(labelMenu)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 740, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 748, Short.MAX_VALUE)
                 .addComponent(labelEnrol, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(labelNoti)
@@ -201,14 +216,14 @@ public class Student extends javax.swing.JFrame {
 
         labelSidebarCourseName.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         labelSidebarCourseName.setForeground(new java.awt.Color(255, 255, 255));
-        labelSidebarCourseName.setText("Algorithms I");
+        labelSidebarCourseName.setText("Web design & Dev..");
 
         panelTabStudents4.setBackground(new java.awt.Color(46, 81, 133));
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/teacher/assets/students.png"))); // NOI18N
-        jLabel10.setText("Students");
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/student/assets/detail.png"))); // NOI18N
+        jLabel10.setText("Infomation");
         jLabel10.setIconTextGap(10);
 
         javax.swing.GroupLayout panelTabStudents4Layout = new javax.swing.GroupLayout(panelTabStudents4);
@@ -249,8 +264,8 @@ public class Student extends javax.swing.JFrame {
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/teacher/assets/exercises.png"))); // NOI18N
-        jLabel11.setText("Exercises");
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/teacher/assets/students.png"))); // NOI18N
+        jLabel11.setText("Students");
         jLabel11.setIconTextGap(10);
 
         javax.swing.GroupLayout panelTabExercisesLayout = new javax.swing.GroupLayout(panelTabExercises);
@@ -266,6 +281,27 @@ public class Student extends javax.swing.JFrame {
             .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
         );
 
+        panelTabExercises2.setBackground(new java.awt.Color(46, 81, 133));
+
+        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/teacher/assets/exercises.png"))); // NOI18N
+        jLabel13.setText("Exercises");
+        jLabel13.setIconTextGap(10);
+
+        javax.swing.GroupLayout panelTabExercises2Layout = new javax.swing.GroupLayout(panelTabExercises2);
+        panelTabExercises2.setLayout(panelTabExercises2Layout);
+        panelTabExercises2Layout.setHorizontalGroup(
+            panelTabExercises2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelTabExercises2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE))
+        );
+        panelTabExercises2Layout.setVerticalGroup(
+            panelTabExercises2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout panelSidebarCourseLayout = new javax.swing.GroupLayout(panelSidebarCourse);
         panelSidebarCourse.setLayout(panelSidebarCourseLayout);
         panelSidebarCourseLayout.setHorizontalGroup(
@@ -277,6 +313,7 @@ public class Student extends javax.swing.JFrame {
             .addComponent(panelTabStudents4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(panelTabLessons, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(panelTabExercises, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelTabExercises2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         panelSidebarCourseLayout.setVerticalGroup(
             panelSidebarCourseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -290,6 +327,8 @@ public class Student extends javax.swing.JFrame {
                 .addComponent(panelTabLessons, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(panelTabExercises, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(panelTabExercises2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 70, Short.MAX_VALUE))
         );
 
@@ -310,7 +349,7 @@ public class Student extends javax.swing.JFrame {
                 .addComponent(panelTabCourses, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(panelSidebarCourse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 214, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 154, Short.MAX_VALUE)
                 .addComponent(labelCopyright)
                 .addGap(10, 10, 10))
         );
@@ -402,6 +441,7 @@ public class Student extends javax.swing.JFrame {
 
         panelCourseDetail.setBackground(new java.awt.Color(191, 217, 255));
         panelCourseDetail.setAutoscrolls(true);
+        panelCourseDetail.setPreferredSize(new java.awt.Dimension(1000, 658));
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/student/assets/web_course.png"))); // NOI18N
 
@@ -418,13 +458,14 @@ public class Student extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel3.setText("Hanh Tran");
 
+        jTextArea2.setEditable(false);
         jTextArea2.setBackground(new java.awt.Color(191, 217, 255));
         jTextArea2.setColumns(20);
         jTextArea2.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         jTextArea2.setLineWrap(true);
         jTextArea2.setRows(5);
         jTextArea2.setText("Master in Practical Web design and development using Photoshop, HTML5, CSS3, Bootstrap and more.\n\n>> What you'll learn:\n1. Will be able to design web page using Photoshop\n2. Will be able to design & dev web page using HTML5\n3. Will be able to design web page using CSS3\n4. Will be able to create responsive web design\n5. Will be able to create Mobile Friendly Web Design\n6. Will be able to create stunning pages using Bootstrap\n");
-        jTextArea2.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.gray, java.awt.Color.gray));
+        jTextArea2.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, java.awt.Color.gray, java.awt.Color.gray));
         jScrollPane1.setViewportView(jTextArea2);
 
         javax.swing.GroupLayout panelCourseDetailLayout = new javax.swing.GroupLayout(panelCourseDetail);
@@ -432,7 +473,7 @@ public class Student extends javax.swing.JFrame {
         panelCourseDetailLayout.setHorizontalGroup(
             panelCourseDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCourseDetailLayout.createSequentialGroup()
-                .addContainerGap(21, Short.MAX_VALUE)
+                .addContainerGap(191, Short.MAX_VALUE)
                 .addGroup(panelCourseDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane1)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCourseDetailLayout.createSequentialGroup()
@@ -485,15 +526,107 @@ public class Student extends javax.swing.JFrame {
             .addGap(0, 590, Short.MAX_VALUE)
         );
 
+        panelAccount.setBackground(new java.awt.Color(191, 217, 255));
+
+        big_avatar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/student/assets/big_avatar.png"))); // NOI18N
+
+        username.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
+        username.setText("username");
+
+        vRule.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.gray, 2));
+
+        fullname.setBackground(new java.awt.Color(191, 217, 255));
+        fullname.setFont(new java.awt.Font("Ubuntu", 1, 48)); // NOI18N
+        fullname.setText("John Doe");
+        fullname.setBorder(null);
+        fullname.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                fullnameMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                fullnameMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                fullnameMouseExited(evt);
+            }
+        });
+        fullname.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fullnameActionPerformed(evt);
+            }
+        });
+
+        btnUpdate.setBackground(new java.awt.Color(147, 186, 243));
+        btnUpdate.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
+        btnUpdate.setForeground(java.awt.Color.black);
+        btnUpdate.setText("Update");
+        btnUpdate.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(191, 217, 255), 1, true));
+        btnUpdate.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnUpdateMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnUpdateMouseExited(evt);
+            }
+        });
+
+        introduction.setBackground(new java.awt.Color(191, 217, 255));
+        introduction.setBorder(null);
+
+        _introduction.setBackground(new java.awt.Color(191, 217, 255));
+        _introduction.setColumns(20);
+        _introduction.setRows(5);
+        _introduction.setText("My name is John Doe\n\nCurrently, I'm student at HCMUS.\n\nInteresting in Web Development and DevOps,...");
+        _introduction.setBorder(null);
+        _introduction.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                _introductionMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                _introductionMouseExited(evt);
+            }
+        });
+        introduction.setViewportView(_introduction);
+
         javax.swing.GroupLayout panelAccountLayout = new javax.swing.GroupLayout(panelAccount);
         panelAccount.setLayout(panelAccountLayout);
         panelAccountLayout.setHorizontalGroup(
             panelAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 830, Short.MAX_VALUE)
+            .addGroup(panelAccountLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(introduction)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAccountLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAccountLayout.createSequentialGroup()
+                        .addComponent(big_avatar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(vRule, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(panelAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(fullname, javax.swing.GroupLayout.DEFAULT_SIZE, 652, Short.MAX_VALUE)
+                            .addGroup(panelAccountLayout.createSequentialGroup()
+                                .addComponent(username)
+                                .addGap(0, 0, Short.MAX_VALUE)))))
+                .addContainerGap())
         );
         panelAccountLayout.setVerticalGroup(
             panelAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 590, Short.MAX_VALUE)
+            .addGroup(panelAccountLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(big_avatar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAccountLayout.createSequentialGroup()
+                        .addComponent(fullname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(username))
+                    .addComponent(vRule, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(introduction, javax.swing.GroupLayout.DEFAULT_SIZE, 420, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout panelMainLayout = new javax.swing.GroupLayout(panelMain);
@@ -510,7 +643,7 @@ public class Student extends javax.swing.JFrame {
             .addGroup(panelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(panelAccount, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(panelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(panelCourseDetail, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(panelCourseDetail, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 830, Short.MAX_VALUE))
         );
         panelMainLayout.setVerticalGroup(
             panelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -551,25 +684,76 @@ public class Student extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void panelTabHomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelTabHomeMouseClicked
+        disableAllScreens();
         enableHomeTab();
         enableHomeScreen();
     }//GEN-LAST:event_panelTabHomeMouseClicked
 
     private void panelTabCoursesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelTabCoursesMouseClicked
+        disableAllScreens();
         enableCoursesTab();
         enableCoursesScreen();
     }//GEN-LAST:event_panelTabCoursesMouseClicked
 
     private void labelMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelMenuMouseClicked
-        panelSidebar.setVisible(!panelSidebar.isVisible());
+//        panelSidebar.setVisible(!panelSidebar.isVisible());
     }//GEN-LAST:event_labelMenuMouseClicked
 
     private void panelCourseItemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCourseItemMouseClicked
         // TODO add your handling code here:
-        labelEnrol.setVisible(true);
+        disableAllScreens();
         panelSidebarCourse.setVisible(true);
+        labelEnrol.setVisible(true);
         enableCourseDetailScreen();
     }//GEN-LAST:event_panelCourseItemMouseClicked
+
+    private void labelAvatarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelAvatarMouseClicked
+        // TODO add your handling code here:
+        disableAllScreens();
+        disableAllTabs();
+        panelAccount.setVisible(true);
+    }//GEN-LAST:event_labelAvatarMouseClicked
+
+    private void fullnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fullnameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fullnameActionPerformed
+
+    private void fullnameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fullnameMouseClicked
+        // TODO add your handling code here:
+//        fullname.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, java.awt.Color.lightGray));
+    }//GEN-LAST:event_fullnameMouseClicked
+
+    private void fullnameMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fullnameMouseExited
+        // TODO add your handling code here:
+        fullname.setBorder(null);
+    }//GEN-LAST:event_fullnameMouseExited
+
+    private void fullnameMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fullnameMouseEntered
+        // TODO add your handling code here:
+        fullname.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, java.awt.Color.lightGray));
+    }//GEN-LAST:event_fullnameMouseEntered
+
+    private void _introductionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event__introductionMouseEntered
+        // TODO add your handling code here:
+        _introduction.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, java.awt.Color.gray, java.awt.Color.gray));
+    }//GEN-LAST:event__introductionMouseEntered
+
+    private void _introductionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event__introductionMouseExited
+        // TODO add your handling code here:
+        _introduction.setBorder(null);
+    }//GEN-LAST:event__introductionMouseExited
+
+    private void btnUpdateMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUpdateMouseEntered
+        // TODO add your handling code here:
+        btnUpdate.setBackground(new java.awt.Color(46, 81, 133));
+        btnUpdate.setForeground(java.awt.Color.white);
+    }//GEN-LAST:event_btnUpdateMouseEntered
+
+    private void btnUpdateMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUpdateMouseExited
+        // TODO add your handling code here:
+        btnUpdate.setBackground(new java.awt.Color(147,186,243));
+        btnUpdate.setForeground(java.awt.Color.black);
+    }//GEN-LAST:event_btnUpdateMouseExited
 
     void enableHomeTab() {
         panelTabHome.setBackground(selectedTab.getBackground());
@@ -583,19 +767,32 @@ public class Student extends javax.swing.JFrame {
         selectedTab = panelTabCourses;
     }
     
+    void disableAllTabs() {
+        panelTabHome.setBackground(panelSidebar.getBackground());
+        panelTabCourses.setBackground(panelSidebar.getBackground());
+    }
+    
     void enableHomeScreen() {
         panelHome.setVisible(true);
-        panelCourses.setVisible(false);
     }
     
     void enableCoursesScreen() {
         panelCourses.setVisible(true);
-        panelHome.setVisible(false);
     }
     
     void enableCourseDetailScreen(){
         panelCourseDetail.setVisible(true);
+    }
+    
+    void disableAllScreens() {
+        labelEnrol.setVisible(false);
+        panelSidebarCourse.setVisible(false);
         panelCourses.setVisible(false);
+        panelCourseDetail.setVisible(false);
+        panelAddCourse.setVisible(false);
+        panelNoti.setVisible(false);
+        panelAccount.setVisible(false);
+        panelHome.setVisible(false);
     }
     
     void updateCopyright() {
@@ -606,13 +803,8 @@ public class Student extends javax.swing.JFrame {
     private void initDisplay() {
         selectedTab = panelTabHome;
         updateCopyright();
-        labelEnrol.setVisible(false);
-        panelSidebarCourse.setVisible(false);
-        panelCourses.setVisible(false);
-        panelCourseDetail.setVisible(false);
-        panelAddCourse.setVisible(false);
-        panelNoti.setVisible(false);
-        panelAccount.setVisible(false);
+        disableAllScreens();
+        panelHome.setVisible(true);
     }
     
     /**
@@ -654,9 +846,16 @@ public class Student extends javax.swing.JFrame {
     private javax.swing.JPanel selectedTab;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextArea _introduction;
+    private javax.swing.JLabel big_avatar;
+    private javax.swing.JButton btnUpdate;
+    private javax.swing.JTextField fullname;
+    private javax.swing.JScrollPane introduction;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -689,8 +888,12 @@ public class Student extends javax.swing.JFrame {
     private javax.swing.JPanel panelSidebarCourse;
     private javax.swing.JPanel panelTabCourses;
     private javax.swing.JPanel panelTabExercises;
+    private javax.swing.JPanel panelTabExercises1;
+    private javax.swing.JPanel panelTabExercises2;
     private javax.swing.JPanel panelTabHome;
     private javax.swing.JPanel panelTabLessons;
     private javax.swing.JPanel panelTabStudents4;
+    private javax.swing.JLabel username;
+    private javax.swing.JLabel vRule;
     // End of variables declaration//GEN-END:variables
 }

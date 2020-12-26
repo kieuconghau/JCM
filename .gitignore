@@ -1,8 +1,8 @@
-/JCM/nbproject/private/
-/JCM/nbproject/Makefile-*.mk
-/JCM/nbproject/Package-*.bash
-/JCM/build/
-/JCM/nbbuild/
-/JCM/dist/
-/JCM/nbdist/
-/JCM/.nb-gradle/
+**/nbproject/private/
+**/nbproject/Makefile-*.mk
+**/nbproject/Package-*.bash
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/

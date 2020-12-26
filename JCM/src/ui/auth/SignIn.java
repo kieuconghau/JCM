@@ -127,7 +127,6 @@ public class SignIn extends javax.swing.JFrame {
         SignInForm.add(signUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 420, -1, -1));
 
         usernamePane.setBackground(new java.awt.Color(191, 217, 255));
-        usernamePane.setBorder(null);
         usernamePane.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 usernamePaneMouseEntered(evt);

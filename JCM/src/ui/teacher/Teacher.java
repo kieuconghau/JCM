@@ -168,8 +168,10 @@ public class Teacher extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         panelExercises = new javax.swing.JPanel();
         jLabel58 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
         panelAnnouncements = new javax.swing.JPanel();
         jLabel59 = new javax.swing.JLabel();
+        jLabel78 = new javax.swing.JLabel();
         panelSetting = new javax.swing.JPanel();
         jLabel66 = new javax.swing.JLabel();
         jTextField3 = new javax.swing.JTextField();
@@ -1763,42 +1765,61 @@ public class Teacher extends javax.swing.JFrame {
                 .addComponent(panelNewLesson, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        panelExercises.setBackground(new java.awt.Color(255, 255, 255));
         panelExercises.setPreferredSize(new java.awt.Dimension(800, 590));
 
         jLabel58.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel58.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel58.setText("Exercises");
 
+        jLabel10.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 102, 102));
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setText("Upcoming feature");
+        jLabel10.setToolTipText("");
+
         javax.swing.GroupLayout panelExercisesLayout = new javax.swing.GroupLayout(panelExercises);
         panelExercises.setLayout(panelExercisesLayout);
         panelExercisesLayout.setHorizontalGroup(
             panelExercisesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel58, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
+            .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         panelExercisesLayout.setVerticalGroup(
             panelExercisesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelExercisesLayout.createSequentialGroup()
                 .addComponent(jLabel58, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 540, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel10)
+                .addGap(0, 517, Short.MAX_VALUE))
         );
 
+        panelAnnouncements.setBackground(new java.awt.Color(255, 255, 255));
         panelAnnouncements.setPreferredSize(new java.awt.Dimension(800, 590));
 
         jLabel59.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel59.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel59.setText("Announcements");
 
+        jLabel78.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
+        jLabel78.setForeground(new java.awt.Color(255, 102, 102));
+        jLabel78.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel78.setText("Upcoming feature");
+
         javax.swing.GroupLayout panelAnnouncementsLayout = new javax.swing.GroupLayout(panelAnnouncements);
         panelAnnouncements.setLayout(panelAnnouncementsLayout);
         panelAnnouncementsLayout.setHorizontalGroup(
             panelAnnouncementsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel59, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
+            .addComponent(jLabel78, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         panelAnnouncementsLayout.setVerticalGroup(
             panelAnnouncementsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelAnnouncementsLayout.createSequentialGroup()
                 .addComponent(jLabel59, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 540, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel78)
+                .addGap(0, 517, Short.MAX_VALUE))
         );
 
         panelSetting.setBackground(new java.awt.Color(255, 255, 255));
@@ -2401,6 +2422,7 @@ public class Teacher extends javax.swing.JFrame {
     private javax.swing.JButton jButton8;
     private javax.swing.JEditorPane jEditorPane2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -2474,6 +2496,7 @@ public class Teacher extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel75;
     private javax.swing.JLabel jLabel76;
     private javax.swing.JLabel jLabel77;
+    private javax.swing.JLabel jLabel78;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;

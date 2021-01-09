@@ -7,9 +7,6 @@
     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
       <Color id="Default Cursor"/>
     </Property>
-    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[1000, 650]"/>
-    </Property>
     <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
       <Dimension value="[1000, 650]"/>
     </Property>
@@ -33,11 +30,11 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="panelHeader" alignment="0" max="32767" attributes="0"/>
+          <Component id="panelHeader" alignment="0" pref="1016" max="32767" attributes="0"/>
           <Group type="102" alignment="0" attributes="0">
               <Component id="panelSidebar" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-              <Component id="panelMain" max="32767" attributes="0"/>
+              <Component id="panelMain" pref="816" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -597,21 +594,21 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="800" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="816" max="32767" attributes="0"/>
               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                  <Component id="panelMyCourses" alignment="1" max="32767" attributes="0"/>
+                  <Component id="panelMyCourses" alignment="1" pref="816" max="32767" attributes="0"/>
               </Group>
               <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
-                  <Component id="panelCourseDetail" alignment="1" max="32767" attributes="0"/>
+                  <Component id="panelCourseDetail" alignment="1" pref="816" max="32767" attributes="0"/>
               </Group>
               <Group type="103" rootIndex="3" groupAlignment="0" attributes="0">
                   <Component id="panelNoti" alignment="0" max="32767" attributes="0"/>
               </Group>
               <Group type="103" rootIndex="4" groupAlignment="0" attributes="0">
-                  <Component id="panelAccount" alignment="1" max="32767" attributes="0"/>
+                  <Component id="panelAccount" alignment="1" pref="816" max="32767" attributes="0"/>
               </Group>
               <Group type="103" rootIndex="5" groupAlignment="0" attributes="0">
-                  <Component id="panelHome" alignment="1" max="32767" attributes="0"/>
+                  <Component id="panelHome" alignment="1" pref="816" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -651,12 +648,13 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel9" alignment="0" max="32767" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="jPanel1" max="32767" attributes="0"/>
                           <Component id="MyRecentCourse2" alignment="1" max="32767" attributes="0"/>
                           <Component id="MyRecentCourse1" alignment="1" max="32767" attributes="0"/>
-                          <Component id="MyRecentCourse0" alignment="1" pref="740" max="32767" attributes="0"/>
+                          <Component id="MyRecentCourse0" alignment="1" pref="756" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
                   </Group>
@@ -672,7 +670,9 @@
                       <Component id="MyRecentCourse1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                       <Component id="MyRecentCourse2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="280" max="32767" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="jPanel1" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -927,6 +927,26 @@
                 </Component>
               </SubComponents>
             </Container>
+            <Container class="javax.swing.JPanel" name="jPanel1">
+              <Properties>
+                <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[756, 250]"/>
+                </Property>
+              </Properties>
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <EmptySpace min="0" pref="756" max="32767" attributes="0"/>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <EmptySpace min="0" pref="250" max="32767" attributes="0"/>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+            </Container>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="panelMyCourses">
@@ -973,7 +993,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="MyCourse2" alignment="1" max="32767" attributes="0"/>
                               <Component id="MyCourse1" alignment="1" max="32767" attributes="0"/>
-                              <Component id="MyCourse0" alignment="1" pref="740" max="32767" attributes="0"/>
+                              <Component id="MyCourse0" alignment="1" pref="756" max="32767" attributes="0"/>
                               <Component id="MyCourse4" alignment="0" max="32767" attributes="0"/>
                               <Component id="MyCourse3" alignment="0" max="32767" attributes="0"/>
                           </Group>
@@ -1651,16 +1671,16 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="panelParticipants" alignment="0" max="32767" attributes="0"/>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                      <Component id="panelLessons" alignment="1" max="32767" attributes="0"/>
+                      <Component id="panelLessons" alignment="1" pref="816" max="32767" attributes="0"/>
                   </Group>
                   <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
-                      <Component id="panelExercises" alignment="1" max="32767" attributes="0"/>
+                      <Component id="panelExercises" alignment="1" pref="816" max="32767" attributes="0"/>
                   </Group>
                   <Group type="103" rootIndex="3" groupAlignment="0" attributes="0">
-                      <Component id="panelAnnouncements" alignment="1" max="32767" attributes="0"/>
+                      <Component id="panelAnnouncements" alignment="1" pref="816" max="32767" attributes="0"/>
                   </Group>
                   <Group type="103" rootIndex="4" groupAlignment="0" attributes="0">
-                      <Component id="panelInfo" alignment="1" max="32767" attributes="0"/>
+                      <Component id="panelInfo" alignment="1" pref="816" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -2016,9 +2036,9 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="panelLesson1" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="panelLesson0" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="panelLesson2" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="panelLesson1" alignment="0" pref="756" max="32767" attributes="0"/>
+                                  <Component id="panelLesson0" alignment="0" pref="756" max="32767" attributes="0"/>
+                                  <Component id="panelLesson2" alignment="0" pref="756" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                           </Group>

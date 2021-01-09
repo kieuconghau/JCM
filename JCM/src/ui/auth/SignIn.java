@@ -5,8 +5,8 @@
  */
 package ui.auth;
 
-import ui.student.Student;
-import ui.teacher.Teacher;
+import ui.student.StudentApp;
+import ui.teacher.TeacherApp;
 /**
  *
  * @author JByNine
@@ -414,9 +414,9 @@ public class SignIn extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.setVisible(false);
         if (isTeacher.isSelected()) {
-            new Teacher().setVisible(true);
+            new TeacherApp().setVisible(true);
         } else {
-            new Student().setVisible(true);
+            new StudentApp().setVisible(true);
         }
     }//GEN-LAST:event_btnSignInMouseClicked
 

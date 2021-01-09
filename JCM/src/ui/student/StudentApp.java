@@ -2150,22 +2150,22 @@ public class StudentApp extends javax.swing.JFrame {
         
         courses[0] = new Course(
                 1,
+                1,
                 "Algorithms",
-                "An introduction to Greedy Algorithms, Dynamic Programming, Tree, Graph Theory, etc.",
                 "/ui/teacher/assets/course_algo.png",
-                1);
+                "An introduction to Greedy Algorithms, Dynamic Programming, Tree, Graph Theory, etc.");
         courses[1] = new Course(
                 2,
+                2,
                 "Java Programming",
-                "An introduction to Java syntax, Java collections, Java swing, Multithreaded Programming, Networking, etc.",
                 "/ui/teacher/assets/course_java.png",
-                2);
+                "An introduction to Java syntax, Java collections, Java swing, Multithreaded Programming, Networking, etc.");
         courses[2] = new Course(
                 3,
+                3,
                 "Web Application Programming",
-                "An introduction to HTML5, CSS3, Javascript, Node.js, Express.js, Mongoose, etc.",
                 "/ui/teacher/assets/course_js.png",
-                3);    
+                "An introduction to HTML5, CSS3, Javascript, Node.js, Express.js, Mongoose, etc.");    
         
         for (Course x : courses)
             listCourses.list.addPanelHead(listCourses.list.getPane(

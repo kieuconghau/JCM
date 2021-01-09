@@ -26,7 +26,7 @@ CREATE TABLE `course` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `author_id` int unsigned NOT NULL,
   `name` varchar(150) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `image_index` int unsigned NOT NULL,
+  `image_path` varchar(200) NOT NULL,
   `description` longtext NOT NULL,
   `date_created` datetime NOT NULL,
   `date_opened` datetime NOT NULL,
@@ -134,7 +134,7 @@ CREATE TABLE `user` (
   `username` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `password` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `full_name` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `avatar_index` int unsigned NOT NULL,
+  `avatar_path` varchar(200) NOT NULL,
   `role` int NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -158,4 +158,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-01-10  3:06:55
+-- Dump completed on 2021-01-10  3:35:44

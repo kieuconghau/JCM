@@ -2,6 +2,7 @@ package ui.core;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -10,6 +11,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import javax.swing.BoxLayout;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -44,10 +46,11 @@ public class ListPanel extends JPanel
         this.panels = new ArrayList<JPanel>();
         setLayout(new GridBagLayout());
     }
-
+    
+    
     public void addPanel(JPanel p, int height)
     {
-        addPanel(p, height, new Insets(2, 0, 2, 0));
+        addPanel(p, height, new Insets(5, 0, 5, 0));
     }
     
     public void addPanel() {
@@ -66,6 +69,39 @@ public class ListPanel extends JPanel
         gbc.insets = insets;
         gbc.weightx = 1.0;
         panels.add(p);
+        add(p, gbc);
+        gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.gridy = getComponentCount();
+        gbc.fill = GridBagConstraints.VERTICAL;
+        gbc.weighty = 1.0;
+        add(fillerPanel, gbc);
+        revalidate();
+        invalidate();
+        repaint();
+    }
+
+    public void addPanelHead(JPanel p, int height)
+    {
+        addPanelHead(p, height, new Insets(5, 0, 5, 0));
+    }
+    
+    public void addPanelHead() {
+        addPanelHead(getRandomJPanel(), new Random().nextInt(50) + 50);
+    }
+
+    public void addPanelHead(JPanel p, int height, Insets insets)
+    {
+        super.remove(fillerPanel);
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.gridy = getComponentCount();
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.anchor = GridBagConstraints.PAGE_START;
+        gbc.ipady = height;
+        gbc.insets = insets;
+        gbc.weightx = 1.0;
+        panels.add(0, p);
         add(p, gbc);
         gbc = new GridBagConstraints();
         gbc.gridx = 0;
@@ -139,5 +175,51 @@ public class ListPanel extends JPanel
         panel.add(new JLabel("This is a randomly sized JPanel"));
         panel.setBackground(new Color(new Random().nextFloat(), new Random().nextFloat(), new Random().nextFloat()));
         return panel;
+    }
+    
+    public JPanel getPane(String iconPath, String courseName, String courseDescription) {
+        JPanel pane = new JPanel();
+        JLabel icon = new JLabel();
+        JLabel title = new JLabel();
+        JLabel description = new JLabel();
+        
+        pane.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        pane.setPreferredSize(new java.awt.Dimension(0, 27));
+        pane.setBackground(Color.white);
+
+        icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        icon.setIcon(new javax.swing.ImageIcon(getClass().getResource(iconPath)));
+
+        title.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        title.setText(courseName);
+
+        description.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        description.setText(courseDescription);
+        
+        javax.swing.GroupLayout MyRecentCourse0Layout = new javax.swing.GroupLayout(pane);
+        pane.setLayout(MyRecentCourse0Layout);
+        MyRecentCourse0Layout.setHorizontalGroup(MyRecentCourse0Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MyRecentCourse0Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(icon)
+                .addGroup(MyRecentCourse0Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(MyRecentCourse0Layout.createSequentialGroup()
+                    .addGap(20, 20, 20)
+                    .addComponent(title, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                )
+                .addGroup(MyRecentCourse0Layout.createSequentialGroup()
+                    .addGap(20, 20, 20)
+                    .addComponent(description, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                )))
+        );
+        MyRecentCourse0Layout.setVerticalGroup(MyRecentCourse0Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MyRecentCourse0Layout.createSequentialGroup()
+                .addGroup(MyRecentCourse0Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(icon, 70, 70, 70)
+                    .addGroup(MyRecentCourse0Layout.createSequentialGroup()    
+                    .addComponent(title, 45, 45, 45)
+                    .addComponent(description))))
+        );
+        return pane;
     }
 }

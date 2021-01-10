@@ -5,6 +5,7 @@
  */
 package ui.teacher;
 
+import core.entity.AccountEntity;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -16,6 +17,7 @@ import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.Icon;
+import javax.swing.JOptionPane;
 import javax.swing.text.html.HTMLEditorKit;
 
 /**
@@ -23,10 +25,19 @@ import javax.swing.text.html.HTMLEditorKit;
  * @author PC
  */
 public class TeacherApp extends javax.swing.JFrame {
+    AccountEntity _account;
 
     /**
      * Creates new form App
      */
+     public TeacherApp(AccountEntity account) {
+        initComponents();
+        initDisplay();
+        initEvents();
+        initData();
+        this._account =  account;
+        JOptionPane.showMessageDialog(this , "Hello teacher, " + this._account.getUserModel().getUsername());
+    }
     public TeacherApp() {
         initComponents();
         initDisplay();
@@ -550,7 +561,7 @@ public class TeacherApp extends javax.swing.JFrame {
         jLabel9.setBackground(new java.awt.Color(255, 255, 255));
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setText("MY RECENT COURSES");
+        jLabel9.setText("ALL COURSES");
         jLabel9.setPreferredSize(new java.awt.Dimension(800, 50));
 
         MyRecentCourse0.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));

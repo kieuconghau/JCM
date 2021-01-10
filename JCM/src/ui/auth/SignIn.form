@@ -330,7 +330,7 @@
                     <Font component="username" property="font" relativeSize="false" size="18"/>
                   </FontInfo>
                 </Property>
-                <Property name="text" type="java.lang.String" value="johnDoe"/>
+                <Property name="text" type="java.lang.String" value="hocsinh"/>
                 <Property name="toolTipText" type="java.lang.String" value=""/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="null"/>
@@ -395,7 +395,7 @@
                     <Font component="password" property="font" relativeSize="false" size="18"/>
                   </FontInfo>
                 </Property>
-                <Property name="text" type="java.lang.String" value="password"/>
+                <Property name="text" type="java.lang.String" value="admin"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="null"/>
                 </Property>

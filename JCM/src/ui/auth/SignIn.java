@@ -7,6 +7,8 @@ package ui.auth;
 
 import ui.student.StudentApp;
 import ui.teacher.TeacherApp;
+import core.entity.AccountEntity;
+import javax.swing.JOptionPane;
 /**
  *
  * @author JByNine
@@ -161,7 +163,7 @@ public class SignIn extends javax.swing.JFrame {
 
         username.setBackground(new java.awt.Color(191, 217, 255));
         username.setFont(username.getFont().deriveFont((float)18));
-        username.setText("johnDoe");
+        username.setText("hocsinh");
         username.setToolTipText("");
         username.setBorder(null);
         username.setName("username"); // NOI18N
@@ -219,7 +221,7 @@ public class SignIn extends javax.swing.JFrame {
 
         password.setBackground(new java.awt.Color(191, 217, 255));
         password.setFont(password.getFont().deriveFont((float)18));
-        password.setText("password");
+        password.setText("admin");
         password.setBorder(null);
         password.setName("password"); // NOI18N
         password.setSelectionColor(new java.awt.Color(46, 81, 133));
@@ -456,11 +458,41 @@ public class SignIn extends javax.swing.JFrame {
 
     private void btnSignInMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSignInMouseClicked
         // TODO add your handling code here:
-        this.setVisible(false);
+        
 //        if (isTeacher.isSelected()) {
 //            new TeacherApp().setVisible(true);
 //        } else {
-            new StudentApp().setVisible(true);
+//TODO: snowdence
+            String _username = this.username.getText();
+            String _password = this.password.getText();
+            AccountEntity accountEntity = new AccountEntity();
+            int status_login = accountEntity.login(_username, _password);
+            switch(status_login){
+                case -1:
+                    setAlwaysOnTop(false);
+                    JOptionPane.showMessageDialog(this , "User not existed");
+                    setAlwaysOnTop(true);
+
+                    break;
+                case -2:
+                    setAlwaysOnTop(false);
+
+                    JOptionPane.showMessageDialog(this , "Password incorrect");
+                    setAlwaysOnTop(true);
+
+                    break;
+                case 0:
+                    this.setVisible(false);
+                    //JOptionPane.showMessageDialog(this , "Success login"  +  accountEntity.getUserModel().getFullName() );
+                    if(accountEntity.isStudent()){
+                        new StudentApp(accountEntity).setVisible(true);
+                    }
+                    else{
+                        new TeacherApp(accountEntity).setVisible(true);
+                    }
+                    break;
+            }            
+          
 //        }
     }//GEN-LAST:event_btnSignInMouseClicked
 

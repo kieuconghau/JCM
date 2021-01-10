@@ -7,6 +7,8 @@ package ui.auth;
 
 import ui.student.StudentApp;
 import ui.teacher.TeacherApp;
+import core.entity.AccountEntity;
+import javax.swing.JOptionPane;
 /**
  *
  * @author JByNine
@@ -456,11 +458,27 @@ public class SignIn extends javax.swing.JFrame {
 
     private void btnSignInMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSignInMouseClicked
         // TODO add your handling code here:
-        this.setVisible(false);
+       // this.setVisible(false);
 //        if (isTeacher.isSelected()) {
 //            new TeacherApp().setVisible(true);
 //        } else {
-            new StudentApp().setVisible(true);
+//TODO: snowdence
+            String _username = this.username.getText();
+            String _password = this.password.getText();
+            AccountEntity accountEntity = new AccountEntity();
+            int status_login = accountEntity.login(_username, _password);
+            switch(status_login){
+                case -1:
+                    JOptionPane.showMessageDialog(this , "User not existed");
+                    break;
+                case -2:
+                    JOptionPane.showMessageDialog(this , "Password incorrect");
+                    break;
+                case 0:
+                    JOptionPane.showMessageDialog(this , "Success login"  +  accountEntity.getUserModel().getFullName() );
+                    break;
+            }            
+            //new StudentApp().setVisible(true);
 //        }
     }//GEN-LAST:event_btnSignInMouseClicked
 

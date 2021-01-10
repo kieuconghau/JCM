@@ -8,6 +8,8 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -16,6 +18,7 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.border.BevelBorder;
@@ -179,6 +182,12 @@ public class ListPanel extends JPanel
     
     public JPanel getPane(String iconPath, String courseName, String courseDescription) {
         JPanel pane = new JPanel();
+        pane.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent mouseEvent) {
+                JOptionPane.showMessageDialog(pane , "Password incorrect");
+            }
+       });
         JLabel icon = new JLabel();
         JLabel title = new JLabel();
         JLabel description = new JLabel();

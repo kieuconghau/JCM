@@ -46,39 +46,13 @@ LOCK TABLES `course` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `course_lesson`
+-- Table structure for table `enrollment`
 --
 
-DROP TABLE IF EXISTS `course_lesson`;
+DROP TABLE IF EXISTS `enrollment`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `course_lesson` (
-  `course_id` int unsigned NOT NULL,
-  `lesson_id` int unsigned NOT NULL,
-  PRIMARY KEY (`course_id`,`lesson_id`),
-  KEY `fk_courselesson_lesson_idx` (`lesson_id`),
-  CONSTRAINT `fk_courselesson_course` FOREIGN KEY (`course_id`) REFERENCES `course` (`id`),
-  CONSTRAINT `fk_courselesson_lesson` FOREIGN KEY (`lesson_id`) REFERENCES `lesson` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `course_lesson`
---
-
-LOCK TABLES `course_lesson` WRITE;
-/*!40000 ALTER TABLE `course_lesson` DISABLE KEYS */;
-/*!40000 ALTER TABLE `course_lesson` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `course_user`
---
-
-DROP TABLE IF EXISTS `course_user`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `course_user` (
+CREATE TABLE `enrollment` (
   `course_id` int unsigned NOT NULL,
   `user_id` int unsigned NOT NULL,
   PRIMARY KEY (`course_id`,`user_id`),
@@ -89,12 +63,12 @@ CREATE TABLE `course_user` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `course_user`
+-- Dumping data for table `enrollment`
 --
 
-LOCK TABLES `course_user` WRITE;
-/*!40000 ALTER TABLE `course_user` DISABLE KEYS */;
-/*!40000 ALTER TABLE `course_user` ENABLE KEYS */;
+LOCK TABLES `enrollment` WRITE;
+/*!40000 ALTER TABLE `enrollment` DISABLE KEYS */;
+/*!40000 ALTER TABLE `enrollment` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -106,10 +80,13 @@ DROP TABLE IF EXISTS `lesson`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `lesson` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `course_id` int unsigned NOT NULL,
   `title` varchar(150) NOT NULL,
   `description` longtext NOT NULL,
   `content` longtext NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `fk_lesson_course_idx` (`course_id`),
+  CONSTRAINT `fk_lesson_course` FOREIGN KEY (`course_id`) REFERENCES `course` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -137,7 +114,7 @@ CREATE TABLE `user` (
   `avatar_path` varchar(200) NOT NULL,
   `role` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -158,4 +135,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-01-10  3:35:44
+-- Dump completed on 2021-01-10  7:05:49

@@ -6,6 +6,7 @@
 package ui.teacher;
 
 import java.awt.Color;
+import core.entity.AccountEntity;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -19,10 +20,19 @@ import java.util.Calendar;
  * @author PC
  */
 public class TeacherApp extends javax.swing.JFrame {
+    AccountEntity _account;
 
     /**
      * Creates new form App
      */
+     public TeacherApp(AccountEntity account) {
+        initComponents();
+        initDisplay();
+        initEvents();
+        initData();
+        this._account =  account;
+        javax.swing.JOptionPane.showMessageDialog(this , "Hello teacher, " + this._account.getUserModel().getUsername());
+    }
     public TeacherApp() {
         initComponents();
         initDisplay();
@@ -563,7 +573,7 @@ public class TeacherApp extends javax.swing.JFrame {
         jLabel9.setBackground(new java.awt.Color(255, 255, 255));
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setText("MY RECENT COURSES");
+        jLabel9.setText("RECENT COURSES");
         jLabel9.setPreferredSize(new java.awt.Dimension(800, 50));
 
         MyRecentCourse0.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -1074,7 +1084,7 @@ public class TeacherApp extends javax.swing.JFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addComponent(jLabel75)
-                .addContainerGap(756, Short.MAX_VALUE))
+                .addContainerGap(740, Short.MAX_VALUE))
             .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel5Layout.setVerticalGroup(

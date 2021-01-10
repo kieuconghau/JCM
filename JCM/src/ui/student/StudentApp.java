@@ -13,15 +13,29 @@ import java.util.Calendar;
 import javax.swing.text.html.*;
 import ui.core.MyListPanel;
 import javax.swing.*;
+
+import core.entity.AccountEntity;
+import core.model.CourseModel;
+import core.service.MCourseService;
+import java.util.ArrayList;
+
 /**
  *
  * @author JByNine
  */
 public class StudentApp extends javax.swing.JFrame {
-
+    AccountEntity _account;
+    
     /**
      * Creates new form App
      */
+    public StudentApp(AccountEntity account) {
+        initComponents();
+        initDisplay();
+        this._account =  account;
+        JOptionPane.showMessageDialog(this , "Hello, " + this._account.getUserModel().getUsername());
+
+    }
     public StudentApp() {
         initComponents();
         initDisplay();
@@ -2148,31 +2162,17 @@ public class StudentApp extends javax.swing.JFrame {
         jPanel1.setLayout(new BorderLayout());
         jPanel1.add(listCourses.scrollPane, BorderLayout.CENTER);
         
-        courses[0] = new Course(
-                1,
-                1,
-                "Algorithms",
-                "/ui/teacher/assets/course_algo.png",
-                "An introduction to Greedy Algorithms, Dynamic Programming, Tree, Graph Theory, etc.");
-        courses[1] = new Course(
-                2,
-                2,
-                "Java Programming",
-                "/ui/teacher/assets/course_java.png",
-                "An introduction to Java syntax, Java collections, Java swing, Multithreaded Programming, Networking, etc.");
-        courses[2] = new Course(
-                3,
-                3,
-                "Web Application Programming",
-                "/ui/teacher/assets/course_js.png",
-                "An introduction to HTML5, CSS3, Javascript, Node.js, Express.js, Mongoose, etc.");    
-        
-        for (Course x : courses)
-            listCourses.list.addPanelHead(listCourses.list.getPane(
-                    x.getImagePath(),
-                    x.getName(),
-                    x.getDescription()
+        MCourseService mcourseService = new MCourseService();
+        ArrayList<CourseModel> allCourses = mcourseService.getAllCourses();
+        for(CourseModel t : allCourses){
+            System.out.println(t);
+             listCourses.list.addPanelHead(listCourses.list.getPane(
+                t.getImagePath(),
+                t.getName(),
+                t.getDescription()
             ), 55);
+        }
+        
     }
     
     /**
@@ -2215,7 +2215,7 @@ public class StudentApp extends javax.swing.JFrame {
     
     private java.awt.Color selectedTabColor;
     MyListPanel listCourses = new MyListPanel();
-    Course[] courses = new Course[3];
+    Course[] courses = new Course[5];
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel MyCourse0;
     private javax.swing.JPanel MyCourse1;

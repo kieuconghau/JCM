@@ -6,7 +6,7 @@ import java.sql.DriverManager;
 public class MDBConnector {
     private String DB_URL = "jdbc:mysql://localhost:3306";
     private String USER_NAME = "root";
-    private String PASSWORD = "";
+    private String PASSWORD = "Thailo1!";
     private Connection conn = null;
     private static MDBConnector instance =null;
     private boolean stateConnection;

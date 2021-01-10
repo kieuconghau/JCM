@@ -77,30 +77,11 @@ public class StudentApp extends javax.swing.JFrame {
         panelMain = new javax.swing.JPanel();
         panelHome = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
+        homeCourses = new javax.swing.JPanel();
         panelMyCourses = new javax.swing.JPanel();
         panelMyCoursesMain = new javax.swing.JPanel();
-        MyCourse0 = new javax.swing.JPanel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
-        MyCourse1 = new javax.swing.JPanel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
-        MyCourse2 = new javax.swing.JPanel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
-        MyCourse3 = new javax.swing.JPanel();
-        jLabel23 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
-        jLabel25 = new javax.swing.JLabel();
-        MyCourse4 = new javax.swing.JPanel();
-        jLabel26 = new javax.swing.JLabel();
-        jLabel27 = new javax.swing.JLabel();
-        jLabel28 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
+        myCourses = new javax.swing.JPanel();
         panelNewCourse = new javax.swing.JPanel();
         jLabel73 = new javax.swing.JLabel();
         jTextField7 = new javax.swing.JTextField();
@@ -225,7 +206,7 @@ public class StudentApp extends javax.swing.JFrame {
 
         labelLogo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         labelLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/teacher/assets/logo_50.png"))); // NOI18N
+        labelLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/student/assets/online-course.png"))); // NOI18N
         labelLogo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         labelLogo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -250,10 +231,10 @@ public class StudentApp extends javax.swing.JFrame {
         );
         panelHeaderLayout.setVerticalGroup(
             panelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(labelAvatar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(labelAvatar, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
             .addComponent(labelNoti, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(labelMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(labelLogo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+            .addComponent(labelLogo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
 
         panelSidebar.setBackground(new java.awt.Color(46, 81, 133));
@@ -520,26 +501,26 @@ public class StudentApp extends javax.swing.JFrame {
 
         panelMain.setPreferredSize(new java.awt.Dimension(800, 590));
 
-        panelHome.setBackground(new java.awt.Color(255, 255, 255));
+        panelHome.setBackground(new java.awt.Color(238, 238, 238));
         panelHome.setPreferredSize(new java.awt.Dimension(800, 590));
 
-        jLabel9.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel9.setBackground(new java.awt.Color(238, 238, 238));
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("MY RECENT COURSES");
         jLabel9.setPreferredSize(new java.awt.Dimension(800, 50));
 
-        jPanel1.setBackground(java.awt.Color.white);
-        jPanel1.setMaximumSize(new java.awt.Dimension(756, 250));
+        homeCourses.setBackground(java.awt.Color.white);
+        homeCourses.setMaximumSize(new java.awt.Dimension(756, 250));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout homeCoursesLayout = new javax.swing.GroupLayout(homeCourses);
+        homeCourses.setLayout(homeCoursesLayout);
+        homeCoursesLayout.setHorizontalGroup(
+            homeCoursesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        homeCoursesLayout.setVerticalGroup(
+            homeCoursesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 522, Short.MAX_VALUE)
         );
 
@@ -550,7 +531,7 @@ public class StudentApp extends javax.swing.JFrame {
             .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 816, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelHomeLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(homeCourses, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(30, 30, 30))
         );
         panelHomeLayout.setVerticalGroup(
@@ -558,7 +539,7 @@ public class StudentApp extends javax.swing.JFrame {
             .addGroup(panelHomeLayout.createSequentialGroup()
                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(homeCourses, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -567,275 +548,42 @@ public class StudentApp extends javax.swing.JFrame {
 
         panelMyCoursesMain.setBackground(new java.awt.Color(255, 255, 255));
 
-        MyCourse0.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        MyCourse0.setPreferredSize(new java.awt.Dimension(0, 80));
-        MyCourse0.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                MyCourse0MouseClicked(evt);
-            }
-        });
-
-        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/teacher/assets/course_algo.png"))); // NOI18N
-
-        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel14.setText("Algorithms I");
-        jLabel14.setPreferredSize(new java.awt.Dimension(86, 30));
-
-        jLabel19.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel19.setText("An introduction to Greedy Algorithms, Dynamic Programming, Tree, Graph Theory, etc.");
-        jLabel19.setPreferredSize(new java.awt.Dimension(30, 14));
-
-        javax.swing.GroupLayout MyCourse0Layout = new javax.swing.GroupLayout(MyCourse0);
-        MyCourse0.setLayout(MyCourse0Layout);
-        MyCourse0Layout.setHorizontalGroup(
-            MyCourse0Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(MyCourse0Layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(jLabel13)
-                .addGroup(MyCourse0Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(MyCourse0Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(MyCourse0Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())))
-        );
-        MyCourse0Layout.setVerticalGroup(
-            MyCourse0Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(MyCourse0Layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addGroup(MyCourse0Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(MyCourse0Layout.createSequentialGroup()
-                        .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0)
-                        .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(10, 10, 10))
-        );
-
-        MyCourse1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        MyCourse1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                MyCourse1MouseClicked(evt);
-            }
-        });
-
-        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/teacher/assets/course_java.png"))); // NOI18N
-
-        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel16.setText("Java Programming");
-
-        jLabel20.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel20.setText("An introduction to Java syntax, Java collections, Java swing, Multithreaded Programming, Networking, etc.");
-
-        javax.swing.GroupLayout MyCourse1Layout = new javax.swing.GroupLayout(MyCourse1);
-        MyCourse1.setLayout(MyCourse1Layout);
-        MyCourse1Layout.setHorizontalGroup(
-            MyCourse1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(MyCourse1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(MyCourse1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(MyCourse1Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jLabel16)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(MyCourse1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, 642, Short.MAX_VALUE)
-                        .addContainerGap())))
-        );
-        MyCourse1Layout.setVerticalGroup(
-            MyCourse1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(MyCourse1Layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addGroup(MyCourse1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(MyCourse1Layout.createSequentialGroup()
-                        .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0)
-                        .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(10, 10, 10))
-        );
-
-        MyCourse2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        MyCourse2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                MyCourse2MouseClicked(evt);
-            }
-        });
-
-        jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/teacher/assets/course_js.png"))); // NOI18N
-
-        jLabel18.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel18.setText("Web Application Programming");
-
-        jLabel21.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel21.setText("An introduction to HTML5, CSS3, Javascript, Node.js, Express.js, Mongoose, etc.");
-
-        javax.swing.GroupLayout MyCourse2Layout = new javax.swing.GroupLayout(MyCourse2);
-        MyCourse2.setLayout(MyCourse2Layout);
-        MyCourse2Layout.setHorizontalGroup(
-            MyCourse2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(MyCourse2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(MyCourse2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(MyCourse2Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jLabel18)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(MyCourse2Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())))
-        );
-        MyCourse2Layout.setVerticalGroup(
-            MyCourse2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(MyCourse2Layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addGroup(MyCourse2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(MyCourse2Layout.createSequentialGroup()
-                        .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0)
-                        .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(10, 10, 10))
-        );
-
-        MyCourse3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        MyCourse3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                MyCourse3MouseClicked(evt);
-            }
-        });
-
-        jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/teacher/assets/course_ai.png"))); // NOI18N
-
-        jLabel24.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel24.setText("Artificial Intelligence");
-
-        jLabel25.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel25.setText("An introduction to Search Strategies, CSP, Logical Agents, Basic Machine Learning, Neural Network, etc.");
-
-        javax.swing.GroupLayout MyCourse3Layout = new javax.swing.GroupLayout(MyCourse3);
-        MyCourse3.setLayout(MyCourse3Layout);
-        MyCourse3Layout.setHorizontalGroup(
-            MyCourse3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(MyCourse3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(MyCourse3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(MyCourse3Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jLabel24)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(MyCourse3Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel25, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())))
-        );
-        MyCourse3Layout.setVerticalGroup(
-            MyCourse3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(MyCourse3Layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addGroup(MyCourse3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(MyCourse3Layout.createSequentialGroup()
-                        .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0)
-                        .addComponent(jLabel25, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jLabel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-
-        MyCourse4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        MyCourse4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                MyCourse4MouseClicked(evt);
-            }
-        });
-
-        jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/teacher/assets/course_db.png"))); // NOI18N
-
-        jLabel27.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel27.setText("Database Systems");
-
-        jLabel28.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel28.setText("Learn the core concepts of database systems including data models, query languages, etc.");
-        jLabel28.setPreferredSize(new java.awt.Dimension(500, 15));
-
-        javax.swing.GroupLayout MyCourse4Layout = new javax.swing.GroupLayout(MyCourse4);
-        MyCourse4.setLayout(MyCourse4Layout);
-        MyCourse4Layout.setHorizontalGroup(
-            MyCourse4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(MyCourse4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(MyCourse4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(MyCourse4Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jLabel27)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(MyCourse4Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel28, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())))
-        );
-        MyCourse4Layout.setVerticalGroup(
-            MyCourse4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(MyCourse4Layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addGroup(MyCourse4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(MyCourse4Layout.createSequentialGroup()
-                        .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0)
-                        .addComponent(jLabel28, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jLabel26, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-
         jLabel12.setBackground(new java.awt.Color(255, 255, 255));
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel12.setText("MY COURSES");
 
+        myCourses.setBackground(java.awt.Color.white);
+        myCourses.setMaximumSize(new java.awt.Dimension(756, 250));
+
+        javax.swing.GroupLayout myCoursesLayout = new javax.swing.GroupLayout(myCourses);
+        myCourses.setLayout(myCoursesLayout);
+        myCoursesLayout.setHorizontalGroup(
+            myCoursesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        myCoursesLayout.setVerticalGroup(
+            myCoursesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 522, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout panelMyCoursesMainLayout = new javax.swing.GroupLayout(panelMyCoursesMain);
         panelMyCoursesMain.setLayout(panelMyCoursesMainLayout);
         panelMyCoursesMainLayout.setHorizontalGroup(
             panelMyCoursesMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, 816, Short.MAX_VALUE)
             .addGroup(panelMyCoursesMainLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(panelMyCoursesMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(MyCourse2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(MyCourse1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(MyCourse0, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 756, Short.MAX_VALUE)
-                    .addComponent(MyCourse4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(MyCourse3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(30, 30, 30))
-            .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(21, 21, 21)
+                .addComponent(myCourses, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         panelMyCoursesMainLayout.setVerticalGroup(
             panelMyCoursesMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelMyCoursesMainLayout.createSequentialGroup()
                 .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(MyCourse0, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(MyCourse1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(MyCourse2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(MyCourse3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(MyCourse4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(98, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(myCourses, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         panelNewCourse.setBackground(new java.awt.Color(255, 255, 255));
@@ -1868,11 +1616,6 @@ public class StudentApp extends javax.swing.JFrame {
         panelAccount.setVisible(true);
     }//GEN-LAST:event_labelAvatarMouseClicked
 
-    private void labelLogoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelLogoMouseClicked
-        panelSidebar.setVisible(true);
-        showHomeScreen();
-    }//GEN-LAST:event_labelLogoMouseClicked
-
     private void panelTabHomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelTabHomeMouseClicked
         showHomeScreen();
     }//GEN-LAST:event_panelTabHomeMouseClicked
@@ -1900,26 +1643,6 @@ public class StudentApp extends javax.swing.JFrame {
     private void panelTabInfoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelTabInfoMouseClicked
         showSettingScreen();
     }//GEN-LAST:event_panelTabInfoMouseClicked
-
-    private void MyCourse0MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MyCourse0MouseClicked
-        showLessonsScreen();
-    }//GEN-LAST:event_MyCourse0MouseClicked
-
-    private void MyCourse1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MyCourse1MouseClicked
-        showLessonsScreen();
-    }//GEN-LAST:event_MyCourse1MouseClicked
-
-    private void MyCourse2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MyCourse2MouseClicked
-        showLessonsScreen();
-    }//GEN-LAST:event_MyCourse2MouseClicked
-
-    private void MyCourse3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MyCourse3MouseClicked
-        showLessonsScreen();
-    }//GEN-LAST:event_MyCourse3MouseClicked
-
-    private void MyCourse4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MyCourse4MouseClicked
-        showLessonsScreen();
-    }//GEN-LAST:event_MyCourse4MouseClicked
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         showMyCoursesScreen();
@@ -1999,13 +1722,23 @@ public class StudentApp extends javax.swing.JFrame {
 
     private void labelNotiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelNotiMouseClicked
         // TODO add your handling code here:
-        Course x = courses[listCourses.list.getPanels().size() % courses.length];
-        listCourses.list.addPanelHead(listCourses.list.getPane(      
-                x.getImagePath(),
-                x.getName(),
-                x.getDescription()
-        ), 55);
+                listCourses.list.addPanelHead(listCourses.list.getTeacherCoursePanel(
+                "/ui/teacher/assets/course_algo.png",
+                "Algo",
+                "Description"
+            ), 55);
+//        Course x = courses[listCourses.list.getPanels().size() % courses.length];
+//        listCourses.list.addPanelHead(listCourses.list.getTeacherCoursePanel(      
+//                x.getImagePath(),
+//                x.getName(),
+//                x.getDescription()
+//        ), 55);
     }//GEN-LAST:event_labelNotiMouseClicked
+
+    private void labelLogoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelLogoMouseClicked
+        panelSidebar.setVisible(true);
+        showHomeScreen();
+    }//GEN-LAST:event_labelLogoMouseClicked
     
     private void disableAllMenuTabs() {
         panelTabHome.setBackground(panelSidebar.getBackground());
@@ -2159,14 +1892,14 @@ public class StudentApp extends javax.swing.JFrame {
         updateCopyright();
         showHomeScreen();
         
-        jPanel1.setLayout(new BorderLayout());
-        jPanel1.add(listCourses.scrollPane, BorderLayout.CENTER);
+        homeCourses.setLayout(new BorderLayout());
+        homeCourses.add(listCourses.scrollPane, BorderLayout.CENTER);
         
         MCourseService mcourseService = new MCourseService();
         ArrayList<CourseModel> allCourses = mcourseService.getAllCourses();
         for(CourseModel t : allCourses){
             System.out.println(t);
-             listCourses.list.addPanelHead(listCourses.list.getPane(
+             listCourses.list.addPanelHead(listCourses.list.getTeacherCoursePanel(
                 t.getImagePath(),
                 t.getName(),
                 t.getDescription()
@@ -2217,17 +1950,13 @@ public class StudentApp extends javax.swing.JFrame {
     MyListPanel listCourses = new MyListPanel();
     Course[] courses = new Course[5];
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel MyCourse0;
-    private javax.swing.JPanel MyCourse1;
-    private javax.swing.JPanel MyCourse2;
-    private javax.swing.JPanel MyCourse3;
-    private javax.swing.JPanel MyCourse4;
     private javax.swing.JTextArea _introduction_edit;
     private javax.swing.JEditorPane _introduction_render;
     private javax.swing.JLabel big_avatar;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JEditorPane editorpaneLessonContent;
     private javax.swing.JTextField fullname;
+    private javax.swing.JPanel homeCourses;
     private javax.swing.JScrollPane introduction_edit;
     private javax.swing.JScrollPane introduction_render;
     private javax.swing.JButton jButton3;
@@ -2239,23 +1968,8 @@ public class StudentApp extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
@@ -2301,7 +2015,6 @@ public class StudentApp extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel78;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -2319,6 +2032,7 @@ public class StudentApp extends javax.swing.JFrame {
     private javax.swing.JLabel labelMenu;
     private javax.swing.JLabel labelNoti;
     private javax.swing.JLabel labelSidebarCourseName;
+    private javax.swing.JPanel myCourses;
     private javax.swing.JPanel panelAccount;
     private javax.swing.JPanel panelAnnouncements;
     private javax.swing.JPanel panelCourseDetail;

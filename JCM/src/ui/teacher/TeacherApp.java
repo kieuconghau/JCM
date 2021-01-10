@@ -5,11 +5,17 @@
  */
 package ui.teacher;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.Icon;
 import javax.swing.text.html.HTMLEditorKit;
 
 /**
@@ -24,6 +30,8 @@ public class TeacherApp extends javax.swing.JFrame {
     public TeacherApp() {
         initComponents();
         initDisplay();
+        initEvents();
+        initData();
     }
 
     /**
@@ -1037,6 +1045,7 @@ public class TeacherApp extends javax.swing.JFrame {
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel75.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/teacher/assets/back.png"))); // NOI18N
+        jLabel75.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel75.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel75MouseClicked(evt);
@@ -1101,7 +1110,7 @@ public class TeacherApp extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelNewCourseLayout.createSequentialGroup()
                                 .addComponent(jLabel74)
                                 .addGap(20, 20, 20)
-                                .addComponent(jTextField8, javax.swing.GroupLayout.DEFAULT_SIZE, 651, Short.MAX_VALUE)))
+                                .addComponent(jTextField8, javax.swing.GroupLayout.DEFAULT_SIZE, 667, Short.MAX_VALUE)))
                         .addGap(30, 30, 30))))
         );
         panelNewCourseLayout.setVerticalGroup(
@@ -2173,14 +2182,12 @@ public class TeacherApp extends javax.swing.JFrame {
 
         textfieldAccountUsername.setEditable(false);
         textfieldAccountUsername.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        textfieldAccountUsername.setText("kieuconghau");
         textfieldAccountUsername.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jLabel81.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel81.setText("Full Name");
 
         textfieldAccountFullName.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        textfieldAccountFullName.setText("Kieu Cong Hau");
 
         jLabel83.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel83.setText("New Password");
@@ -2241,11 +2248,6 @@ public class TeacherApp extends javax.swing.JFrame {
         btnAccountUpdate.setText("Update");
         btnAccountUpdate.setBorder(null);
         btnAccountUpdate.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnAccountUpdate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAccountUpdateActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout panelAccountLayout = new javax.swing.GroupLayout(panelAccount);
         panelAccount.setLayout(panelAccountLayout);
@@ -2470,15 +2472,6 @@ public class TeacherApp extends javax.swing.JFrame {
         panelAccountAvatarSelector.setVisible(true);
     }//GEN-LAST:event_labelAccountAvatarMouseClicked
 
-    private void btnAccountUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAccountUpdateActionPerformed
-        // Update DB here
-        
-        // Reset
-        panelAccountAvatarSelector.setVisible(false);
-        pwdfieldAccountNewPassword.setText("");
-        pwdfieldAccountConfirmedPassword.setText("");
-    }//GEN-LAST:event_btnAccountUpdateActionPerformed
-
     private void disableAllMenuTabs() {
         panelTabHome.setBackground(panelSidebar.getBackground());
         panelTabMyCourses.setBackground(panelSidebar.getBackground());
@@ -2488,7 +2481,7 @@ public class TeacherApp extends javax.swing.JFrame {
         panelTabAnnouncements.setBackground(panelSidebar.getBackground());
         panelTabSetting.setBackground(panelSidebar.getBackground());
     }
-    
+
     private void hideAllMainScreens() {
         panelHome.setVisible(false);
         panelMyCourses.setVisible(false);
@@ -2496,7 +2489,7 @@ public class TeacherApp extends javax.swing.JFrame {
         panelAccount.setVisible(false);
         hideCourseDetailScreen();
     }
-    
+
     private void hideAllCourseDetailSubScreens() {
         panelParticipants.setVisible(false);
         panelLessons.setVisible(false);
@@ -2504,77 +2497,77 @@ public class TeacherApp extends javax.swing.JFrame {
         panelAnnouncements.setVisible(false);
         panelSetting.setVisible(false);
     }
-    
+
     private void hideCourseDetailScreen() {
         panelCourseDetail.setVisible(false);
         panelSidebarCourseDetail.setVisible(false);
     }
-    
+
     private void showHomeScreen() {
         disableAllMenuTabs();
         panelTabHome.setBackground(selectedTabColor);
-        
+
         hideAllMainScreens();
         panelHome.setVisible(true);
     }
-    
+
     private void showMyCoursesScreen() {
         disableAllMenuTabs();
         panelTabMyCourses.setBackground(selectedTabColor);
-        
+
         hideAllMainScreens();
         panelMyCourses.setVisible(true);
         showMyCoursesMainScreen();
     }
-    
+
     private void showMyCoursesMainScreen() {
         panelMyCoursesMain.setVisible(true);
         panelNewCourse.setVisible(false);
     }
-    
+
     private void showNewCourseScreen() {
         panelMyCoursesMain.setVisible(false);
         panelNewCourse.setVisible(true);
     }
-    
+
     private void showCourseDetailScreen() {
         panelCourseDetail.setVisible(true);
         panelSidebarCourseDetail.setVisible(true);
     }
-    
+
     private void showParticipantsScreen() {
         disableAllMenuTabs();
         panelTabParticpants.setBackground(selectedTabColor);
-        
+
         hideAllMainScreens();
         hideAllCourseDetailSubScreens();
         showCourseDetailScreen();
         panelParticipants.setVisible(true);
     }
-    
+
     private void showLessonsScreen() {
         disableAllMenuTabs();
         panelTabLessons.setBackground(selectedTabColor);
-        
+
         hideAllMainScreens();
         hideAllCourseDetailSubScreens();
         showCourseDetailScreen();
         panelLessons.setVisible(true);
         showLessonsMainScreen();
     }
-    
+
     private void showLessonsMainScreen() {
         panelLessonsMain.setVisible(true);
         panelLessonDetail.setVisible(false);
         panelNewLesson.setVisible(false);
     }
-    
+
     private void showLessonDetailScreen() {
         panelLessonsMain.setVisible(false);
-            panelLessonDetail.setVisible(true);
-            panelNewLesson.setVisible(false);
-        
-        try {    
+        panelLessonDetail.setVisible(true);
+        panelNewLesson.setVisible(false);
+
+        try {
             editorpaneLessonContent.setPage(new java.net.URL("https://brilliant.org/wiki/greedy-algorithm/"));
         } catch (MalformedURLException ex) {
             editorpaneLessonContent.setText("File not found!");
@@ -2582,55 +2575,115 @@ public class TeacherApp extends javax.swing.JFrame {
             editorpaneLessonContent.setText("File not found!");
         }
     }
-    
+
     private void showNewLessonScreen() {
         panelLessonsMain.setVisible(false);
         panelLessonDetail.setVisible(false);
         panelNewLesson.setVisible(true);
     }
-    
+
     private void showExercisesScreen() {
         disableAllMenuTabs();
         panelTabExercises.setBackground(selectedTabColor);
-        
+
         hideAllMainScreens();
         hideAllCourseDetailSubScreens();
         showCourseDetailScreen();
         panelExercises.setVisible(true);
     }
-    
+
     private void showAnnouncementsScreen() {
         disableAllMenuTabs();
         panelTabAnnouncements.setBackground(selectedTabColor);
-        
+
         hideAllMainScreens();
         hideAllCourseDetailSubScreens();
         showCourseDetailScreen();
         panelAnnouncements.setVisible(true);
     }
-    
+
     private void showSettingScreen() {
         disableAllMenuTabs();
         panelTabSetting.setBackground(selectedTabColor);
-        
+
         hideAllMainScreens();
         hideAllCourseDetailSubScreens();
         showCourseDetailScreen();
         panelSetting.setVisible(true);
     }
-    
+
     private void updateCopyright() {
         int year = Calendar.getInstance().get(Calendar.YEAR);
         labelCopyright.setText(String.format("Copyright %d JByNine", year));
     }
+
+    // ===== Account =====
+    private void initEventsForAccountAvatarSelector() {
+        javax.swing.JLabel[] avatars = {labelAvatar0, labelAvatar1, labelAvatar2, labelAvatar3,
+            labelAvatar4, labelAvatar5, labelAvatar6, labelAvatar7, labelAvatar8, labelAvatar9};
+        for (javax.swing.JLabel avatar : avatars) {
+            avatar.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    labelAccountAvatar.setIcon(avatar.getIcon());
+                }
+            });
+        }
+    }
+
+    private void initEventForAccountBtnUpdate() {
+        btnAccountUpdate.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Data
+                String newAvatarPath = labelAccountAvatar.getIcon().toString();
+                newAvatarPath = newAvatarPath.substring(newAvatarPath.lastIndexOf("build/classes") + "build/classes".length());
+                String newFullName = textfieldAccountFullName.getText();
+                String newPassword = String.valueOf(pwdfieldAccountNewPassword.getPassword());
+                String confirmedPassword = String.valueOf(pwdfieldAccountConfirmedPassword.getPassword());
+                
+                // Core
+                boolean success = true;
+                
+
+                // UI
+                javax.swing.JOptionPane.showMessageDialog(panelAccount, success ? "Success" : "Fail");
+                loadUserInfo();
+                panelAccountAvatarSelector.setVisible(false);
+                pwdfieldAccountNewPassword.setText("");
+                pwdfieldAccountConfirmedPassword.setText("");
+            }
+        });
+    }
+
+    private void loadUserInfo() {
+        labelAvatar.setIcon(new javax.swing.ImageIcon(getClass().getResource(User.getAvatarPath())));
+        labelAccountAvatar.setIcon(new javax.swing.ImageIcon(getClass().getResource(User.getAvatarPath())));
+        textfieldAccountUsername.setText(User.getUsername());
+        textfieldAccountFullName.setText(User.getFullName());
+    }
     
+    // ===== My Courses =====
+    
+
+    // ===== Init =====
     private void initDisplay() {
         selectedTabColor = panelTabHome.getBackground();
         updateCopyright();
         showHomeScreen();
         panelAccountAvatarSelector.setVisible(false);
     }
+
+    private void initEvents() {
+        initEventsForAccountAvatarSelector();
+        initEventForAccountBtnUpdate();
+    }
     
+    private void initData() {
+        User = new core.entity.Teacher(1, "kieuconghau", "Kieu Cong Hau", "/ui/assets/avatars/1.png");
+        loadUserInfo();
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -2680,7 +2733,8 @@ public class TeacherApp extends javax.swing.JFrame {
             }
         });
     }
-    
+
+    private core.entity.Teacher User;
     private java.awt.Color selectedTabColor;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

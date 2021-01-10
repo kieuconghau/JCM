@@ -45,7 +45,6 @@ public class SignIn extends javax.swing.JFrame {
         passwordPane = new javax.swing.JPanel();
         password = new javax.swing.JPasswordField();
         passwordIcon = new javax.swing.JLabel();
-        isTeacher = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("JCM Sign In");
@@ -256,10 +255,10 @@ public class SignIn extends javax.swing.JFrame {
         passwordPaneLayout.setHorizontalGroup(
             passwordPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, passwordPaneLayout.createSequentialGroup()
-                .addGap(0, 8, Short.MAX_VALUE)
                 .addComponent(passwordIcon)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         passwordPaneLayout.setVerticalGroup(
             passwordPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -270,45 +269,35 @@ public class SignIn extends javax.swing.JFrame {
                 .addGap(0, 10, Short.MAX_VALUE))
         );
 
-        isTeacher.setBackground(new java.awt.Color(191, 220, 255));
-        isTeacher.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
-        isTeacher.setText("Teacher");
-        isTeacher.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                isTeacherActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout SignInFormLayout = new javax.swing.GroupLayout(SignInForm);
         SignInForm.setLayout(SignInFormLayout);
         SignInFormLayout.setHorizontalGroup(
             SignInFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SignInFormLayout.createSequentialGroup()
-                .addGap(160, 160, 160)
-                .addComponent(labelSignIn))
-            .addGroup(SignInFormLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(labelUsername))
-            .addGroup(SignInFormLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(usernamePane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(SignInFormLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(labelPassword))
-            .addGroup(SignInFormLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(passwordPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(SignInFormLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(isTeacher))
-            .addGroup(SignInFormLayout.createSequentialGroup()
-                .addGap(130, 130, 130)
-                .addComponent(btnSignIn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(SignInFormLayout.createSequentialGroup()
-                .addGap(70, 70, 70)
-                .addComponent(requestSignUp)
-                .addGap(0, 0, 0)
-                .addComponent(signUp))
+                .addGroup(SignInFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(SignInFormLayout.createSequentialGroup()
+                        .addGap(160, 160, 160)
+                        .addComponent(labelSignIn))
+                    .addGroup(SignInFormLayout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(labelUsername))
+                    .addGroup(SignInFormLayout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(usernamePane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(SignInFormLayout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(labelPassword))
+                    .addGroup(SignInFormLayout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(passwordPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(SignInFormLayout.createSequentialGroup()
+                        .addGap(70, 70, 70)
+                        .addGroup(SignInFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnSignIn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(requestSignUp))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(signUp)))
+                .addGap(18, 18, 18))
         );
         SignInFormLayout.setVerticalGroup(
             SignInFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -323,14 +312,13 @@ public class SignIn extends javax.swing.JFrame {
                 .addComponent(labelPassword)
                 .addGap(8, 8, 8)
                 .addComponent(passwordPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(isTeacher, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
+                .addGap(18, 18, 18)
                 .addComponent(btnSignIn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addGroup(SignInFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(18, 18, 18)
+                .addGroup(SignInFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(requestSignUp)
-                    .addComponent(signUp)))
+                    .addComponent(signUp))
+                .addGap(175, 175, 175))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -469,16 +457,12 @@ public class SignIn extends javax.swing.JFrame {
     private void btnSignInMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSignInMouseClicked
         // TODO add your handling code here:
         this.setVisible(false);
-        if (isTeacher.isSelected()) {
-            new TeacherApp().setVisible(true);
-        } else {
+//        if (isTeacher.isSelected()) {
+//            new TeacherApp().setVisible(true);
+//        } else {
             new StudentApp().setVisible(true);
-        }
+//        }
     }//GEN-LAST:event_btnSignInMouseClicked
-
-    private void isTeacherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_isTeacherActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_isTeacherActionPerformed
 
     public void run() {
         this.setVisible(true);
@@ -528,7 +512,6 @@ public class SignIn extends javax.swing.JFrame {
     private javax.swing.JLabel LogoName;
     private javax.swing.JPanel SignInForm;
     private javax.swing.JButton btnSignIn;
-    private javax.swing.JRadioButton isTeacher;
     private javax.swing.JLabel labelPassword;
     private javax.swing.JLabel labelSignIn;
     private javax.swing.JLabel labelUsername;

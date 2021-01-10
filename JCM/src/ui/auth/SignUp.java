@@ -232,10 +232,11 @@ public class SignUp extends javax.swing.JFrame {
         passwordPaneLayout.setHorizontalGroup(
             passwordPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, passwordPaneLayout.createSequentialGroup()
-                .addGap(0, 8, Short.MAX_VALUE)
+                .addGap(0, 2, Short.MAX_VALUE)
                 .addComponent(passwordIcon)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6))
         );
         passwordPaneLayout.setVerticalGroup(
             passwordPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -247,6 +248,7 @@ public class SignUp extends javax.swing.JFrame {
         );
 
         confirmPasswordPane.setBackground(new java.awt.Color(191, 217, 255));
+        confirmPasswordPane.setPreferredSize(new java.awt.Dimension(348, 60));
         confirmPasswordPane.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 confirmPasswordPaneMouseEntered(evt);
@@ -294,24 +296,26 @@ public class SignUp extends javax.swing.JFrame {
         confirmPasswordPaneLayout.setHorizontalGroup(
             confirmPasswordPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, confirmPasswordPaneLayout.createSequentialGroup()
-                .addGap(0, 8, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(confirmPasswordIcon)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(confirmPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(confirmPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18))
         );
         confirmPasswordPaneLayout.setVerticalGroup(
             confirmPasswordPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(confirmPasswordPaneLayout.createSequentialGroup()
+                .addGap(2, 2, 2)
                 .addGroup(confirmPasswordPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(confirmPasswordIcon)
-                    .addComponent(confirmPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 10, Short.MAX_VALUE))
+                    .addComponent(confirmPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(confirmPasswordIcon))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         btnSignUp.setBackground(new java.awt.Color(147, 186, 243));
         btnSignUp.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         btnSignUp.setForeground(java.awt.Color.white);
-        btnSignUp.setText("Sign in");
+        btnSignUp.setText("Sign up");
         btnSignUp.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(191, 217, 255), 1, true));
         btnSignUp.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnSignUp.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -351,37 +355,39 @@ public class SignUp extends javax.swing.JFrame {
         SignUpFormLayout.setHorizontalGroup(
             SignUpFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SignUpFormLayout.createSequentialGroup()
-                .addGap(150, 150, 150)
-                .addComponent(labelSignUp))
-            .addGroup(SignUpFormLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(labelUsername))
-            .addGroup(SignUpFormLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(usernamePane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(SignUpFormLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(labelPassword))
-            .addGroup(SignUpFormLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(confirmPasswordPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(SignUpFormLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(labelConfirmPassword))
-            .addGroup(SignUpFormLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(passwordPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(SignUpFormLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(isTeacher))
-            .addGroup(SignUpFormLayout.createSequentialGroup()
-                .addGap(130, 130, 130)
-                .addComponent(btnSignUp, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(SignUpFormLayout.createSequentialGroup()
-                .addGap(60, 60, 60)
-                .addComponent(requestSignIn)
-                .addGap(1, 1, 1)
-                .addComponent(signIn))
+                .addGroup(SignUpFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(confirmPasswordPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(SignUpFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(SignUpFormLayout.createSequentialGroup()
+                            .addGap(150, 150, 150)
+                            .addComponent(labelSignUp))
+                        .addGroup(SignUpFormLayout.createSequentialGroup()
+                            .addGap(30, 30, 30)
+                            .addComponent(labelUsername))
+                        .addGroup(SignUpFormLayout.createSequentialGroup()
+                            .addGap(30, 30, 30)
+                            .addComponent(usernamePane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(SignUpFormLayout.createSequentialGroup()
+                            .addGap(30, 30, 30)
+                            .addComponent(labelPassword))
+                        .addGroup(SignUpFormLayout.createSequentialGroup()
+                            .addGap(30, 30, 30)
+                            .addComponent(labelConfirmPassword))
+                        .addGroup(SignUpFormLayout.createSequentialGroup()
+                            .addGap(30, 30, 30)
+                            .addComponent(passwordPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(SignUpFormLayout.createSequentialGroup()
+                            .addGap(30, 30, 30)
+                            .addComponent(isTeacher))
+                        .addGroup(SignUpFormLayout.createSequentialGroup()
+                            .addGap(130, 130, 130)
+                            .addComponent(btnSignUp, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(SignUpFormLayout.createSequentialGroup()
+                            .addGap(60, 60, 60)
+                            .addComponent(requestSignIn)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(signIn))))
+                .addGap(22, 22, 22))
         );
         SignUpFormLayout.setVerticalGroup(
             SignUpFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -394,9 +400,9 @@ public class SignUp extends javax.swing.JFrame {
                 .addComponent(usernamePane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
                 .addComponent(labelPassword)
-                .addGap(8, 8, 8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(confirmPasswordPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
+                .addGap(22, 22, 22)
                 .addComponent(labelConfirmPassword)
                 .addGap(8, 8, 8)
                 .addComponent(passwordPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -405,7 +411,7 @@ public class SignUp extends javax.swing.JFrame {
                 .addGap(7, 7, 7)
                 .addComponent(btnSignUp, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
-                .addGroup(SignUpFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(SignUpFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(requestSignIn)
                     .addComponent(signIn)))
         );
@@ -415,9 +421,9 @@ public class SignUp extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(Logo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Logo, javax.swing.GroupLayout.DEFAULT_SIZE, 605, Short.MAX_VALUE)
                 .addGap(0, 0, 0)
-                .addComponent(SignUpForm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(SignUpForm, javax.swing.GroupLayout.DEFAULT_SIZE, 405, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -472,46 +478,6 @@ public class SignUp extends javax.swing.JFrame {
         // TODO add your handling code here:
         usernamePane.setBorder(null);
     }//GEN-LAST:event_usernamePaneMouseExited
-
-    private void passwordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passwordFocusGained
-        // TODO add your handling code here:
-        passwordPane.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, java.awt.Color.lightGray));
-    }//GEN-LAST:event_passwordFocusGained
-
-    private void passwordFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passwordFocusLost
-        // TODO add your handling code here:
-        passwordPane.setBorder(null);
-    }//GEN-LAST:event_passwordFocusLost
-
-    private void passwordMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordMouseEntered
-        // TODO add your handling code here:
-        passwordPane.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, java.awt.Color.lightGray));
-    }//GEN-LAST:event_passwordMouseEntered
-
-    private void passwordMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordMouseExited
-        // TODO add your handling code here:
-        passwordPane.setBorder(null);
-    }//GEN-LAST:event_passwordMouseExited
-
-    private void passwordIconMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordIconMouseEntered
-        // TODO add your handling code here:
-        passwordPane.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, java.awt.Color.lightGray));
-    }//GEN-LAST:event_passwordIconMouseEntered
-
-    private void passwordIconMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordIconMouseExited
-        // TODO add your handling code here:
-        passwordPane.setBorder(null);
-    }//GEN-LAST:event_passwordIconMouseExited
-
-    private void passwordPaneMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordPaneMouseEntered
-        // TODO add your handling code here:
-        passwordPane.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, java.awt.Color.lightGray));
-    }//GEN-LAST:event_passwordPaneMouseEntered
-
-    private void passwordPaneMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordPaneMouseExited
-        // TODO add your handling code here:
-        passwordPane.setBorder(null);
-    }//GEN-LAST:event_passwordPaneMouseExited
 
     private void confirmPasswordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_confirmPasswordFocusGained
         // TODO add your handling code here:
@@ -592,6 +558,46 @@ public class SignUp extends javax.swing.JFrame {
         // TODO add your handling code here:
         signIn.setFont(new java.awt.Font("Ubuntu", 0, 18));
     }//GEN-LAST:event_signInMouseExited
+
+    private void passwordPaneMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordPaneMouseExited
+        // TODO add your handling code here:
+        passwordPane.setBorder(null);
+    }//GEN-LAST:event_passwordPaneMouseExited
+
+    private void passwordPaneMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordPaneMouseEntered
+        // TODO add your handling code here:
+        passwordPane.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, java.awt.Color.lightGray));
+    }//GEN-LAST:event_passwordPaneMouseEntered
+
+    private void passwordIconMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordIconMouseExited
+        // TODO add your handling code here:
+        passwordPane.setBorder(null);
+    }//GEN-LAST:event_passwordIconMouseExited
+
+    private void passwordIconMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordIconMouseEntered
+        // TODO add your handling code here:
+        passwordPane.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, java.awt.Color.lightGray));
+    }//GEN-LAST:event_passwordIconMouseEntered
+
+    private void passwordMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordMouseExited
+        // TODO add your handling code here:
+        passwordPane.setBorder(null);
+    }//GEN-LAST:event_passwordMouseExited
+
+    private void passwordMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordMouseEntered
+        // TODO add your handling code here:
+        passwordPane.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, java.awt.Color.lightGray));
+    }//GEN-LAST:event_passwordMouseEntered
+
+    private void passwordFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passwordFocusLost
+        // TODO add your handling code here:
+        passwordPane.setBorder(null);
+    }//GEN-LAST:event_passwordFocusLost
+
+    private void passwordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passwordFocusGained
+        // TODO add your handling code here:
+        passwordPane.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, java.awt.Color.lightGray));
+    }//GEN-LAST:event_passwordFocusGained
 
     public void run() {
         this.setVisible(true);

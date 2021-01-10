@@ -62,51 +62,58 @@ public class SignUp extends javax.swing.JFrame {
 
         Logo.setBackground(new java.awt.Color(46, 81, 133));
         Logo.setPreferredSize(new java.awt.Dimension(600, 600));
-        Logo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         LogoImg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         LogoImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/auth/assets/online-course.png"))); // NOI18N
         LogoImg.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        Logo.add(LogoImg, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, -1, -1));
 
         LogoName.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
         LogoName.setForeground(new java.awt.Color(255, 255, 255));
         LogoName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         LogoName.setText("JCM - Courses Management System");
         LogoName.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        Logo.add(LogoName, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 510, 600, -1));
+
+        javax.swing.GroupLayout LogoLayout = new javax.swing.GroupLayout(Logo);
+        Logo.setLayout(LogoLayout);
+        LogoLayout.setHorizontalGroup(
+            LogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(LogoLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(LogoImg))
+            .addComponent(LogoName, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        LogoLayout.setVerticalGroup(
+            LogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(LogoImg)
+            .addGroup(LogoLayout.createSequentialGroup()
+                .addGap(510, 510, 510)
+                .addComponent(LogoName))
+        );
 
         SignUpForm.setBackground(new java.awt.Color(191, 220, 255));
         SignUpForm.setPreferredSize(new java.awt.Dimension(400, 600));
-        SignUpForm.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         labelSignUp.setFont(labelSignUp.getFont().deriveFont(labelSignUp.getFont().getStyle() | java.awt.Font.BOLD, 31));
         labelSignUp.setText("Sign up");
-        SignUpForm.add(labelSignUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 50, -1, 40));
 
         labelUsername.setFont(labelUsername.getFont().deriveFont((float)18));
         labelUsername.setLabelFor(username);
         labelUsername.setText("Username");
-        SignUpForm.add(labelUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
 
         labelPassword.setFont(labelPassword.getFont().deriveFont((float)18));
         labelPassword.setLabelFor(password);
         labelPassword.setText("Password");
-        SignUpForm.add(labelPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, -1, -1));
 
         labelConfirmPassword.setFont(labelConfirmPassword.getFont().deriveFont((float)18));
         labelConfirmPassword.setLabelFor(confirmPassword);
         labelConfirmPassword.setText("Confirm password");
-        SignUpForm.add(labelConfirmPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, -1, -1));
 
         isTeacher.setBackground(new java.awt.Color(191, 220, 255));
         isTeacher.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         isTeacher.setText("Teacher");
-        SignUpForm.add(isTeacher, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 450, -1, -1));
 
         requestSignIn.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         requestSignIn.setText("Already have a JCM account?");
-        SignUpForm.add(requestSignIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 550, -1, -1));
 
         usernamePane.setBackground(new java.awt.Color(191, 217, 255));
         usernamePane.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -166,7 +173,7 @@ public class SignUp extends javax.swing.JFrame {
                 .addComponent(usernameIcon)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 8, Short.MAX_VALUE))
         );
         usernamePaneLayout.setVerticalGroup(
             usernamePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -174,10 +181,8 @@ public class SignUp extends javax.swing.JFrame {
                 .addGroup(usernamePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(usernameIcon))
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 10, Short.MAX_VALUE))
         );
-
-        SignUpForm.add(usernamePane, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 340, 60));
 
         passwordPane.setBackground(new java.awt.Color(191, 217, 255));
         passwordPane.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -227,7 +232,7 @@ public class SignUp extends javax.swing.JFrame {
         passwordPaneLayout.setHorizontalGroup(
             passwordPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, passwordPaneLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(0, 8, Short.MAX_VALUE)
                 .addComponent(passwordIcon)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -240,8 +245,6 @@ public class SignUp extends javax.swing.JFrame {
                     .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 10, Short.MAX_VALUE))
         );
-
-        SignUpForm.add(passwordPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, 340, 60));
 
         confirmPasswordPane.setBackground(new java.awt.Color(191, 217, 255));
         confirmPasswordPane.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -291,7 +294,7 @@ public class SignUp extends javax.swing.JFrame {
         confirmPasswordPaneLayout.setHorizontalGroup(
             confirmPasswordPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, confirmPasswordPaneLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(0, 8, Short.MAX_VALUE)
                 .addComponent(confirmPasswordIcon)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(confirmPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -302,10 +305,8 @@ public class SignUp extends javax.swing.JFrame {
                 .addGroup(confirmPasswordPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(confirmPasswordIcon)
                     .addComponent(confirmPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 10, Short.MAX_VALUE))
         );
-
-        SignUpForm.add(confirmPasswordPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 340, 60));
 
         btnSignUp.setBackground(new java.awt.Color(147, 186, 243));
         btnSignUp.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
@@ -329,7 +330,6 @@ public class SignUp extends javax.swing.JFrame {
                 btnSignUpActionPerformed(evt);
             }
         });
-        SignUpForm.add(btnSignUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 490, 150, 40));
 
         signIn.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         signIn.setForeground(java.awt.Color.blue);
@@ -345,7 +345,70 @@ public class SignUp extends javax.swing.JFrame {
                 signInMouseExited(evt);
             }
         });
-        SignUpForm.add(signIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 550, -1, -1));
+
+        javax.swing.GroupLayout SignUpFormLayout = new javax.swing.GroupLayout(SignUpForm);
+        SignUpForm.setLayout(SignUpFormLayout);
+        SignUpFormLayout.setHorizontalGroup(
+            SignUpFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(SignUpFormLayout.createSequentialGroup()
+                .addGap(150, 150, 150)
+                .addComponent(labelSignUp))
+            .addGroup(SignUpFormLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(labelUsername))
+            .addGroup(SignUpFormLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(usernamePane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(SignUpFormLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(labelPassword))
+            .addGroup(SignUpFormLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(confirmPasswordPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(SignUpFormLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(labelConfirmPassword))
+            .addGroup(SignUpFormLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(passwordPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(SignUpFormLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(isTeacher))
+            .addGroup(SignUpFormLayout.createSequentialGroup()
+                .addGap(130, 130, 130)
+                .addComponent(btnSignUp, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(SignUpFormLayout.createSequentialGroup()
+                .addGap(60, 60, 60)
+                .addComponent(requestSignIn)
+                .addGap(1, 1, 1)
+                .addComponent(signIn))
+        );
+        SignUpFormLayout.setVerticalGroup(
+            SignUpFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(SignUpFormLayout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addComponent(labelSignUp, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
+                .addComponent(labelUsername)
+                .addGap(8, 8, 8)
+                .addComponent(usernamePane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(labelPassword)
+                .addGap(8, 8, 8)
+                .addComponent(confirmPasswordPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(labelConfirmPassword)
+                .addGap(8, 8, 8)
+                .addComponent(passwordPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(isTeacher)
+                .addGap(7, 7, 7)
+                .addComponent(btnSignUp, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addGroup(SignUpFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(requestSignIn)
+                    .addComponent(signIn)))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

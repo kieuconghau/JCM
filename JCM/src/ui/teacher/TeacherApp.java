@@ -5,18 +5,14 @@
  */
 package ui.teacher;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.util.Calendar;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.Icon;
-import javax.swing.text.html.HTMLEditorKit;
 
 /**
  *
@@ -106,16 +102,33 @@ public class TeacherApp extends javax.swing.JFrame {
         jLabel28 = new javax.swing.JLabel();
         panelNewCourse = new javax.swing.JPanel();
         jLabel73 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
+        tfNewCourseName = new javax.swing.JTextField();
         jLabel74 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
+        btnNewCourseCreate = new javax.swing.JButton();
+        btnNewCourseCancel = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jLabel75 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel76 = new javax.swing.JLabel();
-        jLabel77 = new javax.swing.JLabel();
+        labelNewCourseImg0 = new javax.swing.JLabel();
+        labelNewCourseImg1 = new javax.swing.JLabel();
+        labelNewCourseImg2 = new javax.swing.JLabel();
+        labelNewCourseImg3 = new javax.swing.JLabel();
+        labelNewCourseImg4 = new javax.swing.JLabel();
+        labelNewCourseImg5 = new javax.swing.JLabel();
+        labelNewCourseImg6 = new javax.swing.JLabel();
+        labelNewCourseImg7 = new javax.swing.JLabel();
+        labelNewCourseImg8 = new javax.swing.JLabel();
+        labelNewCourseImg9 = new javax.swing.JLabel();
+        labelNewCourseImg10 = new javax.swing.JLabel();
+        labelNewCourseImg11 = new javax.swing.JLabel();
+        labelNewCourseImg12 = new javax.swing.JLabel();
+        labelNewCourseImg13 = new javax.swing.JLabel();
+        labelNewCourseImg14 = new javax.swing.JLabel();
+        labelNewCourseImg15 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        taNewCourseDescription = new javax.swing.JTextArea();
+        labelNewCourseSelectedImg = new javax.swing.JLabel();
         panelCourseDetail = new javax.swing.JPanel();
         panelParticipants = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
@@ -1011,34 +1024,32 @@ public class TeacherApp extends javax.swing.JFrame {
         jLabel73.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel73.setText("Name");
 
-        jTextField7.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        tfNewCourseName.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
         jLabel74.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel74.setText("Description");
 
-        jTextField8.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-
-        jButton7.setBackground(new java.awt.Color(0, 204, 0));
-        jButton7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton7.setForeground(new java.awt.Color(255, 255, 255));
-        jButton7.setText("CREATE");
-        jButton7.setBorder(null);
-        jButton7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        btnNewCourseCreate.setBackground(new java.awt.Color(0, 204, 0));
+        btnNewCourseCreate.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnNewCourseCreate.setForeground(new java.awt.Color(255, 255, 255));
+        btnNewCourseCreate.setText("CREATE");
+        btnNewCourseCreate.setBorder(null);
+        btnNewCourseCreate.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnNewCourseCreate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                btnNewCourseCreateActionPerformed(evt);
             }
         });
 
-        jButton8.setBackground(new java.awt.Color(255, 51, 0));
-        jButton8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton8.setForeground(new java.awt.Color(255, 255, 255));
-        jButton8.setText("CANCEL");
-        jButton8.setBorder(null);
-        jButton8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
+        btnNewCourseCancel.setBackground(new java.awt.Color(255, 51, 0));
+        btnNewCourseCancel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnNewCourseCancel.setForeground(new java.awt.Color(255, 255, 255));
+        btnNewCourseCancel.setText("CANCEL");
+        btnNewCourseCancel.setBorder(null);
+        btnNewCourseCancel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnNewCourseCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
+                btnNewCourseCancelActionPerformed(evt);
             }
         });
 
@@ -1053,7 +1064,8 @@ public class TeacherApp extends javax.swing.JFrame {
         });
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel8.setText("Create a new course");
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("CREATE A NEW COURSE");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -1061,10 +1073,9 @@ public class TeacherApp extends javax.swing.JFrame {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel75))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jLabel75)
+                .addContainerGap(756, Short.MAX_VALUE))
+            .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1079,9 +1090,77 @@ public class TeacherApp extends javax.swing.JFrame {
         jLabel76.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel76.setText("Image");
 
-        jLabel77.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/teacher/assets/default_course.png"))); // NOI18N
-        jLabel77.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        jLabel77.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        labelNewCourseImg0.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/assets/courses/default.png"))); // NOI18N
+        labelNewCourseImg0.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        labelNewCourseImg0.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        labelNewCourseImg1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/assets/courses/ai.png"))); // NOI18N
+        labelNewCourseImg1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        labelNewCourseImg1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        labelNewCourseImg2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/assets/courses/algorithms.png"))); // NOI18N
+        labelNewCourseImg2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        labelNewCourseImg2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        labelNewCourseImg3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/assets/courses/blockchain.png"))); // NOI18N
+        labelNewCourseImg3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        labelNewCourseImg3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        labelNewCourseImg4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/assets/courses/database.png"))); // NOI18N
+        labelNewCourseImg4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        labelNewCourseImg4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        labelNewCourseImg5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/assets/courses/java.png"))); // NOI18N
+        labelNewCourseImg5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        labelNewCourseImg5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        labelNewCourseImg6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/assets/courses/javascript.png"))); // NOI18N
+        labelNewCourseImg6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        labelNewCourseImg6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        labelNewCourseImg7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/assets/courses/html5.png"))); // NOI18N
+        labelNewCourseImg7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        labelNewCourseImg7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        labelNewCourseImg8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/assets/courses/android.png"))); // NOI18N
+        labelNewCourseImg8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        labelNewCourseImg8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        labelNewCourseImg9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/assets/courses/ios.png"))); // NOI18N
+        labelNewCourseImg9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        labelNewCourseImg9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        labelNewCourseImg10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/assets/courses/biometrics.png"))); // NOI18N
+        labelNewCourseImg10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        labelNewCourseImg10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        labelNewCourseImg11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/assets/courses/react.png"))); // NOI18N
+        labelNewCourseImg11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        labelNewCourseImg11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        labelNewCourseImg12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/assets/courses/architecture.png"))); // NOI18N
+        labelNewCourseImg12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        labelNewCourseImg12.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        labelNewCourseImg13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/assets/courses/aws.png"))); // NOI18N
+        labelNewCourseImg13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        labelNewCourseImg13.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        labelNewCourseImg14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/assets/courses/coding.png"))); // NOI18N
+        labelNewCourseImg14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        labelNewCourseImg14.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        labelNewCourseImg15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/assets/courses/docker.png"))); // NOI18N
+        labelNewCourseImg15.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        labelNewCourseImg15.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        taNewCourseDescription.setColumns(20);
+        taNewCourseDescription.setRows(5);
+        jScrollPane3.setViewportView(taNewCourseDescription);
+
+        labelNewCourseSelectedImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/assets/courses/default.png"))); // NOI18N
+        labelNewCourseSelectedImg.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        labelNewCourseSelectedImg.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout panelNewCourseLayout = new javax.swing.GroupLayout(panelNewCourse);
         panelNewCourse.setLayout(panelNewCourseLayout);
@@ -1092,48 +1171,101 @@ public class TeacherApp extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addGroup(panelNewCourseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelNewCourseLayout.createSequentialGroup()
-                        .addComponent(jLabel76, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
-                        .addComponent(jLabel77)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelNewCourseLayout.createSequentialGroup()
                         .addGroup(panelNewCourseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(panelNewCourseLayout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(20, 20, 20)
-                                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelNewCourseLayout.createSequentialGroup()
-                                .addComponent(jLabel73, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(20, 20, 20)
-                                .addComponent(jTextField7))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelNewCourseLayout.createSequentialGroup()
-                                .addComponent(jLabel74)
-                                .addGap(20, 20, 20)
-                                .addComponent(jTextField8, javax.swing.GroupLayout.DEFAULT_SIZE, 667, Short.MAX_VALUE)))
-                        .addGap(30, 30, 30))))
+                                .addComponent(btnNewCourseCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnNewCourseCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panelNewCourseLayout.createSequentialGroup()
+                                .addGroup(panelNewCourseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel73, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel74))
+                                .addGap(30, 30, 30)
+                                .addGroup(panelNewCourseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(tfNewCourseName)
+                                    .addComponent(jScrollPane3))))
+                        .addGap(50, 50, 50))
+                    .addGroup(panelNewCourseLayout.createSequentialGroup()
+                        .addGroup(panelNewCourseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel76, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelNewCourseSelectedImg))
+                        .addGap(30, 30, 30)
+                        .addGroup(panelNewCourseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelNewCourseLayout.createSequentialGroup()
+                                .addComponent(labelNewCourseImg8)
+                                .addGap(18, 18, 18)
+                                .addComponent(labelNewCourseImg9)
+                                .addGap(18, 18, 18)
+                                .addComponent(labelNewCourseImg10)
+                                .addGap(18, 18, 18)
+                                .addComponent(labelNewCourseImg11)
+                                .addGap(18, 18, 18)
+                                .addComponent(labelNewCourseImg12)
+                                .addGap(18, 18, 18)
+                                .addComponent(labelNewCourseImg13)
+                                .addGap(18, 18, 18)
+                                .addComponent(labelNewCourseImg14)
+                                .addGap(18, 18, 18)
+                                .addComponent(labelNewCourseImg15))
+                            .addGroup(panelNewCourseLayout.createSequentialGroup()
+                                .addComponent(labelNewCourseImg0)
+                                .addGap(18, 18, 18)
+                                .addComponent(labelNewCourseImg1)
+                                .addGap(18, 18, 18)
+                                .addComponent(labelNewCourseImg2)
+                                .addGap(18, 18, 18)
+                                .addComponent(labelNewCourseImg3)
+                                .addGap(18, 18, 18)
+                                .addComponent(labelNewCourseImg4)
+                                .addGap(18, 18, 18)
+                                .addComponent(labelNewCourseImg5)
+                                .addGap(18, 18, 18)
+                                .addComponent(labelNewCourseImg6)
+                                .addGap(18, 18, 18)
+                                .addComponent(labelNewCourseImg7)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         panelNewCourseLayout.setVerticalGroup(
             panelNewCourseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelNewCourseLayout.createSequentialGroup()
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
-                .addGroup(panelNewCourseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel76, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel77))
-                .addGap(15, 15, 15)
+                .addGroup(panelNewCourseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelNewCourseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel76, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(labelNewCourseImg0))
+                    .addComponent(labelNewCourseImg1)
+                    .addComponent(labelNewCourseImg2)
+                    .addComponent(labelNewCourseImg3)
+                    .addComponent(labelNewCourseImg4)
+                    .addComponent(labelNewCourseImg5)
+                    .addComponent(labelNewCourseImg6)
+                    .addComponent(labelNewCourseImg7))
+                .addGap(18, 18, 18)
+                .addGroup(panelNewCourseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelNewCourseImg8)
+                    .addComponent(labelNewCourseImg9)
+                    .addComponent(labelNewCourseImg10)
+                    .addComponent(labelNewCourseImg11)
+                    .addComponent(labelNewCourseImg12)
+                    .addComponent(labelNewCourseImg13)
+                    .addComponent(labelNewCourseImg14)
+                    .addComponent(labelNewCourseImg15)
+                    .addComponent(labelNewCourseSelectedImg))
+                .addGap(23, 23, 23)
                 .addGroup(panelNewCourseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel73, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(15, 15, 15)
+                    .addComponent(tfNewCourseName, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(22, 22, 22)
+                .addGroup(panelNewCourseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel74, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(50, 50, 50)
                 .addGroup(panelNewCourseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField8)
-                    .addComponent(jLabel74, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(95, 95, 95)
-                .addGroup(panelNewCourseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 199, Short.MAX_VALUE))
+                    .addComponent(btnNewCourseCreate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnNewCourseCancel, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout panelMyCoursesLayout = new javax.swing.GroupLayout(panelMyCourses);
@@ -2447,15 +2579,16 @@ public class TeacherApp extends javax.swing.JFrame {
 
     private void jLabel72MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel72MouseClicked
         showNewCourseScreen();
+        resetNewCourseData();
     }//GEN-LAST:event_jLabel72MouseClicked
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void btnNewCourseCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewCourseCreateActionPerformed
         showMyCoursesScreen();
-    }//GEN-LAST:event_jButton7ActionPerformed
+    }//GEN-LAST:event_btnNewCourseCreateActionPerformed
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+    private void btnNewCourseCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewCourseCancelActionPerformed
         showMyCoursesScreen();
-    }//GEN-LAST:event_jButton8ActionPerformed
+    }//GEN-LAST:event_btnNewCourseCancelActionPerformed
 
     private void jLabel75MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel75MouseClicked
         showMyCoursesScreen();
@@ -2644,7 +2777,7 @@ public class TeacherApp extends javax.swing.JFrame {
                 
                 // Core
                 boolean success = true;
-                
+                // TODO: kieuconghau
 
                 // UI
                 javax.swing.JOptionPane.showMessageDialog(panelAccount, success ? "Success" : "Fail");
@@ -2663,20 +2796,90 @@ public class TeacherApp extends javax.swing.JFrame {
         textfieldAccountFullName.setText(User.getFullName());
     }
     
-    // ===== My Courses =====
+    // ===== New Course =====
+    private void initEventsForNewCourseImageSelector() {
+        javax.swing.JLabel[] courseImgs = { labelNewCourseImg0, labelNewCourseImg1, labelNewCourseImg2,
+            labelNewCourseImg3, labelNewCourseImg4, labelNewCourseImg5, labelNewCourseImg6, labelNewCourseImg7,
+            labelNewCourseImg8, labelNewCourseImg9, labelNewCourseImg10, labelNewCourseImg11, labelNewCourseImg12,
+            labelNewCourseImg13, labelNewCourseImg14, labelNewCourseImg15 };
+        
+        resetNewCourseData();
+        javax.swing.border.Border selectedBorder = courseImgs[0].getBorder();
+        javax.swing.border.Border defaultBorder = courseImgs[1].getBorder();
+        
+        for (javax.swing.JLabel courseImg : courseImgs) {
+            courseImg.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    for (javax.swing.JLabel courseImgTemp : courseImgs)
+                        courseImgTemp.setBorder(defaultBorder);
+                    courseImg.setBorder(selectedBorder);
+                    labelNewCourseSelectedImg.setIcon(courseImg.getIcon());
+                }
+            });
+        }
+    }
     
+    private void initEventForNewCourseBtnCancel() {
+        btnNewCourseCancel.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                showMyCoursesScreen();
+            }
+        });
+    }
+    
+    private void initEventForNewCourseBtnCreate() {
+        btnNewCourseCreate.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Data
+                int authorID = User.getID();
+                String name = tfNewCourseName.getText();
+                String imgPath = labelNewCourseSelectedImg.getIcon().toString();
+                imgPath = imgPath.substring(imgPath.lastIndexOf("build/classes") + "build/classes".length());
+                String description = taNewCourseDescription.getText();
+                
+                // Core
+                boolean success = true;
+                // TODO: kieuconghau
+                
+                // UI
+                javax.swing.JOptionPane.showMessageDialog(panelAccount, success ? "Success" : "Fail");
+                showMyCoursesScreen();
+            }
+        });
+    }
+    
+    private void resetNewCourseData() {
+        labelNewCourseImg0.setBorder(new javax.swing.border.LineBorder(Color.red, 2));
+        labelNewCourseSelectedImg.setIcon(labelNewCourseImg0.getIcon());
+        tfNewCourseName.setText("");
+        taNewCourseDescription.setText("");
+    }
 
     // ===== Init =====
     private void initDisplay() {
         selectedTabColor = panelTabHome.getBackground();
         updateCopyright();
         showHomeScreen();
+        
+        // Account
         panelAccountAvatarSelector.setVisible(false);
+        
+        // New Course
+        labelNewCourseSelectedImg.setVisible(false);
     }
 
     private void initEvents() {
+        // Account
         initEventsForAccountAvatarSelector();
         initEventForAccountBtnUpdate();
+        
+        // New Course
+        initEventsForNewCourseImageSelector();
+        initEventForNewCourseBtnCancel();
+        initEventForNewCourseBtnCreate();
     }
     
     private void initData() {
@@ -2747,6 +2950,8 @@ public class TeacherApp extends javax.swing.JFrame {
     private javax.swing.JPanel MyRecentCourse1;
     private javax.swing.JPanel MyRecentCourse2;
     private javax.swing.JButton btnAccountUpdate;
+    private javax.swing.JButton btnNewCourseCancel;
+    private javax.swing.JButton btnNewCourseCreate;
     private javax.swing.JEditorPane editorpaneLessonContent;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -2754,8 +2959,6 @@ public class TeacherApp extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
     private javax.swing.JEditorPane jEditorPane2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -2831,7 +3034,6 @@ public class TeacherApp extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel74;
     private javax.swing.JLabel jLabel75;
     private javax.swing.JLabel jLabel76;
-    private javax.swing.JLabel jLabel77;
     private javax.swing.JLabel jLabel78;
     private javax.swing.JLabel jLabel79;
     private javax.swing.JLabel jLabel8;
@@ -2850,6 +3052,7 @@ public class TeacherApp extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
@@ -2857,8 +3060,6 @@ public class TeacherApp extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
     private javax.swing.JLabel labelAccountAvatar;
     private javax.swing.JLabel labelAvatar;
     private javax.swing.JLabel labelAvatar0;
@@ -2874,6 +3075,23 @@ public class TeacherApp extends javax.swing.JFrame {
     private javax.swing.JLabel labelCopyright;
     private javax.swing.JLabel labelLogo;
     private javax.swing.JLabel labelMenu;
+    private javax.swing.JLabel labelNewCourseImg0;
+    private javax.swing.JLabel labelNewCourseImg1;
+    private javax.swing.JLabel labelNewCourseImg10;
+    private javax.swing.JLabel labelNewCourseImg11;
+    private javax.swing.JLabel labelNewCourseImg12;
+    private javax.swing.JLabel labelNewCourseImg13;
+    private javax.swing.JLabel labelNewCourseImg14;
+    private javax.swing.JLabel labelNewCourseImg15;
+    private javax.swing.JLabel labelNewCourseImg2;
+    private javax.swing.JLabel labelNewCourseImg3;
+    private javax.swing.JLabel labelNewCourseImg4;
+    private javax.swing.JLabel labelNewCourseImg5;
+    private javax.swing.JLabel labelNewCourseImg6;
+    private javax.swing.JLabel labelNewCourseImg7;
+    private javax.swing.JLabel labelNewCourseImg8;
+    private javax.swing.JLabel labelNewCourseImg9;
+    private javax.swing.JLabel labelNewCourseSelectedImg;
     private javax.swing.JLabel labelRemoveParicipant0;
     private javax.swing.JLabel labelRemoveParticipant1;
     private javax.swing.JLabel labelRemoveParticipant2;
@@ -2914,8 +3132,10 @@ public class TeacherApp extends javax.swing.JFrame {
     private javax.swing.JPanel panelTabSetting;
     private javax.swing.JPasswordField pwdfieldAccountConfirmedPassword;
     private javax.swing.JPasswordField pwdfieldAccountNewPassword;
+    private javax.swing.JTextArea taNewCourseDescription;
     private javax.swing.JTextField textfieldAccountFullName;
     private javax.swing.JTextField textfieldAccountUsername;
     private javax.swing.JTextField textfieldAddUser;
+    private javax.swing.JTextField tfNewCourseName;
     // End of variables declaration//GEN-END:variables
 }

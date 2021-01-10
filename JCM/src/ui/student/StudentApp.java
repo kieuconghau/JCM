@@ -17,12 +17,12 @@ import javax.swing.*;
  *
  * @author JByNine
  */
-public class Student extends javax.swing.JFrame {
+public class StudentApp extends javax.swing.JFrame {
 
     /**
      * Creates new form App
      */
-    public Student() {
+    public StudentApp() {
         initComponents();
         initDisplay();
     }
@@ -632,7 +632,7 @@ public class Student extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(MyCourse1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 642, Short.MAX_VALUE)
+                        .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, 642, Short.MAX_VALUE)
                         .addContainerGap())))
         );
         MyCourse1Layout.setVerticalGroup(
@@ -2150,22 +2150,22 @@ public class Student extends javax.swing.JFrame {
         
         courses[0] = new Course(
                 1,
+                1,
                 "Algorithms",
-                "An introduction to Greedy Algorithms, Dynamic Programming, Tree, Graph Theory, etc.",
                 "/ui/teacher/assets/course_algo.png",
-                1);
+                "An introduction to Greedy Algorithms, Dynamic Programming, Tree, Graph Theory, etc.");
         courses[1] = new Course(
                 2,
+                2,
                 "Java Programming",
-                "An introduction to Java syntax, Java collections, Java swing, Multithreaded Programming, Networking, etc.",
                 "/ui/teacher/assets/course_java.png",
-                2);
+                "An introduction to Java syntax, Java collections, Java swing, Multithreaded Programming, Networking, etc.");
         courses[2] = new Course(
                 3,
+                3,
                 "Web Application Programming",
-                "An introduction to HTML5, CSS3, Javascript, Node.js, Express.js, Mongoose, etc.",
                 "/ui/teacher/assets/course_js.png",
-                3);    
+                "An introduction to HTML5, CSS3, Javascript, Node.js, Express.js, Mongoose, etc.");    
         
         for (Course x : courses)
             listCourses.list.addPanelHead(listCourses.list.getPane(
@@ -2192,21 +2192,23 @@ public class Student extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Student.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StudentApp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Student.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StudentApp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Student.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StudentApp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Student.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StudentApp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Student().setVisible(true);
+                new StudentApp().setVisible(true);
             }
         });
     }

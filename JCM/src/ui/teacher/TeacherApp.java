@@ -16,12 +16,12 @@ import javax.swing.text.html.HTMLEditorKit;
  *
  * @author PC
  */
-public class Teacher extends javax.swing.JFrame {
+public class TeacherApp extends javax.swing.JFrame {
 
     /**
      * Creates new form App
      */
-    public Teacher() {
+    public TeacherApp() {
         initComponents();
         initDisplay();
     }
@@ -2046,7 +2046,6 @@ public class Teacher extends javax.swing.JFrame {
 
         btnUpdate.setBackground(new java.awt.Color(147, 186, 243));
         btnUpdate.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
-        btnUpdate.setForeground(java.awt.Color.black);
         btnUpdate.setText("Update");
         btnUpdate.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(191, 217, 255), 1, true));
         btnUpdate.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -2533,21 +2532,23 @@ public class Teacher extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Teacher.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TeacherApp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Teacher.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TeacherApp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Teacher.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TeacherApp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Teacher.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TeacherApp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Teacher().setVisible(true);
+                new TeacherApp().setVisible(true);
             }
         });
     }

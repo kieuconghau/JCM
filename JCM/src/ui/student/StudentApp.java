@@ -1784,10 +1784,21 @@ public class StudentApp extends javax.swing.JFrame {
         ArrayList<LessonModel> allLesson = mlessonService.getAllLessonOfCourse(this._currentCourse);
         for(LessonModel t : allLesson){
             System.out.println(t);
-             listLessons.list.addPanelHead(listLessons.list.getLessionPanel(
+            JPanel itemList = listLessons.list.getLessionPanel(
                 t.getTitle(),
                 t.getDescription()
-            ), 55);
+            );
+            itemList.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent mouseEvent) {
+                    _currentLesson = t;
+                    showLessonDetailScreen();
+                }
+            });
+            
+            
+            listLessons.list.addPanelHead(itemList, 55);
+            
         }
     }
 
@@ -1801,14 +1812,15 @@ public class StudentApp extends javax.swing.JFrame {
         panelLessonsMain.setVisible(false);
         panelLessonDetail.setVisible(true);
         panelNewLesson.setVisible(false);
-
-        try {
-            editorpaneLessonContent.setPage(new java.net.URL("https://brilliant.org/wiki/greedy-algorithm/"));
-        } catch (MalformedURLException ex) {
-            editorpaneLessonContent.setText("File not found!");
-        } catch (IOException ex) {
-            editorpaneLessonContent.setText("File not found!");
-        }
+           
+        editorpaneLessonContent.setText(this._currentLesson.getContent());
+//        try {
+//            editorpaneLessonContent.setPage(new java.net.URL("https://brilliant.org/wiki/greedy-algorithm/"));
+//        } catch (MalformedURLException ex) {
+//            editorpaneLessonContent.setText("File not found!");
+//        } catch (IOException ex) {
+//            editorpaneLessonContent.setText("File not found!");
+//        }
     }
 
     private void showNewLessonScreen() {

@@ -1377,11 +1377,16 @@ public class TeacherApp extends javax.swing.JFrame {
                 saveNewLessonMouseClicked(evt);
             }
         });
+        saveNewLesson.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveNewLessonActionPerformed(evt);
+            }
+        });
 
         jButton4.setBackground(new java.awt.Color(255, 51, 0));
         jButton4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jButton4.setText("DELETE");
+        jButton4.setText("CANCEL");
         jButton4.setBorder(null);
         jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -2141,7 +2146,22 @@ public class TeacherApp extends javax.swing.JFrame {
                 lessonTitle.getText(),
                 lessonDescription.getText()
         ), 40);
-        showLessonsMainScreen();
+        String title = lessonTitle.getText();
+        
+        String description = lessonDescription.getText();
+        String content = lessonContent.getText();
+        LessonModel nlRecord = new LessonModel(_currentCourse.getID(),title , description, content);
+        boolean status = nlRecord.insert();
+        
+        if(status){
+            JOptionPane.showMessageDialog(this, "Create lesson successfully","Message", JOptionPane.INFORMATION_MESSAGE);
+            showLessonsMainScreen();
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "An error happened","Message",  JOptionPane.ERROR_MESSAGE);
+        }
+        
+        //showLessonsMainScreen();
     }//GEN-LAST:event_saveNewLessonMouseClicked
 
     private void addParticipantMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addParticipantMouseClicked
@@ -2152,6 +2172,10 @@ public class TeacherApp extends javax.swing.JFrame {
                 "Tran Minh Duc"
         ), 40);
     }//GEN-LAST:event_addParticipantMouseClicked
+
+    private void saveNewLessonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveNewLessonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_saveNewLessonActionPerformed
 
     private void disableAllMenuTabs() {
         panelTabHome.setBackground(panelSidebar.getBackground());
@@ -2518,6 +2542,7 @@ public class TeacherApp extends javax.swing.JFrame {
         labelNewCourseSelectedImg.setIcon(labelNewCourseImg0.getIcon());
         tfNewCourseName.setText("");
         taNewCourseDescription.setText("");
+         
     }
 
     // ===== Home (recent courses) =====

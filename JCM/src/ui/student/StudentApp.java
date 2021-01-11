@@ -1357,7 +1357,7 @@ public class StudentApp extends javax.swing.JFrame {
                 .addComponent(labelAvatar8)
                 .addGap(18, 18, 18)
                 .addComponent(labelAvatar9)
-                .addContainerGap(64, Short.MAX_VALUE))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
         panelAccountAvatarSelectorLayout.setVerticalGroup(
             panelAccountAvatarSelectorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

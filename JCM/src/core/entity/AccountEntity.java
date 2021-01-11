@@ -85,7 +85,7 @@ public class AccountEntity {
         UserModel user = new UserModel();
         user.setUsername(username);
         boolean status = user.selectByUserName();
-        if (password != repassword){
+        if (!password.equals(repassword)){
             return -1;
         }
         if (status == true){
@@ -94,9 +94,9 @@ public class AccountEntity {
         if (fullName.isEmpty()){
             fullName = "Account Name";
         }
-        UserModel record = new UserModel(username, password,fullName, "", role );
-        boolean status_insert = record.insert() ;
-        if(status == true){
+        UserModel record = new UserModel(username, password, fullName, fullName, role );
+        boolean status_insert = record.insert();
+        if(status_insert == true){
             return 0;
         }
         else{

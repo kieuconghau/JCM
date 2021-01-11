@@ -26,6 +26,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
+import ui.auth.SignIn;
 import ui.core.MyListPanel;
 
 /**
@@ -261,6 +262,7 @@ public class TeacherApp extends javax.swing.JFrame {
         jLabel84 = new javax.swing.JLabel();
         pwdfieldAccountConfirmedPassword = new javax.swing.JPasswordField();
         btnAccountUpdate = new javax.swing.JButton();
+        btnAccountLogOut = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("JCM - Online Course Management System - Teacher");
@@ -1624,36 +1626,37 @@ public class TeacherApp extends javax.swing.JFrame {
         panelSettingLayout.setHorizontalGroup(
             panelSettingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(panelSettingLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jLabel68, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addComponent(labelCourseInfoCourseImg)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(panelCourseInfoImgSelector, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(panelSettingLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addGroup(panelSettingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(panelSettingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelSettingLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnCourseInfoRemove, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel68, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(20, 20, 20)
-                        .addComponent(btnCourseInfoSave, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelSettingLayout.createSequentialGroup()
-                        .addComponent(jLabel66, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
-                        .addComponent(txtCourseInfoName))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelSettingLayout.createSequentialGroup()
-                        .addGroup(panelSettingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel67)
-                            .addComponent(jLabel70))
-                        .addGap(20, 20, 20)
-                        .addGroup(panelSettingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(labelCourseInfoCourseImg)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(panelSettingLayout.createSequentialGroup()
+                        .addGroup(panelSettingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(panelSettingLayout.createSequentialGroup()
-                                .addComponent(txtCourseInfoCreatedDate)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(txtCourseInfoDescription, javax.swing.GroupLayout.DEFAULT_SIZE, 667, Short.MAX_VALUE))))
-                .addGap(30, 30, 30))
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(btnCourseInfoRemove, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(20, 20, 20)
+                                .addComponent(btnCourseInfoSave, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelSettingLayout.createSequentialGroup()
+                                .addComponent(jLabel66, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(20, 20, 20)
+                                .addComponent(txtCourseInfoName))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelSettingLayout.createSequentialGroup()
+                                .addGroup(panelSettingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel67)
+                                    .addComponent(jLabel70))
+                                .addGap(20, 20, 20)
+                                .addGroup(panelSettingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(panelSettingLayout.createSequentialGroup()
+                                        .addComponent(txtCourseInfoCreatedDate)
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addComponent(txtCourseInfoDescription, javax.swing.GroupLayout.DEFAULT_SIZE, 667, Short.MAX_VALUE))))
+                        .addGap(30, 30, 30))))
         );
         panelSettingLayout.setVerticalGroup(
             panelSettingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1833,7 +1836,7 @@ public class TeacherApp extends javax.swing.JFrame {
                 .addComponent(labelAvatar8)
                 .addGap(18, 18, 18)
                 .addComponent(labelAvatar9)
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addContainerGap(64, Short.MAX_VALUE))
         );
         panelAccountAvatarSelectorLayout.setVerticalGroup(
             panelAccountAvatarSelectorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1941,9 +1944,16 @@ public class TeacherApp extends javax.swing.JFrame {
         btnAccountUpdate.setText("Update");
         btnAccountUpdate.setBorder(null);
         btnAccountUpdate.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnAccountUpdate.addActionListener(new java.awt.event.ActionListener() {
+
+        btnAccountLogOut.setBackground(new java.awt.Color(255, 51, 0));
+        btnAccountLogOut.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnAccountLogOut.setForeground(new java.awt.Color(255, 255, 255));
+        btnAccountLogOut.setText("Log out");
+        btnAccountLogOut.setBorder(null);
+        btnAccountLogOut.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnAccountLogOut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAccountUpdateActionPerformed(evt);
+                btnAccountLogOutActionPerformed(evt);
             }
         });
 
@@ -1958,6 +1968,10 @@ public class TeacherApp extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnAccountUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAccountLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnAccountLogOut, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30))
         );
         panelAccountLayout.setVerticalGroup(
             panelAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1969,7 +1983,9 @@ public class TeacherApp extends javax.swing.JFrame {
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25)
                 .addComponent(btnAccountUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(109, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addComponent(btnAccountLogOut, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30))
         );
 
         javax.swing.GroupLayout panelMainLayout = new javax.swing.GroupLayout(panelMain);
@@ -2230,9 +2246,10 @@ public class TeacherApp extends javax.swing.JFrame {
 
     }//GEN-LAST:event_addParticipantMouseClicked
 
-    private void btnAccountUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAccountUpdateActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnAccountUpdateActionPerformed
+    private void btnAccountLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAccountLogOutActionPerformed
+        this.setVisible(false);
+        new SignIn().setVisible(true);
+    }//GEN-LAST:event_btnAccountLogOutActionPerformed
 
     private void disableAllMenuTabs() {
         panelTabHome.setBackground(panelSidebar.getBackground());
@@ -2790,6 +2807,7 @@ public class TeacherApp extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel addParticipant;
+    private javax.swing.JButton btnAccountLogOut;
     private javax.swing.JButton btnAccountUpdate;
     private javax.swing.JButton btnCourseInfoRemove;
     private javax.swing.JButton btnCourseInfoSave;

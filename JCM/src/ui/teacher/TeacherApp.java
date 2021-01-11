@@ -2294,11 +2294,15 @@ public class TeacherApp extends javax.swing.JFrame {
     }
 
     private void showHomeScreen() {
+        // UI
         disableAllMenuTabs();
         panelTabHome.setBackground(selectedTabColor);
 
         hideAllMainScreens();
         panelHome.setVisible(true);
+
+        // Load data
+        loadHomeScreenInfo();
     }
 
     private void showMyCoursesScreen() {
@@ -2586,6 +2590,13 @@ public class TeacherApp extends javax.swing.JFrame {
     }
 
     private void loadNewCourseInfo() {
+        javax.swing.JLabel[] courseImgs = {labelNewCourseImg0, labelNewCourseImg1, labelNewCourseImg2,
+            labelNewCourseImg3, labelNewCourseImg4, labelNewCourseImg5, labelNewCourseImg6, labelNewCourseImg7,
+            labelNewCourseImg8, labelNewCourseImg9, labelNewCourseImg10, labelNewCourseImg11, labelNewCourseImg12,
+            labelNewCourseImg13, labelNewCourseImg14, labelNewCourseImg15};
+        for (javax.swing.JLabel courseImg : courseImgs) {
+            courseImg.setBorder(new javax.swing.border.LineBorder(Color.black));
+        }
         labelNewCourseImg0.setBorder(new javax.swing.border.LineBorder(Color.red, 2));
         labelNewCourseSelectedImg.setIcon(labelNewCourseImg0.getIcon());
         tfNewCourseName.setText("");

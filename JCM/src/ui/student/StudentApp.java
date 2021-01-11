@@ -744,9 +744,8 @@ public class StudentApp extends javax.swing.JFrame {
         panelCourseDetail.setBackground(new java.awt.Color(255, 255, 255));
         panelCourseDetail.setPreferredSize(new java.awt.Dimension(800, 590));
 
-        panelParticipants.setBackground(new java.awt.Color(255, 255, 255));
+        panelParticipants.setBackground(new java.awt.Color(238, 238, 238));
 
-        panelParticipantsList.setBackground(new java.awt.Color(255, 255, 255));
         panelParticipantsList.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N

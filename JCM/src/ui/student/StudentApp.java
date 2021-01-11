@@ -39,7 +39,7 @@ public class StudentApp extends javax.swing.JFrame {
 
     CourseModel _currentCourse;
     LessonModel _currentLesson;
-    
+
     /**
      * Creates new form App
      */
@@ -52,22 +52,23 @@ public class StudentApp extends javax.swing.JFrame {
         initComponents();
         initDisplay();
         initEvents();
-       
+
         JOptionPane.showMessageDialog(this, "Hello, " + this._account.getUserModel().getUsername());
         updateLabelAccountInfoHeader();
     }
-    void updateLabelAccountInfoHeader(){
+
+    void updateLabelAccountInfoHeader() {
         String __username = _account.getUserModel().getUsername();
         String __fullName = _account.getUserModel().getFullName();
         String __accountType = "";
-        
+
         if (_account.isStudent()) {
             __accountType = "Student";
         } else {
             __accountType = "Teacher";
         }
 
-        labelAccountInfo.setText(String.format("Xin chào, %s (%s) - %s", __fullName, __username, __accountType));  
+        labelAccountInfo.setText(String.format("Xin chào, %s (%s) - %s", __fullName, __username, __accountType));
     }
 
     public StudentApp() {
@@ -177,6 +178,7 @@ public class StudentApp extends javax.swing.JFrame {
         jLabel71 = new javax.swing.JLabel();
         jLabel38 = new javax.swing.JLabel();
         jLabel48 = new javax.swing.JLabel();
+        btnInfoUnenroll = new javax.swing.JButton();
         panelNoti = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         panelAccount = new javax.swing.JPanel();
@@ -543,7 +545,7 @@ public class StudentApp extends javax.swing.JFrame {
         jLabel9.setBackground(new java.awt.Color(238, 238, 238));
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setText("ALL COURSES");
+        jLabel9.setText("ENROLL COURSES");
         jLabel9.setPreferredSize(new java.awt.Dimension(800, 50));
 
         homeCourses.setBackground(java.awt.Color.white);
@@ -875,6 +877,7 @@ public class StudentApp extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
+        editorpaneLessonContent.setEditable(false);
         jScrollPane1.setViewportView(editorpaneLessonContent);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -1162,6 +1165,12 @@ public class StudentApp extends javax.swing.JFrame {
         jLabel48.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel48.setText("An introduction to Greedy Algorithms, Dynamic Programming, Tree, Graph Theory, etc.");
 
+        btnInfoUnenroll.setBackground(new java.awt.Color(255, 51, 0));
+        btnInfoUnenroll.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnInfoUnenroll.setForeground(new java.awt.Color(255, 255, 255));
+        btnInfoUnenroll.setText("UNENROLL");
+        btnInfoUnenroll.setBorder(null);
+
         javax.swing.GroupLayout panelInfoLayout = new javax.swing.GroupLayout(panelInfo);
         panelInfo.setLayout(panelInfoLayout);
         panelInfoLayout.setHorizontalGroup(
@@ -1194,6 +1203,10 @@ public class StudentApp extends javax.swing.JFrame {
                                         .addGap(18, 18, 18)
                                         .addComponent(jLabel48, javax.swing.GroupLayout.DEFAULT_SIZE, 653, Short.MAX_VALUE)))))
                         .addGap(30, 30, 30))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelInfoLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnInfoUnenroll, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30))
         );
         panelInfoLayout.setVerticalGroup(
             panelInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1215,7 +1228,9 @@ public class StudentApp extends javax.swing.JFrame {
                 .addGroup(panelInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel70, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel71))
-                .addGap(0, 328, Short.MAX_VALUE))
+                .addGap(30, 30, 30)
+                .addComponent(btnInfoUnenroll, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 256, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout panelCourseDetailLayout = new javax.swing.GroupLayout(panelCourseDetail);
@@ -1224,13 +1239,13 @@ public class StudentApp extends javax.swing.JFrame {
             panelCourseDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(panelParticipants, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(panelCourseDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(panelLessons, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 816, Short.MAX_VALUE))
+                .addComponent(panelLessons, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(panelCourseDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(panelExercises, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 816, Short.MAX_VALUE))
+                .addComponent(panelExercises, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(panelCourseDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(panelAnnouncements, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 816, Short.MAX_VALUE))
+                .addComponent(panelAnnouncements, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(panelCourseDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(panelInfo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 816, Short.MAX_VALUE))
+                .addComponent(panelInfo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelCourseDetailLayout.setVerticalGroup(
             panelCourseDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1667,7 +1682,7 @@ public class StudentApp extends javax.swing.JFrame {
 
         hideAllMainScreens();
         panelHome.setVisible(true);
-        
+
         // Load data
         loadHomeScreen();
     }
@@ -1680,10 +1695,11 @@ public class StudentApp extends javax.swing.JFrame {
         hideAllMainScreens();
         panelMyCourses.setVisible(true);
         showMyCoursesMainScreen();
-        
+
         // Load data
         loadMyCoursesInfo();
     }
+
     private void showMyCoursesMainScreen() {
         panelMyCoursesMain.setVisible(true);
         panelNewCourse.setVisible(false);
@@ -1698,7 +1714,7 @@ public class StudentApp extends javax.swing.JFrame {
         // UI
         panelCourseDetail.setVisible(true);
         panelSidebarCourseDetail.setVisible(true);
-        
+
         // Load data
         loadCourseDetailScreen();
     }
@@ -1712,11 +1728,11 @@ public class StudentApp extends javax.swing.JFrame {
         hideAllCourseDetailSubScreens();
         showCourseDetailScreen();
         panelParticipants.setVisible(true);
-        
+
         // Load data
         loadPartcipantsScreenInfo();
     }
-    
+
     private void showLessonsScreen() {
         // UI
         disableAllMenuTabs();
@@ -1727,7 +1743,7 @@ public class StudentApp extends javax.swing.JFrame {
         showCourseDetailScreen();
         panelLessons.setVisible(true);
         showLessonsMainScreen();
-        
+
         // Load data
         loadLessonsScreen();
     }
@@ -1742,7 +1758,7 @@ public class StudentApp extends javax.swing.JFrame {
         panelLessonsMain.setVisible(false);
         panelLessonDetail.setVisible(true);
         panelNewLesson.setVisible(false);
-           
+
         editorpaneLessonContent.setText(this._currentLesson.getContent());
 //        try {
 //            editorpaneLessonContent.setPage(new java.net.URL("https://brilliant.org/wiki/greedy-algorithm/"));
@@ -1787,7 +1803,7 @@ public class StudentApp extends javax.swing.JFrame {
         hideAllCourseDetailSubScreens();
         showCourseDetailScreen();
         panelInfo.setVisible(true);
-        
+
         //getClass().getResource("/ui/teacher/assets/course_algo.png")
         jLabel69.setIcon(new javax.swing.ImageIcon(getClass().getResource(this._currentCourse.getImagePath()))); // NOI18N
         jLabel38.setText(this._currentCourse.getName());
@@ -1799,17 +1815,17 @@ public class StudentApp extends javax.swing.JFrame {
         int year = Calendar.getInstance().get(Calendar.YEAR);
         labelCopyright.setText(String.format("Copyright %d JByNine", year));
     }
-    
+
     private void showAccountScreen() {
         // UI
         disableAllMenuTabs();
         hideAllMainScreens();
         panelAccount.setVisible(true);
-        
+
         // Load data
         loadAccountScreenInfo();
     }
-    
+
     // ===== Account =====
     private void initEventsForAccountAvatarSelector() {
         javax.swing.JLabel[] avatars = {labelAvatar0, labelAvatar1, labelAvatar2, labelAvatar3,
@@ -1872,19 +1888,30 @@ public class StudentApp extends javax.swing.JFrame {
         pwdfieldAccountNewPassword.setText("");
         pwdfieldAccountConfirmedPassword.setText("");
     }
-    
+
     // ===== Home =====
     private void loadHomeScreen() {
         homeCourses.removeAll();
         homeListCourses = new MyListPanel();
-        
+
         homeCourses.setLayout(new BorderLayout());
         homeCourses.add(homeListCourses.scrollPane, BorderLayout.CENTER);
 
         ArrayList<CourseModel> allCourses = mcourseService.getAllCourses();
+        ArrayList<CourseModel> enrolledCourses = mcourseService.getEnrolledCourse(_account);
+        for (CourseModel enrolledCourse : enrolledCourses) {
+            for (CourseModel course : allCourses) {
+                if (course.getID() == enrolledCourse.getID()) {
+                    allCourses.remove(course);
+                    break;
+                }
+            }
+        }
+        java.util.Collections.reverse(allCourses);
+
         for (CourseModel t : allCourses) {
             String authorName = "Author";
-           
+
             System.out.println(t);
             JPanel itemList = homeListCourses.list.getStudentCoursePanel(
                     t.getImagePath(),
@@ -1897,28 +1924,24 @@ public class StudentApp extends javax.swing.JFrame {
                 public void mouseClicked(MouseEvent mouseEvent) {
                     int result = JOptionPane.showConfirmDialog(itemList, "Do you want to enroll this course?", "Confirm Enroll", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
                     if (result == JOptionPane.YES_OPTION) {
-                        int status = mcourseService.enrollACourse(_account,t );
-                        switch(status){
+                        int status = mcourseService.enrollACourse(_account, t);
+                        switch (status) {
                             case -1:
-                                JOptionPane.showMessageDialog(itemList, "Please login " + t.getName(), "Enroll Dialog",  JOptionPane.ERROR_MESSAGE);
+                                JOptionPane.showMessageDialog(itemList, "Please login " + t.getName(), "Enroll Dialog", JOptionPane.ERROR_MESSAGE);
                                 break;
                             case -2:
-                                JOptionPane.showMessageDialog(itemList, "You must you student account " + t.getName(), "Enroll Dialog",  JOptionPane.ERROR_MESSAGE);
-
+                                JOptionPane.showMessageDialog(itemList, "You must you student account " + t.getName(), "Enroll Dialog", JOptionPane.ERROR_MESSAGE);
                                 break;
                             case -3:
-                                JOptionPane.showMessageDialog(itemList, "You enrolled this course before: " + t.getName(), "Enroll Dialog",  JOptionPane.ERROR_MESSAGE);
-
+                                JOptionPane.showMessageDialog(itemList, "You enrolled this course before: " + t.getName(), "Enroll Dialog", JOptionPane.ERROR_MESSAGE);
                                 break;
                             case -4:
-                                JOptionPane.showMessageDialog(itemList, "Unexpected error ", "Enroll Dialog",  JOptionPane.ERROR_MESSAGE);
-
+                                JOptionPane.showMessageDialog(itemList, "Unexpected error ", "Enroll Dialog", JOptionPane.ERROR_MESSAGE);
                                 break;
                             case 0:
                                 JOptionPane.showMessageDialog(itemList, "Success to enroll this course: " + t.getName());
-                                    
+                                showHomeScreen();
                                 break;
-                                
                         }
                     }
                 }
@@ -1926,17 +1949,19 @@ public class StudentApp extends javax.swing.JFrame {
             homeListCourses.list.addPanelHead(itemList, 50);
         }
     }
-    
+
     // ===== My Courses =====
     private void loadMyCoursesInfo() {
         myCourses.removeAll();
         myListCourses = new MyListPanel();
-        
+
         myCourses.setLayout(new BorderLayout());
         myCourses.add(myListCourses.scrollPane, BorderLayout.CENTER);
 
-        ArrayList<CourseModel> allCourses = mcourseService.getEnrolledCourse(_account);
-        for (CourseModel t : allCourses) {
+        ArrayList<CourseModel> enrolledCourses = mcourseService.getEnrolledCourse(_account);
+        java.util.Collections.reverse(enrolledCourses);
+
+        for (CourseModel t : enrolledCourses) {
             String authorName = "Author";
             UserModel author = new UserModel(t.getAuthorID());
             if (author.select()) {
@@ -1959,27 +1984,27 @@ public class StudentApp extends javax.swing.JFrame {
             myListCourses.list.addPanelHead(itemList, 50);
         }
     }
-    
+
     // ===== Course Detail =====
     private void loadCourseDetailScreen() {
         labelSidebarCourseName.setText(_currentCourse.getName());
     }
-    
+
     // ===== Participants =====
     private void loadPartcipantsScreenInfo() {
         listParticipants = new MyListPanel();
-        
-        participantListPanel.removeAll(); 
+
+        participantListPanel.removeAll();
         participantListPanel.setLayout(new BorderLayout());
         participantListPanel.add(listParticipants.scrollPane, BorderLayout.CENTER);
-    
-        ArrayList<UserModel> allParticipants  = mcourseService.getAllParticipants(_currentCourse);
-        for(UserModel t : allParticipants){
+
+        ArrayList<UserModel> allParticipants = mcourseService.getAllParticipants(_currentCourse);
+        for (UserModel t : allParticipants) {
             System.out.println(t);
             JPanel itemList = listParticipants.list.getParticipantPanel_Student(
-                t.getAvatarPath(),
-                t.getUsername(),
-                t.getFullName()
+                    t.getAvatarPath(),
+                    t.getUsername(),
+                    t.getFullName()
             );
 //            itemList.addMouseListener(new MouseAdapter() {
 //                @Override
@@ -1999,7 +2024,7 @@ public class StudentApp extends javax.swing.JFrame {
 //            });
             listParticipants.list.addPanelHead(itemList, 35);
         }
-        
+
 //        MCourseService mcourseService = new MCourseService();
 //        ArrayList<LessonModel> allCourses = mcourseService.getAllLession();
 //        for(CourseModel t : allCourses){
@@ -2011,28 +2036,27 @@ public class StudentApp extends javax.swing.JFrame {
 //            ), 55);
 //        }
     }
-    
+
     // ===== Lessons =====
     private void loadLessonsScreen() {
         listLessons = new MyListPanel();
-        
-        lessonListPanel.removeAll(); 
+
+        lessonListPanel.removeAll();
         lessonListPanel.setLayout(new BorderLayout());
         lessonListPanel.add(listLessons.scrollPane, BorderLayout.CENTER);
-        
+
 //lessonListPanel.removeAll();
-       // listLessons.list.removeAll();
+        // listLessons.list.removeAll();
 //        listLessons.list.addPanelHead(listLessons.list.getLessionPanel(
 //                "Week 1 - Greedy Algorithms",
 //                "A greedy algorithm is a simple, intuitive algorithm that is used in optimization problems."
 //        ), 40);
-        
         ArrayList<LessonModel> allLesson = mlessonService.getAllLessonOfCourse(this._currentCourse);
-        for(LessonModel t : allLesson){
+        for (LessonModel t : allLesson) {
             System.out.println(t);
             JPanel itemList = listLessons.list.getLessionPanel(
-                t.getTitle(),
-                t.getDescription()
+                    t.getTitle(),
+                    t.getDescription()
             );
             itemList.addMouseListener(new MouseAdapter() {
                 @Override
@@ -2041,11 +2065,39 @@ public class StudentApp extends javax.swing.JFrame {
                     showLessonDetailScreen();
                 }
             });
-            
+
             listLessons.list.addPanelHead(itemList, 50);
         }
     }
-    
+
+    // ===== Info =====
+    private void initEventForInfoBtnUneroll() {
+        btnInfoUnenroll.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int result = JOptionPane.showConfirmDialog(panelInfo, "Do you want to unenroll this course?", "Confirm Unenrollment", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+                if (result == JOptionPane.YES_OPTION) {
+                    int status = mcourseService.unenrollACourse(_account, _currentCourse);
+                    switch (status) {
+                        case -1:
+                            JOptionPane.showMessageDialog(panelInfo, "Please login " + _currentCourse.getName(), "Unenroll Dialog", JOptionPane.ERROR_MESSAGE);
+                            break;
+                        case -2:
+                            JOptionPane.showMessageDialog(panelInfo, "You must you student account " + _currentCourse.getName(), "Unenroll Dialog", JOptionPane.ERROR_MESSAGE);
+                            break;
+                        case -3:
+                            JOptionPane.showMessageDialog(panelInfo, "Unexpected error ", "Unenroll Dialog", JOptionPane.ERROR_MESSAGE);
+                            break;
+                        case 0:
+                            JOptionPane.showMessageDialog(panelInfo, "Success to unenroll this course: " + _currentCourse.getName());
+                            showMyCoursesScreen();
+                            break;
+                    }
+                }
+            }
+        });
+    }
+
     // ===== Init =====
     private void initDisplay() {
         selectedTabColor = panelTabHome.getBackground();
@@ -2053,11 +2105,14 @@ public class StudentApp extends javax.swing.JFrame {
         showHomeScreen();
         loadAccountScreenInfo();
     }
-    
+
     private void initEvents() {
         // Account
         initEventsForAccountAvatarSelector();
         initEventForAccountBtnUpdate();
+
+        // Info
+        initEventForInfoBtnUneroll();
     }
 
     /**
@@ -2103,9 +2158,10 @@ public class StudentApp extends javax.swing.JFrame {
     MyListPanel myListCourses = new MyListPanel();
     MyListPanel listLessons = new MyListPanel();
     MyListPanel listParticipants = new MyListPanel();
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAccountUpdate;
+    private javax.swing.JButton btnInfoUnenroll;
     private javax.swing.JEditorPane editorpaneLessonContent;
     private javax.swing.JPanel homeCourses;
     private javax.swing.JButton jButton3;

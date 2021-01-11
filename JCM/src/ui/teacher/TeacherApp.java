@@ -947,8 +947,6 @@ public class TeacherApp extends javax.swing.JFrame {
         panelCourseDetail.setBackground(new java.awt.Color(255, 255, 255));
         panelCourseDetail.setPreferredSize(new java.awt.Dimension(800, 590));
 
-        panelParticipants.setBackground(new java.awt.Color(255, 255, 255));
-
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel38.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -1042,10 +1040,8 @@ public class TeacherApp extends javax.swing.JFrame {
                 .addComponent(panelParicipantsList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        panelLessons.setBackground(new java.awt.Color(255, 255, 255));
         panelLessons.setPreferredSize(new java.awt.Dimension(800, 590));
 
-        panelLessonsMain.setBackground(new java.awt.Color(255, 255, 255));
         panelLessonsMain.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jLabel48.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -1256,11 +1252,6 @@ public class TeacherApp extends javax.swing.JFrame {
         saveNewLesson.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 saveNewLessonMouseClicked(evt);
-            }
-        });
-        saveNewLesson.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                saveNewLessonActionPerformed(evt);
             }
         });
 
@@ -1661,7 +1652,7 @@ public class TeacherApp extends javax.swing.JFrame {
                             .addGroup(panelSettingLayout.createSequentialGroup()
                                 .addComponent(txtCourseInfoCreatedDate)
                                 .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(txtCourseInfoDescription, javax.swing.GroupLayout.DEFAULT_SIZE, 651, Short.MAX_VALUE))))
+                            .addComponent(txtCourseInfoDescription, javax.swing.GroupLayout.DEFAULT_SIZE, 667, Short.MAX_VALUE))))
                 .addGap(30, 30, 30))
         );
         panelSettingLayout.setVerticalGroup(
@@ -1690,7 +1681,7 @@ public class TeacherApp extends javax.swing.JFrame {
                 .addGroup(panelSettingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCourseInfoSave, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCourseInfoRemove, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(87, Short.MAX_VALUE))
+                .addContainerGap(85, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout panelCourseDetailLayout = new javax.swing.GroupLayout(panelCourseDetail);
@@ -2057,53 +2048,6 @@ public class TeacherApp extends javax.swing.JFrame {
         showParticipantsScreen();
     }//GEN-LAST:event_panelTabParticpantsMouseClicked
 
-    private void showParticipantsList() {
-        listParticipants = new MyListPanel();
-        participantListPanel.removeAll();
-
-        participantListPanel.setLayout(new BorderLayout());
-        participantListPanel.add(listParticipants.scrollPane, BorderLayout.CENTER);
-
-        ArrayList<UserModel> allParticipants = mcourseService.getAllParticipants(_currentCourse);
-        for (UserModel t : allParticipants) {
-            System.out.println(t);
-            JPanel itemList = listParticipants.list.getParticipantPanel(
-                    t.getAvatarPath(),
-                    t.getUsername(),
-                    t.getFullName()
-            );
-            itemList.addMouseListener(new MouseAdapter() {
-                @Override
-                public void mouseClicked(MouseEvent mouseEvent) {
-                    int result = JOptionPane.showConfirmDialog(itemList, "Do you want to kick this participant?", "Confirm Kick", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-                    if (result == JOptionPane.YES_OPTION) {
-                        EnrollmentModel recordKick = new EnrollmentModel();
-                        boolean status = recordKick.remove(String.format("WHERE course_id=%d AND user_id= %d", _currentCourse.getID(), t.getID()));
-                        if (status) {
-                            JOptionPane.showMessageDialog(itemList, "Kicked user: " + t.getFullName());
-                            showParticipantsScreen();
-                        } else {
-                            JOptionPane.showMessageDialog(itemList, "Unexpected error, please contact the admin");
-                        }
-                    }
-                }
-            });
-            listParticipants.list.addPanelHead(itemList, 55);
-
-        }
-
-//        MCourseService mcourseService = new MCourseService();
-//        ArrayList<LessonModel> allCourses = mcourseService.getAllLession();
-//        for(CourseModel t : allCourses){
-//            System.out.println(t);
-//             listLessons.list.addPanelHead(listLessons.list.getTeacherCoursePanel(
-//                t.getImagePath(),
-//                t.getName(),
-//                t.getDescription()
-//            ), 55);
-//        }
-    }
-
     private void panelTabLessonsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelTabLessonsMouseClicked
         showLessonsScreen();
     }//GEN-LAST:event_panelTabLessonsMouseClicked
@@ -2153,7 +2097,6 @@ public class TeacherApp extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "An error happened", "Message", JOptionPane.ERROR_MESSAGE);
             }
         }
-
     }//GEN-LAST:event_btnEditLessonRemoveActionPerformed
 
     private void jLabel62MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel62MouseClicked
@@ -2287,10 +2230,6 @@ public class TeacherApp extends javax.swing.JFrame {
 
     }//GEN-LAST:event_addParticipantMouseClicked
 
-    private void saveNewLessonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveNewLessonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_saveNewLessonActionPerformed
-
     private void btnAccountUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAccountUpdateActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAccountUpdateActionPerformed
@@ -2371,15 +2310,17 @@ public class TeacherApp extends javax.swing.JFrame {
     }
 
     private void showParticipantsScreen() {
+        // UI
         disableAllMenuTabs();
         panelTabParticpants.setBackground(selectedTabColor);
 
         hideAllMainScreens();
         hideAllCourseDetailSubScreens();
         showCourseDetailScreen();
-        showParticipantsList();
-
         panelParticipants.setVisible(true);
+        
+        // Load data
+        loadParticipantsScreen();
     }
 
     private void showLessonsScreen() {
@@ -2694,6 +2635,54 @@ public class TeacherApp extends javax.swing.JFrame {
             });
             listMyCourses.list.addPanelHead(item, 50);
         }
+    }
+    
+    // ===== Participants =====
+    private void loadParticipantsScreen() {
+        listParticipants = new MyListPanel();
+        participantListPanel.removeAll();
+
+        participantListPanel.setLayout(new BorderLayout());
+        participantListPanel.add(listParticipants.scrollPane, BorderLayout.CENTER);
+
+        ArrayList<UserModel> allParticipants = mcourseService.getAllParticipants(_currentCourse);
+        for (UserModel t : allParticipants) {
+            System.out.println(t);
+            JPanel itemList = listParticipants.list.getParticipantPanel(
+                    t.getAvatarPath(),
+                    t.getUsername(),
+                    t.getFullName()
+            );
+            itemList.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent mouseEvent) {
+                    int result = JOptionPane.showConfirmDialog(itemList, "Do you want to kick this participant?", "Confirm Kick", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+                    if (result == JOptionPane.YES_OPTION) {
+                        EnrollmentModel recordKick = new EnrollmentModel();
+                        boolean status = recordKick.remove(String.format("WHERE course_id=%d AND user_id= %d", _currentCourse.getID(), t.getID()));
+                        if (status) {
+                            JOptionPane.showMessageDialog(itemList, "Kicked user: " + t.getFullName());
+                            showParticipantsScreen();
+                        } else {
+                            JOptionPane.showMessageDialog(itemList, "Unexpected error, please contact the admin");
+                        }
+                    }
+                }
+            });
+            listParticipants.list.addPanelHead(itemList, 35);
+
+        }
+
+//        MCourseService mcourseService = new MCourseService();
+//        ArrayList<LessonModel> allCourses = mcourseService.getAllLession();
+//        for(CourseModel t : allCourses){
+//            System.out.println(t);
+//             listLessons.list.addPanelHead(listLessons.list.getTeacherCoursePanel(
+//                t.getImagePath(),
+//                t.getName(),
+//                t.getDescription()
+//            ), 55);
+//        }
     }
 
     // ===== Lessons =====

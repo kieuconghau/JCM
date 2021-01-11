@@ -249,6 +249,35 @@ public class MCourseService {
             }
         }
     }
+    
+    /**
+     *  
+     * @param account
+     * @param course
+     * @return 
+     *  -1 : login
+     *  -2 : student permission
+     *  -3 : unexpected
+     */
+    public int unenrollACourse(AccountEntity account, CourseModel course) {
+        if(!account.isLogined()){
+            return -1;
+        }
+        if(!account.isStudent()){
+            return -2;
+        }
+        
+        int course_id = course.getID();
+        int user_id = account.getID();
+        EnrollmentModel checkExist = new EnrollmentModel();
+        if(checkExist.remove(String.format("WHERE course_id = %d and user_id = %d", course_id, user_id))){
+            return 0;
+        }
+        else{
+            return -3;
+        }
+    }
+    
     /**
      * 
      * @param account
@@ -301,8 +330,4 @@ public class MCourseService {
             return -4; //user participant not existted
         }
     }
-
-
-
-
 }

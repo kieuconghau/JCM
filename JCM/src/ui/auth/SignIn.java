@@ -441,7 +441,8 @@ public class SignIn extends javax.swing.JFrame {
         // TODO add your handling code here:
         btnSignIn.setBackground(new java.awt.Color(46, 81, 133));
     }//GEN-LAST:event_btnSignInMouseEntered
-
+                          
+        // TODO add your handling code here:
     private void btnSignInMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSignInMouseExited
         // TODO add your handling code here:
         btnSignIn.setBackground(new java.awt.Color(147, 186, 243));

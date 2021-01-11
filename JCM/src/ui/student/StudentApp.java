@@ -532,7 +532,7 @@ public class StudentApp extends javax.swing.JFrame {
         );
         homeCoursesLayout.setVerticalGroup(
             homeCoursesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 523, Short.MAX_VALUE)
+            .addGap(0, 518, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout panelHomeLayout = new javax.swing.GroupLayout(panelHome);
@@ -582,7 +582,7 @@ public class StudentApp extends javax.swing.JFrame {
         panelMyCoursesMain.setLayout(panelMyCoursesMainLayout);
         panelMyCoursesMainLayout.setHorizontalGroup(
             panelMyCoursesMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, 816, Short.MAX_VALUE)
+            .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
             .addGroup(panelMyCoursesMainLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addComponent(myCourses, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -757,55 +757,45 @@ public class StudentApp extends javax.swing.JFrame {
         participantListPanel.setLayout(participantListPanelLayout);
         participantListPanelLayout.setHorizontalGroup(
             participantListPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 756, Short.MAX_VALUE)
         );
         participantListPanelLayout.setVerticalGroup(
             participantListPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 477, Short.MAX_VALUE)
+            .addGap(0, 518, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout panelParticipantsListLayout = new javax.swing.GroupLayout(panelParticipantsList);
         panelParticipantsList.setLayout(panelParticipantsListLayout);
         panelParticipantsListLayout.setHorizontalGroup(
             panelParticipantsListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, 796, Short.MAX_VALUE)
-            .addGroup(panelParticipantsListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panelParticipantsListLayout.createSequentialGroup()
-                    .addGap(30, 30, 30)
-                    .addComponent(participantListPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGap(30, 30, 30)))
+            .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(panelParticipantsListLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(participantListPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(30, 30, 30))
         );
         panelParticipantsListLayout.setVerticalGroup(
             panelParticipantsListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelParticipantsListLayout.createSequentialGroup()
                 .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(518, Short.MAX_VALUE))
-            .addGroup(panelParticipantsListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panelParticipantsListLayout.createSequentialGroup()
-                    .addGap(69, 69, 69)
-                    .addComponent(participantListPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(22, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(participantListPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout panelParticipantsLayout = new javax.swing.GroupLayout(panelParticipants);
         panelParticipants.setLayout(panelParticipantsLayout);
         panelParticipantsLayout.setHorizontalGroup(
             panelParticipantsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1016, Short.MAX_VALUE)
+            .addGap(0, 816, Short.MAX_VALUE)
             .addGroup(panelParticipantsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panelParticipantsLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(panelParticipantsList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap()))
+                .addComponent(panelParticipantsList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelParticipantsLayout.setVerticalGroup(
             panelParticipantsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 650, Short.MAX_VALUE)
+            .addGap(0, 590, Short.MAX_VALUE)
             .addGroup(panelParticipantsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panelParticipantsLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(panelParticipantsList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap()))
+                .addComponent(panelParticipantsList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         panelLessons.setBackground(new java.awt.Color(255, 255, 255));
@@ -1690,6 +1680,7 @@ public class StudentApp extends javax.swing.JFrame {
     }
 
     private void showParticipantsScreen() {
+        // UI
         disableAllMenuTabs();
         panelTabParticpants.setBackground(selectedTabColor);
 
@@ -1697,57 +1688,9 @@ public class StudentApp extends javax.swing.JFrame {
         hideAllCourseDetailSubScreens();
         showCourseDetailScreen();
         panelParticipants.setVisible(true);
-        showParticipantsList();
-    }
-
-    
-    MyListPanel listParticipants = new MyListPanel();
-
-    private void showParticipantsList() {
-        listParticipants = new MyListPanel();
         
-        participantListPanel.removeAll(); 
-        participantListPanel.setLayout(new BorderLayout());
-        participantListPanel.add(listParticipants.scrollPane, BorderLayout.CENTER);
-    
-        
-        ArrayList<UserModel> allParticipants  = mcourseService.getAllParticipants(_currentCourse);
-        for(UserModel t : allParticipants){
-            System.out.println(t);
-            JPanel itemList = listParticipants.list.getParticipantPanel(
-                t.getAvatarPath(),
-                t.getUsername(),
-                t.getFullName()
-            );
-//            itemList.addMouseListener(new MouseAdapter() {
-//                @Override
-//                public void mouseClicked(MouseEvent mouseEvent) {
-//                    int result = JOptionPane.showConfirmDialog(itemList, "Do you want to kick this participant?", "Confirm Kick", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-//                    if (result == JOptionPane.YES_OPTION) {
-//                        EnrollmentModel recordKick = new EnrollmentModel(_currentCourse.getID(), t.getID());
-//                        boolean status = recordKick.remove();
-//                        if(status){
-//                            JOptionPane.showMessageDialog(  itemList , "Kicked user: "  +  t.getFullName() );
-//                        }
-//                        else{
-//                            JOptionPane.showMessageDialog(  itemList , "Unexpected error, please contact the admin" );
-//                        }
-//                    }
-//                }
-//            });
-            listParticipants.list.addPanelHead(itemList, 55);
-            
-        }
-//        MCourseService mcourseService = new MCourseService();
-//        ArrayList<LessonModel> allCourses = mcourseService.getAllLession();
-//        for(CourseModel t : allCourses){
-//            System.out.println(t);
-//             listLessons.list.addPanelHead(listLessons.list.getTeacherCoursePanel(
-//                t.getImagePath(),
-//                t.getName(),
-//                t.getDescription()
-//            ), 55);
-//        }
+        // Load data
+        loadPartcipantsScreenInfo();
     }
     
     private void showLessonsScreen() {
@@ -1761,7 +1704,7 @@ public class StudentApp extends javax.swing.JFrame {
         showLessonsMainScreen();
         showLessionsList();
     }
-    MyListPanel listLessons = new MyListPanel();
+    
 
     private void showLessionsList() {
         listLessons = new MyListPanel();
@@ -1999,13 +1942,18 @@ public class StudentApp extends javax.swing.JFrame {
         myCourses.setLayout(new BorderLayout());
         myCourses.add(myListCourses.scrollPane, BorderLayout.CENTER);
 
-        ArrayList<CourseModel> allCourses = mcourseService.getAllCourses();
+        ArrayList<CourseModel> allCourses = mcourseService.getEnrolledCourse(_account);
         for (CourseModel t : allCourses) {
+            String authorName = "Author";
+            UserModel author = new UserModel(t.getAuthorID());
+            if (author.select()) {
+                authorName = author.getFullName();
+            }
             System.out.println(t);
             JPanel itemList = myListCourses.list.getStudentCoursePanel(
                     t.getImagePath(),
                     t.getName(),
-                    "Author",
+                    authorName,
                     t.getDescription()
             );
             itemList.addMouseListener(new MouseAdapter() {
@@ -2017,6 +1965,53 @@ public class StudentApp extends javax.swing.JFrame {
             });
             myListCourses.list.addPanelHead(itemList, 50);
         }
+    }
+    
+    // ===== Participants =====
+    private void loadPartcipantsScreenInfo() {
+        listParticipants = new MyListPanel();
+        
+        participantListPanel.removeAll(); 
+        participantListPanel.setLayout(new BorderLayout());
+        participantListPanel.add(listParticipants.scrollPane, BorderLayout.CENTER);
+    
+        ArrayList<UserModel> allParticipants  = mcourseService.getAllParticipants(_currentCourse);
+        for(UserModel t : allParticipants){
+            System.out.println(t);
+            JPanel itemList = listParticipants.list.getParticipantPanel_Student(
+                t.getAvatarPath(),
+                t.getUsername(),
+                t.getFullName()
+            );
+//            itemList.addMouseListener(new MouseAdapter() {
+//                @Override
+//                public void mouseClicked(MouseEvent mouseEvent) {
+//                    int result = JOptionPane.showConfirmDialog(itemList, "Do you want to kick this participant?", "Confirm Kick", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+//                    if (result == JOptionPane.YES_OPTION) {
+//                        EnrollmentModel recordKick = new EnrollmentModel(_currentCourse.getID(), t.getID());
+//                        boolean status = recordKick.remove();
+//                        if(status){
+//                            JOptionPane.showMessageDialog(  itemList , "Kicked user: "  +  t.getFullName() );
+//                        }
+//                        else{
+//                            JOptionPane.showMessageDialog(  itemList , "Unexpected error, please contact the admin" );
+//                        }
+//                    }
+//                }
+//            });
+            listParticipants.list.addPanelHead(itemList, 35);
+        }
+        
+//        MCourseService mcourseService = new MCourseService();
+//        ArrayList<LessonModel> allCourses = mcourseService.getAllLession();
+//        for(CourseModel t : allCourses){
+//            System.out.println(t);
+//             listLessons.list.addPanelHead(listLessons.list.getTeacherCoursePanel(
+//                t.getImagePath(),
+//                t.getName(),
+//                t.getDescription()
+//            ), 55);
+//        }
     }
     
     // ===== Init =====
@@ -2074,6 +2069,8 @@ public class StudentApp extends javax.swing.JFrame {
     private java.awt.Color selectedTabColor;
     MyListPanel homeListCourses = new MyListPanel();
     MyListPanel myListCourses = new MyListPanel();
+    MyListPanel listLessons = new MyListPanel();
+    MyListPanel listParticipants = new MyListPanel();
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAccountUpdate;

@@ -94,7 +94,7 @@ public class AccountEntity {
         if (fullName.isEmpty()){
             fullName = "Account Name";
         }
-        UserModel record = new UserModel(username, password, fullName, fullName, role );
+        UserModel record = new UserModel(username, password, fullName, "/ui/assets/avatars/default.png", role);
         boolean status_insert = record.insert();
         if(status_insert == true){
             return 0;

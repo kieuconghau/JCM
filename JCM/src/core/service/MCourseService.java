@@ -260,8 +260,9 @@ public class MCourseService {
      *  -3 : teacher of this course
      *  -4 : user participant not exist
      *  -5 : user enrolled
-     *  -6 : unexpected
-     *s 0 : success
+     *  -6 : just student
+     *  -7 : unexpected
+     *   0 : success
      */     
     public int addParticipant(AccountEntity account, int user_id, CourseModel course) {
         if (!account.isLogined()) {
@@ -276,6 +277,10 @@ public class MCourseService {
 
         int course_id = course.getID();
         UserModel check_user = new UserModel(user_id);
+        
+        if (check_user.getRole() != 2) {
+            return -6;
+        }
 
         if (check_user.select()) {
             EnrollmentModel checkExist = new EnrollmentModel();
@@ -289,7 +294,7 @@ public class MCourseService {
                 if (checkExist.insert()) {
                     return 0;
                 } else {
-                    return -6;
+                    return -7;
                 }
             }
         } else {

@@ -2116,6 +2116,9 @@ public class TeacherApp extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(this, "This participant enrolled this course before", "Message", JOptionPane.ERROR_MESSAGE);
                     break;
                 case -6:
+                    JOptionPane.showMessageDialog(this, "The participant must be a student", "Message", JOptionPane.ERROR_MESSAGE);
+                    break;
+                case -7:
                     JOptionPane.showMessageDialog(this, "Unexpected error", "Message", JOptionPane.ERROR_MESSAGE);
                     break;
             }

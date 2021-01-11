@@ -2036,7 +2036,6 @@ public class TeacherApp extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void panelTabHomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelTabHomeMouseClicked
-        initDisplay();
         showHomeScreen();
     }//GEN-LAST:event_panelTabHomeMouseClicked
 
@@ -2335,6 +2334,8 @@ public class TeacherApp extends javax.swing.JFrame {
         hideAllMainScreens();
         panelHome.setVisible(true);
 
+        // Load data
+        loadHomeScreenInfo();
     }
 
     private void showMyCoursesScreen() {
@@ -2390,53 +2391,13 @@ public class TeacherApp extends javax.swing.JFrame {
         showCourseDetailScreen();
         panelLessons.setVisible(true);
         showLessonsMainScreen();
-
-    }
-
-    private void showLessionsList() {
-
-        listLessons = new MyListPanel();
-
-        lessonListPanel.removeAll();
-        lessonListPanel.setLayout(new BorderLayout());
-        lessonListPanel.add(listLessons.scrollPane, BorderLayout.CENTER);
-
-        ArrayList<LessonModel> allLesson = mlessonService.getAllLessonOfCourse(this._currentCourse);
-        for (LessonModel t : allLesson) {
-            System.out.println(t);
-            JPanel itemList = listLessons.list.getLessionPanel(
-                    t.getTitle(),
-                    t.getDescription()
-            );
-            itemList.addMouseListener(new MouseAdapter() {
-                @Override
-                public void mouseClicked(MouseEvent mouseEvent) {
-                    _currentLesson = t;
-                    showLessonDetailScreen();
-                }
-            });
-
-            //40
-            listLessons.list.addPanelHead(itemList, 55);
-
-        }
-//        MCourseService mcourseService = new MCourseService();
-//        ArrayList<LessonModel> allCourses = mcourseService.getAllLession();
-//        for(CourseModel t : allCourses){
-//            System.out.println(t);
-//             listLessons.list.addPanelHead(listLessons.list.getTeacherCoursePanel(
-//                t.getImagePath(),
-//                t.getName(),
-//                t.getDescription()
-//            ), 55);
-//        }
     }
 
     private void showLessonsMainScreen() {
         panelLessonsMain.setVisible(true);
         panelLessonDetail.setVisible(false);
         panelNewLesson.setVisible(false);
-        showLessionsList();
+        loadLessonMainScreen();
     }
 
     private void showLessonDetailScreen() {
@@ -2674,7 +2635,7 @@ public class TeacherApp extends javax.swing.JFrame {
         homeCourses.setLayout(new BorderLayout());
         homeCourses.add(listRecentCourses.scrollPane, BorderLayout.CENTER);
 
-        ArrayList<CourseModel> allCourses = mcourseService.getAllCourses();
+        ArrayList<CourseModel> allCourses = mcourseService.getMyCourses(_account);
 
         for (CourseModel t : allCourses) {
             System.out.println(t);
@@ -2686,8 +2647,8 @@ public class TeacherApp extends javax.swing.JFrame {
             item.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent mouseEvent) {
-                    System.out.println("Home screen click item, do nothing");
-                    // showLessonsScreen();
+                    _currentCourse = t;
+                    showLessonsScreen();
                 }
             });
             listRecentCourses.list.addPanelHead(item, 50);
@@ -2703,6 +2664,7 @@ public class TeacherApp extends javax.swing.JFrame {
         panelMyCoursesAllCourses.add(listMyCourses.scrollPane, BorderLayout.CENTER);
 
         ArrayList<CourseModel> allCourses = mcourseService.getMyCourses(_account);
+        java.util.Collections.reverse(allCourses);
 
         for (CourseModel t : allCourses) {
             System.out.println(t);
@@ -2721,8 +2683,47 @@ public class TeacherApp extends javax.swing.JFrame {
             listMyCourses.list.addPanelHead(item, 50);
         }
     }
+    
+    // ===== Lessons =====
+    private void loadLessonMainScreen() {
+        listLessons = new MyListPanel();
 
-    // Course Info
+        lessonListPanel.removeAll();
+        lessonListPanel.setLayout(new BorderLayout());
+        lessonListPanel.add(listLessons.scrollPane, BorderLayout.CENTER);
+
+        ArrayList<LessonModel> allLesson = mlessonService.getAllLessonOfCourse(this._currentCourse);
+        for (LessonModel t : allLesson) {
+            System.out.println(t);
+            JPanel itemList = listLessons.list.getLessionPanel(
+                    t.getTitle(),
+                    t.getDescription()
+            );
+            itemList.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent mouseEvent) {
+                    _currentLesson = t;
+                    showLessonDetailScreen();
+                }
+            });
+
+            //40
+            listLessons.list.addPanelHead(itemList, 55);
+
+        }
+//        MCourseService mcourseService = new MCourseService();
+//        ArrayList<LessonModel> allCourses = mcourseService.getAllLession();
+//        for(CourseModel t : allCourses){
+//            System.out.println(t);
+//             listLessons.list.addPanelHead(listLessons.list.getTeacherCoursePanel(
+//                t.getImagePath(),
+//                t.getName(),
+//                t.getDescription()
+//            ), 55);
+//        }
+    }
+
+    // ===== Course Info =====
     private void loadCourseInfoScreen() {
         labelCourseInfoCourseImg.setIcon(new javax.swing.ImageIcon(getClass().getResource(_currentCourse.getImagePath())));
         panelCourseInfoImgSelector.setVisible(false);
@@ -2762,20 +2763,7 @@ public class TeacherApp extends javax.swing.JFrame {
         selectedTabColor = panelTabHome.getBackground();
         updateCopyright();
         showHomeScreen();
-
-        // Account
-        panelAccountAvatarSelector.setVisible(false);
         loadAccountScreenInfo();
-
-        // New Course
-        labelNewCourseSelectedImg.setVisible(false);
-        loadNewCourseInfo();
-
-        // Home (Recent Courses)
-        loadHomeScreenInfo();
-
-        // My Courses
-        loadMyCoursesInfo();
     }
 
     private void initEvents() {

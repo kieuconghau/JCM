@@ -634,11 +634,11 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jLabel9" alignment="0" pref="816" max="32767" attributes="0"/>
+                  <Component id="jLabel9" alignment="0" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                      <Component id="homeCourses" pref="757" max="32767" attributes="0"/>
-                      <EmptySpace pref="29" max="32767" attributes="0"/>
+                      <Component id="homeCourses" pref="774" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -685,7 +685,7 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="758" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
@@ -1846,7 +1846,7 @@
                                   <Group type="102" attributes="0">
                                       <Component id="textfieldAddUser" min="-2" pref="300" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="jLabel5" min="-2" pref="30" max="-2" attributes="0"/>
+                                      <Component id="addParticipant" min="-2" pref="30" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="jLabel38" min="-2" max="-2" attributes="0"/>
                               </Group>
@@ -1861,7 +1861,7 @@
                               <Component id="jLabel38" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jLabel5" max="32767" attributes="0"/>
+                                  <Component id="addParticipant" max="32767" attributes="0"/>
                                   <Component id="textfieldAddUser" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace max="32767" attributes="0"/>
@@ -1895,7 +1895,7 @@
                         </Property>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel5">
+                    <Component class="javax.swing.JLabel" name="addParticipant">
                       <Properties>
                         <Property name="horizontalAlignment" type="int" value="0"/>
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
@@ -1905,6 +1905,9 @@
                           <Color id="Hand Cursor"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="addParticipantMouseClicked"/>
+                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -1922,11 +1925,12 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="participantListPanel" alignment="1" max="32767" attributes="0"/>
                                   <Component id="panelParticipant2" min="-2" max="-2" attributes="0"/>
                                   <Component id="panelParticipant1" min="-2" max="-2" attributes="0"/>
                                   <Component id="panelParticipant0" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="370" max="32767" attributes="0"/>
+                              <EmptySpace pref="386" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1939,7 +1943,9 @@
                               <Component id="panelParticipant1" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                               <Component id="panelParticipant2" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="297" max="32767" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="participantListPanel" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1966,7 +1972,7 @@
                                       <Component id="jLabel41" pref="280" max="32767" attributes="0"/>
                                       <Component id="jLabel40" max="32767" attributes="0"/>
                                   </Group>
-                                  <EmptySpace pref="20" max="32767" attributes="0"/>
+                                  <EmptySpace pref="18" max="32767" attributes="0"/>
                                   <Component id="labelRemoveParicipant0" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                               </Group>
@@ -2052,7 +2058,7 @@
                                       <Component id="jLabel44" alignment="0" pref="280" max="32767" attributes="0"/>
                                       <Component id="jLabel43" alignment="0" max="32767" attributes="0"/>
                                   </Group>
-                                  <EmptySpace pref="20" max="32767" attributes="0"/>
+                                  <EmptySpace pref="18" max="32767" attributes="0"/>
                                   <Component id="labelRemoveParticipant1" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                               </Group>
@@ -2138,7 +2144,7 @@
                                       <Component id="jLabel47" alignment="0" pref="280" max="32767" attributes="0"/>
                                       <Component id="jLabel46" alignment="0" max="32767" attributes="0"/>
                                   </Group>
-                                  <EmptySpace pref="20" max="32767" attributes="0"/>
+                                  <EmptySpace pref="18" max="32767" attributes="0"/>
                                   <Component id="labelRemoveParticipant2" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                               </Group>
@@ -2203,6 +2209,26 @@
                         </Component>
                       </SubComponents>
                     </Container>
+                    <Container class="javax.swing.JPanel" name="participantListPanel">
+                      <Properties>
+                        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                          <Dimension value="[400, 263]"/>
+                        </Property>
+                      </Properties>
+
+                      <Layout>
+                        <DimensionLayout dim="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
+                        </DimensionLayout>
+                        <DimensionLayout dim="1">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <EmptySpace min="0" pref="263" max="32767" attributes="0"/>
+                          </Group>
+                        </DimensionLayout>
+                      </Layout>
+                    </Container>
                   </SubComponents>
                 </Container>
               </SubComponents>
@@ -2255,18 +2281,17 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
                               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="lessonListPanel" max="32767" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabel48" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace pref="622" max="-2" attributes="0"/>
+                                      <EmptySpace pref="609" max="32767" attributes="0"/>
                                   </Group>
-                                  <Group type="103" alignment="0" groupAlignment="0" attributes="0">
-                                      <Component id="panelLesson1" pref="756" max="32767" attributes="0"/>
-                                      <Component id="panelLesson0" pref="756" max="32767" attributes="0"/>
-                                      <Component id="panelLesson2" alignment="0" pref="756" max="32767" attributes="0"/>
-                                  </Group>
+                                  <Component id="panelLesson1" alignment="0" pref="756" max="32767" attributes="0"/>
+                                  <Component id="panelLesson0" alignment="0" pref="756" max="32767" attributes="0"/>
+                                  <Component id="panelLesson2" alignment="0" pref="756" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                           </Group>
@@ -2283,7 +2308,9 @@
                               <Component id="panelLesson1" min="-2" pref="59" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                               <Component id="panelLesson2" min="-2" pref="59" max="-2" attributes="0"/>
-                              <EmptySpace pref="332" max="32767" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="lessonListPanel" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -2440,7 +2467,7 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel54" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jLabel54" alignment="0" pref="700" max="32767" attributes="0"/>
                                       <Component id="jLabel53" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
@@ -2477,6 +2504,21 @@
                           </Properties>
                         </Component>
                       </SubComponents>
+                    </Container>
+                    <Container class="javax.swing.JPanel" name="lessonListPanel">
+
+                      <Layout>
+                        <DimensionLayout dim="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
+                        </DimensionLayout>
+                        <DimensionLayout dim="1">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <EmptySpace min="0" pref="301" max="32767" attributes="0"/>
+                          </Group>
+                        </DimensionLayout>
+                      </Layout>
                     </Container>
                   </SubComponents>
                 </Container>
@@ -2758,7 +2800,7 @@
                                           <EmptySpace max="32767" attributes="0"/>
                                           <Component id="jButton4" min="-2" pref="70" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                                          <Component id="jButton3" min="-2" pref="70" max="-2" attributes="0"/>
+                                          <Component id="saveNewLesson" min="-2" pref="70" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="1" attributes="0">
                                           <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
@@ -2766,7 +2808,7 @@
                                               <Group type="102" alignment="0" attributes="0">
                                                   <Component id="jLabel63" min="-2" pref="70" max="-2" attributes="0"/>
                                                   <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                                                  <Component id="jTextField5" max="32767" attributes="0"/>
+                                                  <Component id="lessonTitle" max="32767" attributes="0"/>
                                               </Group>
                                               <Group type="102" alignment="0" attributes="0">
                                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -2775,7 +2817,7 @@
                                                   </Group>
                                                   <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="jTextField6" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="lessonDescription" alignment="0" max="32767" attributes="0"/>
                                                       <Component id="jScrollPane2" alignment="0" pref="651" max="32767" attributes="0"/>
                                                   </Group>
                                               </Group>
@@ -2792,11 +2834,11 @@
                                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jLabel63" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                                      <Component id="jTextField5" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                      <Component id="lessonTitle" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="jTextField6" alignment="0" pref="30" max="32767" attributes="0"/>
+                                      <Component id="lessonDescription" alignment="0" pref="30" max="32767" attributes="0"/>
                                       <Component id="jLabel64" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
@@ -2806,7 +2848,7 @@
                                   </Group>
                                   <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jButton3" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                      <Component id="saveNewLesson" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                                       <Component id="jButton4" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="32767" attributes="0"/>
@@ -2823,7 +2865,7 @@
                             <Property name="text" type="java.lang.String" value="Title"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JTextField" name="jTextField5">
+                        <Component class="javax.swing.JTextField" name="lessonTitle">
                           <Properties>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                               <Font name="Tahoma" size="12" style="0"/>
@@ -2839,7 +2881,7 @@
                             <Property name="text" type="java.lang.String" value="Description"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JTextField" name="jTextField6">
+                        <Component class="javax.swing.JTextField" name="lessonDescription">
                           <Properties>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                               <Font name="Tahoma" size="12" style="0"/>
@@ -2862,11 +2904,11 @@
 
                           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                           <SubComponents>
-                            <Component class="javax.swing.JEditorPane" name="jEditorPane2">
+                            <Component class="javax.swing.JEditorPane" name="lessonContent">
                             </Component>
                           </SubComponents>
                         </Container>
-                        <Component class="javax.swing.JButton" name="jButton3">
+                        <Component class="javax.swing.JButton" name="saveNewLesson">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="0" green="cc" red="0" type="rgb"/>
@@ -2886,7 +2928,7 @@
                             </Property>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
+                            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="saveNewLessonMouseClicked"/>
                           </Events>
                         </Component>
                         <Component class="javax.swing.JButton" name="jButton4">
@@ -3070,7 +3112,7 @@
                                                   <Component id="jLabel71" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                               </Group>
-                                              <Component id="jTextField4" pref="651" max="32767" attributes="0"/>
+                                              <Component id="jTextField4" pref="639" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
@@ -3109,7 +3151,7 @@
                               <Component id="jButton5" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                               <Component id="jButton6" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="0" pref="248" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="246" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>

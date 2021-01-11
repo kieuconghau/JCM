@@ -22,12 +22,11 @@ public class MyListPanel extends JPanel {
     
     public MyListPanel() {
         list = new ListPanel();
-//        list.addPanelHead(list.getStudentCoursePanel(
-//                "/ui/teacher/assets/course_algo.png",
-//                "Algo",
-//                "Teacher",
-//                "Description"
-//            ), 55);
+//        list.addPanelHead(list.getParticipantPanel(
+//                "/ui/teacher/assets/user_male_0.png",
+//                "snowdence",
+//                "Tran Minh Duc"
+//            ), 40);
         scrollPane = new JScrollPane();
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
         scrollPane.setViewportView(list);

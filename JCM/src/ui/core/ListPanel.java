@@ -281,4 +281,105 @@ public class ListPanel extends JPanel
         );
         return pane;
     }
+    public JPanel getLessionPanel(String lessionName, String lessionDescription) {
+        JPanel pane = new JPanel();
+        
+        JLabel title = new JLabel();
+        JLabel description = new JLabel();
+        
+        pane.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        pane.setPreferredSize(new java.awt.Dimension(0, 27));
+        pane.setBackground(Color.white);
+
+        title.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        title.setText(lessionName);
+
+        description.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        description.setText(lessionDescription);
+        
+        javax.swing.GroupLayout MyRecentCourse0Layout = new javax.swing.GroupLayout(pane);
+        pane.setLayout(MyRecentCourse0Layout);
+        MyRecentCourse0Layout.setHorizontalGroup(MyRecentCourse0Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MyRecentCourse0Layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+//                .addComponent(icon)
+                .addGroup(MyRecentCourse0Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(MyRecentCourse0Layout.createSequentialGroup()
+                    .addGap(10, 10, 10)
+                    .addComponent(title, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                )
+                .addGroup(MyRecentCourse0Layout.createSequentialGroup()
+                    .addGap(10, 10, 10)
+                    .addComponent(description, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                )))
+        );
+        MyRecentCourse0Layout.setVerticalGroup(MyRecentCourse0Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MyRecentCourse0Layout.createSequentialGroup()
+                .addGroup(MyRecentCourse0Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+//                    .addComponent(icon, 70, 70, 70)
+                    .addGroup(MyRecentCourse0Layout.createSequentialGroup()    
+                    .addComponent(title, 40, 40, 40)
+                    .addComponent(description))))
+        );
+        return pane;
+    }
+    public JPanel getParticipantPanel(String iconPath, String username, String fullname) {
+        JPanel pane = new JPanel();
+        
+        JLabel icon = new JLabel();
+        JLabel title = new JLabel();
+        JLabel description = new JLabel();
+        JLabel delete = new JLabel();
+        
+        pane.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        pane.setPreferredSize(new java.awt.Dimension(0, 27));
+        pane.setBackground(Color.white);
+
+        icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        icon.setIcon(new javax.swing.ImageIcon(getClass().getResource(iconPath)));
+        
+        delete.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        delete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/teacher/assets/remove_user.png")));
+        
+
+        title.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        title.setText(username);
+
+        description.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        description.setText(fullname);
+        
+        javax.swing.GroupLayout MyRecentCourse0Layout = new javax.swing.GroupLayout(pane);
+        pane.setLayout(MyRecentCourse0Layout);
+        MyRecentCourse0Layout.setHorizontalGroup(MyRecentCourse0Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MyRecentCourse0Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(icon)
+                .addGroup(MyRecentCourse0Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(MyRecentCourse0Layout.createSequentialGroup()
+                    .addGap(20, 20, 20)
+                    .addComponent(title, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                )
+                .addGroup(MyRecentCourse0Layout.createSequentialGroup()
+                    .addGap(20, 20, 20)
+                    .addComponent(description, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                )
+                .addGroup(MyRecentCourse0Layout.createSequentialGroup()
+                    .addGap(300, 300, 300)
+                    .addComponent(delete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                )
+                ))
+        );
+        MyRecentCourse0Layout.setVerticalGroup(MyRecentCourse0Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MyRecentCourse0Layout.createSequentialGroup()
+                .addGroup(MyRecentCourse0Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(icon, 60, 60, 60)
+                    .addGroup(MyRecentCourse0Layout.createSequentialGroup()    
+                    .addComponent(title, 35, 35, 35)
+                    .addComponent(description)
+                    )
+                        .addComponent(delete)
+                ))
+        );
+        return pane;
+    }
 }

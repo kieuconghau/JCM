@@ -44,9 +44,9 @@ public class SignIn extends javax.swing.JFrame {
         signUp = new javax.swing.JLabel();
         usernamePane = new javax.swing.JPanel();
         usernameIcon = new javax.swing.JLabel();
-        username = new javax.swing.JTextField();
+        tfUsername = new javax.swing.JTextField();
         passwordPane = new javax.swing.JPanel();
-        password = new javax.swing.JPasswordField();
+        tfPassword = new javax.swing.JPasswordField();
         passwordIcon = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -90,21 +90,22 @@ public class SignIn extends javax.swing.JFrame {
         SignInForm.setPreferredSize(new java.awt.Dimension(400, 600));
 
         labelSignIn.setFont(labelSignIn.getFont().deriveFont(labelSignIn.getFont().getStyle() | java.awt.Font.BOLD, 31));
-        labelSignIn.setText("Sign in");
+        labelSignIn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelSignIn.setText("SIGN IN");
 
         labelUsername.setFont(labelUsername.getFont().deriveFont((float)18));
-        labelUsername.setLabelFor(username);
+        labelUsername.setLabelFor(tfUsername);
         labelUsername.setText("Username");
 
         labelPassword.setFont(labelPassword.getFont().deriveFont((float)18));
-        labelPassword.setLabelFor(password);
+        labelPassword.setLabelFor(tfPassword);
         labelPassword.setText("Password");
 
         btnSignIn.setBackground(new java.awt.Color(147, 186, 243));
         btnSignIn.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         btnSignIn.setForeground(java.awt.Color.white);
         btnSignIn.setText("Sign in");
-        btnSignIn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(191, 217, 255), 1, true));
+        btnSignIn.setBorder(null);
         btnSignIn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnSignIn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -129,6 +130,7 @@ public class SignIn extends javax.swing.JFrame {
         signUp.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         signUp.setForeground(java.awt.Color.blue);
         signUp.setText("Sign up");
+        signUp.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         signUp.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 signUpMouseClicked(evt);
@@ -162,32 +164,31 @@ public class SignIn extends javax.swing.JFrame {
             }
         });
 
-        username.setBackground(new java.awt.Color(191, 217, 255));
-        username.setFont(username.getFont().deriveFont((float)18));
-        username.setText("hocsinh");
-        username.setToolTipText("");
-        username.setBorder(null);
-        username.setName("username"); // NOI18N
-        username.setSelectionColor(new java.awt.Color(46, 81, 133));
-        username.addFocusListener(new java.awt.event.FocusAdapter() {
+        tfUsername.setBackground(new java.awt.Color(191, 217, 255));
+        tfUsername.setFont(tfUsername.getFont().deriveFont((float)18));
+        tfUsername.setToolTipText("");
+        tfUsername.setBorder(null);
+        tfUsername.setName("tfUsername"); // NOI18N
+        tfUsername.setSelectionColor(new java.awt.Color(46, 81, 133));
+        tfUsername.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                usernameFocusGained(evt);
+                tfUsernameFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                usernameFocusLost(evt);
+                tfUsernameFocusLost(evt);
             }
         });
-        username.addMouseListener(new java.awt.event.MouseAdapter() {
+        tfUsername.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                usernameMouseEntered(evt);
+                tfUsernameMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                usernameMouseExited(evt);
+                tfUsernameMouseExited(evt);
             }
         });
-        username.addActionListener(new java.awt.event.ActionListener() {
+        tfUsername.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                usernameActionPerformed(evt);
+                tfUsernameActionPerformed(evt);
             }
         });
 
@@ -197,15 +198,15 @@ public class SignIn extends javax.swing.JFrame {
             usernamePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, usernamePaneLayout.createSequentialGroup()
                 .addComponent(usernameIcon)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 8, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(tfUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 10, Short.MAX_VALUE))
         );
         usernamePaneLayout.setVerticalGroup(
             usernamePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(usernamePaneLayout.createSequentialGroup()
                 .addGroup(usernamePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(usernameIcon))
                 .addGap(0, 10, Short.MAX_VALUE))
         );
@@ -220,26 +221,25 @@ public class SignIn extends javax.swing.JFrame {
             }
         });
 
-        password.setBackground(new java.awt.Color(191, 217, 255));
-        password.setFont(password.getFont().deriveFont((float)18));
-        password.setText("admin");
-        password.setBorder(null);
-        password.setName("password"); // NOI18N
-        password.setSelectionColor(new java.awt.Color(46, 81, 133));
-        password.addFocusListener(new java.awt.event.FocusAdapter() {
+        tfPassword.setBackground(new java.awt.Color(191, 217, 255));
+        tfPassword.setFont(tfPassword.getFont().deriveFont((float)18));
+        tfPassword.setBorder(null);
+        tfPassword.setName("tfPassword"); // NOI18N
+        tfPassword.setSelectionColor(new java.awt.Color(46, 81, 133));
+        tfPassword.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                passwordFocusGained(evt);
+                tfPasswordFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                passwordFocusLost(evt);
+                tfPasswordFocusLost(evt);
             }
         });
-        password.addMouseListener(new java.awt.event.MouseAdapter() {
+        tfPassword.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                passwordMouseEntered(evt);
+                tfPasswordMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                passwordMouseExited(evt);
+                tfPasswordMouseExited(evt);
             }
         });
 
@@ -259,8 +259,8 @@ public class SignIn extends javax.swing.JFrame {
             passwordPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, passwordPaneLayout.createSequentialGroup()
                 .addComponent(passwordIcon)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(tfPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE)
                 .addContainerGap())
         );
         passwordPaneLayout.setVerticalGroup(
@@ -268,7 +268,7 @@ public class SignIn extends javax.swing.JFrame {
             .addGroup(passwordPaneLayout.createSequentialGroup()
                 .addGroup(passwordPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(passwordIcon)
-                    .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 10, Short.MAX_VALUE))
         );
 
@@ -278,9 +278,6 @@ public class SignIn extends javax.swing.JFrame {
             SignInFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SignInFormLayout.createSequentialGroup()
                 .addGroup(SignInFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(SignInFormLayout.createSequentialGroup()
-                        .addGap(160, 160, 160)
-                        .addComponent(labelSignIn))
                     .addGroup(SignInFormLayout.createSequentialGroup()
                         .addGap(30, 30, 30)
                         .addComponent(labelUsername))
@@ -294,13 +291,14 @@ public class SignIn extends javax.swing.JFrame {
                         .addGap(30, 30, 30)
                         .addComponent(passwordPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(SignInFormLayout.createSequentialGroup()
-                        .addGap(70, 70, 70)
+                        .addGap(57, 57, 57)
                         .addGroup(SignInFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(btnSignIn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(requestSignUp))
+                            .addComponent(requestSignUp, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(signUp)))
-                .addGap(18, 18, 18))
+                .addContainerGap(28, Short.MAX_VALUE))
+            .addComponent(labelSignIn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         SignInFormLayout.setVerticalGroup(
             SignInFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -343,9 +341,9 @@ public class SignIn extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void usernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameActionPerformed
+    private void tfUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfUsernameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_usernameActionPerformed
+    }//GEN-LAST:event_tfUsernameActionPerformed
 
     private void btnSignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignInActionPerformed
         // TODO add your handling code here:
@@ -377,45 +375,45 @@ public class SignIn extends javax.swing.JFrame {
         usernamePane.setBorder(null);
     }//GEN-LAST:event_usernameIconMouseExited
 
-    private void usernameMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usernameMouseEntered
+    private void tfUsernameMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfUsernameMouseEntered
         // TODO add your handling code here:
         usernamePane.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, java.awt.Color.lightGray));
-    }//GEN-LAST:event_usernameMouseEntered
+    }//GEN-LAST:event_tfUsernameMouseEntered
 
-    private void usernameMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usernameMouseExited
+    private void tfUsernameMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfUsernameMouseExited
         // TODO add your handling code here:
         usernamePane.setBorder(null);
-    }//GEN-LAST:event_usernameMouseExited
+    }//GEN-LAST:event_tfUsernameMouseExited
 
-    private void usernameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_usernameFocusGained
+    private void tfUsernameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfUsernameFocusGained
         // TODO add your handling code here:
         usernamePane.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, java.awt.Color.lightGray));
-    }//GEN-LAST:event_usernameFocusGained
+    }//GEN-LAST:event_tfUsernameFocusGained
 
-    private void usernameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_usernameFocusLost
+    private void tfUsernameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfUsernameFocusLost
         // TODO add your handling code here:
         usernamePane.setBorder(null);
-    }//GEN-LAST:event_usernameFocusLost
+    }//GEN-LAST:event_tfUsernameFocusLost
 
-    private void passwordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passwordFocusGained
+    private void tfPasswordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfPasswordFocusGained
         // TODO add your handling code here:
         passwordPane.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, java.awt.Color.lightGray));
-    }//GEN-LAST:event_passwordFocusGained
+    }//GEN-LAST:event_tfPasswordFocusGained
 
-    private void passwordFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passwordFocusLost
+    private void tfPasswordFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfPasswordFocusLost
         // TODO add your handling code here:
         passwordPane.setBorder(null);
-    }//GEN-LAST:event_passwordFocusLost
+    }//GEN-LAST:event_tfPasswordFocusLost
 
-    private void passwordMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordMouseEntered
+    private void tfPasswordMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfPasswordMouseEntered
         // TODO add your handling code here:
         passwordPane.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, java.awt.Color.lightGray));
-    }//GEN-LAST:event_passwordMouseEntered
+    }//GEN-LAST:event_tfPasswordMouseEntered
 
-    private void passwordMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordMouseExited
+    private void tfPasswordMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfPasswordMouseExited
         // TODO add your handling code here:
         passwordPane.setBorder(null);
-    }//GEN-LAST:event_passwordMouseExited
+    }//GEN-LAST:event_tfPasswordMouseExited
 
     private void passwordIconMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordIconMouseEntered
         // TODO add your handling code here:
@@ -465,8 +463,8 @@ public class SignIn extends javax.swing.JFrame {
 //            new TeacherApp().setVisible(true);
 //        } else {
 //TODO: snowdence
-        String _username = this.username.getText();
-        String _password = this.password.getText();
+        String _username = this.tfUsername.getText();
+        String _password = this.tfPassword.getText();
         AccountEntity accountEntity = new AccountEntity();
         int status_login = accountEntity.login(_username, _password);
         switch (status_login) {
@@ -548,12 +546,12 @@ public class SignIn extends javax.swing.JFrame {
     private javax.swing.JLabel labelPassword;
     private javax.swing.JLabel labelSignIn;
     private javax.swing.JLabel labelUsername;
-    private javax.swing.JPasswordField password;
     private javax.swing.JLabel passwordIcon;
     private javax.swing.JPanel passwordPane;
     private javax.swing.JLabel requestSignUp;
     private javax.swing.JLabel signUp;
-    private javax.swing.JTextField username;
+    private javax.swing.JPasswordField tfPassword;
+    private javax.swing.JTextField tfUsername;
     private javax.swing.JLabel usernameIcon;
     private javax.swing.JPanel usernamePane;
     // End of variables declaration//GEN-END:variables

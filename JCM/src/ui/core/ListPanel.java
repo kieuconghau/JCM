@@ -116,7 +116,13 @@ public class ListPanel extends JPanel
         invalidate();
         repaint();
     }
-
+    public void removeAll(){
+        
+        for(int i = 0; i< panels.size(); i++){
+            removePanel(i);
+        }
+      
+    } 
     public void removePanel(JPanel p)
     {
         removePanel(panels.indexOf(p));
@@ -170,7 +176,7 @@ public class ListPanel extends JPanel
         f.getContentPane().add(scrollPane, BorderLayout.CENTER);
         f.setVisible(true);
     }
-
+    
     public static JPanel getRandomJPanel()
     {
         JPanel panel = new JPanel();
@@ -226,6 +232,7 @@ public class ListPanel extends JPanel
         );
         return pane;
     }
+    
     public JPanel getStudentCoursePanel(String iconPath, String courseName, String courseAuthor, String courseDescription) {
         JPanel pane = new JPanel();
         

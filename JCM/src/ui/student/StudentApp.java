@@ -531,14 +531,14 @@ public class StudentApp extends javax.swing.JFrame {
         );
         homeCoursesLayout.setVerticalGroup(
             homeCoursesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 522, Short.MAX_VALUE)
+            .addGap(0, 523, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout panelHomeLayout = new javax.swing.GroupLayout(panelHome);
         panelHome.setLayout(panelHomeLayout);
         panelHomeLayout.setHorizontalGroup(
             panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 816, Short.MAX_VALUE)
+            .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelHomeLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addComponent(homeCourses, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -549,7 +549,7 @@ public class StudentApp extends javax.swing.JFrame {
             .addGroup(panelHomeLayout.createSequentialGroup()
                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(homeCourses, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(homeCourses, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -771,7 +771,7 @@ public class StudentApp extends javax.swing.JFrame {
                 .addGroup(panelParticipant0Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel41, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
                     .addComponent(jLabel40, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 48, Short.MAX_VALUE))
+                .addGap(0, 50, Short.MAX_VALUE))
         );
         panelParticipant0Layout.setVerticalGroup(
             panelParticipant0Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -809,7 +809,7 @@ public class StudentApp extends javax.swing.JFrame {
                 .addGroup(panelParticipant1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel44, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
                     .addComponent(jLabel43, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 48, Short.MAX_VALUE))
+                .addGap(0, 50, Short.MAX_VALUE))
         );
         panelParticipant1Layout.setVerticalGroup(
             panelParticipant1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -847,7 +847,7 @@ public class StudentApp extends javax.swing.JFrame {
                 .addGroup(panelParticipant2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel47, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
                     .addComponent(jLabel46, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 48, Short.MAX_VALUE))
+                .addGap(0, 50, Short.MAX_VALUE))
         );
         panelParticipant2Layout.setVerticalGroup(
             panelParticipant2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1556,7 +1556,7 @@ public class StudentApp extends javax.swing.JFrame {
                 .addGroup(panelAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(introduction_render)
                     .addComponent(introduction_edit, javax.swing.GroupLayout.DEFAULT_SIZE, 366, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -1732,8 +1732,8 @@ public class StudentApp extends javax.swing.JFrame {
 
     private void labelNotiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelNotiMouseClicked
         // TODO add your handling code here:
-        Course x = courses[listCourses.list.getPanels().size() % courses.length];
-        listCourses.list.addPanelHead(listCourses.list.getStudentCoursePanel(
+        Course x = courses[homeListCourses.list.getPanels().size() % courses.length];
+        homeListCourses.list.addPanelHead(homeListCourses.list.getStudentCoursePanel(
                 x.getImagePath(),
                 x.getName(),
                 "Author",
@@ -1791,9 +1791,46 @@ public class StudentApp extends javax.swing.JFrame {
         panelTabMyCourses.setBackground(selectedTabColor);
 
         hideAllMainScreens();
+        initDisplayMyCourse();
         panelMyCourses.setVisible(true);
         showMyCoursesMainScreen();
+        
     }
+    
+    
+    private void initDisplayMyCourse() {
+        _introduction_render.setEditorKit(new HTMLEditorKit());
+        _introduction_render.setText(_introduction_edit.getText());
+        selectedTabColor = panelTabHome.getBackground();
+        updateCopyright();
+        showHomeScreen();
+        
+        
+        myListCourses.list.removeAll();
+        
+        myCourses.setLayout(new BorderLayout());
+        myCourses.add(myListCourses.scrollPane, BorderLayout.CENTER);
+
+        ArrayList<CourseModel> allCourses = mcourseService.getAllCourses();
+        for (CourseModel t : allCourses) {
+            System.out.println(t);
+            JPanel itemList = myListCourses.list.getStudentCoursePanel(
+                    t.getImagePath(),
+                    t.getName(),
+                    "Author",
+                    t.getDescription()
+            );
+            itemList.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent mouseEvent) {
+                    showLessonsScreen();
+                }
+            });
+            myListCourses.list.addPanelHead(itemList, 55);
+        }
+
+    }
+
 
     private void showMyCoursesMainScreen() {
         panelMyCoursesMain.setVisible(true);
@@ -1891,21 +1928,23 @@ public class StudentApp extends javax.swing.JFrame {
         int year = Calendar.getInstance().get(Calendar.YEAR);
         labelCopyright.setText(String.format("Copyright %d JByNine", year));
     }
-
+    
     private void initDisplay() {
         _introduction_render.setEditorKit(new HTMLEditorKit());
         _introduction_render.setText(_introduction_edit.getText());
         selectedTabColor = panelTabHome.getBackground();
         updateCopyright();
         showHomeScreen();
-
+           
+        
+        
         homeCourses.setLayout(new BorderLayout());
-        homeCourses.add(listCourses.scrollPane, BorderLayout.CENTER);
+        homeCourses.add(homeListCourses.scrollPane, BorderLayout.CENTER);
 
         ArrayList<CourseModel> allCourses = mcourseService.getAllCourses();
         for (CourseModel t : allCourses) {
             System.out.println(t);
-            JPanel itemList = listCourses.list.getStudentCoursePanel(
+            JPanel itemList = homeListCourses.list.getStudentCoursePanel(
                     t.getImagePath(),
                     t.getName(),
                     "Author",
@@ -1942,7 +1981,7 @@ public class StudentApp extends javax.swing.JFrame {
                     }
                 }
             });
-            listCourses.list.addPanelHead(itemList, 55);
+            homeListCourses.list.addPanelHead(itemList, 55);
         }
 
     }
@@ -1986,7 +2025,9 @@ public class StudentApp extends javax.swing.JFrame {
     }
 
     private java.awt.Color selectedTabColor;
-    MyListPanel listCourses = new MyListPanel();
+    MyListPanel homeListCourses = new MyListPanel();
+    MyListPanel myListCourses = new MyListPanel();
+
     Course[] courses = new Course[5];
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea _introduction_edit;

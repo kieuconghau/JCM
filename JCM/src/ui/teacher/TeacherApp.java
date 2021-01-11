@@ -2336,7 +2336,8 @@ public class TeacherApp extends javax.swing.JFrame {
         txtCourseInfoName.setText(_currentCourse.getName());
         txtCourseInfoDescription.setText(_currentCourse.getDescription());
         txtCourseInfoCreatedDate.setText(_currentCourse.getDateCreatedFormat());
-        
+        jLabel69.setIcon(new javax.swing.ImageIcon(getClass().getResource(_currentCourse.getImagePath()))); // NOI18N
+
     }
 
     private void updateCopyright() {

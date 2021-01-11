@@ -1698,9 +1698,9 @@ public class StudentApp extends javax.swing.JFrame {
         selectedTabColor = panelTabHome.getBackground();
         updateCopyright();
         showHomeScreen();
-        
-        
-        myListCourses.list.removeAll();
+        myCourses.removeAll();
+        myListCourses = new MyListPanel();
+        //myListCourses.list.removeAll();
         
         myCourses.setLayout(new BorderLayout());
         myCourses.add(myListCourses.scrollPane, BorderLayout.CENTER);
@@ -1717,6 +1717,7 @@ public class StudentApp extends javax.swing.JFrame {
             itemList.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent mouseEvent) {
+                    _currentCourse = t;
                     showLessonsScreen();
                 }
             });
@@ -1763,17 +1764,24 @@ public class StudentApp extends javax.swing.JFrame {
         showLessionsList();
     }
     MyListPanel listLessons = new MyListPanel();
+
     MyListPanel listParticipants = new MyListPanel();
     private void showLessionsList() {
+        listLessons = new MyListPanel();
+        
+        
+        lessonListPanel.removeAll(); 
         lessonListPanel.setLayout(new BorderLayout());
         lessonListPanel.add(listLessons.scrollPane, BorderLayout.CENTER);
-        listLessons.list.removeAll();
+        
+//lessonListPanel.removeAll();
+       // listLessons.list.removeAll();
 //        listLessons.list.addPanelHead(listLessons.list.getLessionPanel(
 //                "Week 1 - Greedy Algorithms",
 //                "A greedy algorithm is a simple, intuitive algorithm that is used in optimization problems."
 //        ), 40);
         
-        ArrayList<LessonModel> allLesson = mlessonService.getListLessonModel(null);
+        ArrayList<LessonModel> allLesson = mlessonService.getAllLessonOfCourse(this._currentCourse);
         for(LessonModel t : allLesson){
             System.out.println(t);
              listLessons.list.addPanelHead(listLessons.list.getLessionPanel(
@@ -1837,6 +1845,15 @@ public class StudentApp extends javax.swing.JFrame {
         hideAllCourseDetailSubScreens();
         showCourseDetailScreen();
         panelInfo.setVisible(true);
+        
+        //getClass().getResource("/ui/teacher/assets/course_algo.png")
+        jLabel69.setIcon(new javax.swing.ImageIcon(getClass().getResource(this._currentCourse.getImagePath()))); // NOI18N
+        jLabel38.setText(this._currentCourse.getName());
+        jLabel48.setText(this._currentCourse.getDescription());
+        jLabel71.setText(this._currentCourse.getDateCreatedFormat());
+        
+        
+
     }
 
     private void updateCopyright() {
@@ -1850,8 +1867,9 @@ public class StudentApp extends javax.swing.JFrame {
         selectedTabColor = panelTabHome.getBackground();
         updateCopyright();
         showHomeScreen();
-           
-        
+        homeListCourses = new MyListPanel();
+
+        homeCourses.removeAll();
         
         homeCourses.setLayout(new BorderLayout());
         homeCourses.add(homeListCourses.scrollPane, BorderLayout.CENTER);

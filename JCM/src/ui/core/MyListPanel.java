@@ -31,4 +31,5 @@ public class MyListPanel extends JPanel {
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
         scrollPane.setViewportView(list);
     }
+    
 }

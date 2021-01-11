@@ -249,8 +249,55 @@ public class MCourseService {
             }
         }
     }
-    
-    
+    /**
+     * 
+     * @param account
+     * @param user_id
+     * @param course
+     * @return
+     *  -1 : not login
+     *  -2 : teacher permission
+     *  -3 : teacher of this course
+     *  -4 : user participant not exist
+     *  -5 : user enrolled
+     *  -6 : unexpected
+     *s 0 : success
+     */     
+    public int addParticipant(AccountEntity account, int user_id, CourseModel course) {
+        if (!account.isLogined()) {
+            return -1;
+        }
+        if (!account.isTeacher()) {
+            return -2;
+        }
+        if (course.getAuthorID() != account.getID()) {
+            return -3;
+        }
+
+        int course_id = course.getID();
+        UserModel check_user = new UserModel(user_id);
+
+        if (check_user.select()) {
+            EnrollmentModel checkExist = new EnrollmentModel();
+            boolean status = checkExist.select(String.format("WHERE course_id = %d AND user_id = %d", course_id, user_id));
+            if (status) {
+                //record existed
+                return -5;
+            } else {
+                checkExist.setCourseID(course_id);
+                checkExist.setUserID(user_id);
+                if (checkExist.insert()) {
+                    return 0;
+                } else {
+                    return -6;
+                }
+            }
+        } else {
+            return -4; //user participant not existted
+        }
+    }
+
+
 
 
 }

@@ -8,7 +8,9 @@ package ui.teacher;
 import java.awt.Color;
 import core.entity.AccountEntity;
 import core.model.CourseModel;
+import core.model.EnrollmentModel;
 import core.model.LessonModel;
+import core.model.UserModel;
 import core.service.MCourseService;
 import core.service.MLessonService;
 import java.awt.BorderLayout;
@@ -143,24 +145,9 @@ public class TeacherApp extends javax.swing.JFrame {
         panelParticipants = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel38 = new javax.swing.JLabel();
-        textfieldAddUser = new javax.swing.JTextField();
+        txtParticipant = new javax.swing.JTextField();
         addParticipant = new javax.swing.JLabel();
         panelParicipantsList = new javax.swing.JPanel();
-        panelParticipant0 = new javax.swing.JPanel();
-        jLabel39 = new javax.swing.JLabel();
-        jLabel40 = new javax.swing.JLabel();
-        jLabel41 = new javax.swing.JLabel();
-        labelRemoveParicipant0 = new javax.swing.JLabel();
-        panelParticipant1 = new javax.swing.JPanel();
-        jLabel42 = new javax.swing.JLabel();
-        jLabel43 = new javax.swing.JLabel();
-        jLabel44 = new javax.swing.JLabel();
-        labelRemoveParticipant1 = new javax.swing.JLabel();
-        panelParticipant2 = new javax.swing.JPanel();
-        jLabel45 = new javax.swing.JLabel();
-        jLabel46 = new javax.swing.JLabel();
-        jLabel47 = new javax.swing.JLabel();
-        labelRemoveParticipant2 = new javax.swing.JLabel();
         participantListPanel = new javax.swing.JPanel();
         panelLessons = new javax.swing.JPanel();
         panelLessonsMain = new javax.swing.JPanel();
@@ -919,13 +906,13 @@ public class TeacherApp extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel38.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel38.setLabelFor(textfieldAddUser);
+        jLabel38.setLabelFor(txtParticipant);
         jLabel38.setText("Add a user to this course");
         jLabel38.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        textfieldAddUser.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        textfieldAddUser.setText("username");
-        textfieldAddUser.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtParticipant.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtParticipant.setText("username");
+        txtParticipant.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
         addParticipant.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         addParticipant.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/teacher/assets/add_user.png"))); // NOI18N
@@ -944,11 +931,11 @@ public class TeacherApp extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(textfieldAddUser, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtParticipant, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(addParticipant, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel38))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(446, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -958,153 +945,12 @@ public class TeacherApp extends javax.swing.JFrame {
                 .addGap(10, 10, 10)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(addParticipant, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(textfieldAddUser))
+                    .addComponent(txtParticipant))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         panelParicipantsList.setBackground(new java.awt.Color(255, 255, 255));
         panelParicipantsList.setAutoscrolls(true);
-
-        panelParticipant0.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        panelParticipant0.setPreferredSize(new java.awt.Dimension(400, 60));
-
-        jLabel39.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel39.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/teacher/assets/user_male_0.png"))); // NOI18N
-
-        jLabel40.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jLabel40.setText("snowdence");
-
-        jLabel41.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jLabel41.setText("Trần Minh Đức");
-
-        labelRemoveParicipant0.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelRemoveParicipant0.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/teacher/assets/remove_user.png"))); // NOI18N
-        labelRemoveParicipant0.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        javax.swing.GroupLayout panelParticipant0Layout = new javax.swing.GroupLayout(panelParticipant0);
-        panelParticipant0.setLayout(panelParticipant0Layout);
-        panelParticipant0Layout.setHorizontalGroup(
-            panelParticipant0Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelParticipant0Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel39)
-                .addGap(20, 20, 20)
-                .addGroup(panelParticipant0Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel41, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
-                    .addComponent(jLabel40, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                .addComponent(labelRemoveParicipant0)
-                .addGap(0, 0, 0))
-        );
-        panelParticipant0Layout.setVerticalGroup(
-            panelParticipant0Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelParticipant0Layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addGroup(panelParticipant0Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelParticipant0Layout.createSequentialGroup()
-                        .addComponent(jLabel40)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel41))
-                    .addComponent(jLabel39, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(10, 10, 10))
-            .addGroup(panelParticipant0Layout.createSequentialGroup()
-                .addComponent(labelRemoveParicipant0)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-
-        panelParticipant1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        panelParticipant1.setPreferredSize(new java.awt.Dimension(400, 60));
-
-        jLabel42.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel42.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/teacher/assets/user_male_1.png"))); // NOI18N
-
-        jLabel43.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jLabel43.setText("HBTghost");
-
-        jLabel44.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jLabel44.setText("Ngô Thanh Phương Thái");
-
-        labelRemoveParticipant1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelRemoveParticipant1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/teacher/assets/remove_user.png"))); // NOI18N
-        labelRemoveParticipant1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        javax.swing.GroupLayout panelParticipant1Layout = new javax.swing.GroupLayout(panelParticipant1);
-        panelParticipant1.setLayout(panelParticipant1Layout);
-        panelParticipant1Layout.setHorizontalGroup(
-            panelParticipant1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelParticipant1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel42)
-                .addGap(20, 20, 20)
-                .addGroup(panelParticipant1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel44, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
-                    .addComponent(jLabel43, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                .addComponent(labelRemoveParticipant1)
-                .addGap(0, 0, 0))
-        );
-        panelParticipant1Layout.setVerticalGroup(
-            panelParticipant1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelParticipant1Layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addGroup(panelParticipant1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelParticipant1Layout.createSequentialGroup()
-                        .addComponent(jLabel43)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel44))
-                    .addComponent(jLabel42, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(10, 10, 10))
-            .addGroup(panelParticipant1Layout.createSequentialGroup()
-                .addComponent(labelRemoveParticipant1)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-
-        panelParticipant2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        panelParticipant2.setPreferredSize(new java.awt.Dimension(400, 60));
-
-        jLabel45.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel45.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/teacher/assets/user_male_2.png"))); // NOI18N
-
-        jLabel46.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jLabel46.setText("kieuconghau");
-
-        jLabel47.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jLabel47.setText("Kiều Công Hậu");
-
-        labelRemoveParticipant2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelRemoveParticipant2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/teacher/assets/remove_user.png"))); // NOI18N
-        labelRemoveParticipant2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        javax.swing.GroupLayout panelParticipant2Layout = new javax.swing.GroupLayout(panelParticipant2);
-        panelParticipant2.setLayout(panelParticipant2Layout);
-        panelParticipant2Layout.setHorizontalGroup(
-            panelParticipant2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelParticipant2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel45)
-                .addGap(20, 20, 20)
-                .addGroup(panelParticipant2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel47, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
-                    .addComponent(jLabel46, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                .addComponent(labelRemoveParticipant2)
-                .addGap(0, 0, 0))
-        );
-        panelParticipant2Layout.setVerticalGroup(
-            panelParticipant2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelParticipant2Layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addGroup(panelParticipant2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelParticipant2Layout.createSequentialGroup()
-                        .addComponent(jLabel46)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel47))
-                    .addComponent(jLabel45, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(10, 10, 10))
-            .addGroup(panelParticipant2Layout.createSequentialGroup()
-                .addComponent(labelRemoveParticipant2)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
 
         participantListPanel.setMaximumSize(new java.awt.Dimension(400, 263));
 
@@ -1116,7 +962,7 @@ public class TeacherApp extends javax.swing.JFrame {
         );
         participantListPanelLayout.setVerticalGroup(
             participantListPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 263, Short.MAX_VALUE)
+            .addGap(0, 487, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout panelParicipantsListLayout = new javax.swing.GroupLayout(panelParicipantsList);
@@ -1125,23 +971,12 @@ public class TeacherApp extends javax.swing.JFrame {
             panelParicipantsListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelParicipantsListLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addGroup(panelParicipantsListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(participantListPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(panelParticipant2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(panelParticipant1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(panelParticipant0, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(386, Short.MAX_VALUE))
+                .addComponent(participantListPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(350, 350, 350))
         );
         panelParicipantsListLayout.setVerticalGroup(
             panelParicipantsListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelParicipantsListLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(panelParticipant0, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(panelParticipant1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(panelParticipant2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
                 .addComponent(participantListPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
@@ -1157,7 +992,7 @@ public class TeacherApp extends javax.swing.JFrame {
             panelParticipantsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelParticipantsLayout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(panelParicipantsList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -2015,7 +1850,7 @@ public class TeacherApp extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void panelTabHomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelTabHomeMouseClicked
-        initDisplay(); 
+        initDisplay();
         showHomeScreen();
     }//GEN-LAST:event_panelTabHomeMouseClicked
 
@@ -2034,19 +1869,43 @@ public class TeacherApp extends javax.swing.JFrame {
     }//GEN-LAST:event_labelLogoMouseClicked
 
     private void panelTabParticpantsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelTabParticpantsMouseClicked
-        showParticipantsList();
         showParticipantsScreen();
     }//GEN-LAST:event_panelTabParticpantsMouseClicked
 
     private void showParticipantsList() {
+        listParticipants = new MyListPanel();
+        participantListPanel.removeAll();
+
         participantListPanel.setLayout(new BorderLayout());
         participantListPanel.add(listParticipants.scrollPane, BorderLayout.CENTER);
 
-        listParticipants.list.addPanelHead(listParticipants.list.getParticipantPanel(
-                "/ui/teacher/assets/user_male_0.png",
-                "snowdence",
-                "Tran Minh Duc"
-        ), 40);
+        ArrayList<UserModel> allParticipants = mcourseService.getAllParticipants(_currentCourse);
+        for (UserModel t : allParticipants) {
+            System.out.println(t);
+            JPanel itemList = listParticipants.list.getParticipantPanel(
+                    t.getAvatarPath(),
+                    t.getUsername(),
+                    t.getFullName()
+            );
+            itemList.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent mouseEvent) {
+                    int result = JOptionPane.showConfirmDialog(itemList, "Do you want to kick this participant?", "Confirm Kick", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+                    if (result == JOptionPane.YES_OPTION) {
+                        EnrollmentModel recordKick = new EnrollmentModel();
+                        boolean status = recordKick.remove(String.format("WHERE course_id=%d AND user_id= %d", _currentCourse.getID(), t.getID()));
+                        if (status) {
+                            JOptionPane.showMessageDialog(itemList, "Kicked user: " + t.getFullName());
+                            showParticipantsScreen();
+                        } else {
+                            JOptionPane.showMessageDialog(itemList, "Unexpected error, please contact the admin");
+                        }
+                    }
+                }
+            });
+            listParticipants.list.addPanelHead(itemList, 55);
+
+        }
 
 //        MCourseService mcourseService = new MCourseService();
 //        ArrayList<LessonModel> allCourses = mcourseService.getAllLession();
@@ -2090,11 +1949,10 @@ public class TeacherApp extends javax.swing.JFrame {
         _currentLesson.setDescription(txtEditLessonDescription.getText());
         _currentLesson.setContent(editorpaneLessonContent.getText());
         boolean status = _currentLesson.update();
-        if(status){
-            JOptionPane.showMessageDialog(this, "Save successfully","Message", JOptionPane.INFORMATION_MESSAGE);
-        }
-        else{
-            JOptionPane.showMessageDialog(this, "An error happened","Message",  JOptionPane.ERROR_MESSAGE);
+        if (status) {
+            JOptionPane.showMessageDialog(this, "Save successfully", "Message", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(this, "An error happened", "Message", JOptionPane.ERROR_MESSAGE);
         }
         //showLessonsMainScreen();
     }//GEN-LAST:event_btnEditLessonSaveActionPerformed
@@ -2147,30 +2005,64 @@ public class TeacherApp extends javax.swing.JFrame {
                 lessonDescription.getText()
         ), 40);
         String title = lessonTitle.getText();
-        
+
         String description = lessonDescription.getText();
         String content = lessonContent.getText();
-        LessonModel nlRecord = new LessonModel(_currentCourse.getID(),title , description, content);
+        LessonModel nlRecord = new LessonModel(_currentCourse.getID(), title, description, content);
         boolean status = nlRecord.insert();
-        
-        if(status){
-            JOptionPane.showMessageDialog(this, "Create lesson successfully","Message", JOptionPane.INFORMATION_MESSAGE);
+
+        if (status) {
+            JOptionPane.showMessageDialog(this, "Create lesson successfully", "Message", JOptionPane.INFORMATION_MESSAGE);
             showLessonsMainScreen();
+        } else {
+            JOptionPane.showMessageDialog(this, "An error happened", "Message", JOptionPane.ERROR_MESSAGE);
         }
-        else{
-            JOptionPane.showMessageDialog(this, "An error happened","Message",  JOptionPane.ERROR_MESSAGE);
-        }
-        
+
         //showLessonsMainScreen();
     }//GEN-LAST:event_saveNewLessonMouseClicked
 
     private void addParticipantMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addParticipantMouseClicked
         // TODO add your handling code here:
-        listParticipants.list.addPanelHead(listParticipants.list.getParticipantPanel(
-                "/ui/teacher/assets/user_male_0.png",
-                "snowdence",
-                "Tran Minh Duc"
-        ), 40);
+//        listParticipants.list.addPanelHead(listParticipants.list.getParticipantPanel(
+//                "/ui/teacher/assets/user_male_0.png",
+//                "snowdence",
+//                "Tran Minh Duc"
+//        ), 40);
+        String user_name = txtParticipant.getText();
+        UserModel userToAdd = new UserModel();
+        userToAdd.setUsername(user_name);
+        if (userToAdd.selectByUserName()) {
+            int stateAdd = mcourseService.addParticipant(_account, userToAdd.getID(), _currentCourse);
+            switch (stateAdd) {
+                case 0:
+                    JOptionPane.showMessageDialog(this, "Add participant successfully!", "Message", JOptionPane.INFORMATION_MESSAGE);
+                    showParticipantsScreen();
+                    break;
+                case -1:
+                    JOptionPane.showMessageDialog(this, "You must login", "Message", JOptionPane.ERROR_MESSAGE);
+                    break;
+                case -2:
+                    JOptionPane.showMessageDialog(this, "You need to be a teacher", "Message", JOptionPane.ERROR_MESSAGE);
+                    break;
+                case -3:
+                    JOptionPane.showMessageDialog(this, "You need to be author of this course", "Message", JOptionPane.ERROR_MESSAGE);
+                    break;
+                case -4:
+                    JOptionPane.showMessageDialog(this, "This participant not found", "Message", JOptionPane.ERROR_MESSAGE);
+                    break;
+                case -5:
+                    JOptionPane.showMessageDialog(this, "This participant enrolled this course before", "Message", JOptionPane.ERROR_MESSAGE);
+                    break;
+                case -6:
+                    JOptionPane.showMessageDialog(this, "Unexpected error", "Message", JOptionPane.ERROR_MESSAGE);
+                    break;
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "This participant not found", "Message", JOptionPane.ERROR_MESSAGE);
+
+        }
+
+
     }//GEN-LAST:event_addParticipantMouseClicked
 
     private void saveNewLessonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveNewLessonActionPerformed
@@ -2215,7 +2107,7 @@ public class TeacherApp extends javax.swing.JFrame {
 
         hideAllMainScreens();
         panelHome.setVisible(true);
-       
+
     }
 
     private void showMyCoursesScreen() {
@@ -2257,6 +2149,8 @@ public class TeacherApp extends javax.swing.JFrame {
         hideAllMainScreens();
         hideAllCourseDetailSubScreens();
         showCourseDetailScreen();
+        showParticipantsList();
+
         panelParticipants.setVisible(true);
     }
 
@@ -2270,37 +2164,35 @@ public class TeacherApp extends javax.swing.JFrame {
         panelLessons.setVisible(true);
         showLessonsMainScreen();
 
-        
     }
 
     private void showLessionsList() {
-        
+
         listLessons = new MyListPanel();
-        
-        
-        lessonListPanel.removeAll(); 
+
+        lessonListPanel.removeAll();
         lessonListPanel.setLayout(new BorderLayout());
         lessonListPanel.add(listLessons.scrollPane, BorderLayout.CENTER);
 
         ArrayList<LessonModel> allLesson = mlessonService.getAllLessonOfCourse(this._currentCourse);
-             for(LessonModel t : allLesson){
-                 System.out.println(t);
-                 JPanel itemList = listLessons.list.getLessionPanel(
-                     t.getTitle(),
-                     t.getDescription()
-                 );
-                 itemList.addMouseListener(new MouseAdapter() {
-                     @Override
-                     public void mouseClicked(MouseEvent mouseEvent) {
-                         _currentLesson = t;
-                         showLessonDetailScreen();
-                     }
-                 });
+        for (LessonModel t : allLesson) {
+            System.out.println(t);
+            JPanel itemList = listLessons.list.getLessionPanel(
+                    t.getTitle(),
+                    t.getDescription()
+            );
+            itemList.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent mouseEvent) {
+                    _currentLesson = t;
+                    showLessonDetailScreen();
+                }
+            });
 
-                    //40
-                 listLessons.list.addPanelHead(itemList, 55);
+            //40
+            listLessons.list.addPanelHead(itemList, 55);
 
-             }
+        }
 //        MCourseService mcourseService = new MCourseService();
 //        ArrayList<LessonModel> allCourses = mcourseService.getAllLession();
 //        for(CourseModel t : allCourses){
@@ -2317,19 +2209,18 @@ public class TeacherApp extends javax.swing.JFrame {
         panelLessonsMain.setVisible(true);
         panelLessonDetail.setVisible(false);
         panelNewLesson.setVisible(false);
-        showLessionsList(); 
+        showLessionsList();
     }
 
     private void showLessonDetailScreen() {
         panelLessonsMain.setVisible(false);
         panelLessonDetail.setVisible(true);
         panelNewLesson.setVisible(false);
-        
-          
+
         txtEditLessonTitle.setText(_currentLesson.getTitle());
         txtEditLessonDescription.setText(_currentLesson.getDescription());
         editorpaneLessonContent.setText(_currentLesson.getContent());
-        
+
 //        
 //        try {
 //            editorpaneLessonContent.setPage(new java.net.URL("https://brilliant.org/wiki/greedy-algorithm/"));
@@ -2343,8 +2234,7 @@ public class TeacherApp extends javax.swing.JFrame {
     private void showNewLessonScreen() {
         panelLessonsMain.setVisible(false);
         panelLessonDetail.setVisible(false);
-        
-        
+
         panelNewLesson.setVisible(true);
     }
 
@@ -2542,15 +2432,15 @@ public class TeacherApp extends javax.swing.JFrame {
         labelNewCourseSelectedImg.setIcon(labelNewCourseImg0.getIcon());
         tfNewCourseName.setText("");
         taNewCourseDescription.setText("");
-         
+
     }
 
     // ===== Home (recent courses) =====
     private void loadHomeScreenInfo() {
-        
+
         listRecentCourses = new MyListPanel();
         homeCourses.removeAll();
-        
+
         homeCourses.setLayout(new BorderLayout());
 
         homeCourses.add(listRecentCourses.scrollPane, BorderLayout.CENTER);
@@ -2567,8 +2457,8 @@ public class TeacherApp extends javax.swing.JFrame {
             item.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent mouseEvent) {
-                   System.out.println("Home screen click item, do nothing");
-                        // showLessonsScreen();
+                    System.out.println("Home screen click item, do nothing");
+                    // showLessonsScreen();
                 }
             });
             listRecentCourses.list.addPanelHead(item, 50);
@@ -2579,13 +2469,10 @@ public class TeacherApp extends javax.swing.JFrame {
     private void loadMyCoursesInfo() {
         listMyCourses = new MyListPanel();
         panelMyCoursesAllCourses.removeAll();
-        
+
         panelMyCoursesAllCourses.setLayout(new BorderLayout());
         panelMyCoursesAllCourses.add(listMyCourses.scrollPane, BorderLayout.CENTER);
-        
-            
-        
-        
+
         ArrayList<CourseModel> allCourses = mcourseService.getMyCourses(_account);
 
         for (CourseModel t : allCourses) {
@@ -2664,16 +2551,7 @@ public class TeacherApp extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel38;
-    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel40;
-    private javax.swing.JLabel jLabel41;
-    private javax.swing.JLabel jLabel42;
-    private javax.swing.JLabel jLabel43;
-    private javax.swing.JLabel jLabel44;
-    private javax.swing.JLabel jLabel45;
-    private javax.swing.JLabel jLabel46;
-    private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel55;
     private javax.swing.JLabel jLabel56;
@@ -2753,9 +2631,6 @@ public class TeacherApp extends javax.swing.JFrame {
     private javax.swing.JLabel labelNewCourseImg8;
     private javax.swing.JLabel labelNewCourseImg9;
     private javax.swing.JLabel labelNewCourseSelectedImg;
-    private javax.swing.JLabel labelRemoveParicipant0;
-    private javax.swing.JLabel labelRemoveParticipant1;
-    private javax.swing.JLabel labelRemoveParticipant2;
     private javax.swing.JLabel labelSidebarCourseName;
     private javax.swing.JEditorPane lessonContent;
     private javax.swing.JTextField lessonDescription;
@@ -2779,9 +2654,6 @@ public class TeacherApp extends javax.swing.JFrame {
     private javax.swing.JPanel panelNewLesson;
     private javax.swing.JPanel panelNoti;
     private javax.swing.JPanel panelParicipantsList;
-    private javax.swing.JPanel panelParticipant0;
-    private javax.swing.JPanel panelParticipant1;
-    private javax.swing.JPanel panelParticipant2;
     private javax.swing.JPanel panelParticipants;
     private javax.swing.JPanel panelSetting;
     private javax.swing.JPanel panelSidebar;
@@ -2800,9 +2672,9 @@ public class TeacherApp extends javax.swing.JFrame {
     private javax.swing.JTextArea taNewCourseDescription;
     private javax.swing.JTextField textfieldAccountFullName;
     private javax.swing.JTextField textfieldAccountUsername;
-    private javax.swing.JTextField textfieldAddUser;
     private javax.swing.JTextField tfNewCourseName;
     private javax.swing.JTextField txtEditLessonDescription;
     private javax.swing.JTextField txtEditLessonTitle;
+    private javax.swing.JTextField txtParticipant;
     // End of variables declaration//GEN-END:variables
 }

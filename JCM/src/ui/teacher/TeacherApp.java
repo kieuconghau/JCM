@@ -1958,7 +1958,15 @@ public class TeacherApp extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEditLessonSaveActionPerformed
 
     private void btnEditLessonRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditLessonRemoveActionPerformed
-        showLessonsMainScreen();
+        
+        boolean status = _currentLesson.remove();
+        if (status) {
+            JOptionPane.showMessageDialog(this, "Remove successfully", "Message", JOptionPane.INFORMATION_MESSAGE);
+            showLessonsMainScreen();
+        } else {
+            JOptionPane.showMessageDialog(this, "An error happened", "Message", JOptionPane.ERROR_MESSAGE);
+        }
+        
     }//GEN-LAST:event_btnEditLessonRemoveActionPerformed
 
     private void jLabel62MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel62MouseClicked

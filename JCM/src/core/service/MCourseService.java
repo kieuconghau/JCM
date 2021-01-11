@@ -211,6 +211,45 @@ public class MCourseService {
         }
         return listUserModel;
     }
+    /**
+     *  
+     * @param account
+     * @param course
+     * @return 
+     *  -1 : login
+     *  -2 : student permission
+     *  -3 : enrolled
+     *  -4 : unexpected
+     */
+    public int enrollACourse(AccountEntity account, CourseModel course){
+        if(!account.isLogined()){
+            return -1;
+        }
+        if(!account.isStudent()){
+            return -2;
+        }
+        
+        int course_id = course.getID();
+        int user_id = account.getID();
+        //EnrollmentModel enrollRecord  = new EnrollmentModel( course_id, user_id );
+        EnrollmentModel checkExist = new EnrollmentModel();
+        boolean status = checkExist.select(String.format("WHERE course_id = %d AND user_id = %d", course_id, user_id));
+        if(status){
+            //record existed
+            return -3;
+        }
+        else{
+            checkExist.setCourseID(course_id);
+            checkExist.setUserID(user_id);
+            if(checkExist.insert()){
+                return 0;
+            }
+            else{
+                return -4;
+            }
+        }
+    
+    }
 
 
 }

@@ -17,6 +17,8 @@ import javax.swing.*;
 import core.entity.AccountEntity;
 import core.model.CourseModel;
 import core.service.MCourseService;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 /**
@@ -24,19 +26,27 @@ import java.util.ArrayList;
  * @author JByNine
  */
 public class StudentApp extends javax.swing.JFrame {
+
     AccountEntity _account;
-    
+    MCourseService mcourseService;
+
+
     /**
      * Creates new form App
      */
     public StudentApp(AccountEntity account) {
+        this._account = account;
+        mcourseService = new MCourseService();
         initComponents();
         initDisplay();
-        this._account =  account;
-        JOptionPane.showMessageDialog(this , "Hello, " + this._account.getUserModel().getUsername());
+       
+        JOptionPane.showMessageDialog(this, "Hello, " + this._account.getUserModel().getUsername());
 
     }
+
     public StudentApp() {
+       mcourseService = new MCourseService();
+
         initComponents();
         initDisplay();
     }
@@ -1711,7 +1721,7 @@ public class StudentApp extends javax.swing.JFrame {
 
     private void btnUpdateMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUpdateMouseExited
         // TODO add your handling code here:
-        btnUpdate.setBackground(new java.awt.Color(147,186,243));
+        btnUpdate.setBackground(new java.awt.Color(147, 186, 243));
         btnUpdate.setForeground(java.awt.Color.black);
     }//GEN-LAST:event_btnUpdateMouseExited
 
@@ -1749,7 +1759,7 @@ public class StudentApp extends javax.swing.JFrame {
         panelTabAnnouncements.setBackground(panelSidebar.getBackground());
         panelTabInfo.setBackground(panelSidebar.getBackground());
     }
-    
+
     private void hideAllMainScreens() {
         panelHome.setVisible(false);
         panelMyCourses.setVisible(false);
@@ -1757,7 +1767,7 @@ public class StudentApp extends javax.swing.JFrame {
         panelAccount.setVisible(false);
         hideCourseDetailScreen();
     }
-    
+
     private void hideAllCourseDetailSubScreens() {
         panelParticipants.setVisible(false);
         panelLessons.setVisible(false);
@@ -1765,77 +1775,77 @@ public class StudentApp extends javax.swing.JFrame {
         panelAnnouncements.setVisible(false);
         panelInfo.setVisible(false);
     }
-    
+
     private void hideCourseDetailScreen() {
         panelCourseDetail.setVisible(false);
         panelSidebarCourseDetail.setVisible(false);
     }
-    
+
     private void showHomeScreen() {
         disableAllMenuTabs();
         panelTabHome.setBackground(selectedTabColor);
-        
+
         hideAllMainScreens();
         panelHome.setVisible(true);
     }
-    
+
     private void showMyCoursesScreen() {
         disableAllMenuTabs();
         panelTabMyCourses.setBackground(selectedTabColor);
-        
+
         hideAllMainScreens();
         panelMyCourses.setVisible(true);
         showMyCoursesMainScreen();
     }
-    
+
     private void showMyCoursesMainScreen() {
         panelMyCoursesMain.setVisible(true);
         panelNewCourse.setVisible(false);
     }
-    
+
     private void showNewCourseScreen() {
         panelMyCoursesMain.setVisible(false);
         panelNewCourse.setVisible(true);
     }
-    
+
     private void showCourseDetailScreen() {
         panelCourseDetail.setVisible(true);
         panelSidebarCourseDetail.setVisible(true);
     }
-    
+
     private void showParticipantsScreen() {
         disableAllMenuTabs();
         panelTabParticpants.setBackground(selectedTabColor);
-        
+
         hideAllMainScreens();
         hideAllCourseDetailSubScreens();
         showCourseDetailScreen();
         panelParticipants.setVisible(true);
     }
-    
+
     private void showLessonsScreen() {
         disableAllMenuTabs();
         panelTabLessons.setBackground(selectedTabColor);
-        
+
         hideAllMainScreens();
         hideAllCourseDetailSubScreens();
         showCourseDetailScreen();
         panelLessons.setVisible(true);
         showLessonsMainScreen();
     }
-    
+
     private void showLessonsMainScreen() {
         panelLessonsMain.setVisible(true);
         panelLessonDetail.setVisible(false);
         panelNewLesson.setVisible(false);
     }
-    
+
     private void showLessonDetailScreen() {
         panelLessonsMain.setVisible(false);
-            panelLessonDetail.setVisible(true);
-            panelNewLesson.setVisible(false);
-        
-        try {    
+        panelLessonDetail.setVisible(true);
+        panelNewLesson.setVisible(false);
+
+        try {
             editorpaneLessonContent.setPage(new java.net.URL("https://brilliant.org/wiki/greedy-algorithm/"));
         } catch (MalformedURLException ex) {
             editorpaneLessonContent.setText("File not found!");
@@ -1843,48 +1853,48 @@ public class StudentApp extends javax.swing.JFrame {
             editorpaneLessonContent.setText("File not found!");
         }
     }
-    
+
     private void showNewLessonScreen() {
         panelLessonsMain.setVisible(false);
         panelLessonDetail.setVisible(false);
         panelNewLesson.setVisible(true);
     }
-    
+
     private void showExercisesScreen() {
         disableAllMenuTabs();
         panelTabExercises.setBackground(selectedTabColor);
-        
+
         hideAllMainScreens();
         hideAllCourseDetailSubScreens();
         showCourseDetailScreen();
         panelExercises.setVisible(true);
     }
-    
+
     private void showAnnouncementsScreen() {
         disableAllMenuTabs();
         panelTabAnnouncements.setBackground(selectedTabColor);
-        
+
         hideAllMainScreens();
         hideAllCourseDetailSubScreens();
         showCourseDetailScreen();
         panelAnnouncements.setVisible(true);
     }
-    
+
     private void showSettingScreen() {
         disableAllMenuTabs();
         panelTabInfo.setBackground(selectedTabColor);
-        
+
         hideAllMainScreens();
         hideAllCourseDetailSubScreens();
         showCourseDetailScreen();
         panelInfo.setVisible(true);
     }
-    
+
     private void updateCopyright() {
         int year = Calendar.getInstance().get(Calendar.YEAR);
         labelCopyright.setText(String.format("Copyright %d JByNine", year));
     }
-    
+
     private void initDisplay() {
         _introduction_render.setEditorKit(new HTMLEditorKit());
         _introduction_render.setText(_introduction_edit.getText());
@@ -1892,22 +1902,22 @@ public class StudentApp extends javax.swing.JFrame {
         updateCopyright();
         showHomeScreen();
         
-        homeCourses.setLayout(new BorderLayout());
-        homeCourses.add(listCourses.scrollPane, BorderLayout.CENTER);
+        jPanel1.setLayout(new BorderLayout());
+        jPanel1.add(listCourses.scrollPane, BorderLayout.CENTER);
         
         MCourseService mcourseService = new MCourseService();
         ArrayList<CourseModel> allCourses = mcourseService.getAllCourses();
-        for(CourseModel t : allCourses){
+        for (CourseModel t : allCourses) {
             System.out.println(t);
-             listCourses.list.addPanelHead(listCourses.list.getTeacherCoursePanel(
+             listCourses.list.addPanelHead(listCourses.list.getPane(
                 t.getImagePath(),
                 t.getName(),
                 t.getDescription()
             ), 55);
         }
-        
+
     }
-    
+
     /**
      * @param args the command line arguments
      */
@@ -1945,7 +1955,7 @@ public class StudentApp extends javax.swing.JFrame {
             }
         });
     }
-    
+
     private java.awt.Color selectedTabColor;
     MyListPanel listCourses = new MyListPanel();
     Course[] courses = new Course[5];

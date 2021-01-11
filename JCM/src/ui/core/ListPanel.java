@@ -182,12 +182,7 @@ public class ListPanel extends JPanel
     
     public JPanel getTeacherCoursePanel(String iconPath, String courseName, String courseDescription) {
         JPanel pane = new JPanel();
-        pane.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent mouseEvent) {
-                JOptionPane.showMessageDialog(pane , "Password incorrect");
-            }
-       });
+        
         JLabel icon = new JLabel();
         JLabel title = new JLabel();
         JLabel description = new JLabel();

@@ -2558,7 +2558,7 @@ public class TeacherApp extends javax.swing.JFrame {
             item.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent mouseEvent) {
-                    showCourseDetailScreen();
+                    showLessonsScreen();
                 }
             });
             listRecentCourses.list.addPanelHead(item, 50);
@@ -2583,7 +2583,7 @@ public class TeacherApp extends javax.swing.JFrame {
             item.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent mouseEvent) {
-                    showCourseDetailScreen();
+                    showLessonsScreen();
                 }
             });
             listAllCourses.list.addPanelHead(item, 50);

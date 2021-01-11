@@ -225,7 +225,11 @@ public class CourseModel extends BaseModel {
             return false;
         }
     }
-
+    
+     public UserModel getAuthorRelation(){
+        UserModel record = new UserModel(this.getAuthorID());
+        return record;
+    }
 
 
     @Override

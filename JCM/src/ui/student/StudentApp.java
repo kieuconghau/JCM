@@ -54,6 +54,20 @@ public class StudentApp extends javax.swing.JFrame {
         initEvents();
        
         JOptionPane.showMessageDialog(this, "Hello, " + this._account.getUserModel().getUsername());
+        updateLabelAccountInfoHeader();
+    }
+    void updateLabelAccountInfoHeader(){
+        String __username = _account.getUserModel().getUsername();
+        String __fullName = _account.getUserModel().getFullName();
+        String __accountType = "";
+        
+        if (_account.isStudent()) {
+            __accountType = "Student";
+        } else {
+            __accountType = "Teacher";
+        }
+
+        labelAccountInfo.setText(String.format("Xin chào, %s (%s) - %s", __fullName, __username, __accountType));  
     }
 
     public StudentApp() {
@@ -80,6 +94,7 @@ public class StudentApp extends javax.swing.JFrame {
         labelMenu = new javax.swing.JLabel();
         labelAvatar = new javax.swing.JLabel();
         labelLogo = new javax.swing.JLabel();
+        labelAccountInfo = new javax.swing.JLabel();
         panelSidebar = new javax.swing.JPanel();
         panelTabHome = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
@@ -228,6 +243,10 @@ public class StudentApp extends javax.swing.JFrame {
             }
         });
 
+        labelAccountInfo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        labelAccountInfo.setForeground(new java.awt.Color(255, 255, 255));
+        labelAccountInfo.setText("Xin chào, ");
+
         javax.swing.GroupLayout panelHeaderLayout = new javax.swing.GroupLayout(panelHeader);
         panelHeader.setLayout(panelHeaderLayout);
         panelHeaderLayout.setHorizontalGroup(
@@ -237,6 +256,8 @@ public class StudentApp extends javax.swing.JFrame {
                 .addComponent(labelMenu)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(labelLogo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(labelAccountInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 805, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(labelAvatar)
                 .addContainerGap())
@@ -246,6 +267,10 @@ public class StudentApp extends javax.swing.JFrame {
             .addComponent(labelAvatar, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
             .addComponent(labelMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(labelLogo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelHeaderLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(labelAccountInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         panelSidebar.setBackground(new java.awt.Color(46, 81, 133));
@@ -1830,6 +1855,7 @@ public class StudentApp extends javax.swing.JFrame {
                         }
 
                         loadAccountScreenInfo();
+                        updateLabelAccountInfoHeader();
                     }
                 }
             }
@@ -1857,11 +1883,13 @@ public class StudentApp extends javax.swing.JFrame {
 
         ArrayList<CourseModel> allCourses = mcourseService.getAllCourses();
         for (CourseModel t : allCourses) {
+            String authorName = "Author";
+           
             System.out.println(t);
             JPanel itemList = homeListCourses.list.getStudentCoursePanel(
                     t.getImagePath(),
                     t.getName(),
-                    "Author",
+                    t.getAuthorRelation().getFullName(),
                     t.getDescription()
             );
             itemList.addMouseListener(new MouseAdapter() {
@@ -2142,6 +2170,7 @@ public class StudentApp extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JLabel labelAccountAvatar;
+    private javax.swing.JLabel labelAccountInfo;
     private javax.swing.JLabel labelAvatar;
     private javax.swing.JLabel labelAvatar0;
     private javax.swing.JLabel labelAvatar1;

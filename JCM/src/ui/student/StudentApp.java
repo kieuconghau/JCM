@@ -1732,24 +1732,14 @@ public class StudentApp extends javax.swing.JFrame {
 
     private void labelNotiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelNotiMouseClicked
         // TODO add your handling code here:
-                listCourses.list.addPanelHead(listCourses.list.getTeacherCoursePanel(
-                "/ui/teacher/assets/course_algo.png",
-                "Algo",
-                "Description"
-            ), 55);
-//        Course x = courses[listCourses.list.getPanels().size() % courses.length];
-//        listCourses.list.addPanelHead(listCourses.list.getTeacherCoursePanel(      
-//                x.getImagePath(),
-//                x.getName(),
-//                x.getDescription()
-//        ), 55);
+        Course x = courses[listCourses.list.getPanels().size() % courses.length];
+        listCourses.list.addPanelHead(listCourses.list.getPane(
+                x.getImagePath(),
+                x.getName(),
+                x.getDescription()
+        ), 55);
     }//GEN-LAST:event_labelNotiMouseClicked
 
-    private void labelLogoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelLogoMouseClicked
-        panelSidebar.setVisible(true);
-        showHomeScreen();
-    }//GEN-LAST:event_labelLogoMouseClicked
-    
     private void disableAllMenuTabs() {
         panelTabHome.setBackground(panelSidebar.getBackground());
         panelTabMyCourses.setBackground(panelSidebar.getBackground());
@@ -1901,19 +1891,50 @@ public class StudentApp extends javax.swing.JFrame {
         selectedTabColor = panelTabHome.getBackground();
         updateCopyright();
         showHomeScreen();
-        
+
         jPanel1.setLayout(new BorderLayout());
         jPanel1.add(listCourses.scrollPane, BorderLayout.CENTER);
-        
-        MCourseService mcourseService = new MCourseService();
+
         ArrayList<CourseModel> allCourses = mcourseService.getAllCourses();
         for (CourseModel t : allCourses) {
             System.out.println(t);
-             listCourses.list.addPanelHead(listCourses.list.getPane(
-                t.getImagePath(),
-                t.getName(),
-                t.getDescription()
-            ), 55);
+            JPanel itemList = listCourses.list.getPane(
+                    t.getImagePath(),
+                    t.getName(),
+                    t.getDescription()
+            );
+            itemList.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent mouseEvent) {
+                    int result = JOptionPane.showConfirmDialog(itemList, "Do you want to enroll this course?", "Confirm Enroll", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+                    if (result == JOptionPane.YES_OPTION) {
+                        int status = mcourseService.enrollACourse(_account,t );
+                        switch(status){
+                            case -1:
+                                JOptionPane.showMessageDialog(itemList, "Please login " + t.getName(), "Enroll Dialog",  JOptionPane.ERROR_MESSAGE);
+                                break;
+                            case -2:
+                                JOptionPane.showMessageDialog(itemList, "You must you student account " + t.getName(), "Enroll Dialog",  JOptionPane.ERROR_MESSAGE);
+
+                                break;
+                            case -3:
+                                JOptionPane.showMessageDialog(itemList, "You enrolled this course before: " + t.getName(), "Enroll Dialog",  JOptionPane.ERROR_MESSAGE);
+
+                                break;
+                            case -4:
+                                JOptionPane.showMessageDialog(itemList, "Unexpected error ", "Enroll Dialog",  JOptionPane.ERROR_MESSAGE);
+
+                                break;
+                            case 0:
+                                JOptionPane.showMessageDialog(itemList, "Success to enroll this course: " + t.getName());
+                                    
+                                break;
+                                
+                        }
+                    }
+                }
+            });
+            listCourses.list.addPanelHead(itemList, 55);
         }
 
     }

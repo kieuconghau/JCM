@@ -601,19 +601,19 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <EmptySpace min="0" pref="800" max="32767" attributes="0"/>
               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                  <Component id="panelMyCourses" alignment="1" max="32767" attributes="0"/>
+                  <Component id="panelMyCourses" alignment="1" pref="816" max="32767" attributes="0"/>
               </Group>
               <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
-                  <Component id="panelCourseDetail" alignment="1" max="32767" attributes="0"/>
+                  <Component id="panelCourseDetail" alignment="1" pref="816" max="32767" attributes="0"/>
               </Group>
               <Group type="103" rootIndex="3" groupAlignment="0" attributes="0">
                   <Component id="panelNoti" alignment="0" max="32767" attributes="0"/>
               </Group>
               <Group type="103" rootIndex="4" groupAlignment="0" attributes="0">
-                  <Component id="panelAccount" alignment="1" max="32767" attributes="0"/>
+                  <Component id="panelAccount" alignment="1" pref="816" max="32767" attributes="0"/>
               </Group>
               <Group type="103" rootIndex="5" groupAlignment="0" attributes="0">
-                  <Component id="panelHome" alignment="1" max="32767" attributes="0"/>
+                  <Component id="panelHome" alignment="1" pref="816" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -621,19 +621,19 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <EmptySpace min="0" pref="590" max="32767" attributes="0"/>
               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                  <Component id="panelMyCourses" alignment="0" max="32767" attributes="0"/>
+                  <Component id="panelMyCourses" alignment="0" pref="588" max="32767" attributes="0"/>
               </Group>
               <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
-                  <Component id="panelCourseDetail" alignment="0" max="32767" attributes="0"/>
+                  <Component id="panelCourseDetail" alignment="0" pref="588" max="32767" attributes="0"/>
               </Group>
               <Group type="103" rootIndex="3" groupAlignment="0" attributes="0">
                   <Component id="panelNoti" alignment="0" max="32767" attributes="0"/>
               </Group>
               <Group type="103" rootIndex="4" groupAlignment="0" attributes="0">
-                  <Component id="panelAccount" alignment="0" max="32767" attributes="0"/>
+                  <Component id="panelAccount" alignment="0" pref="588" max="32767" attributes="0"/>
               </Group>
               <Group type="103" rootIndex="5" groupAlignment="0" attributes="0">
-                  <Component id="panelHome" alignment="0" max="32767" attributes="0"/>
+                  <Component id="panelHome" alignment="0" pref="588" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -655,7 +655,7 @@
                   <Component id="jLabel9" alignment="0" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="homeCourses" pref="740" max="32767" attributes="0"/>
+                      <Component id="homeCourses" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -665,7 +665,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="homeCourses" pref="518" max="32767" attributes="0"/>
+                      <Component id="homeCourses" pref="516" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -753,7 +753,7 @@
                           <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel72" min="-2" max="-2" attributes="0"/>
-                              <Component id="panelMyCoursesAllCourses" pref="740" max="32767" attributes="0"/>
+                              <Component id="panelMyCoursesAllCourses" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                       </Group>
@@ -765,7 +765,7 @@
                           <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                           <Component id="jLabel72" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="panelMyCoursesAllCourses" pref="518" max="32767" attributes="0"/>
+                          <Component id="panelMyCoursesAllCourses" pref="516" max="32767" attributes="0"/>
                           <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -1402,16 +1402,16 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="panelParticipants" alignment="0" max="32767" attributes="0"/>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                      <Component id="panelLessons" alignment="1" max="32767" attributes="0"/>
+                      <Component id="panelLessons" alignment="1" pref="816" max="32767" attributes="0"/>
                   </Group>
                   <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
-                      <Component id="panelExercises" alignment="1" max="32767" attributes="0"/>
+                      <Component id="panelExercises" alignment="1" pref="816" max="32767" attributes="0"/>
                   </Group>
                   <Group type="103" rootIndex="3" groupAlignment="0" attributes="0">
-                      <Component id="panelAnnouncements" alignment="1" max="32767" attributes="0"/>
+                      <Component id="panelAnnouncements" alignment="1" pref="816" max="32767" attributes="0"/>
                   </Group>
                   <Group type="103" rootIndex="4" groupAlignment="0" attributes="0">
-                      <Component id="panelSetting" alignment="1" max="32767" attributes="0"/>
+                      <Component id="panelSetting" alignment="1" pref="816" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1419,16 +1419,16 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="panelParticipants" alignment="0" max="32767" attributes="0"/>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                      <Component id="panelLessons" alignment="0" max="32767" attributes="0"/>
+                      <Component id="panelLessons" alignment="0" pref="588" max="32767" attributes="0"/>
                   </Group>
                   <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
-                      <Component id="panelExercises" alignment="0" max="32767" attributes="0"/>
+                      <Component id="panelExercises" alignment="0" pref="588" max="32767" attributes="0"/>
                   </Group>
                   <Group type="103" rootIndex="3" groupAlignment="0" attributes="0">
-                      <Component id="panelAnnouncements" alignment="1" max="32767" attributes="0"/>
+                      <Component id="panelAnnouncements" alignment="1" pref="588" max="32767" attributes="0"/>
                   </Group>
                   <Group type="103" rootIndex="4" groupAlignment="0" attributes="0">
-                      <Component id="panelSetting" alignment="0" max="32767" attributes="0"/>
+                      <Component id="panelSetting" alignment="0" pref="588" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>

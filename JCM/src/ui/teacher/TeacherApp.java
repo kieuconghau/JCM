@@ -2247,9 +2247,7 @@ public class TeacherApp extends javax.swing.JFrame {
 
     private void labelAvatarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelAvatarMouseClicked
         // TODO add your handling code here:
-        disableAllMenuTabs();
-        hideAllMainScreens();
-        panelAccount.setVisible(true);
+        showAccountScreen();
     }//GEN-LAST:event_labelAvatarMouseClicked
 
     private void labelAccountAvatarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelAccountAvatarMouseClicked
@@ -2442,6 +2440,13 @@ public class TeacherApp extends javax.swing.JFrame {
         int year = Calendar.getInstance().get(Calendar.YEAR);
         labelCopyright.setText(String.format("Copyright %d JByNine", year));
     }
+    
+    private void showAccountScreen() {
+        disableAllMenuTabs();
+        hideAllMainScreens();
+        panelAccount.setVisible(true);
+        loadAccountScreenInfo();
+    }
 
     // ===== Account =====
     private void initEventsForAccountAvatarSelector() {
@@ -2474,7 +2479,7 @@ public class TeacherApp extends javax.swing.JFrame {
 
                 // UI
                 javax.swing.JOptionPane.showMessageDialog(panelAccount, success ? "Success" : "Fail");
-                loadUserInfo();
+                loadAccountScreenInfo();
                 panelAccountAvatarSelector.setVisible(false);
                 pwdfieldAccountNewPassword.setText("");
                 pwdfieldAccountConfirmedPassword.setText("");
@@ -2482,7 +2487,7 @@ public class TeacherApp extends javax.swing.JFrame {
         });
     }
 
-    private void loadUserInfo() {
+    private void loadAccountScreenInfo() {
         labelAvatar.setIcon(new javax.swing.ImageIcon(getClass().getResource(_account.getUserModel().getAvatarPath())));
         labelAccountAvatar.setIcon(new javax.swing.ImageIcon(getClass().getResource(_account.getUserModel().getAvatarPath())));
         textfieldAccountUsername.setText(_account.getUserModel().getUsername());
@@ -2609,7 +2614,7 @@ public class TeacherApp extends javax.swing.JFrame {
         
         // Account
         panelAccountAvatarSelector.setVisible(false);
-        loadUserInfo();
+        loadAccountScreenInfo();
         
         // New Course
         labelNewCourseSelectedImg.setVisible(false);

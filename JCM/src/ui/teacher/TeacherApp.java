@@ -665,11 +665,6 @@ public class TeacherApp extends javax.swing.JFrame {
         btnNewCourseCreate.setText("CREATE");
         btnNewCourseCreate.setBorder(null);
         btnNewCourseCreate.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnNewCourseCreate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNewCourseCreateActionPerformed(evt);
-            }
-        });
 
         btnNewCourseCancel.setBackground(new java.awt.Color(255, 51, 0));
         btnNewCourseCancel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -2230,12 +2225,7 @@ public class TeacherApp extends javax.swing.JFrame {
 
     private void jLabel72MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel72MouseClicked
         showNewCourseScreen();
-        resetNewCourseData();
     }//GEN-LAST:event_jLabel72MouseClicked
-
-    private void btnNewCourseCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewCourseCreateActionPerformed
-        showMyCoursesScreen();
-    }//GEN-LAST:event_btnNewCourseCreateActionPerformed
 
     private void btnNewCourseCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewCourseCancelActionPerformed
         showMyCoursesScreen();
@@ -2312,12 +2302,16 @@ public class TeacherApp extends javax.swing.JFrame {
     }
 
     private void showMyCoursesScreen() {
+        // UI
         disableAllMenuTabs();
         panelTabMyCourses.setBackground(selectedTabColor);
 
         hideAllMainScreens();
         panelMyCourses.setVisible(true);
         showMyCoursesMainScreen();
+
+        // Load data
+        loadMyCoursesInfo();
     }
 
     private void showMyCoursesMainScreen() {
@@ -2326,8 +2320,12 @@ public class TeacherApp extends javax.swing.JFrame {
     }
 
     private void showNewCourseScreen() {
+        // UI
         panelMyCoursesMain.setVisible(false);
         panelNewCourse.setVisible(true);
+
+        // Data
+        loadNewCourseInfo();
     }
 
     private void showCourseDetailScreen() {
@@ -2490,11 +2488,10 @@ public class TeacherApp extends javax.swing.JFrame {
 
                         if (_account.getUserModel().update()) {
                             javax.swing.JOptionPane.showMessageDialog(panelAccount, "Success!");
-                        }
-                        else {
+                        } else {
                             javax.swing.JOptionPane.showMessageDialog(panelAccount, "Fail!", "Warning", javax.swing.JOptionPane.ERROR_MESSAGE);
                         }
-                        
+
                         loadAccountScreenInfo();
                     }
                 }
@@ -2520,7 +2517,7 @@ public class TeacherApp extends javax.swing.JFrame {
             labelNewCourseImg8, labelNewCourseImg9, labelNewCourseImg10, labelNewCourseImg11, labelNewCourseImg12,
             labelNewCourseImg13, labelNewCourseImg14, labelNewCourseImg15};
 
-        resetNewCourseData();
+        loadNewCourseInfo();
         javax.swing.border.Border selectedBorder = courseImgs[0].getBorder();
         javax.swing.border.Border defaultBorder = courseImgs[1].getBorder();
 
@@ -2559,17 +2556,36 @@ public class TeacherApp extends javax.swing.JFrame {
                 String description = taNewCourseDescription.getText();
 
                 // Core
-                boolean success = true;
-                // TODO: kieuconghau
-
-                // UI
-                javax.swing.JOptionPane.showMessageDialog(panelAccount, success ? "Success" : "Fail");
-                showMyCoursesScreen();
+                if (name.isEmpty()) {
+                    javax.swing.JOptionPane.showMessageDialog(panelAccount, "The Name field can not be empty!", "Warning", javax.swing.JOptionPane.ERROR_MESSAGE);
+                } else if (description.isEmpty()) {
+                    javax.swing.JOptionPane.showMessageDialog(panelAccount, "The Description field can not be empty!", "Warning", javax.swing.JOptionPane.ERROR_MESSAGE);
+                } else {
+                    CourseModel course = new CourseModel(authorID, name, imgPath, description);
+                    System.out.println(course);
+                    switch (new MCourseService().insertCourse(_account, course)) {
+                        case 0:
+                            javax.swing.JOptionPane.showMessageDialog(panelAccount, "Success");
+                            showMyCoursesScreen();
+                            break;
+                        case -1:
+                            javax.swing.JOptionPane.showMessageDialog(panelAccount, "You have to log in first!", "Warning", javax.swing.JOptionPane.ERROR_MESSAGE);
+                            break;
+                        case -2:
+                            javax.swing.JOptionPane.showMessageDialog(panelAccount, "The account must be Teacher!", "Warning", javax.swing.JOptionPane.ERROR_MESSAGE);
+                            break;
+                        case -3:
+                            javax.swing.JOptionPane.showMessageDialog(panelAccount, "Unexpected Error!", "Warning", javax.swing.JOptionPane.ERROR_MESSAGE);
+                            break;
+                        default:
+                            javax.swing.JOptionPane.showMessageDialog(panelAccount, "Loggic Error!", "Warning", javax.swing.JOptionPane.ERROR_MESSAGE);
+                    }
+                }
             }
         });
     }
 
-    private void resetNewCourseData() {
+    private void loadNewCourseInfo() {
         labelNewCourseImg0.setBorder(new javax.swing.border.LineBorder(Color.red, 2));
         labelNewCourseSelectedImg.setIcon(labelNewCourseImg0.getIcon());
         tfNewCourseName.setText("");
@@ -2577,7 +2593,7 @@ public class TeacherApp extends javax.swing.JFrame {
     }
 
     // ===== Home (recent courses) =====
-    private void loadHomeRecentCourses() {
+    private void loadHomeScreenInfo() {
         homeCourses.setLayout(new BorderLayout());
         homeCourses.add(listRecentCourses.scrollPane, BorderLayout.CENTER);
 
@@ -2602,7 +2618,7 @@ public class TeacherApp extends javax.swing.JFrame {
     }
 
     // ===== My Courses =====
-    private void loadMyCoursesAllCourses() {
+    private void loadMyCoursesInfo() {
         panelMyCoursesAllCourses.setLayout(new BorderLayout());
         panelMyCoursesAllCourses.add(listAllCourses.scrollPane, BorderLayout.CENTER);
 
@@ -2638,12 +2654,13 @@ public class TeacherApp extends javax.swing.JFrame {
 
         // New Course
         labelNewCourseSelectedImg.setVisible(false);
+        loadNewCourseInfo();
 
         // Home (Recent Courses)
-        loadHomeRecentCourses();
+        loadHomeScreenInfo();
 
         // My Courses
-        loadMyCoursesAllCourses();
+        loadMyCoursesInfo();
     }
 
     private void initEvents() {

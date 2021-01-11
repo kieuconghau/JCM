@@ -26,6 +26,7 @@ import ui.core.MyListPanel;
  * @author JByNine
  */
 public class TeacherApp extends javax.swing.JFrame {
+
     AccountEntity _account;
 
     /**
@@ -48,10 +49,10 @@ public class TeacherApp extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(TeacherApp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        
+
         this._account = account;
-        javax.swing.JOptionPane.showMessageDialog(this , "Hello teacher, " + this._account.getUserModel().getUsername());
-        
+        javax.swing.JOptionPane.showMessageDialog(this, "Hello teacher, " + this._account.getUserModel().getUsername());
+
         initComponents();
         initDisplay();
         initEvents();
@@ -2148,14 +2149,13 @@ public class TeacherApp extends javax.swing.JFrame {
     private void showParticipantsList() {
         participantListPanel.setLayout(new BorderLayout());
         participantListPanel.add(listParticipants.scrollPane, BorderLayout.CENTER);
-        
-                
+
         listParticipants.list.addPanelHead(listParticipants.list.getParticipantPanel(
                 "/ui/teacher/assets/user_male_0.png",
                 "snowdence",
                 "Tran Minh Duc"
         ), 40);
-        
+
 //        MCourseService mcourseService = new MCourseService();
 //        ArrayList<LessonModel> allCourses = mcourseService.getAllLession();
 //        for(CourseModel t : allCourses){
@@ -2167,7 +2167,7 @@ public class TeacherApp extends javax.swing.JFrame {
 //            ), 55);
 //        }
     }
-        
+
     private void panelTabLessonsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelTabLessonsMouseClicked
         showLessonsScreen();
     }//GEN-LAST:event_panelTabLessonsMouseClicked
@@ -2354,20 +2354,19 @@ public class TeacherApp extends javax.swing.JFrame {
         showCourseDetailScreen();
         panelLessons.setVisible(true);
         showLessonsMainScreen();
-        
+
         showLessionsList();
     }
-    
+
     private void showLessionsList() {
         lessonListPanel.setLayout(new BorderLayout());
         lessonListPanel.add(listLessons.scrollPane, BorderLayout.CENTER);
-        
-                
+
         listLessons.list.addPanelHead(listLessons.list.getLessionPanel(
                 "Week 1 - Greedy Algorithms",
                 "A greedy algorithm is a simple, intuitive algorithm that is used in optimization problems."
         ), 40);
-        
+
 //        MCourseService mcourseService = new MCourseService();
 //        ArrayList<LessonModel> allCourses = mcourseService.getAllLession();
 //        for(CourseModel t : allCourses){
@@ -2440,11 +2439,14 @@ public class TeacherApp extends javax.swing.JFrame {
         int year = Calendar.getInstance().get(Calendar.YEAR);
         labelCopyright.setText(String.format("Copyright %d JByNine", year));
     }
-    
+
     private void showAccountScreen() {
+        // UI
         disableAllMenuTabs();
         hideAllMainScreens();
         panelAccount.setVisible(true);
+
+        // Load data
         loadAccountScreenInfo();
     }
 
@@ -2472,17 +2474,30 @@ public class TeacherApp extends javax.swing.JFrame {
                 String newFullName = textfieldAccountFullName.getText();
                 String newPassword = String.valueOf(pwdfieldAccountNewPassword.getPassword());
                 String confirmedPassword = String.valueOf(pwdfieldAccountConfirmedPassword.getPassword());
-                
-                // Core
-                boolean success = true;
-                // TODO: kieuconghau
 
-                // UI
-                javax.swing.JOptionPane.showMessageDialog(panelAccount, success ? "Success" : "Fail");
-                loadAccountScreenInfo();
-                panelAccountAvatarSelector.setVisible(false);
-                pwdfieldAccountNewPassword.setText("");
-                pwdfieldAccountConfirmedPassword.setText("");
+                // Core
+                if (newFullName.equals("")) {
+                    javax.swing.JOptionPane.showMessageDialog(panelAccount, "The Full Name field can not be empty!", "Warning", javax.swing.JOptionPane.ERROR_MESSAGE);
+                } else {
+                    if (!newPassword.equals(confirmedPassword)) {
+                        javax.swing.JOptionPane.showMessageDialog(panelAccount, "The confirmed password is not correct!", "Warning", javax.swing.JOptionPane.ERROR_MESSAGE);
+                    } else {
+                        _account.getUserModel().setAvatarPath(newAvatarPath);
+                        _account.getUserModel().setFullName(newFullName);
+                        if (!newPassword.isEmpty()) {
+                            _account.getUserModel().setPassword(newPassword);
+                        }
+
+                        if (_account.getUserModel().update()) {
+                            javax.swing.JOptionPane.showMessageDialog(panelAccount, "Success!");
+                        }
+                        else {
+                            javax.swing.JOptionPane.showMessageDialog(panelAccount, "Fail!", "Warning", javax.swing.JOptionPane.ERROR_MESSAGE);
+                        }
+                        
+                        loadAccountScreenInfo();
+                    }
+                }
             }
         });
     }
@@ -2492,32 +2507,37 @@ public class TeacherApp extends javax.swing.JFrame {
         labelAccountAvatar.setIcon(new javax.swing.ImageIcon(getClass().getResource(_account.getUserModel().getAvatarPath())));
         textfieldAccountUsername.setText(_account.getUserModel().getUsername());
         textfieldAccountFullName.setText(_account.getUserModel().getFullName());
+
+        panelAccountAvatarSelector.setVisible(false);
+        pwdfieldAccountNewPassword.setText("");
+        pwdfieldAccountConfirmedPassword.setText("");
     }
-    
+
     // ===== New Course =====
     private void initEventsForNewCourseImageSelector() {
-        javax.swing.JLabel[] courseImgs = { labelNewCourseImg0, labelNewCourseImg1, labelNewCourseImg2,
+        javax.swing.JLabel[] courseImgs = {labelNewCourseImg0, labelNewCourseImg1, labelNewCourseImg2,
             labelNewCourseImg3, labelNewCourseImg4, labelNewCourseImg5, labelNewCourseImg6, labelNewCourseImg7,
             labelNewCourseImg8, labelNewCourseImg9, labelNewCourseImg10, labelNewCourseImg11, labelNewCourseImg12,
-            labelNewCourseImg13, labelNewCourseImg14, labelNewCourseImg15 };
-        
+            labelNewCourseImg13, labelNewCourseImg14, labelNewCourseImg15};
+
         resetNewCourseData();
         javax.swing.border.Border selectedBorder = courseImgs[0].getBorder();
         javax.swing.border.Border defaultBorder = courseImgs[1].getBorder();
-        
+
         for (javax.swing.JLabel courseImg : courseImgs) {
             courseImg.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
-                    for (javax.swing.JLabel courseImgTemp : courseImgs)
+                    for (javax.swing.JLabel courseImgTemp : courseImgs) {
                         courseImgTemp.setBorder(defaultBorder);
+                    }
                     courseImg.setBorder(selectedBorder);
                     labelNewCourseSelectedImg.setIcon(courseImg.getIcon());
                 }
             });
         }
     }
-    
+
     private void initEventForNewCourseBtnCancel() {
         btnNewCourseCancel.addActionListener(new ActionListener() {
             @Override
@@ -2526,7 +2546,7 @@ public class TeacherApp extends javax.swing.JFrame {
             }
         });
     }
-    
+
     private void initEventForNewCourseBtnCreate() {
         btnNewCourseCreate.addActionListener(new ActionListener() {
             @Override
@@ -2537,39 +2557,39 @@ public class TeacherApp extends javax.swing.JFrame {
                 String imgPath = labelNewCourseSelectedImg.getIcon().toString();
                 imgPath = imgPath.substring(imgPath.lastIndexOf("build/classes") + "build/classes".length());
                 String description = taNewCourseDescription.getText();
-                
+
                 // Core
                 boolean success = true;
                 // TODO: kieuconghau
-                
+
                 // UI
                 javax.swing.JOptionPane.showMessageDialog(panelAccount, success ? "Success" : "Fail");
                 showMyCoursesScreen();
             }
         });
     }
-    
+
     private void resetNewCourseData() {
         labelNewCourseImg0.setBorder(new javax.swing.border.LineBorder(Color.red, 2));
         labelNewCourseSelectedImg.setIcon(labelNewCourseImg0.getIcon());
         tfNewCourseName.setText("");
         taNewCourseDescription.setText("");
     }
-    
+
     // ===== Home (recent courses) =====
     private void loadHomeRecentCourses() {
         homeCourses.setLayout(new BorderLayout());
         homeCourses.add(listRecentCourses.scrollPane, BorderLayout.CENTER);
-        
+
         MCourseService mcourseService = new MCourseService();
         ArrayList<CourseModel> allCourses = mcourseService.getAllCourses();
-        
-        for(CourseModel t : allCourses){
+
+        for (CourseModel t : allCourses) {
             System.out.println(t);
             javax.swing.JPanel item = listRecentCourses.list.getTeacherCoursePanel(
-                t.getImagePath(),
-                t.getName(),
-                t.getDescription()
+                    t.getImagePath(),
+                    t.getName(),
+                    t.getDescription()
             );
             item.addMouseListener(new MouseAdapter() {
                 @Override
@@ -2580,21 +2600,21 @@ public class TeacherApp extends javax.swing.JFrame {
             listRecentCourses.list.addPanelHead(item, 50);
         }
     }
-    
+
     // ===== My Courses =====
     private void loadMyCoursesAllCourses() {
         panelMyCoursesAllCourses.setLayout(new BorderLayout());
         panelMyCoursesAllCourses.add(listAllCourses.scrollPane, BorderLayout.CENTER);
-        
+
         MCourseService mcourseService = new MCourseService();
         ArrayList<CourseModel> allCourses = mcourseService.getAllCourses();
-        
-        for(CourseModel t : allCourses){
+
+        for (CourseModel t : allCourses) {
             System.out.println(t);
             javax.swing.JPanel item = listAllCourses.list.getTeacherCoursePanel(
-                t.getImagePath(),
-                t.getName(),
-                t.getDescription()
+                    t.getImagePath(),
+                    t.getName(),
+                    t.getDescription()
             );
             item.addMouseListener(new MouseAdapter() {
                 @Override
@@ -2611,17 +2631,17 @@ public class TeacherApp extends javax.swing.JFrame {
         selectedTabColor = panelTabHome.getBackground();
         updateCopyright();
         showHomeScreen();
-        
+
         // Account
         panelAccountAvatarSelector.setVisible(false);
         loadAccountScreenInfo();
-        
+
         // New Course
         labelNewCourseSelectedImg.setVisible(false);
-        
+
         // Home (Recent Courses)
         loadHomeRecentCourses();
-        
+
         // My Courses
         loadMyCoursesAllCourses();
     }
@@ -2630,7 +2650,7 @@ public class TeacherApp extends javax.swing.JFrame {
         // Account
         initEventsForAccountAvatarSelector();
         initEventForAccountBtnUpdate();
-        
+
         // New Course
         initEventsForNewCourseImageSelector();
         initEventForNewCourseBtnCancel();
@@ -2642,7 +2662,7 @@ public class TeacherApp extends javax.swing.JFrame {
     MyListPanel listAllCourses = new MyListPanel();
     MyListPanel listLessons = new MyListPanel();
     MyListPanel listParticipants = new MyListPanel();
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel addParticipant;
     private javax.swing.JButton btnAccountUpdate;

@@ -21,6 +21,8 @@ import core.model.LessonModel;
 import core.model.UserModel;
 import core.service.MCourseService;
 import core.service.MLessonService;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
@@ -49,9 +51,9 @@ public class StudentApp extends javax.swing.JFrame {
         mlessonService = new MLessonService();
         initComponents();
         initDisplay();
+        initEvents();
        
         JOptionPane.showMessageDialog(this, "Hello, " + this._account.getUserModel().getUsername());
-
     }
 
     public StudentApp() {
@@ -62,6 +64,7 @@ public class StudentApp extends javax.swing.JFrame {
 
         initComponents();
         initDisplay();
+        initEvents();
     }
 
     /**
@@ -76,7 +79,6 @@ public class StudentApp extends javax.swing.JFrame {
         panelHeader = new javax.swing.JPanel();
         labelMenu = new javax.swing.JLabel();
         labelAvatar = new javax.swing.JLabel();
-        labelNoti = new javax.swing.JLabel();
         labelLogo = new javax.swing.JLabel();
         panelSidebar = new javax.swing.JPanel();
         panelTabHome = new javax.swing.JPanel();
@@ -163,15 +165,32 @@ public class StudentApp extends javax.swing.JFrame {
         panelNoti = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         panelAccount = new javax.swing.JPanel();
-        fullname = new javax.swing.JTextField();
-        btnUpdate = new javax.swing.JButton();
-        introduction_render = new javax.swing.JScrollPane();
-        _introduction_render = new javax.swing.JEditorPane();
-        big_avatar = new javax.swing.JLabel();
-        username = new javax.swing.JLabel();
-        vRule = new javax.swing.JLabel();
-        introduction_edit = new javax.swing.JScrollPane();
-        _introduction_edit = new javax.swing.JTextArea();
+        jLabel14 = new javax.swing.JLabel();
+        jPanel6 = new javax.swing.JPanel();
+        jPanel8 = new javax.swing.JPanel();
+        jLabel79 = new javax.swing.JLabel();
+        labelAccountAvatar = new javax.swing.JLabel();
+        panelAccountAvatarSelector = new javax.swing.JPanel();
+        labelAvatar6 = new javax.swing.JLabel();
+        labelAvatar7 = new javax.swing.JLabel();
+        labelAvatar8 = new javax.swing.JLabel();
+        labelAvatar9 = new javax.swing.JLabel();
+        labelAvatar0 = new javax.swing.JLabel();
+        labelAvatar1 = new javax.swing.JLabel();
+        labelAvatar2 = new javax.swing.JLabel();
+        labelAvatar3 = new javax.swing.JLabel();
+        labelAvatar4 = new javax.swing.JLabel();
+        labelAvatar5 = new javax.swing.JLabel();
+        jPanel7 = new javax.swing.JPanel();
+        jLabel80 = new javax.swing.JLabel();
+        textfieldAccountUsername = new javax.swing.JTextField();
+        jLabel81 = new javax.swing.JLabel();
+        textfieldAccountFullName = new javax.swing.JTextField();
+        jLabel83 = new javax.swing.JLabel();
+        pwdfieldAccountNewPassword = new javax.swing.JPasswordField();
+        jLabel84 = new javax.swing.JLabel();
+        pwdfieldAccountConfirmedPassword = new javax.swing.JPasswordField();
+        btnAccountUpdate = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("JCM - Online Course Management System");
@@ -191,20 +210,11 @@ public class StudentApp extends javax.swing.JFrame {
         });
 
         labelAvatar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelAvatar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/student/assets/small_avatar.png"))); // NOI18N
+        labelAvatar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/assets/avatars/default.png"))); // NOI18N
         labelAvatar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         labelAvatar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 labelAvatarMouseClicked(evt);
-            }
-        });
-
-        labelNoti.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelNoti.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/teacher/assets/noti_0.png"))); // NOI18N
-        labelNoti.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        labelNoti.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                labelNotiMouseClicked(evt);
             }
         });
 
@@ -228,15 +238,12 @@ public class StudentApp extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(labelLogo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(labelNoti)
-                .addGap(10, 10, 10)
                 .addComponent(labelAvatar)
                 .addContainerGap())
         );
         panelHeaderLayout.setVerticalGroup(
             panelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(labelAvatar, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
-            .addComponent(labelNoti, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(labelMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(labelLogo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
@@ -511,7 +518,7 @@ public class StudentApp extends javax.swing.JFrame {
         jLabel9.setBackground(new java.awt.Color(238, 238, 238));
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setText("MY RECENT COURSES");
+        jLabel9.setText("ALL COURSES");
         jLabel9.setPreferredSize(new java.awt.Dimension(800, 50));
 
         homeCourses.setBackground(java.awt.Color.white);
@@ -533,7 +540,7 @@ public class StudentApp extends javax.swing.JFrame {
         panelHomeLayout.setHorizontalGroup(
             panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelHomeLayout.createSequentialGroup()
+            .addGroup(panelHomeLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addComponent(homeCourses, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(30, 30, 30))
@@ -542,15 +549,15 @@ public class StudentApp extends javax.swing.JFrame {
             panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelHomeLayout.createSequentialGroup()
                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(homeCourses, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(homeCourses, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         panelMyCourses.setBackground(new java.awt.Color(255, 255, 255));
         panelMyCourses.setPreferredSize(new java.awt.Dimension(800, 590));
 
-        panelMyCoursesMain.setBackground(new java.awt.Color(255, 255, 255));
+        panelMyCoursesMain.setBackground(new java.awt.Color(238, 238, 238));
 
         jLabel12.setBackground(new java.awt.Color(255, 255, 255));
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -568,7 +575,7 @@ public class StudentApp extends javax.swing.JFrame {
         );
         myCoursesLayout.setVerticalGroup(
             myCoursesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 522, Short.MAX_VALUE)
+            .addGap(0, 518, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout panelMyCoursesMainLayout = new javax.swing.GroupLayout(panelMyCoursesMain);
@@ -577,15 +584,15 @@ public class StudentApp extends javax.swing.JFrame {
             panelMyCoursesMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, 816, Short.MAX_VALUE)
             .addGroup(panelMyCoursesMainLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addGap(30, 30, 30)
                 .addComponent(myCourses, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(30, 30, 30))
         );
         panelMyCoursesMainLayout.setVerticalGroup(
             panelMyCoursesMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelMyCoursesMainLayout.createSequentialGroup()
                 .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(myCourses, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
@@ -1248,116 +1255,240 @@ public class StudentApp extends javax.swing.JFrame {
                 .addGap(0, 540, Short.MAX_VALUE))
         );
 
-        panelAccount.setBackground(new java.awt.Color(191, 217, 255));
+        panelAccount.setBackground(new java.awt.Color(255, 255, 255));
         panelAccount.setPreferredSize(new java.awt.Dimension(800, 590));
 
-        fullname.setBackground(new java.awt.Color(191, 217, 255));
-        fullname.setFont(new java.awt.Font("Ubuntu", 1, 48)); // NOI18N
-        fullname.setText("John Doe");
-        fullname.setBorder(null);
-        fullname.addMouseListener(new java.awt.event.MouseAdapter() {
+        jLabel14.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel14.setText("ACCOUNT");
+
+        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel8.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel79.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel79.setText("Avatar");
+
+        labelAccountAvatar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelAccountAvatar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/assets/avatars/1.png"))); // NOI18N
+        labelAccountAvatar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        labelAccountAvatar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                fullnameMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                fullnameMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                fullnameMouseExited(evt);
-            }
-        });
-        fullname.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fullnameActionPerformed(evt);
+                labelAccountAvatarMouseClicked(evt);
             }
         });
 
-        btnUpdate.setBackground(new java.awt.Color(147, 186, 243));
-        btnUpdate.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
-        btnUpdate.setText("Update");
-        btnUpdate.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(191, 217, 255), 1, true));
-        btnUpdate.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnUpdateMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnUpdateMouseExited(evt);
-            }
-        });
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addComponent(jLabel79, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(labelAccountAvatar)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelAccountAvatar)
+                    .addComponent(jLabel79, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
 
-        _introduction_render.setEditable(false);
-        _introduction_render.setBackground(new java.awt.Color(191, 217, 255));
-        _introduction_render.setBorder(null);
-        introduction_render.setViewportView(_introduction_render);
+        panelAccountAvatarSelector.setBackground(new java.awt.Color(255, 255, 255));
 
-        big_avatar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/student/assets/big_avatar.png"))); // NOI18N
+        labelAvatar6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/assets/avatars/6.png"))); // NOI18N
+        labelAvatar6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        username.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
-        username.setText("username");
+        labelAvatar7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/assets/avatars/7.png"))); // NOI18N
+        labelAvatar7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        vRule.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.gray, 2));
+        labelAvatar8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/assets/avatars/8.png"))); // NOI18N
+        labelAvatar8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        introduction_edit.setBackground(new java.awt.Color(191, 217, 255));
-        introduction_edit.setBorder(null);
+        labelAvatar9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/assets/avatars/9.png"))); // NOI18N
+        labelAvatar9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        _introduction_edit.setBackground(new java.awt.Color(214, 230, 253));
-        _introduction_edit.setColumns(20);
-        _introduction_edit.setLineWrap(true);
-        _introduction_edit.setRows(5);
-        _introduction_edit.setText("<p>My name is <b>John Doe</b></p>\n\n<p>Currently, I'm student at HCMUS.</p>\n\n<p>Interesting in Web Development and DevOps,...</p>");
-        _introduction_edit.setBorder(null);
-        _introduction_edit.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                _introduction_editKeyReleased(evt);
-            }
-        });
-        introduction_edit.setViewportView(_introduction_edit);
+        labelAvatar0.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/assets/avatars/0.png"))); // NOI18N
+        labelAvatar0.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        labelAvatar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/assets/avatars/1.png"))); // NOI18N
+        labelAvatar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        labelAvatar2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/assets/avatars/2.png"))); // NOI18N
+        labelAvatar2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        labelAvatar3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/assets/avatars/3.png"))); // NOI18N
+        labelAvatar3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        labelAvatar4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/assets/avatars/4.png"))); // NOI18N
+        labelAvatar4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        labelAvatar5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/assets/avatars/5.png"))); // NOI18N
+        labelAvatar5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        javax.swing.GroupLayout panelAccountAvatarSelectorLayout = new javax.swing.GroupLayout(panelAccountAvatarSelector);
+        panelAccountAvatarSelector.setLayout(panelAccountAvatarSelectorLayout);
+        panelAccountAvatarSelectorLayout.setHorizontalGroup(
+            panelAccountAvatarSelectorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAccountAvatarSelectorLayout.createSequentialGroup()
+                .addGap(190, 190, 190)
+                .addComponent(labelAvatar0)
+                .addGap(18, 18, 18)
+                .addComponent(labelAvatar1)
+                .addGap(18, 18, 18)
+                .addComponent(labelAvatar2)
+                .addGap(18, 18, 18)
+                .addComponent(labelAvatar3)
+                .addGap(18, 18, 18)
+                .addComponent(labelAvatar4)
+                .addGap(18, 18, 18)
+                .addComponent(labelAvatar5)
+                .addGap(18, 18, 18)
+                .addComponent(labelAvatar6)
+                .addGap(18, 18, 18)
+                .addComponent(labelAvatar7)
+                .addGap(18, 18, 18)
+                .addComponent(labelAvatar8)
+                .addGap(18, 18, 18)
+                .addComponent(labelAvatar9)
+                .addContainerGap(64, Short.MAX_VALUE))
+        );
+        panelAccountAvatarSelectorLayout.setVerticalGroup(
+            panelAccountAvatarSelectorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelAccountAvatarSelectorLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelAccountAvatarSelectorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelAvatar0)
+                    .addComponent(labelAvatar1)
+                    .addComponent(labelAvatar2)
+                    .addComponent(labelAvatar3)
+                    .addComponent(labelAvatar4)
+                    .addComponent(labelAvatar5)
+                    .addComponent(labelAvatar6)
+                    .addComponent(labelAvatar7)
+                    .addComponent(labelAvatar8)
+                    .addComponent(labelAvatar9))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelAccountAvatarSelector, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(panelAccountAvatarSelector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel80.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel80.setText("Username");
+
+        textfieldAccountUsername.setEditable(false);
+        textfieldAccountUsername.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        textfieldAccountUsername.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        jLabel81.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel81.setText("Full Name");
+
+        textfieldAccountFullName.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
+        jLabel83.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel83.setText("New Password");
+
+        pwdfieldAccountNewPassword.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
+        jLabel84.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel84.setText("Confirm Password");
+
+        pwdfieldAccountConfirmedPassword.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel83, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel80, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel81, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel84, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(20, 20, 20)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(textfieldAccountUsername)
+                    .addComponent(textfieldAccountFullName, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+                    .addComponent(pwdfieldAccountNewPassword)
+                    .addComponent(pwdfieldAccountConfirmedPassword))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(textfieldAccountUsername, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+                    .addComponent(jLabel80, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(25, 25, 25)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(textfieldAccountFullName, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+                    .addComponent(jLabel81, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(25, 25, 25)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel83, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pwdfieldAccountNewPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE))
+                .addGap(25, 25, 25)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(jLabel84, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(pwdfieldAccountConfirmedPassword))
+                .addContainerGap())
+        );
+
+        btnAccountUpdate.setBackground(new java.awt.Color(0, 204, 0));
+        btnAccountUpdate.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnAccountUpdate.setForeground(new java.awt.Color(255, 255, 255));
+        btnAccountUpdate.setText("Update");
+        btnAccountUpdate.setBorder(null);
+        btnAccountUpdate.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout panelAccountLayout = new javax.swing.GroupLayout(panelAccount);
         panelAccount.setLayout(panelAccountLayout);
         panelAccountLayout.setHorizontalGroup(
             panelAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelAccountLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panelAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAccountLayout.createSequentialGroup()
-                        .addComponent(big_avatar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(vRule, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(panelAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(fullname, javax.swing.GroupLayout.DEFAULT_SIZE, 630, Short.MAX_VALUE)
-                            .addGroup(panelAccountLayout.createSequentialGroup()
-                                .addComponent(username)
-                                .addGap(0, 0, Short.MAX_VALUE))))
-                    .addGroup(panelAccountLayout.createSequentialGroup()
-                        .addComponent(introduction_render, javax.swing.GroupLayout.PREFERRED_SIZE, 517, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panelAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelAccountLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(introduction_edit, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
-                .addContainerGap())
+            .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAccountLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnAccountUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelAccountLayout.setVerticalGroup(
             panelAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelAccountLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panelAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(big_avatar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAccountLayout.createSequentialGroup()
-                        .addComponent(fullname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(username))
-                    .addComponent(vRule, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(12, 12, 12)
-                .addGroup(panelAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(introduction_render)
-                    .addComponent(introduction_edit, javax.swing.GroupLayout.DEFAULT_SIZE, 366, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
-                .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25)
+                .addComponent(btnAccountUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(109, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout panelMainLayout = new javax.swing.GroupLayout(panelMain);
@@ -1419,10 +1550,7 @@ public class StudentApp extends javax.swing.JFrame {
     }//GEN-LAST:event_labelMenuMouseClicked
 
     private void labelAvatarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelAvatarMouseClicked
-        // TODO add your handling code here:
-        disableAllMenuTabs();
-        hideAllMainScreens();
-        panelAccount.setVisible(true);
+        showAccountScreen();
     }//GEN-LAST:event_labelAvatarMouseClicked
 
     private void panelTabHomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelTabHomeMouseClicked
@@ -1453,18 +1581,6 @@ public class StudentApp extends javax.swing.JFrame {
         showSettingScreen();
     }//GEN-LAST:event_panelTabInfoMouseClicked
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        showMyCoursesScreen();
-    }//GEN-LAST:event_jButton7ActionPerformed
-
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        showMyCoursesScreen();
-    }//GEN-LAST:event_jButton8ActionPerformed
-
-    private void jLabel75MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel75MouseClicked
-        showMyCoursesScreen();
-    }//GEN-LAST:event_jLabel75MouseClicked
-
     private void jLabel55MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel55MouseClicked
         showLessonsMainScreen();
     }//GEN-LAST:event_jLabel55MouseClicked
@@ -1481,58 +1597,27 @@ public class StudentApp extends javax.swing.JFrame {
         showLessonsMainScreen();
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void fullnameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fullnameMouseClicked
-        // TODO add your handling code here:
-        //        fullname.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, java.awt.Color.lightGray));
-    }//GEN-LAST:event_fullnameMouseClicked
-
-    private void fullnameMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fullnameMouseEntered
-        // TODO add your handling code here:
-        fullname.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, java.awt.Color.lightGray));
-    }//GEN-LAST:event_fullnameMouseEntered
-
-    private void fullnameMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fullnameMouseExited
-        // TODO add your handling code here:
-        fullname.setBorder(null);
-    }//GEN-LAST:event_fullnameMouseExited
-
-    private void fullnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fullnameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fullnameActionPerformed
-
-    private void btnUpdateMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUpdateMouseEntered
-        // TODO add your handling code here:
-        btnUpdate.setBackground(new java.awt.Color(46, 81, 133));
-        btnUpdate.setForeground(java.awt.Color.white);
-    }//GEN-LAST:event_btnUpdateMouseEntered
-
-    private void btnUpdateMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUpdateMouseExited
-        // TODO add your handling code here:
-        btnUpdate.setBackground(new java.awt.Color(147, 186, 243));
-        btnUpdate.setForeground(java.awt.Color.black);
-    }//GEN-LAST:event_btnUpdateMouseExited
-
-    private void _introduction_editKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event__introduction_editKeyReleased
-        // TODO add your handling code here:
-        _introduction_render.setText(_introduction_edit.getText());
-    }//GEN-LAST:event__introduction_editKeyReleased
-
-    private void labelNotiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelNotiMouseClicked
-        // TODO add your handling code here:
-        Course x = courses[homeListCourses.list.getPanels().size() % courses.length];
-        homeListCourses.list.addPanelHead(homeListCourses.list.getStudentCoursePanel(
-                x.getImagePath(),
-                x.getName(),
-                "Author",
-                x.getDescription()
-        ), 55);
-    }//GEN-LAST:event_labelNotiMouseClicked
-
     private void labelLogoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelLogoMouseClicked
         // TODO add your handling code here:
         panelSidebar.setVisible(true);
         showHomeScreen();
     }//GEN-LAST:event_labelLogoMouseClicked
+
+    private void labelAccountAvatarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelAccountAvatarMouseClicked
+        panelAccountAvatarSelector.setVisible(true);
+    }//GEN-LAST:event_labelAccountAvatarMouseClicked
+
+    private void jLabel75MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel75MouseClicked
+        showMyCoursesScreen();
+    }//GEN-LAST:event_jLabel75MouseClicked
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        showMyCoursesScreen();
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        showMyCoursesScreen();
+    }//GEN-LAST:event_jButton7ActionPerformed
 
     private void disableAllMenuTabs() {
         panelTabHome.setBackground(panelSidebar.getBackground());
@@ -1566,60 +1651,29 @@ public class StudentApp extends javax.swing.JFrame {
     }
 
     private void showHomeScreen() {
+        // UI
         disableAllMenuTabs();
         panelTabHome.setBackground(selectedTabColor);
 
         hideAllMainScreens();
         panelHome.setVisible(true);
+        
+        // Load data
+        loadHomeScreen();
     }
 
     private void showMyCoursesScreen() {
+        // UI
         disableAllMenuTabs();
         panelTabMyCourses.setBackground(selectedTabColor);
 
         hideAllMainScreens();
-        initDisplayMyCourse();
         panelMyCourses.setVisible(true);
         showMyCoursesMainScreen();
         
+        // Load data
+        loadMyCoursesInfo();
     }
-    
-    
-    private void initDisplayMyCourse() {
-        _introduction_render.setEditorKit(new HTMLEditorKit());
-        _introduction_render.setText(_introduction_edit.getText());
-        selectedTabColor = panelTabHome.getBackground();
-        updateCopyright();
-        showHomeScreen();
-        myCourses.removeAll();
-        myListCourses = new MyListPanel();
-        //myListCourses.list.removeAll();
-        
-        myCourses.setLayout(new BorderLayout());
-        myCourses.add(myListCourses.scrollPane, BorderLayout.CENTER);
-
-        ArrayList<CourseModel> allCourses = mcourseService.getAllCourses();
-        for (CourseModel t : allCourses) {
-            System.out.println(t);
-            JPanel itemList = myListCourses.list.getStudentCoursePanel(
-                    t.getImagePath(),
-                    t.getName(),
-                    "Author",
-                    t.getDescription()
-            );
-            itemList.addMouseListener(new MouseAdapter() {
-                @Override
-                public void mouseClicked(MouseEvent mouseEvent) {
-                    _currentCourse = t;
-                    showLessonsScreen();
-                }
-            });
-            myListCourses.list.addPanelHead(itemList, 55);
-        }
-
-    }
-
-
     private void showMyCoursesMainScreen() {
         panelMyCoursesMain.setVisible(true);
         panelNewCourse.setVisible(false);
@@ -1806,9 +1860,6 @@ public class StudentApp extends javax.swing.JFrame {
         jLabel38.setText(this._currentCourse.getName());
         jLabel48.setText(this._currentCourse.getDescription());
         jLabel71.setText(this._currentCourse.getDateCreatedFormat());
-        
-        
-
     }
 
     private void updateCopyright() {
@@ -1816,15 +1867,82 @@ public class StudentApp extends javax.swing.JFrame {
         labelCopyright.setText(String.format("Copyright %d JByNine", year));
     }
     
-    private void initDisplay() {
-        _introduction_render.setEditorKit(new HTMLEditorKit());
-        _introduction_render.setText(_introduction_edit.getText());
-        selectedTabColor = panelTabHome.getBackground();
-        updateCopyright();
-        showHomeScreen();
-        homeListCourses = new MyListPanel();
+    private void showAccountScreen() {
+        // UI
+        disableAllMenuTabs();
+        hideAllMainScreens();
+        panelAccount.setVisible(true);
+        
+        // Load data
+        loadAccountScreenInfo();
+    }
+    
+    // ===== Account =====
+    private void initEventsForAccountAvatarSelector() {
+        javax.swing.JLabel[] avatars = {labelAvatar0, labelAvatar1, labelAvatar2, labelAvatar3,
+            labelAvatar4, labelAvatar5, labelAvatar6, labelAvatar7, labelAvatar8, labelAvatar9};
+        for (javax.swing.JLabel avatar : avatars) {
+            avatar.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    labelAccountAvatar.setIcon(avatar.getIcon());
+                }
+            });
+        }
+    }
 
+    private void initEventForAccountBtnUpdate() {
+        btnAccountUpdate.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Data
+                String newAvatarPath = labelAccountAvatar.getIcon().toString();
+                newAvatarPath = newAvatarPath.substring(newAvatarPath.lastIndexOf("build/classes") + "build/classes".length());
+                String newFullName = textfieldAccountFullName.getText();
+                String newPassword = String.valueOf(pwdfieldAccountNewPassword.getPassword());
+                String confirmedPassword = String.valueOf(pwdfieldAccountConfirmedPassword.getPassword());
+
+                // Core
+                if (newFullName.equals("")) {
+                    javax.swing.JOptionPane.showMessageDialog(panelAccount, "The Full Name field can not be empty!", "Warning", javax.swing.JOptionPane.ERROR_MESSAGE);
+                } else {
+                    if (!newPassword.equals(confirmedPassword)) {
+                        javax.swing.JOptionPane.showMessageDialog(panelAccount, "The confirmed password is not correct!", "Warning", javax.swing.JOptionPane.ERROR_MESSAGE);
+                    } else {
+                        _account.getUserModel().setAvatarPath(newAvatarPath);
+                        _account.getUserModel().setFullName(newFullName);
+                        if (!newPassword.isEmpty()) {
+                            _account.getUserModel().setPassword(newPassword);
+                        }
+
+                        if (_account.getUserModel().update()) {
+                            javax.swing.JOptionPane.showMessageDialog(panelAccount, "Success!");
+                        } else {
+                            javax.swing.JOptionPane.showMessageDialog(panelAccount, "Fail!", "Warning", javax.swing.JOptionPane.ERROR_MESSAGE);
+                        }
+
+                        loadAccountScreenInfo();
+                    }
+                }
+            }
+        });
+    }
+
+    private void loadAccountScreenInfo() {
+        labelAvatar.setIcon(new javax.swing.ImageIcon(getClass().getResource(_account.getUserModel().getAvatarPath())));
+        labelAccountAvatar.setIcon(new javax.swing.ImageIcon(getClass().getResource(_account.getUserModel().getAvatarPath())));
+        textfieldAccountUsername.setText(_account.getUserModel().getUsername());
+        textfieldAccountFullName.setText(_account.getUserModel().getFullName());
+
+        panelAccountAvatarSelector.setVisible(false);
+        pwdfieldAccountNewPassword.setText("");
+        pwdfieldAccountConfirmedPassword.setText("");
+    }
+    
+    // ===== Home =====
+    private void loadHomeScreen() {
         homeCourses.removeAll();
+        homeListCourses = new MyListPanel();
         
         homeCourses.setLayout(new BorderLayout());
         homeCourses.add(homeListCourses.scrollPane, BorderLayout.CENTER);
@@ -1869,9 +1987,50 @@ public class StudentApp extends javax.swing.JFrame {
                     }
                 }
             });
-            homeListCourses.list.addPanelHead(itemList, 55);
+            homeListCourses.list.addPanelHead(itemList, 50);
         }
+    }
+    
+    // ===== My Courses =====
+    private void loadMyCoursesInfo() {
+        myCourses.removeAll();
+        myListCourses = new MyListPanel();
+        
+        myCourses.setLayout(new BorderLayout());
+        myCourses.add(myListCourses.scrollPane, BorderLayout.CENTER);
 
+        ArrayList<CourseModel> allCourses = mcourseService.getAllCourses();
+        for (CourseModel t : allCourses) {
+            System.out.println(t);
+            JPanel itemList = myListCourses.list.getStudentCoursePanel(
+                    t.getImagePath(),
+                    t.getName(),
+                    "Author",
+                    t.getDescription()
+            );
+            itemList.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent mouseEvent) {
+                    _currentCourse = t;
+                    showLessonsScreen();
+                }
+            });
+            myListCourses.list.addPanelHead(itemList, 50);
+        }
+    }
+    
+    // ===== Init =====
+    private void initDisplay() {
+        selectedTabColor = panelTabHome.getBackground();
+        updateCopyright();
+        showHomeScreen();
+        loadAccountScreenInfo();
+    }
+    
+    private void initEvents() {
+        // Account
+        initEventsForAccountAvatarSelector();
+        initEventForAccountBtnUpdate();
     }
 
     /**
@@ -1916,17 +2075,10 @@ public class StudentApp extends javax.swing.JFrame {
     MyListPanel homeListCourses = new MyListPanel();
     MyListPanel myListCourses = new MyListPanel();
     
-    Course[] courses = new Course[5];
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextArea _introduction_edit;
-    private javax.swing.JEditorPane _introduction_render;
-    private javax.swing.JLabel big_avatar;
-    private javax.swing.JButton btnUpdate;
+    private javax.swing.JButton btnAccountUpdate;
     private javax.swing.JEditorPane editorpaneLessonContent;
-    private javax.swing.JTextField fullname;
     private javax.swing.JPanel homeCourses;
-    private javax.swing.JScrollPane introduction_edit;
-    private javax.swing.JScrollPane introduction_render;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton7;
@@ -1937,6 +2089,7 @@ public class StudentApp extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel3;
@@ -1966,12 +2119,20 @@ public class StudentApp extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel76;
     private javax.swing.JLabel jLabel77;
     private javax.swing.JLabel jLabel78;
+    private javax.swing.JLabel jLabel79;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel80;
+    private javax.swing.JLabel jLabel81;
+    private javax.swing.JLabel jLabel83;
+    private javax.swing.JLabel jLabel84;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator2;
@@ -1979,15 +2140,26 @@ public class StudentApp extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
+    private javax.swing.JLabel labelAccountAvatar;
     private javax.swing.JLabel labelAvatar;
+    private javax.swing.JLabel labelAvatar0;
+    private javax.swing.JLabel labelAvatar1;
+    private javax.swing.JLabel labelAvatar2;
+    private javax.swing.JLabel labelAvatar3;
+    private javax.swing.JLabel labelAvatar4;
+    private javax.swing.JLabel labelAvatar5;
+    private javax.swing.JLabel labelAvatar6;
+    private javax.swing.JLabel labelAvatar7;
+    private javax.swing.JLabel labelAvatar8;
+    private javax.swing.JLabel labelAvatar9;
     private javax.swing.JLabel labelCopyright;
     private javax.swing.JLabel labelLogo;
     private javax.swing.JLabel labelMenu;
-    private javax.swing.JLabel labelNoti;
     private javax.swing.JLabel labelSidebarCourseName;
     private javax.swing.JPanel lessonListPanel;
     private javax.swing.JPanel myCourses;
     private javax.swing.JPanel panelAccount;
+    private javax.swing.JPanel panelAccountAvatarSelector;
     private javax.swing.JPanel panelAnnouncements;
     private javax.swing.JPanel panelCourseDetail;
     private javax.swing.JPanel panelExercises;
@@ -2015,7 +2187,9 @@ public class StudentApp extends javax.swing.JFrame {
     private javax.swing.JPanel panelTabMyCourses;
     private javax.swing.JPanel panelTabParticpants;
     private javax.swing.JPanel participantListPanel;
-    private javax.swing.JLabel username;
-    private javax.swing.JLabel vRule;
+    private javax.swing.JPasswordField pwdfieldAccountConfirmedPassword;
+    private javax.swing.JPasswordField pwdfieldAccountNewPassword;
+    private javax.swing.JTextField textfieldAccountFullName;
+    private javax.swing.JTextField textfieldAccountUsername;
     // End of variables declaration//GEN-END:variables
 }

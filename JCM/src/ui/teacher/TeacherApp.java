@@ -10,6 +10,7 @@ import core.entity.AccountEntity;
 import core.model.CourseModel;
 import core.model.LessonModel;
 import core.service.MCourseService;
+import core.service.MLessonService;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -19,6 +20,8 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.Calendar;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import ui.core.MyListPanel;
 
 /**
@@ -28,6 +31,11 @@ import ui.core.MyListPanel;
 public class TeacherApp extends javax.swing.JFrame {
 
     AccountEntity _account;
+    MCourseService mcourseService;
+    MLessonService mlessonService;
+
+    CourseModel _currentCourse;
+    LessonModel _currentLesson;
 
     /**
      * Creates new form App
@@ -50,6 +58,10 @@ public class TeacherApp extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(TeacherApp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
 
+        this._currentCourse = null;
+        this._currentLesson = null;
+        this.mcourseService = new MCourseService();
+        this.mlessonService = new MLessonService();
         this._account = account;
         javax.swing.JOptionPane.showMessageDialog(this, "Hello teacher, " + this._account.getUserModel().getUsername());
 
@@ -153,28 +165,19 @@ public class TeacherApp extends javax.swing.JFrame {
         panelLessons = new javax.swing.JPanel();
         panelLessonsMain = new javax.swing.JPanel();
         jLabel48 = new javax.swing.JLabel();
-        panelLesson0 = new javax.swing.JPanel();
-        jLabel49 = new javax.swing.JLabel();
-        jLabel50 = new javax.swing.JLabel();
-        panelLesson1 = new javax.swing.JPanel();
-        jLabel51 = new javax.swing.JLabel();
-        jLabel52 = new javax.swing.JLabel();
-        panelLesson2 = new javax.swing.JPanel();
-        jLabel53 = new javax.swing.JLabel();
-        jLabel54 = new javax.swing.JLabel();
         lessonListPanel = new javax.swing.JPanel();
         panelLessonDetail = new javax.swing.JPanel();
         jLabel55 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel56 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtEditLessonTitle = new javax.swing.JTextField();
         jLabel57 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        txtEditLessonDescription = new javax.swing.JTextField();
         jLabel61 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         editorpaneLessonContent = new javax.swing.JEditorPane();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnEditLessonSave = new javax.swing.JButton();
+        btnEditLessonRemove = new javax.swing.JButton();
         panelNewLesson = new javax.swing.JPanel();
         jLabel62 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
@@ -1175,111 +1178,6 @@ public class TeacherApp extends javax.swing.JFrame {
             }
         });
 
-        panelLesson0.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        panelLesson0.setPreferredSize(new java.awt.Dimension(740, 60));
-        panelLesson0.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                panelLesson0MouseClicked(evt);
-            }
-        });
-
-        jLabel49.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel49.setText("Week 1 - Greedy Algorithms");
-
-        jLabel50.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel50.setText("A greedy algorithm is a simple, intuitive algorithm that is used in optimization problems. ");
-
-        javax.swing.GroupLayout panelLesson0Layout = new javax.swing.GroupLayout(panelLesson0);
-        panelLesson0.setLayout(panelLesson0Layout);
-        panelLesson0Layout.setHorizontalGroup(
-            panelLesson0Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelLesson0Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(panelLesson0Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel50, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel49, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(20, 20, 20))
-        );
-        panelLesson0Layout.setVerticalGroup(
-            panelLesson0Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelLesson0Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel49)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel50)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        panelLesson1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        panelLesson1.setPreferredSize(new java.awt.Dimension(740, 60));
-        panelLesson1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                panelLesson1MouseClicked(evt);
-            }
-        });
-
-        jLabel51.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel51.setText("Week 2 - Dynamic Programming");
-
-        jLabel52.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel52.setText("\"Those who cannot remember the past are condemned to repeat it\" - Jorge Santayana.");
-
-        javax.swing.GroupLayout panelLesson1Layout = new javax.swing.GroupLayout(panelLesson1);
-        panelLesson1.setLayout(panelLesson1Layout);
-        panelLesson1Layout.setHorizontalGroup(
-            panelLesson1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelLesson1Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(panelLesson1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel52, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel51, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(20, 20, 20))
-        );
-        panelLesson1Layout.setVerticalGroup(
-            panelLesson1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelLesson1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel51)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel52)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        panelLesson2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        panelLesson2.setPreferredSize(new java.awt.Dimension(740, 60));
-        panelLesson2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                panelLesson2MouseClicked(evt);
-            }
-        });
-
-        jLabel53.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel53.setText("Week 3 - Tree");
-
-        jLabel54.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel54.setText("Tree represents the nodes connected by edges. We will discuss binary tree or binary search tree specifically.");
-
-        javax.swing.GroupLayout panelLesson2Layout = new javax.swing.GroupLayout(panelLesson2);
-        panelLesson2.setLayout(panelLesson2Layout);
-        panelLesson2Layout.setHorizontalGroup(
-            panelLesson2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelLesson2Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(panelLesson2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel54, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
-                    .addComponent(jLabel53, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(20, 20, 20))
-        );
-        panelLesson2Layout.setVerticalGroup(
-            panelLesson2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelLesson2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel53)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel54)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
         javax.swing.GroupLayout lessonListPanelLayout = new javax.swing.GroupLayout(lessonListPanel);
         lessonListPanel.setLayout(lessonListPanelLayout);
         lessonListPanelLayout.setHorizontalGroup(
@@ -1288,7 +1186,7 @@ public class TeacherApp extends javax.swing.JFrame {
         );
         lessonListPanelLayout.setVerticalGroup(
             lessonListPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 301, Short.MAX_VALUE)
+            .addGap(0, 520, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout panelLessonsMainLayout = new javax.swing.GroupLayout(panelLessonsMain);
@@ -1297,27 +1195,19 @@ public class TeacherApp extends javax.swing.JFrame {
             panelLessonsMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLessonsMainLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addGroup(panelLessonsMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lessonListPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelLessonsMainLayout.createSequentialGroup()
+                .addGroup(panelLessonsMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelLessonsMainLayout.createSequentialGroup()
                         .addComponent(jLabel48)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 609, Short.MAX_VALUE))
-                    .addComponent(panelLesson1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 756, Short.MAX_VALUE)
-                    .addComponent(panelLesson0, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 756, Short.MAX_VALUE)
-                    .addComponent(panelLesson2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 756, Short.MAX_VALUE))
-                .addGap(30, 30, 30))
+                        .addContainerGap(652, Short.MAX_VALUE))
+                    .addGroup(panelLessonsMainLayout.createSequentialGroup()
+                        .addComponent(lessonListPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(30, 30, 30))))
         );
         panelLessonsMainLayout.setVerticalGroup(
             panelLessonsMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelLessonsMainLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel48)
-                .addGap(20, 20, 20)
-                .addComponent(panelLesson0, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(panelLesson1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(panelLesson2, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(lessonListPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
@@ -1339,41 +1229,41 @@ public class TeacherApp extends javax.swing.JFrame {
         jLabel56.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel56.setText("Title");
 
-        jTextField1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jTextField1.setText("Week 1 - Greedy Algorithms");
+        txtEditLessonTitle.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtEditLessonTitle.setText("Week 1 - Greedy Algorithms");
 
         jLabel57.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel57.setText("Description");
 
-        jTextField2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jTextField2.setText("A greedy algorithm is a simple, intuitive algorithm that is used in optimization problems. ");
+        txtEditLessonDescription.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtEditLessonDescription.setText("A greedy algorithm is a simple, intuitive algorithm that is used in optimization problems. ");
 
         jLabel61.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel61.setText("Content");
 
         jScrollPane1.setViewportView(editorpaneLessonContent);
 
-        jButton1.setBackground(new java.awt.Color(0, 204, 0));
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("SAVE");
-        jButton1.setBorder(null);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnEditLessonSave.setBackground(new java.awt.Color(0, 204, 0));
+        btnEditLessonSave.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnEditLessonSave.setForeground(new java.awt.Color(255, 255, 255));
+        btnEditLessonSave.setText("SAVE");
+        btnEditLessonSave.setBorder(null);
+        btnEditLessonSave.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEditLessonSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnEditLessonSaveActionPerformed(evt);
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(255, 51, 0));
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("DELETE");
-        jButton2.setBorder(null);
-        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnEditLessonRemove.setBackground(new java.awt.Color(255, 51, 0));
+        btnEditLessonRemove.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnEditLessonRemove.setForeground(new java.awt.Color(255, 255, 255));
+        btnEditLessonRemove.setText("DELETE");
+        btnEditLessonRemove.setBorder(null);
+        btnEditLessonRemove.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEditLessonRemove.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnEditLessonRemoveActionPerformed(evt);
             }
         });
 
@@ -1385,23 +1275,23 @@ public class TeacherApp extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnEditLessonRemove, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(20, 20, 20)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnEditLessonSave, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(30, 30, 30)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel56, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(20, 20, 20)
-                                .addComponent(jTextField1))
+                                .addComponent(txtEditLessonTitle))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel57)
                                     .addComponent(jLabel61))
                                 .addGap(20, 20, 20)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField2)
+                                    .addComponent(txtEditLessonDescription)
                                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 651, Short.MAX_VALUE))))))
                 .addGap(30, 30, 30))
         );
@@ -1411,10 +1301,10 @@ public class TeacherApp extends javax.swing.JFrame {
                 .addGap(0, 0, 0)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel56, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtEditLessonTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+                    .addComponent(txtEditLessonDescription, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
                     .addComponent(jLabel57, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(10, 10, 10)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1422,8 +1312,8 @@ public class TeacherApp extends javax.swing.JFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(15, 15, 15)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnEditLessonSave, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEditLessonRemove, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -2120,6 +2010,7 @@ public class TeacherApp extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void panelTabHomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelTabHomeMouseClicked
+        initDisplay(); 
         showHomeScreen();
     }//GEN-LAST:event_panelTabHomeMouseClicked
 
@@ -2133,6 +2024,7 @@ public class TeacherApp extends javax.swing.JFrame {
 
     private void labelLogoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelLogoMouseClicked
         panelSidebar.setVisible(true);
+        initDisplay();
         showHomeScreen();
     }//GEN-LAST:event_labelLogoMouseClicked
 
@@ -2183,29 +2075,28 @@ public class TeacherApp extends javax.swing.JFrame {
         showLessonsMainScreen();
     }//GEN-LAST:event_jLabel55MouseClicked
 
-    private void panelLesson0MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelLesson0MouseClicked
-        showLessonDetailScreen();
-    }//GEN-LAST:event_panelLesson0MouseClicked
-
-    private void panelLesson1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelLesson1MouseClicked
-        showLessonDetailScreen();
-    }//GEN-LAST:event_panelLesson1MouseClicked
-
-    private void panelLesson2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelLesson2MouseClicked
-        showLessonDetailScreen();
-    }//GEN-LAST:event_panelLesson2MouseClicked
-
     private void jLabel48MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel48MouseClicked
         showNewLessonScreen();
     }//GEN-LAST:event_jLabel48MouseClicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        showLessonsMainScreen();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void btnEditLessonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditLessonSaveActionPerformed
+        //edit lesson save:
+        _currentLesson.setTitle(txtEditLessonTitle.getText());
+        _currentLesson.setDescription(txtEditLessonDescription.getText());
+        _currentLesson.setContent(editorpaneLessonContent.getText());
+        boolean status = _currentLesson.update();
+        if(status){
+            JOptionPane.showMessageDialog(this, "Save successfully","Message", JOptionPane.INFORMATION_MESSAGE);
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "An error happened","Message",  JOptionPane.ERROR_MESSAGE);
+        }
+        //showLessonsMainScreen();
+    }//GEN-LAST:event_btnEditLessonSaveActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnEditLessonRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditLessonRemoveActionPerformed
         showLessonsMainScreen();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnEditLessonRemoveActionPerformed
 
     private void jLabel62MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel62MouseClicked
         showLessonsMainScreen();
@@ -2299,6 +2190,7 @@ public class TeacherApp extends javax.swing.JFrame {
 
         hideAllMainScreens();
         panelHome.setVisible(true);
+       
     }
 
     private void showMyCoursesScreen() {
@@ -2353,18 +2245,37 @@ public class TeacherApp extends javax.swing.JFrame {
         panelLessons.setVisible(true);
         showLessonsMainScreen();
 
-        showLessionsList();
+        
     }
 
     private void showLessionsList() {
+        
+        listLessons = new MyListPanel();
+        
+        
+        lessonListPanel.removeAll(); 
         lessonListPanel.setLayout(new BorderLayout());
         lessonListPanel.add(listLessons.scrollPane, BorderLayout.CENTER);
 
-        listLessons.list.addPanelHead(listLessons.list.getLessionPanel(
-                "Week 1 - Greedy Algorithms",
-                "A greedy algorithm is a simple, intuitive algorithm that is used in optimization problems."
-        ), 40);
+        ArrayList<LessonModel> allLesson = mlessonService.getAllLessonOfCourse(this._currentCourse);
+             for(LessonModel t : allLesson){
+                 System.out.println(t);
+                 JPanel itemList = listLessons.list.getLessionPanel(
+                     t.getTitle(),
+                     t.getDescription()
+                 );
+                 itemList.addMouseListener(new MouseAdapter() {
+                     @Override
+                     public void mouseClicked(MouseEvent mouseEvent) {
+                         _currentLesson = t;
+                         showLessonDetailScreen();
+                     }
+                 });
 
+                    //40
+                 listLessons.list.addPanelHead(itemList, 55);
+
+             }
 //        MCourseService mcourseService = new MCourseService();
 //        ArrayList<LessonModel> allCourses = mcourseService.getAllLession();
 //        for(CourseModel t : allCourses){
@@ -2381,25 +2292,34 @@ public class TeacherApp extends javax.swing.JFrame {
         panelLessonsMain.setVisible(true);
         panelLessonDetail.setVisible(false);
         panelNewLesson.setVisible(false);
+        showLessionsList(); 
     }
 
     private void showLessonDetailScreen() {
         panelLessonsMain.setVisible(false);
         panelLessonDetail.setVisible(true);
         panelNewLesson.setVisible(false);
-
-        try {
-            editorpaneLessonContent.setPage(new java.net.URL("https://brilliant.org/wiki/greedy-algorithm/"));
-        } catch (MalformedURLException ex) {
-            editorpaneLessonContent.setText("File not found!");
-        } catch (IOException ex) {
-            editorpaneLessonContent.setText("File not found!");
-        }
+        
+          
+        txtEditLessonTitle.setText(_currentLesson.getTitle());
+        txtEditLessonDescription.setText(_currentLesson.getDescription());
+        editorpaneLessonContent.setText(_currentLesson.getContent());
+        
+//        
+//        try {
+//            editorpaneLessonContent.setPage(new java.net.URL("https://brilliant.org/wiki/greedy-algorithm/"));
+//        } catch (MalformedURLException ex) {
+//            editorpaneLessonContent.setText("File not found!");
+//        } catch (IOException ex) {
+//            editorpaneLessonContent.setText("File not found!");
+//        }
     }
 
     private void showNewLessonScreen() {
         panelLessonsMain.setVisible(false);
         panelLessonDetail.setVisible(false);
+        
+        
         panelNewLesson.setVisible(true);
     }
 
@@ -2594,10 +2514,14 @@ public class TeacherApp extends javax.swing.JFrame {
 
     // ===== Home (recent courses) =====
     private void loadHomeScreenInfo() {
+        
+        listRecentCourses = new MyListPanel();
+        homeCourses.removeAll();
+        
         homeCourses.setLayout(new BorderLayout());
+
         homeCourses.add(listRecentCourses.scrollPane, BorderLayout.CENTER);
 
-        MCourseService mcourseService = new MCourseService();
         ArrayList<CourseModel> allCourses = mcourseService.getAllCourses();
 
         for (CourseModel t : allCourses) {
@@ -2610,7 +2534,8 @@ public class TeacherApp extends javax.swing.JFrame {
             item.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent mouseEvent) {
-                    showLessonsScreen();
+                   System.out.println("Home screen click item, do nothing");
+                        // showLessonsScreen();
                 }
             });
             listRecentCourses.list.addPanelHead(item, 50);
@@ -2619,15 +2544,20 @@ public class TeacherApp extends javax.swing.JFrame {
 
     // ===== My Courses =====
     private void loadMyCoursesInfo() {
+        listMyCourses = new MyListPanel();
+        panelMyCoursesAllCourses.removeAll();
+        
         panelMyCoursesAllCourses.setLayout(new BorderLayout());
-        panelMyCoursesAllCourses.add(listAllCourses.scrollPane, BorderLayout.CENTER);
-
-        MCourseService mcourseService = new MCourseService();
-        ArrayList<CourseModel> allCourses = mcourseService.getAllCourses();
+        panelMyCoursesAllCourses.add(listMyCourses.scrollPane, BorderLayout.CENTER);
+        
+            
+        
+        
+        ArrayList<CourseModel> allCourses = mcourseService.getMyCourses(_account);
 
         for (CourseModel t : allCourses) {
             System.out.println(t);
-            javax.swing.JPanel item = listAllCourses.list.getTeacherCoursePanel(
+            javax.swing.JPanel item = listMyCourses.list.getTeacherCoursePanel(
                     t.getImagePath(),
                     t.getName(),
                     t.getDescription()
@@ -2635,10 +2565,11 @@ public class TeacherApp extends javax.swing.JFrame {
             item.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent mouseEvent) {
+                    _currentCourse = t;
                     showLessonsScreen();
                 }
             });
-            listAllCourses.list.addPanelHead(item, 50);
+            listMyCourses.list.addPanelHead(item, 50);
         }
     }
 
@@ -2676,19 +2607,19 @@ public class TeacherApp extends javax.swing.JFrame {
 
     private java.awt.Color selectedTabColor;
     MyListPanel listRecentCourses = new MyListPanel();
-    MyListPanel listAllCourses = new MyListPanel();
+    MyListPanel listMyCourses = new MyListPanel();
     MyListPanel listLessons = new MyListPanel();
     MyListPanel listParticipants = new MyListPanel();
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel addParticipant;
     private javax.swing.JButton btnAccountUpdate;
+    private javax.swing.JButton btnEditLessonRemove;
+    private javax.swing.JButton btnEditLessonSave;
     private javax.swing.JButton btnNewCourseCancel;
     private javax.swing.JButton btnNewCourseCreate;
     private javax.swing.JEditorPane editorpaneLessonContent;
     private javax.swing.JPanel homeCourses;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
@@ -2711,12 +2642,6 @@ public class TeacherApp extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel48;
-    private javax.swing.JLabel jLabel49;
-    private javax.swing.JLabel jLabel50;
-    private javax.swing.JLabel jLabel51;
-    private javax.swing.JLabel jLabel52;
-    private javax.swing.JLabel jLabel53;
-    private javax.swing.JLabel jLabel54;
     private javax.swing.JLabel jLabel55;
     private javax.swing.JLabel jLabel56;
     private javax.swing.JLabel jLabel57;
@@ -2761,8 +2686,6 @@ public class TeacherApp extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JLabel labelAccountAvatar;
@@ -2812,9 +2735,6 @@ public class TeacherApp extends javax.swing.JFrame {
     private javax.swing.JPanel panelExercises;
     private javax.swing.JPanel panelHeader;
     private javax.swing.JPanel panelHome;
-    private javax.swing.JPanel panelLesson0;
-    private javax.swing.JPanel panelLesson1;
-    private javax.swing.JPanel panelLesson2;
     private javax.swing.JPanel panelLessonDetail;
     private javax.swing.JPanel panelLessons;
     private javax.swing.JPanel panelLessonsMain;
@@ -2849,5 +2769,7 @@ public class TeacherApp extends javax.swing.JFrame {
     private javax.swing.JTextField textfieldAccountUsername;
     private javax.swing.JTextField textfieldAddUser;
     private javax.swing.JTextField tfNewCourseName;
+    private javax.swing.JTextField txtEditLessonDescription;
+    private javax.swing.JTextField txtEditLessonTitle;
     // End of variables declaration//GEN-END:variables
 }

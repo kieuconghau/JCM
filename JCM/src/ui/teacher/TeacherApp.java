@@ -2247,6 +2247,7 @@ public class TeacherApp extends javax.swing.JFrame {
     }//GEN-LAST:event_addParticipantMouseClicked
 
     private void btnAccountLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAccountLogOutActionPerformed
+        _account.logout();
         this.setVisible(false);
         new SignIn().setVisible(true);
     }//GEN-LAST:event_btnAccountLogOutActionPerformed

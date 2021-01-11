@@ -1664,6 +1664,7 @@ public class StudentApp extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void btnAccountLogOut2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAccountLogOut2ActionPerformed
+        _account.logout();
         this.setVisible(false);
         new ui.auth.SignIn().setVisible(true);
     }//GEN-LAST:event_btnAccountLogOut2ActionPerformed

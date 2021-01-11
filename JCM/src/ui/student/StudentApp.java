@@ -1791,13 +1791,14 @@ public class StudentApp extends javax.swing.JFrame {
         panelTabMyCourses.setBackground(selectedTabColor);
 
         hideAllMainScreens();
-        initDisplayCourse();
+        initDisplayMyCourse();
         panelMyCourses.setVisible(true);
         showMyCoursesMainScreen();
+        
     }
     
     
-    private void initDisplayCourse() {
+    private void initDisplayMyCourse() {
         _introduction_render.setEditorKit(new HTMLEditorKit());
         _introduction_render.setText(_introduction_edit.getText());
         selectedTabColor = panelTabHome.getBackground();
@@ -1822,32 +1823,7 @@ public class StudentApp extends javax.swing.JFrame {
             itemList.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent mouseEvent) {
-                    int result = JOptionPane.showConfirmDialog(itemList, "Do you want to enroll this course?", "Confirm Enroll", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-                    if (result == JOptionPane.YES_OPTION) {
-                        int status = mcourseService.enrollACourse(_account,t );
-                        switch(status){
-                            case -1:
-                                JOptionPane.showMessageDialog(itemList, "Please login " + t.getName(), "Enroll Dialog",  JOptionPane.ERROR_MESSAGE);
-                                break;
-                            case -2:
-                                JOptionPane.showMessageDialog(itemList, "You must you student account " + t.getName(), "Enroll Dialog",  JOptionPane.ERROR_MESSAGE);
-
-                                break;
-                            case -3:
-                                JOptionPane.showMessageDialog(itemList, "You enrolled this course before: " + t.getName(), "Enroll Dialog",  JOptionPane.ERROR_MESSAGE);
-
-                                break;
-                            case -4:
-                                JOptionPane.showMessageDialog(itemList, "Unexpected error ", "Enroll Dialog",  JOptionPane.ERROR_MESSAGE);
-
-                                break;
-                            case 0:
-                                JOptionPane.showMessageDialog(itemList, "Success to enroll this course: " + t.getName());
-                                    
-                                break;
-                                
-                        }
-                    }
+                    showLessonsScreen();
                 }
             });
             myListCourses.list.addPanelHead(itemList, 55);

@@ -1642,7 +1642,6 @@ public class StudentApp extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void labelLogoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelLogoMouseClicked
-        // TODO add your handling code here:
         panelSidebar.setVisible(true);
         showHomeScreen();
     }//GEN-LAST:event_labelLogoMouseClicked

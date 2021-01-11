@@ -949,8 +949,6 @@ public class TeacherApp extends javax.swing.JFrame {
         panelCourseDetail.setBackground(new java.awt.Color(255, 255, 255));
         panelCourseDetail.setPreferredSize(new java.awt.Dimension(800, 590));
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-
         jLabel38.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel38.setLabelFor(txtParticipant);
         jLabel38.setText("Add a user to this course");
@@ -995,7 +993,6 @@ public class TeacherApp extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        panelParicipantsList.setBackground(new java.awt.Color(255, 255, 255));
         panelParicipantsList.setAutoscrolls(true);
 
         participantListPanel.setMaximumSize(new java.awt.Dimension(400, 263));
@@ -2056,7 +2053,6 @@ public class TeacherApp extends javax.swing.JFrame {
 
     private void labelLogoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelLogoMouseClicked
         panelSidebar.setVisible(true);
-        initDisplay();
         showHomeScreen();
     }//GEN-LAST:event_labelLogoMouseClicked
 

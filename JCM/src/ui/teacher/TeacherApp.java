@@ -23,7 +23,7 @@ import ui.core.MyListPanel;
 
 /**
  *
- * @author PC
+ * @author JByNine
  */
 public class TeacherApp extends javax.swing.JFrame {
     AccountEntity _account;
@@ -31,19 +31,30 @@ public class TeacherApp extends javax.swing.JFrame {
     /**
      * Creates new form App
      */
-     public TeacherApp(AccountEntity account) {
-        initComponents();
-        initDisplay();
-        initEvents();
-        initData();
-        this._account =  account;
+    public TeacherApp(AccountEntity account) {
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Windows".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(TeacherApp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(TeacherApp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(TeacherApp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(TeacherApp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        
+        this._account = account;
         javax.swing.JOptionPane.showMessageDialog(this , "Hello teacher, " + this._account.getUserModel().getUsername());
-    }
-    public TeacherApp() {
+        
         initComponents();
         initDisplay();
         initEvents();
-        initData();
     }
 
     /**
@@ -2472,10 +2483,10 @@ public class TeacherApp extends javax.swing.JFrame {
     }
 
     private void loadUserInfo() {
-        labelAvatar.setIcon(new javax.swing.ImageIcon(getClass().getResource(User.getAvatarPath())));
-        labelAccountAvatar.setIcon(new javax.swing.ImageIcon(getClass().getResource(User.getAvatarPath())));
-        textfieldAccountUsername.setText(User.getUsername());
-        textfieldAccountFullName.setText(User.getFullName());
+        labelAvatar.setIcon(new javax.swing.ImageIcon(getClass().getResource(_account.getUserModel().getAvatarPath())));
+        labelAccountAvatar.setIcon(new javax.swing.ImageIcon(getClass().getResource(_account.getUserModel().getAvatarPath())));
+        textfieldAccountUsername.setText(_account.getUserModel().getUsername());
+        textfieldAccountFullName.setText(_account.getUserModel().getFullName());
     }
     
     // ===== New Course =====
@@ -2516,7 +2527,7 @@ public class TeacherApp extends javax.swing.JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // Data
-                int authorID = User.getID();
+                int authorID = _account.getID();
                 String name = tfNewCourseName.getText();
                 String imgPath = labelNewCourseSelectedImg.getIcon().toString();
                 imgPath = imgPath.substring(imgPath.lastIndexOf("build/classes") + "build/classes".length());
@@ -2598,6 +2609,7 @@ public class TeacherApp extends javax.swing.JFrame {
         
         // Account
         panelAccountAvatarSelector.setVisible(false);
+        loadUserInfo();
         
         // New Course
         labelNewCourseSelectedImg.setVisible(false);
@@ -2619,63 +2631,7 @@ public class TeacherApp extends javax.swing.JFrame {
         initEventForNewCourseBtnCancel();
         initEventForNewCourseBtnCreate();
     }
-    
-    private void initData() {
-        User = new core.entity.Teacher(1, "kieuconghau", "Kieu Cong Hau", "/ui/assets/avatars/1.png");
-        loadUserInfo();
-    }
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Windows".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TeacherApp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TeacherApp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TeacherApp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TeacherApp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TeacherApp().setVisible(true);
-            }
-        });
-    }
-
-    private core.entity.Teacher User;
     private java.awt.Color selectedTabColor;
     MyListPanel listRecentCourses = new MyListPanel();
     MyListPanel listAllCourses = new MyListPanel();

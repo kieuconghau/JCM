@@ -1169,7 +1169,7 @@
                                       <Component id="jLabel41" alignment="0" pref="280" max="32767" attributes="0"/>
                                       <Component id="jLabel40" alignment="0" max="32767" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="0" pref="50" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="48" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -1238,7 +1238,7 @@
                                       <Component id="jLabel44" alignment="0" pref="280" max="32767" attributes="0"/>
                                       <Component id="jLabel43" alignment="0" max="32767" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="0" pref="50" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="48" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -1307,7 +1307,7 @@
                                       <Component id="jLabel47" alignment="0" pref="280" max="32767" attributes="0"/>
                                       <Component id="jLabel46" alignment="0" max="32767" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="0" pref="50" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="48" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -2337,7 +2337,7 @@
                           <Component id="introduction_render" alignment="0" max="32767" attributes="0"/>
                           <Component id="introduction_edit" alignment="0" pref="366" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="12" max="32767" attributes="0"/>
+                      <EmptySpace pref="10" max="32767" attributes="0"/>
                       <Component id="btnUpdate" min="-2" pref="50" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>

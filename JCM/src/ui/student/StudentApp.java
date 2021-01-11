@@ -771,7 +771,7 @@ public class StudentApp extends javax.swing.JFrame {
                 .addGroup(panelParticipant0Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel41, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
                     .addComponent(jLabel40, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 50, Short.MAX_VALUE))
+                .addGap(0, 48, Short.MAX_VALUE))
         );
         panelParticipant0Layout.setVerticalGroup(
             panelParticipant0Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -809,7 +809,7 @@ public class StudentApp extends javax.swing.JFrame {
                 .addGroup(panelParticipant1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel44, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
                     .addComponent(jLabel43, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 50, Short.MAX_VALUE))
+                .addGap(0, 48, Short.MAX_VALUE))
         );
         panelParticipant1Layout.setVerticalGroup(
             panelParticipant1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -847,7 +847,7 @@ public class StudentApp extends javax.swing.JFrame {
                 .addGroup(panelParticipant2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel47, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
                     .addComponent(jLabel46, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 50, Short.MAX_VALUE))
+                .addGap(0, 48, Short.MAX_VALUE))
         );
         panelParticipant2Layout.setVerticalGroup(
             panelParticipant2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1556,7 +1556,7 @@ public class StudentApp extends javax.swing.JFrame {
                 .addGroup(panelAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(introduction_render)
                     .addComponent(introduction_edit, javax.swing.GroupLayout.DEFAULT_SIZE, 366, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                 .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -1733,12 +1733,19 @@ public class StudentApp extends javax.swing.JFrame {
     private void labelNotiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelNotiMouseClicked
         // TODO add your handling code here:
         Course x = courses[listCourses.list.getPanels().size() % courses.length];
-        listCourses.list.addPanelHead(listCourses.list.getPane(
+        listCourses.list.addPanelHead(listCourses.list.getStudentCoursePanel(
                 x.getImagePath(),
                 x.getName(),
+                "Author",
                 x.getDescription()
         ), 55);
     }//GEN-LAST:event_labelNotiMouseClicked
+
+    private void labelLogoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelLogoMouseClicked
+        // TODO add your handling code here:
+        panelSidebar.setVisible(true);
+        showHomeScreen();
+    }//GEN-LAST:event_labelLogoMouseClicked
 
     private void disableAllMenuTabs() {
         panelTabHome.setBackground(panelSidebar.getBackground());
@@ -1892,15 +1899,16 @@ public class StudentApp extends javax.swing.JFrame {
         updateCopyright();
         showHomeScreen();
 
-        jPanel1.setLayout(new BorderLayout());
-        jPanel1.add(listCourses.scrollPane, BorderLayout.CENTER);
+        homeCourses.setLayout(new BorderLayout());
+        homeCourses.add(listCourses.scrollPane, BorderLayout.CENTER);
 
         ArrayList<CourseModel> allCourses = mcourseService.getAllCourses();
         for (CourseModel t : allCourses) {
             System.out.println(t);
-            JPanel itemList = listCourses.list.getPane(
+            JPanel itemList = listCourses.list.getStudentCoursePanel(
                     t.getImagePath(),
                     t.getName(),
+                    "Author",
                     t.getDescription()
             );
             itemList.addMouseListener(new MouseAdapter() {

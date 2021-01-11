@@ -471,7 +471,7 @@ public class SignIn extends javax.swing.JFrame {
         switch (status_login) {
             case -1:
                 setAlwaysOnTop(false);
-                JOptionPane.showMessageDialog(this, "User not existed");
+                JOptionPane.showMessageDialog(this, "User not existed","Login Message",  JOptionPane.ERROR_MESSAGE);
                 setAlwaysOnTop(true);
 
                 break;
@@ -479,7 +479,7 @@ public class SignIn extends javax.swing.JFrame {
                 setAlwaysOnTop(false);
 
                 setAlwaysOnTop(true);
-                JOptionPane.showMessageDialog(this, "Password incorrect");
+                JOptionPane.showMessageDialog(this, "Password incorrect", "Login Message",  JOptionPane.ERROR_MESSAGE);
 
                 break;
             case 0:

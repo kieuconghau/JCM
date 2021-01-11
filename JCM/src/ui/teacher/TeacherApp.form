@@ -2274,14 +2274,14 @@
                                   <Group type="103" groupAlignment="1" attributes="0">
                                       <Group type="102" attributes="0">
                                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                          <Component id="jButton6" min="-2" pref="70" max="-2" attributes="0"/>
+                                          <Component id="btnCourseInfoRemove" min="-2" pref="70" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                                          <Component id="jButton5" min="-2" pref="70" max="-2" attributes="0"/>
+                                          <Component id="btnCourseInfoSave" min="-2" pref="70" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="jLabel66" min="-2" pref="70" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                                          <Component id="jTextField3" max="32767" attributes="0"/>
+                                          <Component id="txtCourseInfoName" max="32767" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
@@ -2291,10 +2291,10 @@
                                           <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Group type="102" attributes="0">
-                                                  <Component id="jLabel71" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="txtCourseInfoCreatedDate" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                               </Group>
-                                              <Component id="jTextField4" pref="639" max="32767" attributes="0"/>
+                                              <Component id="txtCourseInfoDescription" pref="639" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
@@ -2316,22 +2316,22 @@
                           <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel66" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                              <Component id="jTextField3" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="txtCourseInfoName" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jTextField4" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtCourseInfoDescription" alignment="0" max="32767" attributes="0"/>
                               <Component id="jLabel67" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel70" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                              <Component id="jLabel71" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtCourseInfoCreatedDate" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jButton5" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                              <Component id="jButton6" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="btnCourseInfoSave" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="btnCourseInfoRemove" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="0" pref="246" max="32767" attributes="0"/>
                       </Group>
@@ -2347,7 +2347,7 @@
                     <Property name="text" type="java.lang.String" value="Name"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField3">
+                <Component class="javax.swing.JTextField" name="txtCourseInfoName">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="12" style="0"/>
@@ -2363,7 +2363,7 @@
                     <Property name="text" type="java.lang.String" value="Description"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField4">
+                <Component class="javax.swing.JTextField" name="txtCourseInfoDescription">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="12" style="0"/>
@@ -2371,7 +2371,7 @@
                     <Property name="text" type="java.lang.String" value="An introduction to Greedy Algorithms, Dynamic Programming, Tree, Graph Theory, etc."/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton5">
+                <Component class="javax.swing.JButton" name="btnCourseInfoSave">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="0" green="cc" red="0" type="rgb"/>
@@ -2391,10 +2391,10 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton5ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCourseInfoSaveActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton6">
+                <Component class="javax.swing.JButton" name="btnCourseInfoRemove">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="0" green="33" red="ff" type="rgb"/>
@@ -2414,7 +2414,7 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton6ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCourseInfoRemoveActionPerformed"/>
                   </Events>
                 </Component>
                 <Container class="javax.swing.JPanel" name="jPanel3">
@@ -2488,7 +2488,7 @@
                     <Property name="text" type="java.lang.String" value="Created at"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel71">
+                <Component class="javax.swing.JLabel" name="txtCourseInfoCreatedDate">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="12" style="0"/>

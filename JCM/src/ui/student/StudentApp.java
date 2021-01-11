@@ -1675,8 +1675,12 @@ public class StudentApp extends javax.swing.JFrame {
     }
 
     private void showCourseDetailScreen() {
+        // UI
         panelCourseDetail.setVisible(true);
         panelSidebarCourseDetail.setVisible(true);
+        
+        // Load data
+        loadCourseDetailScreen();
     }
 
     private void showParticipantsScreen() {
@@ -1694,6 +1698,7 @@ public class StudentApp extends javax.swing.JFrame {
     }
     
     private void showLessonsScreen() {
+        // UI
         disableAllMenuTabs();
         panelTabLessons.setBackground(selectedTabColor);
 
@@ -1702,44 +1707,9 @@ public class StudentApp extends javax.swing.JFrame {
         showCourseDetailScreen();
         panelLessons.setVisible(true);
         showLessonsMainScreen();
-        showLessionsList();
-    }
-    
-
-    private void showLessionsList() {
-        listLessons = new MyListPanel();
         
-        
-        lessonListPanel.removeAll(); 
-        lessonListPanel.setLayout(new BorderLayout());
-        lessonListPanel.add(listLessons.scrollPane, BorderLayout.CENTER);
-        
-//lessonListPanel.removeAll();
-       // listLessons.list.removeAll();
-//        listLessons.list.addPanelHead(listLessons.list.getLessionPanel(
-//                "Week 1 - Greedy Algorithms",
-//                "A greedy algorithm is a simple, intuitive algorithm that is used in optimization problems."
-//        ), 40);
-        
-        ArrayList<LessonModel> allLesson = mlessonService.getAllLessonOfCourse(this._currentCourse);
-        for(LessonModel t : allLesson){
-            System.out.println(t);
-            JPanel itemList = listLessons.list.getLessionPanel(
-                t.getTitle(),
-                t.getDescription()
-            );
-            itemList.addMouseListener(new MouseAdapter() {
-                @Override
-                public void mouseClicked(MouseEvent mouseEvent) {
-                    _currentLesson = t;
-                    showLessonDetailScreen();
-                }
-            });
-            
-            
-            listLessons.list.addPanelHead(itemList, 55);
-            
-        }
+        // Load data
+        loadLessonsScreen();
     }
 
     private void showLessonsMainScreen() {
@@ -1967,6 +1937,11 @@ public class StudentApp extends javax.swing.JFrame {
         }
     }
     
+    // ===== Course Detail =====
+    private void loadCourseDetailScreen() {
+        labelSidebarCourseName.setText(_currentCourse.getName());
+    }
+    
     // ===== Participants =====
     private void loadPartcipantsScreenInfo() {
         listParticipants = new MyListPanel();
@@ -2012,6 +1987,40 @@ public class StudentApp extends javax.swing.JFrame {
 //                t.getDescription()
 //            ), 55);
 //        }
+    }
+    
+    // ===== Lessons =====
+    private void loadLessonsScreen() {
+        listLessons = new MyListPanel();
+        
+        lessonListPanel.removeAll(); 
+        lessonListPanel.setLayout(new BorderLayout());
+        lessonListPanel.add(listLessons.scrollPane, BorderLayout.CENTER);
+        
+//lessonListPanel.removeAll();
+       // listLessons.list.removeAll();
+//        listLessons.list.addPanelHead(listLessons.list.getLessionPanel(
+//                "Week 1 - Greedy Algorithms",
+//                "A greedy algorithm is a simple, intuitive algorithm that is used in optimization problems."
+//        ), 40);
+        
+        ArrayList<LessonModel> allLesson = mlessonService.getAllLessonOfCourse(this._currentCourse);
+        for(LessonModel t : allLesson){
+            System.out.println(t);
+            JPanel itemList = listLessons.list.getLessionPanel(
+                t.getTitle(),
+                t.getDescription()
+            );
+            itemList.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent mouseEvent) {
+                    _currentLesson = t;
+                    showLessonDetailScreen();
+                }
+            });
+            
+            listLessons.list.addPanelHead(itemList, 50);
+        }
     }
     
     // ===== Init =====

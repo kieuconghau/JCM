@@ -201,17 +201,17 @@ public class TeacherApp extends javax.swing.JFrame {
         jLabel78 = new javax.swing.JLabel();
         panelSetting = new javax.swing.JPanel();
         jLabel66 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        txtCourseInfoName = new javax.swing.JTextField();
         jLabel67 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        txtCourseInfoDescription = new javax.swing.JTextField();
+        btnCourseInfoSave = new javax.swing.JButton();
+        btnCourseInfoRemove = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel60 = new javax.swing.JLabel();
         jLabel68 = new javax.swing.JLabel();
         jLabel69 = new javax.swing.JLabel();
         jLabel70 = new javax.swing.JLabel();
-        jLabel71 = new javax.swing.JLabel();
+        txtCourseInfoCreatedDate = new javax.swing.JLabel();
         panelNoti = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         panelAccount = new javax.swing.JPanel();
@@ -1407,36 +1407,36 @@ public class TeacherApp extends javax.swing.JFrame {
         jLabel66.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel66.setText("Name");
 
-        jTextField3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jTextField3.setText("Algortihms I");
+        txtCourseInfoName.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtCourseInfoName.setText("Algortihms I");
 
         jLabel67.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel67.setText("Description");
 
-        jTextField4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jTextField4.setText("An introduction to Greedy Algorithms, Dynamic Programming, Tree, Graph Theory, etc.");
+        txtCourseInfoDescription.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtCourseInfoDescription.setText("An introduction to Greedy Algorithms, Dynamic Programming, Tree, Graph Theory, etc.");
 
-        jButton5.setBackground(new java.awt.Color(0, 204, 0));
-        jButton5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setText("SAVE");
-        jButton5.setBorder(null);
-        jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        btnCourseInfoSave.setBackground(new java.awt.Color(0, 204, 0));
+        btnCourseInfoSave.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnCourseInfoSave.setForeground(new java.awt.Color(255, 255, 255));
+        btnCourseInfoSave.setText("SAVE");
+        btnCourseInfoSave.setBorder(null);
+        btnCourseInfoSave.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCourseInfoSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                btnCourseInfoSaveActionPerformed(evt);
             }
         });
 
-        jButton6.setBackground(new java.awt.Color(255, 51, 0));
-        jButton6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton6.setForeground(new java.awt.Color(255, 255, 255));
-        jButton6.setText("DELETE");
-        jButton6.setBorder(null);
-        jButton6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        btnCourseInfoRemove.setBackground(new java.awt.Color(255, 51, 0));
+        btnCourseInfoRemove.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnCourseInfoRemove.setForeground(new java.awt.Color(255, 255, 255));
+        btnCourseInfoRemove.setText("DELETE");
+        btnCourseInfoRemove.setBorder(null);
+        btnCourseInfoRemove.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCourseInfoRemove.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                btnCourseInfoRemoveActionPerformed(evt);
             }
         });
 
@@ -1472,8 +1472,8 @@ public class TeacherApp extends javax.swing.JFrame {
         jLabel70.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel70.setText("Created at");
 
-        jLabel71.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel71.setText("26/12/2020, 20:00:00");
+        txtCourseInfoCreatedDate.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtCourseInfoCreatedDate.setText("26/12/2020, 20:00:00");
 
         javax.swing.GroupLayout panelSettingLayout = new javax.swing.GroupLayout(panelSetting);
         panelSetting.setLayout(panelSettingLayout);
@@ -1492,13 +1492,13 @@ public class TeacherApp extends javax.swing.JFrame {
                         .addGroup(panelSettingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(panelSettingLayout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnCourseInfoRemove, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(20, 20, 20)
-                                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(btnCourseInfoSave, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelSettingLayout.createSequentialGroup()
                                 .addComponent(jLabel66, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(20, 20, 20)
-                                .addComponent(jTextField3))
+                                .addComponent(txtCourseInfoName))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelSettingLayout.createSequentialGroup()
                                 .addGroup(panelSettingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel67)
@@ -1506,9 +1506,9 @@ public class TeacherApp extends javax.swing.JFrame {
                                 .addGap(20, 20, 20)
                                 .addGroup(panelSettingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(panelSettingLayout.createSequentialGroup()
-                                        .addComponent(jLabel71)
+                                        .addComponent(txtCourseInfoCreatedDate)
                                         .addGap(0, 0, Short.MAX_VALUE))
-                                    .addComponent(jTextField4, javax.swing.GroupLayout.DEFAULT_SIZE, 639, Short.MAX_VALUE))))
+                                    .addComponent(txtCourseInfoDescription, javax.swing.GroupLayout.DEFAULT_SIZE, 639, Short.MAX_VALUE))))
                         .addGap(30, 30, 30))))
         );
         panelSettingLayout.setVerticalGroup(
@@ -1522,19 +1522,19 @@ public class TeacherApp extends javax.swing.JFrame {
                 .addGap(15, 15, 15)
                 .addGroup(panelSettingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel66, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCourseInfoName, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(15, 15, 15)
                 .addGroup(panelSettingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField4)
+                    .addComponent(txtCourseInfoDescription)
                     .addComponent(jLabel67, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(15, 15, 15)
                 .addGroup(panelSettingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel70, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel71))
+                    .addComponent(txtCourseInfoCreatedDate))
                 .addGap(50, 50, 50)
                 .addGroup(panelSettingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnCourseInfoSave, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCourseInfoRemove, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 246, Short.MAX_VALUE))
         );
 
@@ -1989,13 +1989,15 @@ public class TeacherApp extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEditLessonSaveActionPerformed
 
     private void btnEditLessonRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditLessonRemoveActionPerformed
-
-        boolean status = _currentLesson.remove();
-        if (status) {
-            JOptionPane.showMessageDialog(this, "Remove successfully", "Message", JOptionPane.INFORMATION_MESSAGE);
-            showLessonsMainScreen();
-        } else {
-            JOptionPane.showMessageDialog(this, "An error happened", "Message", JOptionPane.ERROR_MESSAGE);
+        int result = JOptionPane.showConfirmDialog(this, "Do you want to remove this lesson?", "Confirm", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if (result == JOptionPane.YES_OPTION) {
+            boolean status = _currentLesson.remove();
+            if (status) {
+                JOptionPane.showMessageDialog(this, "Remove successfully", "Message", JOptionPane.INFORMATION_MESSAGE);
+                showLessonsMainScreen();
+            } else {
+                JOptionPane.showMessageDialog(this, "An error happened", "Message", JOptionPane.ERROR_MESSAGE);
+            }
         }
 
     }//GEN-LAST:event_btnEditLessonRemoveActionPerformed
@@ -2008,13 +2010,34 @@ public class TeacherApp extends javax.swing.JFrame {
         showLessonsMainScreen();
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void btnCourseInfoSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCourseInfoSaveActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+        _currentCourse.setDescription(txtCourseInfoDescription.getText());
+        _currentCourse.setName(txtCourseInfoName.getText());
+        boolean status = _currentCourse.update();
+        if (status) {
+            JOptionPane.showMessageDialog(this, "Save course successfully", "Message", JOptionPane.INFORMATION_MESSAGE);
+            showLessonsMainScreen();
+        } else {
+            JOptionPane.showMessageDialog(this, "An error happened", "Message", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnCourseInfoSaveActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void btnCourseInfoRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCourseInfoRemoveActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+        int result = JOptionPane.showConfirmDialog(this, "Do you want to remove this course?", "Confirm", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if (result == JOptionPane.YES_OPTION) {
+            boolean status = _currentCourse.remove();
+            if (status) {
+                JOptionPane.showMessageDialog(this, "Remove successfully", "Message", JOptionPane.INFORMATION_MESSAGE);
+               // showLessonsMainScreen();
+               showMyCoursesScreen();
+            } else {
+                JOptionPane.showMessageDialog(this, "An error happened", "Message", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+        
+    }//GEN-LAST:event_btnCourseInfoRemoveActionPerformed
 
     private void jLabel72MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel72MouseClicked
         showNewCourseScreen();
@@ -2309,6 +2332,11 @@ public class TeacherApp extends javax.swing.JFrame {
         hideAllCourseDetailSubScreens();
         showCourseDetailScreen();
         panelSetting.setVisible(true);
+        
+        txtCourseInfoName.setText(_currentCourse.getName());
+        txtCourseInfoDescription.setText(_currentCourse.getDescription());
+        txtCourseInfoCreatedDate.setText(_currentCourse.getDateCreatedFormat());
+        
     }
 
     private void updateCopyright() {
@@ -2578,6 +2606,8 @@ public class TeacherApp extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel addParticipant;
     private javax.swing.JButton btnAccountUpdate;
+    private javax.swing.JButton btnCourseInfoRemove;
+    private javax.swing.JButton btnCourseInfoSave;
     private javax.swing.JButton btnEditLessonRemove;
     private javax.swing.JButton btnEditLessonSave;
     private javax.swing.JButton btnNewCourseCancel;
@@ -2585,8 +2615,6 @@ public class TeacherApp extends javax.swing.JFrame {
     private javax.swing.JEditorPane editorpaneLessonContent;
     private javax.swing.JPanel homeCourses;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -2615,7 +2643,6 @@ public class TeacherApp extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel69;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel70;
-    private javax.swing.JLabel jLabel71;
     private javax.swing.JLabel jLabel72;
     private javax.swing.JLabel jLabel73;
     private javax.swing.JLabel jLabel74;
@@ -2641,8 +2668,6 @@ public class TeacherApp extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JLabel labelAccountAvatar;
     private javax.swing.JLabel labelAccountInfo;
     private javax.swing.JLabel labelAvatar;
@@ -2718,6 +2743,9 @@ public class TeacherApp extends javax.swing.JFrame {
     private javax.swing.JTextField textfieldAccountFullName;
     private javax.swing.JTextField textfieldAccountUsername;
     private javax.swing.JTextField tfNewCourseName;
+    private javax.swing.JLabel txtCourseInfoCreatedDate;
+    private javax.swing.JTextField txtCourseInfoDescription;
+    private javax.swing.JTextField txtCourseInfoName;
     private javax.swing.JTextField txtEditLessonDescription;
     private javax.swing.JTextField txtEditLessonTitle;
     private javax.swing.JTextField txtParticipant;

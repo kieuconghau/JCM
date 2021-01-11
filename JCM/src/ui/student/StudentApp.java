@@ -801,7 +801,7 @@ public class StudentApp extends javax.swing.JFrame {
         panelLessons.setBackground(new java.awt.Color(255, 255, 255));
         panelLessons.setPreferredSize(new java.awt.Dimension(800, 590));
 
-        panelLessonsMain.setBackground(new java.awt.Color(255, 255, 255));
+        panelLessonsMain.setBackground(new java.awt.Color(238, 238, 238));
         panelLessonsMain.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -816,30 +816,26 @@ public class StudentApp extends javax.swing.JFrame {
         );
         lessonListPanelLayout.setVerticalGroup(
             lessonListPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 477, Short.MAX_VALUE)
+            .addGap(0, 518, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout panelLessonsMainLayout = new javax.swing.GroupLayout(panelLessonsMain);
         panelLessonsMain.setLayout(panelLessonsMainLayout);
         panelLessonsMainLayout.setHorizontalGroup(
             panelLessonsMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
-            .addGroup(panelLessonsMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panelLessonsMainLayout.createSequentialGroup()
-                    .addGap(30, 30, 30)
-                    .addComponent(lessonListPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGap(30, 30, 30)))
+            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 816, Short.MAX_VALUE)
+            .addGroup(panelLessonsMainLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(lessonListPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(30, 30, 30))
         );
         panelLessonsMainLayout.setVerticalGroup(
             panelLessonsMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelLessonsMainLayout.createSequentialGroup()
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(540, Short.MAX_VALUE))
-            .addGroup(panelLessonsMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panelLessonsMainLayout.createSequentialGroup()
-                    .addGap(69, 69, 69)
-                    .addComponent(lessonListPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(44, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lessonListPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         panelLessonDetail.setBackground(new java.awt.Color(255, 255, 255));

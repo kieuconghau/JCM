@@ -1883,11 +1883,13 @@ public class StudentApp extends javax.swing.JFrame {
 
         ArrayList<CourseModel> allCourses = mcourseService.getAllCourses();
         for (CourseModel t : allCourses) {
+            String authorName = "Author";
+           
             System.out.println(t);
             JPanel itemList = homeListCourses.list.getStudentCoursePanel(
                     t.getImagePath(),
                     t.getName(),
-                    "Author",
+                    t.getAuthorRelation().getFullName(),
                     t.getDescription()
             );
             itemList.addMouseListener(new MouseAdapter() {

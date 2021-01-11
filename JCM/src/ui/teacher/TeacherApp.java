@@ -2636,6 +2636,12 @@ public class TeacherApp extends javax.swing.JFrame {
         homeCourses.add(listRecentCourses.scrollPane, BorderLayout.CENTER);
 
         ArrayList<CourseModel> allCourses = mcourseService.getMyCourses(_account);
+        java.util.Collections.sort(allCourses, new java.util.Comparator<CourseModel>() {
+            @Override
+            public int compare(CourseModel o1, CourseModel o2) {
+                return o2.getDateOpened().compareTo(o1.getDateOpened());
+            }
+        });
 
         for (CourseModel t : allCourses) {
             System.out.println(t);
@@ -2649,6 +2655,9 @@ public class TeacherApp extends javax.swing.JFrame {
                 public void mouseClicked(MouseEvent mouseEvent) {
                     _currentCourse = t;
                     showLessonsScreen();
+
+                    _currentCourse.setDateOpened(new java.sql.Timestamp(new java.util.Date().getTime()));
+                    _currentCourse.update();
                 }
             });
             listRecentCourses.list.addPanelHead(item, 50);
@@ -2678,12 +2687,15 @@ public class TeacherApp extends javax.swing.JFrame {
                 public void mouseClicked(MouseEvent mouseEvent) {
                     _currentCourse = t;
                     showLessonsScreen();
+
+                    _currentCourse.setDateOpened(new java.sql.Timestamp(new java.util.Date().getTime()));
+                    _currentCourse.update();
                 }
             });
             listMyCourses.list.addPanelHead(item, 50);
         }
     }
-    
+
     // ===== Lessons =====
     private void loadLessonMainScreen() {
         listLessons = new MyListPanel();
